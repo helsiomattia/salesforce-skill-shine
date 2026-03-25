@@ -1,46 +1,46 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
-import CategoryCard from "@/components/CategoryCard";
-import ResultsPanel from "@/components/ResultsPanel";
-import { competencyCategories, skillLevels } from "@/data/competencies";
+import { competencyCategories } from "@/data/competencies";
 
 const Index = () => {
-  const [ratings, setRatings] = useState<Record<string, number>>({});
-
-  const handleRate = (skillId: string, value: number) => {
-    setRatings((prev) => ({ ...prev, [skillId]: value }));
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
 
       <section id="assessment" className="max-w-5xl mx-auto px-4 py-16">
-        {/* Legend */}
-        <div className="flex flex-wrap gap-3 mb-10 justify-center">
-          {skillLevels.map((level) => (
-            <span
-              key={level.value}
-              className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground font-medium"
-            >
-              {level.value} = {level.label}
-            </span>
-          ))}
-        </div>
+        <h2 className="text-2xl font-bold font-display text-foreground text-center mb-10">
+          Escolha uma carreira para avaliar
+        </h2>
 
-        <div className="space-y-8">
-          {competencyCategories.map((cat) => (
-            <CategoryCard
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {competencyCategories.map((cat, i) => (
+            <motion.div
               key={cat.id}
-              category={cat}
-              ratings={ratings}
-              onRate={handleRate}
-            />
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <Link
+                to={`/${cat.id}`}
+                className="block rounded-2xl bg-card shadow-card border border-border/50 p-8 hover:shadow-card-hover hover:border-secondary/30 transition-all group"
+              >
+                <span className="text-5xl block mb-4">{cat.icon}</span>
+                <h3 className="text-2xl font-bold font-display text-card-foreground mb-2 group-hover:text-secondary transition-colors">
+                  {cat.title}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {cat.description}
+                </p>
+                <div className="flex items-center gap-1 text-sm font-medium text-secondary">
+                  {cat.skills.length} competências
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            </motion.div>
           ))}
-        </div>
-
-        <div className="mt-16">
-          <ResultsPanel ratings={ratings} />
         </div>
       </section>
     </div>

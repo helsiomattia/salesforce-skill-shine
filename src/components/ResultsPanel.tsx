@@ -1,24 +1,29 @@
 import { motion } from "framer-motion";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
-import { competencyCategories } from "@/data/competencies";
+import { CompetencyCategory, competencyCategories } from "@/data/competencies";
 
 interface ResultsPanelProps {
   ratings: Record<string, number>;
+  categories?: CompetencyCategory[];
 }
 
-const ResultsPanel = ({ ratings }: ResultsPanelProps) => {
-  const chartData = competencyCategories.map((cat) => {
-    const avg =
-      cat.skills.reduce((sum, s) => sum + (ratings[s.id] || 0), 0) /
-      cat.skills.length;
-    return { category: cat.title, score: parseFloat(avg.toFixed(1)), fullMark: 5 };
-  });
+const ResultsPanel = ({ ratings, categories }: ResultsPanelProps) => {
+  const cats = categories || competencyCategories;
 
-  const totalSkills = competencyCategories.flatMap((c) => c.skills).length;
-  const ratedSkills = Object.values(ratings).filter((v) => v > 0).length;
+  const chartData = cats.flatMap((cat) =>
+    cat.skills.map((s) => ({
+      category: s.name.length > 20 ? s.name.slice(0, 18) + "…" : s.name,
+      score: ratings[s.id] || 0,
+      fullMark: 5,
+    }))
+  );
+
+  const allSkills = cats.flatMap((c) => c.skills);
+  const totalSkills = allSkills.length;
+  const ratedSkills = allSkills.filter((s) => (ratings[s.id] || 0) > 0).length;
   const overallAvg =
     ratedSkills > 0
-      ? Object.values(ratings).reduce((a, b) => a + b, 0) / ratedSkills
+      ? allSkills.reduce((sum, s) => sum + (ratings[s.id] || 0), 0) / ratedSkills
       : 0;
 
   return (
@@ -53,7 +58,7 @@ const ResultsPanel = ({ ratings }: ResultsPanelProps) => {
             <PolarGrid stroke="hsl(var(--border))" />
             <PolarAngleAxis
               dataKey="category"
-              tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }}
+              tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 10 }}
             />
             <PolarRadiusAxis angle={30} domain={[0, 5]} tick={{ fontSize: 10 }} />
             <Radar
