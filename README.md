@@ -79,6 +79,9 @@ publicação no GitHub Pages
 
 A cada push na branch main, o site é atualizado automaticamente.
 
+
+```bash
+
 📚 Aprendizados aplicados
 
 Durante o desenvolvimento deste projeto, foram aplicados conceitos como:
