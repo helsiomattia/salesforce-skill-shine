@@ -46,13 +46,14 @@ O objetivo do projeto é transformar orientação de carreira em uma experiênci
 ---
 
 ## ⚙️ Estrutura do projeto
-
-├── src/
-│ ├── components/
-│ └── pages/
-├── public/
-└── .github/
-└── workflows/
+```plaintext
+├── 📁src/ 
+│   ├── 📄components/
+│   ├── 📄pages/
+├── 📁public/
+├── 📁github/
+│   └── 📄workflows/
+```
 
 ---
 
