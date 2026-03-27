@@ -76,6 +76,7 @@ const education = [
 
 const certifications = [
   "Salesforce Certified Administrator",
+  "Salesforce Certified App Builder",
   "Salesforce AI Associate",
   "Git Training",
   "Bootcamp Cloud AWS",
