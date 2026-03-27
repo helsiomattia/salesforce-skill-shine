@@ -62,6 +62,7 @@ npm run dev
 A aplicação estará disponível em:
 
 http://localhost:8080
+
 📦 Build do projeto
 npm run build
 
@@ -88,6 +89,7 @@ Uso de basename no React Router
 Integração com GitHub Actions (CI/CD)
 Resolução de problemas de build e dependências (package-lock.json)
 Estruturação de projeto front-end moderno
+
 💡 Possíveis evoluções
 Adicionar conteúdos detalhados por trilha
 Criar roadmap de carreira por nível (Júnior → Sênior)
@@ -95,6 +97,7 @@ Implementar busca e filtros por perfil
 Adicionar recomendação de certificações Salesforce
 Evoluir para recomendações baseadas em IA
 Criar onboarding com diagnóstico de perfil
+
 🧠 Visão de produto
 
 Este projeto pode evoluir para uma plataforma mais robusta de orientação de carreira Salesforce, incluindo:
@@ -103,11 +106,13 @@ recomendações personalizadas
 trilhas inteligentes
 assistente de aprendizado
 mentor digital baseado em IA
+
 👨‍💻 Autor
 
 Helsio Mattia
 
 GitHub: https://github.com/helsiomattia
+
 ⭐ Contribuição
 
 Sinta-se à vontade para abrir issues ou contribuir com melhorias.
@@ -119,7 +124,3 @@ Sinta-se à vontade para abrir issues ou contribuir com melhorias.
 
 ---
 
-Se quiser dar um próximo nível depois disso, posso te ajudar a:
-
-- alinhar o **design da home com esse README**
-- ou estruturar o site como um **produto de carreira Salesforce de verdade (com roadmap, níveis e progressão)** 🚀
