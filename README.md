@@ -85,7 +85,7 @@ A cada push na branch main, o site é atualizado automaticamente.
 
 ```
 
-📚 Aprendizados aplicados
+##📚 Aprendizados aplicados
 
 Durante o desenvolvimento deste projeto, foram aplicados conceitos como:
 
@@ -96,7 +96,7 @@ Integração com GitHub Actions (CI/CD)
 Resolução de problemas de build e dependências (package-lock.json)
 Estruturação de projeto front-end moderno
 
-💡 Possíveis evoluções
+##💡 Possíveis evoluções
 Adicionar conteúdos detalhados por trilha
 Criar roadmap de carreira por nível (Júnior → Sênior)
 Implementar busca e filtros por perfil
@@ -104,7 +104,7 @@ Adicionar recomendação de certificações Salesforce
 Evoluir para recomendações baseadas em IA
 Criar onboarding com diagnóstico de perfil
 
-🧠 Visão de produto
+##🧠 Visão de produto
 
 Este projeto pode evoluir para uma plataforma mais robusta de orientação de carreira Salesforce, incluindo:
 
@@ -113,16 +113,16 @@ trilhas inteligentes
 assistente de aprendizado
 mentor digital baseado em IA
 
-👨‍💻 Autor
+##👨‍💻 Autor
 
 Helsio Mattia
 
 GitHub: https://github.com/helsiomattia
 
-⭐ Contribuição
+##⭐ Contribuição
 
 Sinta-se à vontade para abrir issues ou contribuir com melhorias.
 
-📌 Status do projeto
+##📌 Status do projeto
 
-🟢 Em desenvolvimento contínuo
+##🟢 Em desenvolvimento contínuo
