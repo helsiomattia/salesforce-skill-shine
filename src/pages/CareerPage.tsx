@@ -13,7 +13,7 @@ interface CareerPageProps {
 const CareerPage = ({ categoryId }: CareerPageProps) => {
   const [ratings, setRatings] = useState<Record<string, number>>({});
   const category = competencyCategories.find((c) => c.id === categoryId);
-  
+
   const currentIndex = competencyCategories.findIndex((c) => c.id === categoryId);
   const prevCategory = competencyCategories[currentIndex - 1];
   const nextCategory = competencyCategories[currentIndex + 1];
@@ -26,17 +26,16 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <section className="relative bg-gradient-hero overflow-hidden">
-        <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-secondary/10 blur-3xl" />
-        <div className="absolute bottom-10 right-20 w-64 h-64 rounded-full bg-primary/10 blur-3xl" />
+      <section className="relative overflow-hidden bg-gradient-hero">
+        <div className="absolute left-10 top-10 h-72 w-72 rounded-full bg-secondary/10 blur-3xl" />
+        <div className="absolute bottom-10 right-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 py-12">
+        <div className="relative z-10 mx-auto max-w-5xl px-4 py-12">
           <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors mb-6"
+            to="/assessment"
+            className="mb-6 inline-flex items-center gap-2 text-sm text-primary-foreground/70 transition-colors hover:text-primary-foreground"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="h-4 w-4" />
             Voltar às carreiras
           </Link>
 
@@ -45,24 +44,23 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-5xl mb-4 block">{category.icon}</span>
-            <h1 className="text-4xl sm:text-5xl font-bold font-display text-primary-foreground mb-3">
+            <span className="mb-4 block text-5xl">{category.icon}</span>
+            <h1 className="mb-3 font-display text-4xl font-bold text-primary-foreground sm:text-5xl">
               {category.title}
             </h1>
-            <p className="text-lg text-primary-foreground/70 max-w-2xl">
+            <p className="max-w-2xl text-lg text-primary-foreground/70">
               {category.description}
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Assessment */}
-      <section className="max-w-5xl mx-auto px-4 py-12">
-        <div className="flex flex-wrap gap-3 mb-8 justify-center">
+      <section className="mx-auto max-w-5xl px-4 py-12">
+        <div className="mb-8 flex flex-wrap justify-center gap-3">
           {skillLevels.map((level) => (
             <span
               key={level.value}
-              className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground font-medium"
+              className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground"
             >
               {level.value} = {level.label}
             </span>
@@ -75,29 +73,31 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
           <ResultsPanel ratings={ratings} categories={[category]} />
         </div>
 
-        {/* Navigation between careers */}
-        <div className="flex justify-between mt-12">
+        <div className="mt-12 flex justify-between">
           {prevCategory ? (
             <Link
               to={`/${prevCategory.id}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-muted text-muted-foreground hover:bg-muted/80 transition-colors font-medium text-sm"
+              className="inline-flex items-center gap-2 rounded-full bg-muted px-5 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/80"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="h-4 w-4" />
               {prevCategory.icon} {prevCategory.title}
             </Link>
-          ) : <div />}
+          ) : (
+            <div />
+          )}
+
           {nextCategory ? (
             <Link
               to={`/${nextCategory.id}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-secondary-foreground hover:opacity-90 transition-opacity font-medium text-sm"
+              className="inline-flex items-center gap-2 rounded-full bg-secondary px-5 py-2.5 text-sm font-medium text-secondary-foreground transition-opacity hover:opacity-90"
             >
               {nextCategory.icon} {nextCategory.title}
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="h-4 w-4" />
             </Link>
           ) : (
             <Link
-              to="/"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-secondary-foreground hover:opacity-90 transition-opacity font-medium text-sm"
+              to="/assessment"
+              className="inline-flex items-center gap-2 rounded-full bg-secondary px-5 py-2.5 text-sm font-medium text-secondary-foreground transition-opacity hover:opacity-90"
             >
               Ver todas as carreiras
             </Link>
