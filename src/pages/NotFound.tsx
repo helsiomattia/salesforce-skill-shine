@@ -1,21 +1,30 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+    console.error(
+      "404 Error: User attempted to access non-existent route:",
+      location.pathname
+    );
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
-      <div className="text-center">
+    <div className="flex min-h-screen items-center justify-center bg-background px-6">
+      <div className="w-full max-w-xl rounded-2xl border border-border bg-card p-8 text-center shadow-sm">
         <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/salesforce-skill-shine/" className="text-primary underline hover:text-primary/90">
-  Return to Home
-</a>
+        <p className="mb-6 text-xl text-muted-foreground">
+          Oops! Página não encontrada.
+        </p>
+
+        <Link
+          to="/"
+          className="inline-flex rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+        >
+          Voltar para Home
+        </Link>
       </div>
     </div>
   );
