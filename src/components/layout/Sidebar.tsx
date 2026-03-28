@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import {
   Home,
+  User,
   ClipboardCheck,
   X,
   Sparkles,
@@ -26,9 +27,15 @@ const navItems = [
   {
     to: "/",
     label: "Home",
-    description: "Apresentação e posicionamento",
+    description: "Landing e visão do projeto",
     icon: Home,
     end: true,
+  },
+  {
+    to: "/about",
+    label: "Sobre mim",
+    description: "Trajetória e experiência",
+    icon: User,
   },
   {
     to: "/assessment",
@@ -244,7 +251,7 @@ const Sidebar = ({
                   </p>
                   <p className="mt-2 text-sm font-medium text-white">{currentRouteLabel}</p>
                   <p className="mt-1 text-xs leading-5 text-slate-400">
-                    Navegação estruturada entre apresentação e avaliação de competências.
+                    Navegação entre landing, trajetória profissional e avaliação.
                   </p>
                 </motion.div>
               )}
