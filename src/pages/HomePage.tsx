@@ -1,90 +1,46 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  Mail,
-  Phone,
-  Linkedin,
-  Award,
-  Globe,
-  Briefcase,
-  GraduationCap,
-  BookOpen,
+  Sparkles,
+  ArrowRight,
+  User,
+  ClipboardCheck,
+  Layers3,
+  TrendingUp,
+  CheckCircle2,
+  Gauge,
 } from "lucide-react";
 
-const skills = [
-  "Salesforce",
-  "CRM",
-  "Sales Cloud",
-  "Service Cloud",
-  "Process Automation",
-  "Flow Builder",
-  "Data Modeling",
-  "Omni-Channel",
-  "Business Analysis",
-  "User Adoption",
-];
-
-const languages = [
-  { name: "Inglês", level: "Professional Working", percent: 75 },
-  { name: "Português", level: "Nativo / Bilíngue", percent: 100 },
-];
-
-const experiences = [
+const pillars = [
   {
-    company: "Efí Bank",
-    period: "Ago 2024 - Atual",
-    role: "Salesforce CRM Analyst",
+    icon: Layers3,
+    title: "Posicionamento profissional",
     description:
-      "Gestão e otimização da plataforma Salesforce, alinhando CRM aos processos e necessidades do negócio. Atua com customizações, resolução de problemas, documentação técnica, suporte aos usuários e iniciativas de performance, escalabilidade e automação.",
+      "Uma estrutura clara para apresentar trajetória, visão e diferenciais dentro do ecossistema Salesforce.",
   },
   {
-    company: "EQI Investimentos",
-    period: "Mar 2022 - Jul 2024",
-    role: "Salesforce CRM Analyst",
+    icon: ClipboardCheck,
+    title: "Avaliação de competências",
     description:
-      "Trabalhou na evolução da plataforma Salesforce com foco em objetos, campos, layouts, automações, documentação, suporte e tradução de requisitos em soluções práticas.",
+      "Diagnóstico por carreira para visualizar pontos fortes, lacunas e caminhos de evolução.",
   },
   {
-    company: "Cloud11",
-    period: "Out 2021 - Fev 2022",
-    role: "Salesforce CRM Analyst",
+    icon: TrendingUp,
+    title: "Evolução contínua",
     description:
-      "Durante experiência internacional no Egito, iniciou sua trajetória em Salesforce, colaborando com times de diferentes regiões para adaptar a plataforma às necessidades locais.",
-  },
-  {
-    company: "ControlSoft Assessoria e Desenvolvimento LTDA",
-    period: "Mar 2018 - Jul 2019",
-    role: "Software Quality Assurance (QA) Analyst",
-    description:
-      "Atuação com planejamento, execução e reporte de testes em ERP do agronegócio, com foco em qualidade, confiabilidade e validação de dados críticos.",
-  },
-  {
-    company: "PROXSIS Sistemas de Gestão Empresarial",
-    period: "Mar 2016 - Jul 2017",
-    role: "Software Consultant",
-    description:
-      "Implementação de sistemas ERP em indústrias, mapeamento de processos, configuração de soluções, documentação, treinamento e suporte contínuo a usuários.",
+      "Uma base para crescer o projeto como produto, com roadmap, níveis e recomendações futuras.",
   },
 ];
 
-const education = [
-  { title: "MBA em Engenharia de Software", institution: "UTFPR", period: "2023 - 2024" },
-  { title: "Bacharelado em Sistemas de Informação", institution: "UNIASSELVI", period: "Desde 2023" },
-  { title: "MBA em Gestão de Projetos", institution: "UNIASSELVI", period: "2021" },
-  { title: "MBA em Business Intelligence", institution: "UNIASSELVI", period: "2020 - 2021" },
-  { title: "Pós-graduação em Gestão de Vendas", institution: "UNIASSELVI", period: "2021" },
-];
-
-const certifications = [
-  "Salesforce Certified Administrator",
-  "Salesforce Certified App Builder",
-  "Salesforce AI Associate",
-  "Git Training",
-  "Bootcamp Cloud AWS",
-  "Customer Success",
+const highlights = [
+  "Visual com abordagem de produto digital",
+  "Trilhas separadas por perfil profissional",
+  "Base para evolução em dashboard de carreira",
+  "Projeto publicado e acessível em produção",
 ];
 
 const fadeUp = {
-  initial: { opacity: 0, y: 24 },
+  initial: { opacity: 0, y: 26 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
   transition: { duration: 0.5 },
@@ -92,229 +48,222 @@ const fadeUp = {
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-hero">
-        <div className="absolute left-10 top-20 h-72 w-72 rounded-full bg-secondary/10 blur-3xl" />
-        <div className="absolute bottom-10 right-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
+    <div className="space-y-10">
+      <section className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-white px-6 py-14 shadow-[0_20px_80px_rgba(15,23,42,0.06)] md:px-10 md:py-20">
+        <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-cyan-400/15 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
 
-        <div className="relative z-10 mx-auto max-w-5xl px-4 py-16 md:py-24">
+        <div className="relative z-10 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1.5 text-sm font-medium text-cyan-700">
+                <Sparkles className="h-4 w-4" />
+                Career Intelligence for Salesforce
+              </div>
+
+              <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-6xl">
+                Uma experiência mais estratégica para carreira, evolução e
+                competências no universo Salesforce.
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
+                O Salesforce Skill Shine foi estruturado para unir apresentação
+                profissional, avaliação de competências e visão de produto em um
+                único projeto com proposta clara e evolução contínua.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  to="/assessment"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+                >
+                  Explorar avaliação
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+
+                <Link
+                  to="/about"
+                  className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+                >
+                  Conhecer minha trajetória
+                  <User className="h-4 w-4" />
+                </Link>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                {highlights.map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm text-slate-600"
+                  >
+                    <CheckCircle2 className="h-4 w-4 text-cyan-600" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="flex flex-col items-center text-center"
+            initial={{ opacity: 0, scale: 0.97, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.1 }}
+            className="rounded-[28px] border border-slate-200 bg-slate-950 p-6 text-white shadow-[0_20px_80px_rgba(15,23,42,0.18)]"
           >
-            <div className="mb-6 flex h-28 w-28 items-center justify-center rounded-full border-4 border-secondary/40 bg-secondary/20">
-              <span className="font-display text-4xl font-bold text-secondary">HM</span>
+            <div className="mb-5 flex items-center justify-between">
+              <div>
+                <p className="text-sm text-slate-400">Experience overview</p>
+                <h2 className="mt-1 text-xl font-semibold">Career Dashboard</h2>
+              </div>
+
+              <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-400/10 text-cyan-300">
+                <Gauge className="h-5 w-5" />
+              </div>
             </div>
 
-            <h1 className="mb-3 font-display text-4xl font-bold text-primary-foreground sm:text-5xl">
-              Helsio Mattia
-            </h1>
+            <div className="space-y-4">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p className="text-xs uppercase tracking-[0.18em] text-slate-500">
+                  Projeto
+                </p>
+                <p className="mt-2 text-sm leading-6 text-slate-200">
+                  Estrutura orientada a produto, combinando posicionamento,
+                  leitura de carreira e avaliação por trilhas.
+                </p>
+              </div>
 
-            <p className="mb-6 max-w-2xl font-body text-lg text-primary-foreground/70">
-              Salesforce Consultant | CRM Specialist | Sales Cloud & Service Cloud | Process
-              Automation | 4x Certified
-            </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <p className="text-2xl font-bold text-white">3</p>
+                  <p className="mt-1 text-xs text-slate-400">Módulos principais</p>
+                </div>
 
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-primary-foreground/60">
-              <a
-                href="mailto:helsiomattia@gmail.com"
-                className="flex items-center gap-1.5 transition-colors hover:text-secondary"
-              >
-                <Mail className="h-4 w-4" /> helsiomattia@gmail.com
-              </a>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <p className="text-2xl font-bold text-white">4</p>
+                  <p className="mt-1 text-xs text-slate-400">Carreiras mapeadas</p>
+                </div>
+              </div>
 
-              <span className="flex items-center gap-1.5">
-                <Phone className="h-4 w-4" /> +55 49 9 8814 5714
-              </span>
-
-              <a
-                href="https://linkedin.com/in/helsiomattia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 transition-colors hover:text-secondary"
-              >
-                <Linkedin className="h-4 w-4" /> linkedin.com/in/helsiomattia
-              </a>
-
-              <a
-                href="https://trailblazer.me/id/helsiomattia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 transition-colors hover:text-secondary"
-              >
-                <Globe className="h-4 w-4" /> trailblazer.me/id/helsiomattia
-              </a>
+              <div className="rounded-2xl border border-cyan-400/15 bg-cyan-400/10 p-4">
+                <p className="text-sm font-medium text-cyan-200">
+                  Próxima evolução
+                </p>
+                <p className="mt-2 text-sm leading-6 text-cyan-50/85">
+                  Transformar a avaliação em uma experiência ainda mais visual,
+                  com score, níveis e visão consolidada de maturidade.
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      <div className="mx-auto max-w-5xl space-y-16 px-4 py-12">
-        <motion.section {...fadeUp}>
-          <SectionTitle icon={<BookOpen className="h-5 w-5" />} title="Sobre" />
-          <div className="space-y-3 leading-relaxed text-muted-foreground">
-            <p>
-              Profissional Salesforce com mais de 4 anos de experiência em desenho e
-              otimização de soluções de CRM, com foco em escalabilidade, automação e
-              performance de negócio.
-            </p>
-            <p>
-              Atualmente atua no Efí Bank, liderando iniciativas para melhorar operações
-              de atendimento, fluxos de automação e eficiência do CRM com Sales Cloud e
-              Service Cloud.
-            </p>
-            <p>
-              Tem experiência forte em automação de processos, otimização de CRM,
-              modelagem de dados, operações de atendimento com Messaging e Omni-Channel,
-              análise de requisitos, treinamento e adoção de usuários.
-            </p>
-            <p>
-              Combina visão técnica e de negócio, apoiada por histórico anterior em
-              consultoria ERP e QA, o que fortalece a leitura ponta a ponta dos processos
-              corporativos.
-            </p>
-          </div>
-        </motion.section>
+      <motion.section
+        {...fadeUp}
+        className="grid gap-5 md:grid-cols-3"
+      >
+        {pillars.map((pillar) => {
+          const Icon = pillar.icon;
 
-        <div className="grid gap-8 md:grid-cols-2">
-          <motion.section {...fadeUp}>
-            <SectionTitle icon={<Award className="h-5 w-5" />} title="Skills" />
-            <div className="flex flex-wrap gap-2">
-              {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-secondary/20 bg-secondary/15 px-3 py-1.5 text-sm font-medium text-secondary"
-                >
-                  {skill}
-                </span>
-              ))}
+          return (
+            <div
+              key={pillar.title}
+              className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_16px_50px_rgba(15,23,42,0.05)]"
+            >
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-700">
+                <Icon className="h-5 w-5" />
+              </div>
+
+              <h3 className="mt-5 text-lg font-semibold text-slate-950">
+                {pillar.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                {pillar.description}
+              </p>
             </div>
-          </motion.section>
+          );
+        })}
+      </motion.section>
 
-          <motion.section {...fadeUp}>
-            <SectionTitle icon={<Globe className="h-5 w-5" />} title="Idiomas" />
-            <div className="space-y-4">
-              {languages.map((language) => (
-                <div key={language.name}>
-                  <div className="mb-1 flex justify-between text-sm">
-                    <span className="font-medium text-foreground">{language.name}</span>
-                    <span className="text-muted-foreground">{language.level}</span>
-                  </div>
-                  <div className="h-2 overflow-hidden rounded-full bg-muted">
-                    <motion.div
-                      className="h-full rounded-full bg-secondary"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${language.percent}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: 0.2 }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.section>
-        </div>
+      <motion.section
+        {...fadeUp}
+        className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-[0_16px_50px_rgba(15,23,42,0.05)] md:p-10"
+      >
+        <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700">
+              Visão do projeto
+            </p>
 
-        <motion.section {...fadeUp}>
-          <SectionTitle icon={<Briefcase className="h-5 w-5" />} title="Experiência de Trabalho" />
-          <div className="space-y-6">
-            {experiences.map((experience, index) => (
-              <motion.div
-                key={experience.company}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                className="relative border-l-2 border-secondary/30 pl-6"
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
+              Mais do que um portfólio pessoal: uma base para um produto de
+              carreira com identidade própria.
+            </h2>
+
+            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
+              A proposta desta nova home é apresentar o projeto primeiro como uma
+              experiência digital estratégica. A trajetória profissional continua
+              forte, mas agora em uma área dedicada, para que a página inicial
+              comunique valor, visão e direção de evolução.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
               >
-                <div className="absolute left-[-7px] top-1 h-3 w-3 rounded-full bg-secondary" />
-                <div className="mb-1 flex flex-wrap items-baseline gap-2">
-                  <h3 className="font-display text-lg font-bold text-foreground">
-                    {experience.company}
-                  </h3>
-                  <span className="text-xs text-muted-foreground">{experience.period}</span>
-                </div>
-                <p className="mb-1 text-sm font-semibold text-secondary">{experience.role}</p>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {experience.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+                Ver Sobre mim
+                <ArrowRight className="h-4 w-4" />
+              </Link>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          <motion.section {...fadeUp}>
-            <SectionTitle icon={<GraduationCap className="h-5 w-5" />} title="Formação Acadêmica" />
-            <div className="space-y-4">
-              {education.map((item) => (
-                <div
-                  key={`${item.title}-${item.period}`}
-                  className="rounded-xl border border-border/50 bg-card p-4"
-                >
-                  <h4 className="font-display text-sm font-semibold text-foreground">
-                    {item.title}
-                  </h4>
-                  <p className="text-xs font-medium text-secondary">{item.institution}</p>
-                  <p className="text-xs text-muted-foreground">{item.period}</p>
-                </div>
-              ))}
+              <Link
+                to="/assessment"
+                className="inline-flex items-center gap-2 rounded-2xl border border-cyan-200 bg-cyan-50 px-5 py-3 text-sm font-medium text-cyan-700 transition hover:bg-cyan-100"
+              >
+                Ir para avaliação
+                <ClipboardCheck className="h-4 w-4" />
+              </Link>
             </div>
-          </motion.section>
-
-          <motion.section {...fadeUp}>
-            <SectionTitle icon={<Award className="h-5 w-5" />} title="Certificações" />
-            <div className="space-y-2">
-              {certifications.map((certification) => (
-                <div
-                  key={certification}
-                  className="flex items-center gap-2 rounded-xl border border-border/50 bg-card p-3"
-                >
-                  <div className="h-2 w-2 shrink-0 rounded-full bg-secondary" />
-                  <span className="text-sm font-medium text-foreground">{certification}</span>
-                </div>
-              ))}
-            </div>
-          </motion.section>
-        </div>
-      </div>
-
-      <footer className="mt-12 bg-gradient-hero py-8">
-        <div className="mx-auto max-w-5xl px-4 text-center">
-          <p className="mb-4 text-sm text-primary-foreground/50">
-            Conecte-se comigo nas redes sociais:
-          </p>
-          <div className="mb-4 flex justify-center gap-4">
-            <a
-              href="https://linkedin.com/in/helsiomattia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-foreground/60 transition-colors hover:text-secondary"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a
-              href="mailto:helsiomattia@gmail.com"
-              className="text-primary-foreground/60 transition-colors hover:text-secondary"
-            >
-              <Mail className="h-5 w-5" />
-            </a>
           </div>
-          <p className="text-xs text-primary-foreground/40">© 2025 Helsio Mattia</p>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-sm font-medium text-slate-900">Landing premium</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Home focada em proposta de valor e identidade de produto.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-sm font-medium text-slate-900">Sobre mim</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Toda a sua trajetória preservada, mas em um espaço mais adequado.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-sm font-medium text-slate-900">Assessment</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Trilha prática para avaliar competências por carreira.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-sm font-medium text-slate-900">Escalabilidade</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Estrutura pronta para evoluir com score, métricas e roadmap.
+              </p>
+            </div>
+          </div>
         </div>
-      </footer>
+      </motion.section>
     </div>
   );
 };
-
-const SectionTitle = ({ icon, title }: { icon: React.ReactNode; title: string }) => (
-  <div className="mb-5 flex items-center gap-2">
-    <span className="text-secondary">{icon}</span>
-    <h2 className="font-display text-xl font-bold text-foreground">{title}</h2>
-    <div className="ml-2 h-px flex-1 bg-border" />
-  </div>
-);
 
 export default HomePage;
