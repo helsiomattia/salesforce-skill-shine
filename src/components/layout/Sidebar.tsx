@@ -1,5 +1,12 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { Home, ClipboardCheck, X, Sparkles, PanelLeftClose, PanelLeftOpen } from "lucide-react";
+import {
+  Home,
+  ClipboardCheck,
+  X,
+  Sparkles,
+  PanelLeftClose,
+  PanelLeftOpen,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 type SidebarProps = {
@@ -33,39 +40,28 @@ const Sidebar = ({
       collapsed ? "justify-center px-3" : "",
     ].join(" ");
 
-  const sidebarWidthClass = collapsed ? "md:w-24" : "md:w-80";
-
   return (
     <>
-      <AnimatePresence>
-        {open && (
-          <motion.button
-            type="button"
-            aria-label="Fechar menu"
-            className="fixed inset-0 z-40 bg-black/40 md:hidden"
-            onClick={onClose}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          />
-        )}
-      </AnimatePresence>
+      {open && (
+        <button
+          type="button"
+          aria-label="Fechar menu"
+          className="fixed inset-0 z-40 bg-black/40 md:hidden"
+          onClick={onClose}
+        />
+      )}
 
-      <motion.aside
-        layout
-        initial={false}
-        animate={{
-          x: open ? 0 : -320,
-        }}
-        transition={{ type: "spring", stiffness: 280, damping: 28 }}
+      <aside
         className={[
-          "fixed inset-y-0 left-0 z-50 w-72 border-r border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80 md:static md:z-auto md:translate-x-0",
-          sidebarWidthClass,
+          "fixed inset-y-0 left-0 z-50 border-r border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80 transition-all duration-300",
+          "w-72 md:static md:z-auto",
+          collapsed ? "md:w-24" : "md:w-80",
+          open ? "translate-x-0" : "-translate-x-full md:translate-x-0",
         ].join(" ")}
       >
         <div className="flex h-full flex-col p-4 md:p-5">
           <div className="mb-6 flex items-start justify-between gap-3">
-            <motion.div layout className={collapsed ? "w-full" : ""}>
+            <div className={collapsed ? "w-full" : ""}>
               <div
                 className={[
                   "mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary",
@@ -91,7 +87,7 @@ const Sidebar = ({
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </div>
 
             <div className="flex items-center gap-2">
               <button
@@ -151,14 +147,6 @@ const Sidebar = ({
                       </motion.span>
                     )}
                   </AnimatePresence>
-
-                  {isActive && (
-                    <motion.span
-                      layoutId="active-pill"
-                      className="absolute inset-0 -z-10 rounded-2xl bg-primary"
-                      transition={{ type: "spring", stiffness: 320, damping: 30 }}
-                    />
-                  )}
                 </NavLink>
               );
             })}
@@ -220,7 +208,7 @@ const Sidebar = ({
             </AnimatePresence>
           </div>
         </div>
-      </motion.aside>
+      </aside>
     </>
   );
 };
