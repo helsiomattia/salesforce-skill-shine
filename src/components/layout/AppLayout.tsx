@@ -23,8 +23,7 @@ const AppLayout = () => {
   }, [location.pathname]);
 
   const currentRoute = useMemo(() => {
-    const exactHome = location.pathname === "/";
-    if (exactHome) return routeMeta[0];
+    if (location.pathname === "/") return routeMeta[0];
 
     return (
       routeMeta.find(
