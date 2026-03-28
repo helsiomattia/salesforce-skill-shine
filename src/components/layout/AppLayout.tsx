@@ -1,21 +1,55 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { Menu } from "lucide-react";
+import { Menu, Home, ClipboardCheck } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import Sidebar from "./Sidebar";
+
+const routeMeta = [
+  { match: "/", label: "Home", icon: Home },
+  { match: "/assessment", label: "Avaliação de Competências", icon: ClipboardCheck },
+  { match: "/admin", label: "Administrator", icon: ClipboardCheck },
+  { match: "/developer", label: "Developer", icon: ClipboardCheck },
+  { match: "/consultant", label: "Consultant", icon: ClipboardCheck },
+  { match: "/architect", label: "Architect", icon: ClipboardCheck },
+];
 
 const AppLayout = () => {
   const [open, setOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     setOpen(false);
   }, [location.pathname]);
 
+  const currentRoute = useMemo(() => {
+    const exactHome = location.pathname === "/";
+    if (exactHome) return routeMeta[0];
+
+    return (
+      routeMeta.find(
+        (route) => route.match !== "/" && location.pathname.startsWith(route.match)
+      ) || routeMeta[0]
+    );
+  }, [location.pathname]);
+
+  const CurrentIcon = currentRoute.icon;
+
   return (
     <div className="min-h-screen bg-background text-foreground md:flex">
-      <Sidebar open={open} onClose={() => setOpen(false)} />
+      <Sidebar
+        open={open}
+        collapsed={collapsed}
+        currentRouteLabel={currentRoute.label}
+        onClose={() => setOpen(false)}
+        onToggleCollapse={() => setCollapsed((prev) => !prev)}
+      />
 
-      <div className="flex min-h-screen flex-1 flex-col">
+      <motion.div
+        layout
+        className="flex min-h-screen flex-1 flex-col"
+        transition={{ type: "spring", stiffness: 260, damping: 28 }}
+      >
         <header className="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur md:hidden">
           <div className="flex items-center justify-between px-4 py-3">
             <button
@@ -27,17 +61,32 @@ const AppLayout = () => {
               <Menu className="h-5 w-5" />
             </button>
 
-            <div className="text-right">
-              <p className="text-sm font-semibold">Salesforce Skill Shine</p>
-              <p className="text-xs text-muted-foreground">Menu e navegação</p>
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentRoute.label}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.18 }}
+                className="flex items-center gap-2 text-right"
+              >
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <CurrentIcon className="h-4 w-4" />
+                </div>
+
+                <div>
+                  <p className="text-sm font-semibold">{currentRoute.label}</p>
+                  <p className="text-xs text-muted-foreground">Salesforce Skill Shine</p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </header>
 
         <main className="flex-1 p-4 md:p-8 lg:p-10">
           <Outlet />
         </main>
-      </div>
+      </motion.div>
     </div>
   );
 };
