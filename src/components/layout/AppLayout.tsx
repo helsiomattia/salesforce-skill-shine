@@ -6,6 +6,7 @@ import Sidebar from "./Sidebar";
 
 const routeMeta = [
   { match: "/", label: "Home", icon: Home },
+  { match: "/about", label: "Sobre mim", icon: Home },
   { match: "/assessment", label: "Avaliação de Competências", icon: ClipboardCheck },
   { match: "/admin", label: "Administrator", icon: ClipboardCheck },
   { match: "/developer", label: "Developer", icon: ClipboardCheck },
