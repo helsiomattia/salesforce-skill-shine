@@ -6,6 +6,11 @@ import {
   Sparkles,
   PanelLeftClose,
   PanelLeftOpen,
+  Github,
+  Linkedin,
+  Mail,
+  ExternalLink,
+  LayoutDashboard,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -18,8 +23,37 @@ type SidebarProps = {
 };
 
 const navItems = [
-  { to: "/", label: "Home", icon: Home, end: true },
-  { to: "/assessment", label: "Avaliação de Competências", icon: ClipboardCheck },
+  {
+    to: "/",
+    label: "Home",
+    description: "Apresentação e posicionamento",
+    icon: Home,
+    end: true,
+  },
+  {
+    to: "/assessment",
+    label: "Avaliação",
+    description: "Competências e evolução",
+    icon: ClipboardCheck,
+  },
+];
+
+const externalLinks = [
+  {
+    href: "https://github.com/helsiomattia",
+    label: "GitHub",
+    icon: Github,
+  },
+  {
+    href: "https://linkedin.com/in/helsiomattia",
+    label: "LinkedIn",
+    icon: Linkedin,
+  },
+  {
+    href: "mailto:helsiomattia@gmail.com",
+    label: "Email",
+    icon: Mail,
+  },
 ];
 
 const Sidebar = ({
@@ -31,14 +65,10 @@ const Sidebar = ({
 }: SidebarProps) => {
   const location = useLocation();
 
-  const linkClass = (isActive: boolean) =>
-    [
-      "group relative flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition-all duration-200",
-      isActive
-        ? "bg-primary text-primary-foreground shadow-sm"
-        : "text-muted-foreground hover:bg-muted hover:text-foreground",
-      collapsed ? "justify-center px-3" : "",
-    ].join(" ");
+  const isItemActive = (to: string) => {
+    if (to === "/") return location.pathname === "/";
+    return location.pathname.startsWith(to);
+  };
 
   return (
     <>
@@ -46,14 +76,14 @@ const Sidebar = ({
         <button
           type="button"
           aria-label="Fechar menu"
-          className="fixed inset-0 z-40 bg-black/40 md:hidden"
+          className="fixed inset-0 z-40 bg-black/50 md:hidden"
           onClick={onClose}
         />
       )}
 
       <aside
         className={[
-          "fixed inset-y-0 left-0 z-50 border-r border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80 transition-all duration-300",
+          "fixed inset-y-0 left-0 z-50 border-r border-white/10 bg-slate-950 text-slate-100 transition-all duration-300",
           "w-72 md:static md:z-auto",
           collapsed ? "md:w-24" : "md:w-80",
           open ? "translate-x-0" : "-translate-x-full md:translate-x-0",
@@ -64,7 +94,7 @@ const Sidebar = ({
             <div className={collapsed ? "w-full" : ""}>
               <div
                 className={[
-                  "mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary",
+                  "mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-300 shadow-[0_0_30px_rgba(34,211,238,0.12)]",
                   collapsed ? "mx-auto" : "",
                 ].join(" ")}
               >
@@ -74,15 +104,24 @@ const Sidebar = ({
               <AnimatePresence mode="wait">
                 {!collapsed && (
                   <motion.div
-                    key="sidebar-title"
-                    initial={{ opacity: 0, y: 6 }}
+                    key="sidebar-brand"
+                    initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
+                    exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.18 }}
                   >
-                    <h1 className="text-xl font-bold tracking-tight">Salesforce Skill Shine</h1>
-                    <p className="mt-2 max-w-[220px] text-sm leading-6 text-muted-foreground">
-                      Carreira, posicionamento e evolução profissional
+                    <div className="flex items-center gap-2">
+                      <h1 className="text-xl font-bold tracking-tight text-white">
+                        Skill Shine
+                      </h1>
+                      <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-cyan-300">
+                        Beta
+                      </span>
+                    </div>
+
+                    <p className="mt-2 max-w-[220px] text-sm leading-6 text-slate-400">
+                      Plataforma pessoal com visual de produto para carreira,
+                      avaliação de competências e evolução profissional.
                     </p>
                   </motion.div>
                 )}
@@ -94,7 +133,7 @@ const Sidebar = ({
                 type="button"
                 aria-label={collapsed ? "Expandir menu" : "Colapsar menu"}
                 onClick={onToggleCollapse}
-                className="hidden h-9 w-9 items-center justify-center rounded-xl text-muted-foreground transition hover:bg-muted hover:text-foreground md:inline-flex"
+                className="hidden h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/5 hover:text-white md:inline-flex"
               >
                 {collapsed ? (
                   <PanelLeftOpen className="h-5 w-5" />
@@ -107,20 +146,43 @@ const Sidebar = ({
                 type="button"
                 aria-label="Fechar menu"
                 onClick={onClose}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-muted-foreground transition hover:bg-muted hover:text-foreground md:hidden"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/5 hover:text-white md:hidden"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
           </div>
 
+          <AnimatePresence mode="wait">
+            {!collapsed && (
+              <motion.div
+                key="sidebar-highlight"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.18 }}
+                className="mb-6 rounded-2xl border border-cyan-400/15 bg-gradient-to-br from-cyan-400/10 via-slate-900 to-slate-900 p-4"
+              >
+                <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">
+                  <LayoutDashboard className="h-3.5 w-3.5" />
+                  Produto em evolução
+                </div>
+
+                <h2 className="text-sm font-semibold text-white">
+                  Dashboard de carreira Salesforce
+                </h2>
+                <p className="mt-2 text-xs leading-5 text-slate-400">
+                  Organizando posicionamento profissional, competências e
+                  evolução em uma experiência com cara de SaaS.
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           <nav className="space-y-2">
             {navItems.map((item) => {
               const Icon = item.icon;
-              const isActive =
-                item.to === "/"
-                  ? location.pathname === "/"
-                  : location.pathname.startsWith(item.to);
+              const active = isItemActive(item.to);
 
               return (
                 <NavLink
@@ -128,23 +190,37 @@ const Sidebar = ({
                   to={item.to}
                   end={item.end}
                   onClick={onClose}
-                  className={linkClass(isActive)}
                   title={collapsed ? item.label : undefined}
+                  className={[
+                    "group relative flex items-center gap-3 overflow-hidden rounded-2xl transition-all duration-200",
+                    collapsed ? "justify-center px-3 py-3.5" : "px-4 py-3.5",
+                    active
+                      ? "bg-cyan-400 text-slate-950 shadow-[0_10px_30px_rgba(34,211,238,0.18)]"
+                      : "text-slate-400 hover:bg-white/5 hover:text-white",
+                  ].join(" ")}
                 >
                   <Icon className="h-4 w-4 shrink-0" />
 
                   <AnimatePresence mode="wait">
                     {!collapsed && (
-                      <motion.span
-                        key={`${item.label}-label`}
+                      <motion.div
+                        key={`${item.label}-content`}
                         initial={{ opacity: 0, x: -6 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -6 }}
                         transition={{ duration: 0.16 }}
-                        className="truncate"
+                        className="min-w-0"
                       >
-                        {item.label}
-                      </motion.span>
+                        <p className="truncate text-sm font-medium">{item.label}</p>
+                        <p
+                          className={[
+                            "truncate text-xs",
+                            active ? "text-slate-900/70" : "text-slate-500 group-hover:text-slate-300",
+                          ].join(" ")}
+                        >
+                          {item.description}
+                        </p>
+                      </motion.div>
                     )}
                   </AnimatePresence>
                 </NavLink>
@@ -152,26 +228,28 @@ const Sidebar = ({
             })}
           </nav>
 
-          <AnimatePresence mode="wait">
-            {!collapsed && (
-              <motion.div
-                key="sidebar-status"
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 8 }}
-                transition={{ duration: 0.18 }}
-                className="mt-8 rounded-2xl border border-border bg-background/70 p-4"
-              >
-                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  Status do projeto
-                </p>
-                <p className="mt-2 text-sm leading-6 text-foreground">
-                  Em evolução contínua, com foco em UX, avaliação de competências e
-                  posicionamento profissional.
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <div className="mt-6">
+            <AnimatePresence mode="wait">
+              {!collapsed && (
+                <motion.div
+                  key="sidebar-status"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ duration: 0.18 }}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4"
+                >
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    Rota atual
+                  </p>
+                  <p className="mt-2 text-sm font-medium text-white">{currentRouteLabel}</p>
+                  <p className="mt-1 text-xs leading-5 text-slate-400">
+                    Navegação estruturada entre apresentação e avaliação de competências.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           <div className="mt-auto pt-6">
             <AnimatePresence mode="wait">
@@ -182,12 +260,45 @@ const Sidebar = ({
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
                   transition={{ duration: 0.18 }}
-                  className="rounded-2xl bg-gradient-to-br from-primary/10 via-secondary/10 to-transparent p-4"
+                  className="space-y-4"
                 >
-                  <p className="text-sm font-medium text-foreground">Helsio Mattia</p>
-                  <p className="mt-1 text-xs leading-5 text-muted-foreground">
-                    Salesforce • CRM • Carreira • Evolução técnica
-                  </p>
+                  <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent p-4">
+                    <p className="text-sm font-medium text-white">Helsio Mattia</p>
+                    <p className="mt-1 text-xs leading-5 text-slate-400">
+                      Salesforce • CRM • Carreira • Evolução técnica
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
+                    <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      Links externos
+                    </p>
+
+                    <div className="space-y-2">
+                      {externalLinks.map((link) => {
+                        const Icon = link.icon;
+
+                        return (
+                          <a
+                            key={link.label}
+                            href={link.href}
+                            target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                            rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                            className="group flex items-center justify-between rounded-xl px-3 py-2.5 text-sm text-slate-300 transition hover:bg-white/5 hover:text-white"
+                          >
+                            <div className="flex items-center gap-3">
+                              <Icon className="h-4 w-4" />
+                              <span>{link.label}</span>
+                            </div>
+
+                            {!link.href.startsWith("mailto:") && (
+                              <ExternalLink className="h-3.5 w-3.5 text-slate-500 transition group-hover:text-slate-300" />
+                            )}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </motion.div>
               ) : (
                 <motion.div
@@ -195,14 +306,42 @@ const Sidebar = ({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="flex justify-center"
+                  className="flex flex-col items-center gap-3"
                 >
                   <div
-                    className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 via-secondary/10 to-transparent text-sm font-semibold text-foreground"
+                    className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm font-semibold text-white"
                     title={currentRouteLabel}
                   >
                     HM
                   </div>
+
+                  <a
+                    href="https://github.com/helsiomattia"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/5 hover:text-white"
+                    title="GitHub"
+                  >
+                    <Github className="h-4 w-4" />
+                  </a>
+
+                  <a
+                    href="https://linkedin.com/in/helsiomattia"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/5 hover:text-white"
+                    title="LinkedIn"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                  </a>
+
+                  <a
+                    href="mailto:helsiomattia@gmail.com"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/5 hover:text-white"
+                    title="Email"
+                  >
+                    <Mail className="h-4 w-4" />
+                  </a>
                 </motion.div>
               )}
             </AnimatePresence>
