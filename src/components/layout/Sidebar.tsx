@@ -4,7 +4,6 @@ import {
   User,
   ClipboardCheck,
   X,
-  Sparkles,
   PanelLeftClose,
   PanelLeftOpen,
   Github,
@@ -13,7 +12,6 @@ import {
   ExternalLink,
   LayoutDashboard,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 type SidebarProps = {
   open: boolean;
@@ -66,7 +64,6 @@ const externalLinks = [
 const Sidebar = ({
   open,
   collapsed,
-  currentRouteLabel,
   onClose,
   onToggleCollapse,
 }: SidebarProps) => {
@@ -81,277 +78,173 @@ const Sidebar = ({
     <>
       {open && (
         <button
-          type="button"
-          aria-label="Fechar menu"
-          className="fixed inset-0 z-40 bg-black/50 md:hidden"
+          className="fixed inset-0 z-40 bg-slate-950/40 lg:hidden"
           onClick={onClose}
         />
       )}
 
       <aside
-        className={[
-          "fixed inset-y-0 left-0 z-50 border-r border-white/10 bg-slate-950 text-slate-100 transition-all duration-300",
-          "w-72 md:static md:z-auto",
-          collapsed ? "md:w-24" : "md:w-80",
-          open ? "translate-x-0" : "-translate-x-full md:translate-x-0",
-        ].join(" ")}
+        className={`
+          fixed left-0 top-0 z-50 h-screen border-r border-slate-200 bg-white/95 backdrop-blur
+          transition-all duration-300
+          ${collapsed ? "w-[88px]" : "w-[320px]"}
+          ${open ? "translate-x-0" : "-translate-x-full"}
+          lg:sticky lg:translate-x-0
+        `}
       >
-        <div className="flex h-full flex-col p-4 md:p-5">
-          <div className="mb-6 flex items-start justify-between gap-3">
-            <div className={collapsed ? "w-full" : ""}>
-              <div
-                className={[
-                  "mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-300 shadow-[0_0_30px_rgba(34,211,238,0.12)]",
-                  collapsed ? "mx-auto" : "",
-                ].join(" ")}
-              >
-                <Sparkles className="h-5 w-5" />
+        <div className="flex h-full flex-col">
+          <div className="flex items-center justify-between border-b border-slate-200 px-4 py-4">
+            {!collapsed && (
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900 text-white">
+                  <LayoutDashboard className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">
+                    Salesforce Skill Shine
+                  </p>
+                  <p className="text-xs text-slate-500">
+                    Dashboard de carreira
+                  </p>
+                </div>
               </div>
-
-              <AnimatePresence mode="wait">
-                {!collapsed && (
-                  <motion.div
-                    key="sidebar-brand"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.18 }}
-                  >
-                    <div className="flex items-center gap-2">
-                      <h1 className="text-xl font-bold tracking-tight text-white">
-                        Skill Shine
-                      </h1>
-                      <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-cyan-300">
-                        Beta
-                      </span>
-                    </div>
-
-                    <p className="mt-2 max-w-[220px] text-sm leading-6 text-slate-400">
-                      Plataforma pessoal com visual de produto para carreira,
-                      avaliação de competências e evolução profissional.
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+            )}
 
             <div className="flex items-center gap-2">
               <button
-                type="button"
-                aria-label={collapsed ? "Expandir menu" : "Colapsar menu"}
                 onClick={onToggleCollapse}
-                className="hidden h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/5 hover:text-white md:inline-flex"
+                className="hidden rounded-xl border border-slate-200 p-2 text-slate-600 transition hover:bg-slate-50 lg:inline-flex"
+                type="button"
               >
                 {collapsed ? (
-                  <PanelLeftOpen className="h-5 w-5" />
+                  <PanelLeftOpen className="h-4 w-4" />
                 ) : (
-                  <PanelLeftClose className="h-5 w-5" />
+                  <PanelLeftClose className="h-4 w-4" />
                 )}
               </button>
 
               <button
-                type="button"
-                aria-label="Fechar menu"
                 onClick={onClose}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/5 hover:text-white md:hidden"
+                className="inline-flex rounded-xl border border-slate-200 p-2 text-slate-600 transition hover:bg-slate-50 lg:hidden"
+                type="button"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4 w-4" />
               </button>
             </div>
           </div>
 
-          <AnimatePresence mode="wait">
+          <div className="flex-1 overflow-y-auto px-3 py-4">
             {!collapsed && (
-              <motion.div
-                key="sidebar-highlight"
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.18 }}
-                className="mb-6 rounded-2xl border border-cyan-400/15 bg-gradient-to-br from-cyan-400/10 via-slate-900 to-slate-900 p-4"
-              >
-                <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">
-                  <LayoutDashboard className="h-3.5 w-3.5" />
-                  Produto em evolução
+              <div className="mb-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <div className="mb-2 flex items-center gap-2">
+                  <LayoutDashboard className="h-4 w-4 text-slate-700" />
+                  <span className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                    Navegação
+                  </span>
                 </div>
 
-                <h2 className="text-sm font-semibold text-white">
+                <h2 className="text-sm font-semibold text-slate-900">
                   Dashboard de carreira Salesforce
                 </h2>
-                <p className="mt-2 text-xs leading-5 text-slate-400">
+
+                <p className="mt-1 text-sm leading-6 text-slate-600">
                   Organizando posicionamento profissional, competências e
-                  evolução em uma experiência com cara de SaaS.
+                  evolução em uma experiência mais limpa e objetiva.
                 </p>
-              </motion.div>
+              </div>
             )}
-          </AnimatePresence>
 
-          <nav className="space-y-2">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const active = isItemActive(item.to);
+            <nav className="space-y-2">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const active = isItemActive(item.to);
 
-              return (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  end={item.end}
-                  onClick={onClose}
-                  title={collapsed ? item.label : undefined}
-                  className={[
-                    "group relative flex items-center gap-3 overflow-hidden rounded-2xl transition-all duration-200",
-                    collapsed ? "justify-center px-3 py-3.5" : "px-4 py-3.5",
-                    active
-                      ? "bg-cyan-400 text-slate-950 shadow-[0_10px_30px_rgba(34,211,238,0.18)]"
-                      : "text-slate-400 hover:bg-white/5 hover:text-white",
-                  ].join(" ")}
-                >
-                  <Icon className="h-4 w-4 shrink-0" />
+                return (
+                  <NavLink
+                    key={item.to}
+                    to={item.to}
+                    end={item.end}
+                    className={`
+                      flex items-center gap-3 rounded-2xl border px-3 py-3 transition-all
+                      ${
+                        active
+                          ? "border-slate-900 bg-slate-900 text-white"
+                          : "border-transparent text-slate-700 hover:border-slate-200 hover:bg-slate-50"
+                      }
+                    `}
+                  >
+                    <Icon className="h-5 w-5 shrink-0" />
 
-                  <AnimatePresence mode="wait">
                     {!collapsed && (
-                      <motion.div
-                        key={`${item.label}-content`}
-                        initial={{ opacity: 0, x: -6 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -6 }}
-                        transition={{ duration: 0.16 }}
-                        className="min-w-0"
-                      >
-                        <p className="truncate text-sm font-medium">{item.label}</p>
+                      <div className="min-w-0">
+                        <p className="text-sm font-medium">{item.label}</p>
                         <p
-                          className={[
-                            "truncate text-xs",
-                            active ? "text-slate-900/70" : "text-slate-500 group-hover:text-slate-300",
-                          ].join(" ")}
+                          className={`text-xs ${
+                            active ? "text-slate-300" : "text-slate-500"
+                          }`}
                         >
                           {item.description}
                         </p>
-                      </motion.div>
+                      </div>
                     )}
-                  </AnimatePresence>
-                </NavLink>
-              );
-            })}
-          </nav>
-
-          <div className="mt-6">
-            <AnimatePresence mode="wait">
-              {!collapsed && (
-                <motion.div
-                  key="sidebar-status"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.18 }}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4"
-                >
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
-                    Rota atual
-                  </p>
-                  <p className="mt-2 text-sm font-medium text-white">{currentRouteLabel}</p>
-                  <p className="mt-1 text-xs leading-5 text-slate-400">
-                    Navegação entre landing, trajetória profissional e avaliação.
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  </NavLink>
+                );
+              })}
+            </nav>
           </div>
 
-          <div className="mt-auto pt-6">
-            <AnimatePresence mode="wait">
-              {!collapsed ? (
-                <motion.div
-                  key="sidebar-footer-expanded"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.18 }}
-                  className="space-y-4"
-                >
-                  <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent p-4">
-                    <p className="text-sm font-medium text-white">Helsio Mattia</p>
-                    <p className="mt-1 text-xs leading-5 text-slate-400">
-                      Salesforce • CRM • Carreira • Evolução técnica
-                    </p>
-                  </div>
+          <div className="border-t border-slate-200 px-3 py-4">
+            {!collapsed ? (
+              <div className="rounded-2xl border border-slate-200 p-4">
+                <p className="text-sm font-semibold text-slate-900">
+                  Helsio Mattia
+                </p>
+                <p className="mt-1 text-xs text-slate-500">
+                  Salesforce • CRM • Carreira • Evolução técnica
+                </p>
 
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
-                    <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
-                      Links externos
-                    </p>
+                <div className="mt-4 space-y-2">
+                  {externalLinks.map((link) => {
+                    const Icon = link.icon;
 
-                    <div className="space-y-2">
-                      {externalLinks.map((link) => {
-                        const Icon = link.icon;
+                    return (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                        rel={
+                          link.href.startsWith("mailto:")
+                            ? undefined
+                            : "noreferrer noopener"
+                        }
+                        className="flex items-center justify-between rounded-xl px-3 py-2 text-sm text-slate-700 transition hover:bg-slate-50"
+                      >
+                        <span className="flex items-center gap-2">
+                          <Icon className="h-4 w-4" />
+                          {link.label}
+                        </span>
 
-                        return (
-                          <a
-                            key={link.label}
-                            href={link.href}
-                            target={link.href.startsWith("mailto:") ? undefined : "_blank"}
-                            rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                            className="group flex items-center justify-between rounded-xl px-3 py-2.5 text-sm text-slate-300 transition hover:bg-white/5 hover:text-white"
-                          >
-                            <div className="flex items-center gap-3">
-                              <Icon className="h-4 w-4" />
-                              <span>{link.label}</span>
-                            </div>
-
-                            {!link.href.startsWith("mailto:") && (
-                              <ExternalLink className="h-3.5 w-3.5 text-slate-500 transition group-hover:text-slate-300" />
-                            )}
-                          </a>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="sidebar-footer-collapsed"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="flex flex-col items-center gap-3"
-                >
-                  <div
-                    className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm font-semibold text-white"
-                    title={currentRouteLabel}
-                  >
-                    HM
-                  </div>
-
-                  <a
-                    href="https://github.com/helsiomattia"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/5 hover:text-white"
-                    title="GitHub"
-                  >
-                    <Github className="h-4 w-4" />
-                  </a>
-
-                  <a
-                    href="https://linkedin.com/in/helsiomattia"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/5 hover:text-white"
-                    title="LinkedIn"
-                  >
-                    <Linkedin className="h-4 w-4" />
-                  </a>
-
-                  <a
-                    href="mailto:helsiomattia@gmail.com"
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/5 hover:text-white"
-                    title="Email"
-                  >
-                    <Mail className="h-4 w-4" />
-                  </a>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                        {!link.href.startsWith("mailto:") && (
+                          <ExternalLink className="h-4 w-4 text-slate-400" />
+                        )}
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : (
+              <div className="flex flex-col items-center gap-3">
+                <a href="https://github.com/helsiomattia" target="_blank" rel="noreferrer noopener">
+                  <Github className="h-5 w-5 text-slate-600" />
+                </a>
+                <a href="https://linkedin.com/in/helsiomattia" target="_blank" rel="noreferrer noopener">
+                  <Linkedin className="h-5 w-5 text-slate-600" />
+                </a>
+                <a href="mailto:helsiomattia@gmail.com">
+                  <Mail className="h-5 w-5 text-slate-600" />
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </aside>
