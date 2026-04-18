@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desenvolvedor Salesforce</title>
+  <link rel="stylesheet" href="developer.css" />
+  <link rel="stylesheet" href="header.css">
+</head>
+<body>
+  <div id="common-header"></div>
+
+  <main>
+    <!-- HARD SKILLS -->
+    <section>
+      <h2>Hard Skills do Desenvolvedor</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Competência</th>
+            <th>Júnior</th>
+            <th>Nota (1-10)</th>
+            <th>Pleno</th>
+            <th>Nota (1-10)</th>
+            <th>Sênior</th>
+            <th>Nota (1-10)</th>
+            <th>Especialista</th>
+            <th>Nota (1-10)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Competência">Apex & Triggers</td>
+            <td data-label="Júnior">Escreve classes e triggers simples; domina sintaxe básica Apex</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-apex-jr">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Pleno">Implementa lógica de negócios intermediária, usa métodos assíncronos simples</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-apex-pl">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Sênior">Estrutura camadas de serviço, aplica padrões de design, governa limites</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-apex-sn">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Especialista">Define frameworks reutilizáveis, técnicas de bulkification avançadas e arquitetura de domínio</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-apex-es">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td data-label="Competência">Interface UI (Visualforce, LWC)</td>
+            <td data-label="Júnior">Cria páginas Visualforce simples ou modifica LWCs existentes</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-ui-jr">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Pleno">Desenvolve LWCs completos, usa data-binding e eventos, mantém código Aura legado</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-ui-pl">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Sênior">Lidera design de UI componível, otimiza performance e acessibilidade</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-ui-sn">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Especialista">Define design-system Lightning corporativo e componentes reutilizáveis multi-cloud</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-ui-es">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td data-label="Competência">Integrações & APIs</td>
+            <td data-label="Júnior">Consome REST API básica; entende conceito de endpoints</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-api-jr">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Pleno">Configura integrações REST/SOAP, usa OAuth, cria callouts em Apex</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-api-pl">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Sênior">Desenha integrações robustas com middleware, lida com erros e retry lógicos</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-api-sn">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Especialista">Arquitetura de integrações event-driven, alta disponibilidade, governança de API</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-api-es">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td data-label="Competência">Dados & SOQL / SOSL / DML</td>
+            <td data-label="Júnior">Executa consultas SOQL simples; manipula dados via DML</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-data-jr">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Pleno">Otimiza SOQL com filtros, usa SOSL; manipula transações, upsert e merge</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-data-pl">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Sênior">Garante governança de dados, índices, práticas de bulk DML e locks</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-data-sn">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Especialista">Estratégias MDM, particionamento, Big Object e otimização massiva de queries</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-data-es">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td data-label="Competência">Dev Env & DevOps (DX, Testes, Deploy)</td>
+            <td data-label="Júnior">Usa VS Code + SFDX; escreve testes unitários básicos</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-devops-jr">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Pleno">Trabalha com Scratch Orgs, pipelines CI/CD simples; cobertura &gt; 75%</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-devops-pl">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Sênior">Mantém estratégia completa de branch, automação de testes e monitoramento</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-devops-sn">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Especialista">Define plataforma DevOps enterprise, com quality-gates, automação e políticas de liberação</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-hard-devops-es">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SOFT SKILLS -->
+    <section>
+      <h2>Soft Skills do Desenvolvedor</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Competência</th>
+            <th>Júnior</th>
+            <th>Nota (1-10)</th>
+            <th>Pleno</th>
+            <th>Nota (1-10)</th>
+            <th>Sênior</th>
+            <th>Nota (1-10)</th>
+            <th>Especialista</th>
+            <th>Nota (1-10)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Competência">Resolução de Problemas & Depuração</td>
+            <td data-label="Júnior">Usa logs e <code>System.debug</code>; resolve bugs simples</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-debug-jr">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Pleno">Utiliza Developer Console, depurador e logs detalhados; analisa governor limits</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-debug-pl">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Sênior">Conduz root-cause analysis complexo; aplica profiling e tuning</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-debug-sn">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Especialista">Estabelece cultura de qualidade, ferramentas de observabilidade e prevenção de falhas</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-debug-es">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td data-label="Competência">Colaboração & Trabalho em Equipe</td>
+            <td data-label="Júnior">Participa de dailies, compartilha código</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-team-jr">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Pleno">Faz code-review, pair-programming e documentação clara</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-team-pl">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Sênior">Lidera squads, padroniza práticas de desenvolvimento</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-team-sn">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Especialista">Atua como tech lead cross-equipes, promove comunidades técnicas internas</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-team-es">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td data-label="Competência">Comunicação & Documentação</td>
+            <td data-label="Júnior">Redige comentários claros e atualiza Wiki</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-doc-jr">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Pleno">Mantém diagramas de solução e runbooks</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-doc-pl">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Sênior">Apresenta soluções a stakeholders técnicos e não técnicos</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-doc-sn">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Especialista">Comunica estratégias a executivos, publica white-papers e fala em eventos</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-doc-es">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td data-label="Competência">Metodologias Ágeis & Gestão de Versão</td>
+            <td data-label="Júnior">Usa tarefas Kanban/Scrum básicas; commits simples</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-agile-jr">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Pleno">Planeja sprints, histórias de usuário e versiona via Git flow</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-agile-pl">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Sênior">Gerencia backlog, métricas ágeis e coordena releases</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-agile-sn">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Especialista">Define governança ágil enterprise, métricas OKR e integração contínua multi-equipe</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-agile-es">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td data-label="Competência">Aprendizado Contínuo & Comunidade</td>
+            <td data-label="Júnior">Completa trilhas Trailhead iniciais</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-learning-jr">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Pleno">Obtém cert. Platform Dev I e participa de grupos locais</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-learning-pl">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Sênior">Conquista cert. Dev II / Integration, apresenta em meetups</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-learning-sn">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+            <td data-label="Especialista">Participa como MVP/mentor, contribui para open-source Salesforce e eventos globais (Dreamforce, TDX)</td>
+            <td data-label="Nota (1-10)">
+              <select id="dev-soft-learning-es">
+                <option value="">Selecione</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- NOVA SEÇÃO: VISÃO DO DEV -->
+    <section id="dev-overview">
+      <h2>🔹 2. DEV (Salesforce Developer)</h2>
+      <p><strong>👉 Foco:</strong> customização com código + integrações</p>
+
+      <div class="career-block">
+        <h3>📚 Conhecimentos obrigatórios</h3>
+
+        <div class="career-category">
+          <h4>💻 Apex</h4>
+          <ul>
+            <li>Classes e triggers</li>
+            <li>Bulkification (ESSENCIAL)</li>
+            <li>Governor Limits</li>
+            <li>Test classes (&gt;=75%)</li>
+          </ul>
+          <p><strong>Async:</strong></p>
+          <ul>
+            <li>Future</li>
+            <li>Queueable</li>
+            <li>Batch</li>
+            <li>Schedulable</li>
+          </ul>
+        </div>
+
+        <div class="career-category">
+          <h4>🌐 APIs & Integração</h4>
+          <ul>
+            <li>REST API</li>
+            <li>SOAP API (menos comum hoje)</li>
+            <li>Callouts (HTTP)</li>
+            <li>Named Credentials</li>
+          </ul>
+          <p><strong>Auth:</strong></p>
+          <ul>
+            <li>OAuth 2.0</li>
+            <li>JWT</li>
+          </ul>
+        </div>
+
+        <div class="career-category">
+          <h4>⚡ Frontend Salesforce</h4>
+          <ul>
+            <li>LWC (Lightning Web Components)</li>
+            <li>Aura (legado)</li>
+            <li>SLDS (design system)</li>
+          </ul>
+        </div>
+
+        <div class="career-category">
+          <h4>🔄 Dados</h4>
+          <ul>
+            <li>SOQL (muito importante)</li>
+            <li>SOSL</li>
+            <li>Manipulação de grandes volumes</li>
+          </ul>
+        </div>
+
+        <div class="career-category">
+          <h4>🧠 Service Cloud (nível técnico)</h4>
+          <ul>
+            <li>Messaging (WhatsApp, Chat)</li>
+            <li>Conversation API</li>
+            <li>Omni-Channel internals</li>
+            <li>Platform Events</li>
+          </ul>
+        </div>
+
+        <div class="career-category">
+          <h4>🧱 Arquitetura básica</h4>
+          <ul>
+            <li>Trigger frameworks</li>
+            <li>Separation of concerns</li>
+            <li>Design patterns (Factory, Service Layer)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="career-block">
+        <div class="career-category">
+          <h3>🛠️ Ferramentas</h3>
+          <ul>
+            <li>VS Code + Salesforce Extension Pack</li>
+            <li>SFDX CLI</li>
+            <li>Postman (avançado) → autenticação OAuth, testes API</li>
+            <li>Workbench (queries, debug)</li>
+            <li>Git (GitHub/GitLab/Bitbucket)</li>
+            <li>Jira / Azure DevOps</li>
+            <li>Debug Logs</li>
+            <li>Salesforce Inspector (extensão Chrome)</li>
+            <li>CLI tools (sf CLI novo)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="developer.js"></script>
+  <script>
+    fetch("header.html")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Erro ao carregar header.html. Status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then(headerHTML => {
+        document.getElementById("common-header").innerHTML = headerHTML;
+      })
+      .catch(error => {
+        console.error("Erro ao inserir o cabeçalho:", error);
+      });
+  </script>
+</body>
+</html>

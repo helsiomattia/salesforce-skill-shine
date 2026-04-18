@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Award, ChevronRight } from "lucide-react";
+import { Award, ChevronRight, Mail, Linkedin } from "lucide-react";
 import { competencyCategories } from "@/data/competencies";
+import SectionTitle from "@/components/SectionTitle";
+import PageFooter from "@/components/layout/PageFooter";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -13,11 +15,32 @@ const fadeUp = {
 const AssessmentPage = () => {
   return (
     <div className="min-h-screen bg-background">
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-hero">
+        <div className="absolute left-10 top-10 h-72 w-72 rounded-full bg-secondary/10 blur-3xl" />
+        <div className="absolute bottom-10 right-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
+
+        <div className="relative z-10 mx-auto max-w-5xl px-4 py-16 md:py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center"
+          >
+            <h1 className="mb-4 font-display text-4xl font-bold text-primary-foreground sm:text-5xl">
+              Avaliação de Competências
+            </h1>
+            <p className="mx-auto max-w-2xl text-lg text-primary-foreground/70">
+              Mapeie seu nível técnico e trace caminhos estratégicos de evolução dentro do ecossistema Salesforce.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       <div className="mx-auto max-w-5xl space-y-12 px-4 py-12">
         <motion.section {...fadeUp}>
-          <SectionTitle icon={<Award className="h-5 w-5" />} title="Avaliação de Competências" />
-          <p className="mb-6 text-muted-foreground">
-            Escolha uma carreira para avaliar suas competências Salesforce:
+          <SectionTitle icon={<Award className="h-5 w-5" />} title="Escolha sua Carreira" />
+          <p className="mb-8 text-muted-foreground">
+            Selecione um dos perfis abaixo para iniciar o diagnóstico detalhado de competências:
           </p>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -40,7 +63,7 @@ const AssessmentPage = () => {
                       {category.title}
                     </h3>
                     <p className="truncate text-xs text-muted-foreground">
-                      {category.skills.length} competências
+                      {category.skills.length} competências mapeadas
                     </p>
                   </div>
 
@@ -51,16 +74,10 @@ const AssessmentPage = () => {
           </div>
         </motion.section>
       </div>
+
+      <PageFooter />
     </div>
   );
 };
-
-const SectionTitle = ({ icon, title }: { icon: React.ReactNode; title: string }) => (
-  <div className="mb-5 flex items-center gap-2">
-    <span className="text-secondary">{icon}</span>
-    <h2 className="font-display text-xl font-bold text-foreground">{title}</h2>
-    <div className="ml-2 h-px flex-1 bg-border" />
-  </div>
-);
 
 export default AssessmentPage;

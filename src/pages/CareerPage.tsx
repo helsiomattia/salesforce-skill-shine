@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import CategoryCard from "@/components/CategoryCard";
 import ResultsPanel from "@/components/ResultsPanel";
 import { competencyCategories, skillLevels } from "@/data/competencies";
+import PageFooter from "@/components/layout/PageFooter";
 
 interface CareerPageProps {
   categoryId: string;
@@ -26,11 +27,11 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative overflow-hidden bg-gradient-hero">
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-hero">
         <div className="absolute left-10 top-10 h-72 w-72 rounded-full bg-secondary/10 blur-3xl" />
         <div className="absolute bottom-10 right-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
 
-        <div className="relative z-10 mx-auto max-w-5xl px-4 py-12">
+        <div className="relative z-10 mx-auto max-w-5xl px-4 py-12 md:py-20">
           <Link
             to="/assessment"
             className="mb-6 inline-flex items-center gap-2 text-sm text-primary-foreground/70 transition-colors hover:text-primary-foreground"
@@ -73,7 +74,7 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
           <ResultsPanel ratings={ratings} categories={[category]} />
         </div>
 
-        <div className="mt-12 flex justify-between">
+        <div className="mt-16 flex justify-between">
           {prevCategory ? (
             <Link
               to={`/${prevCategory.id}`}
@@ -104,6 +105,8 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
           )}
         </div>
       </section>
+
+      <PageFooter />
     </div>
   );
 };

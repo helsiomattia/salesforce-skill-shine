@@ -9,6 +9,8 @@ import {
   GraduationCap,
   BookOpen,
 } from "lucide-react";
+import SectionTitle from "@/components/SectionTitle";
+import PageFooter from "@/components/layout/PageFooter";
 
 const skills = [
   "Salesforce",
@@ -281,40 +283,9 @@ const AboutPage = () => {
         </div>
       </div>
 
-      <footer className="mt-12 rounded-3xl bg-gradient-hero py-8">
-        <div className="mx-auto max-w-5xl px-4 text-center">
-          <p className="mb-4 text-sm text-primary-foreground/50">
-            Conecte-se comigo nas redes sociais:
-          </p>
-          <div className="mb-4 flex justify-center gap-4">
-            <a
-              href="https://linkedin.com/in/helsiomattia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-foreground/60 transition-colors hover:text-secondary"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a
-              href="mailto:helsiomattia@gmail.com"
-              className="text-primary-foreground/60 transition-colors hover:text-secondary"
-            >
-              <Mail className="h-5 w-5" />
-            </a>
-          </div>
-          <p className="text-xs text-primary-foreground/40">© 2025 Helsio Mattia</p>
-        </div>
-      </footer>
+      <PageFooter />
     </div>
   );
 };
-
-const SectionTitle = ({ icon, title }: { icon: React.ReactNode; title: string }) => (
-  <div className="mb-5 flex items-center gap-2">
-    <span className="text-secondary">{icon}</span>
-    <h2 className="font-display text-xl font-bold text-foreground">{title}</h2>
-    <div className="ml-2 h-px flex-1 bg-border" />
-  </div>
-);
 
 export default AboutPage;
