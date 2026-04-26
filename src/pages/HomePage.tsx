@@ -1,43 +1,119 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useTranslation, Trans } from "react-i18next";
+import { getLocalizedString } from "@/utils/i18nHelper";
+import { competencyCategories } from "@/data/competencies";
 import {
-  Sparkles,
   ArrowRight,
   User,
   ClipboardCheck,
-  Layers3,
+  Code2,
+  Settings,
+  Compass,
+  Users,
+  MapPin,
+  Target,
+  Award,
   TrendingUp,
-  CheckCircle2,
-  Gauge,
+  Cloud,
+  Layers,
+  ChevronRight,
+  Database,
+  CheckCircle2
 } from "lucide-react";
-import PageFooter from "@/components/layout/PageFooter";
 
-const pillars = [
+// Inspired by the "Salesforce as a Career" hub-and-spoke image
+const careers = [
   {
-    icon: Layers3,
-    title: "Posicionamento profissional",
-    description:
-      "Uma estrutura clara para apresentar trajetória, visão e diferenciais dentro do ecossistema Salesforce.",
+    id: "admin",
+    title: "Administrador",
+    icon: Settings,
+    color: "bg-purple-100 text-purple-600 border-purple-200",
+    shadow: "hover:shadow-purple-500/20 hover:border-purple-300",
+    description: "A base do ecossistema. Domine a plataforma, automatize processos e crie soluções sem código.",
+    link: "/assessment/admin"
   },
   {
-    icon: ClipboardCheck,
-    title: "Avaliação de competências",
-    description:
-      "Diagnóstico por carreira para visualizar pontos fortes, lacunas e caminhos de evolução.",
+    id: "developer",
+    title: "Desenvolvedor",
+    icon: Code2,
+    color: "bg-blue-100 text-blue-600 border-blue-200",
+    shadow: "hover:shadow-blue-500/20 hover:border-blue-300",
+    description: "Vá além do declarativo. Crie soluções complexas, integrações e componentes customizados LWC.",
+    link: "/assessment/developer"
+  },
+  {
+    id: "architect",
+    title: "Arquiteto",
+    icon: Compass,
+    color: "bg-teal-100 text-teal-600 border-teal-200",
+    shadow: "hover:shadow-teal-500/20 hover:border-teal-300",
+    description: "Desenhe o futuro. Projete soluções escaláveis, seguras e de alta performance de nível enterprise.",
+    link: "/assessment/architect"
+  },
+  {
+    id: "consultant",
+    title: "Consultor",
+    icon: Users,
+    color: "bg-orange-100 text-orange-600 border-orange-200",
+    shadow: "hover:shadow-orange-500/20 hover:border-orange-300",
+    description: "Entenda o negócio. Conecte as necessidades do cliente às melhores práticas da plataforma.",
+    link: "/assessment/consultant"
+  },
+  {
+    id: "data",
+    title: { pt: "Analista de Dados", en: "Data Analyst", es: "Analista de Datos" },
+    icon: Database,
+    color: "bg-pink-100 text-pink-600 border-pink-200",
+    shadow: "hover:shadow-pink-500/20 hover:border-pink-300",
+    description: {
+      pt: "Extraia valor. Transforme dados em insights acionáveis através de dashboards e relatórios CRM Analytics.",
+      en: "Extract value. Turn data into actionable insights through CRM Analytics dashboards and reports.",
+      es: "Extrae valor. Transforma datos en información procesable a través de paneles e informes de CRM Analytics."
+    },
+    link: "/assessment"
+  }
+];
+
+const mappedCareers = [
+  ...competencyCategories.map(c => {
+    const careerSettings = careers.find(s => s.id === c.id);
+    return {
+      id: c.id,
+      title: c.title,
+      icon: careerSettings?.icon || Settings,
+      color: careerSettings?.color || "bg-slate-100 text-slate-600 border-slate-200",
+      shadow: careerSettings?.shadow || "hover:shadow-slate-500/20 hover:border-slate-300",
+      description: c.description,
+      link: `/assessment/${c.id}`
+    };
+  }),
+  // And the data one
+  ...careers.filter(c => c.id === 'data')
+];
+
+// Inspired by the Salesforce DX Development Flow and Release Timelines
+const journeySteps = [
+  {
+    icon: MapPin,
+    title: "1. Mapeamento",
+    description: "Avalie suas habilidades atuais contra o padrão de mercado esperado para cada papel."
+  },
+  {
+    icon: Target,
+    title: "2. Identificação de Gaps",
+    description: "Descubra exatamente quais conhecimentos faltam para você atingir o seu próximo nível."
   },
   {
     icon: TrendingUp,
-    title: "Evolução contínua",
-    description:
-      "Uma base para crescer o projeto como produto, com roadmap, níveis e recomendações futuras.",
+    title: "3. Plano de Evolução",
+    description: "Crie um roadmap direcionando seus estudos para as competências mais críticas e impactantes."
   },
-];
-
-const highlights = [
-  "Visual com abordagem de produto digital",
-  "Trilhas separadas por perfil profissional",
-  "Base para evolução em dashboard de carreira",
-  "Projeto publicado e acessível em produção",
+  {
+    icon: Award,
+    title: "4. Conquista",
+    description: "Alcance as certificações, execute projetos e consolide sua carreira no ecossistema."
+  }
 ];
 
 const fadeUp = {
@@ -48,223 +124,214 @@ const fadeUp = {
 };
 
 const HomePage = () => {
+  const { t, i18n } = useTranslation();
+  const lang = i18n.resolvedLanguage || 'pt';
+
   return (
-    <div className="min-h-screen space-y-10 bg-background px-4 py-6 lg:px-6">
-      <section className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-white px-6 py-14 shadow-[0_20px_80px_rgba(15,23,42,0.06)] md:px-10 md:py-20">
-        <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-cyan-400/15 blur-3xl" />
-          <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
+    <div className="mx-auto min-h-screen max-w-7xl space-y-8 bg-background px-4 py-6 lg:px-6">
 
-          <div className="relative z-10 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <div>
-              <motion.div
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1.5 text-sm font-medium text-cyan-700">
-                  <Sparkles className="h-4 w-4" />
-                  Career Intelligence for Salesforce
-                </div>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden rounded-[40px] border border-slate-200 bg-white px-6 py-10 shadow-xl shadow-slate-200/50 md:px-12 md:py-16">
+        <div className="absolute -left-32 -top-32 h-[500px] w-[500px] rounded-full bg-cyan-400/10 blur-[100px]" />
+        <div className="absolute -bottom-32 -right-32 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-[100px]" />
 
-                <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-6xl">
-                  Uma experiência mais estratégica para carreira, evolução e
-                  competências no universo Salesforce.
-                </h1>
-
-                <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
-                  O Salesforce Skill Shine foi estruturado para unir apresentação
-                  profissional, avaliação de competências e visão de produto em um
-                  único projeto com proposta clara e evolução contínua.
-                </p>
-
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Link
-                    to="/assessment"
-                    className="inline-flex items-center gap-2 rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
-                  >
-                    Explorar avaliação
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-
-                  <Link
-                    to="/about"
-                    className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
-                  >
-                    Conhecer minha trajetória
-                    <User className="h-4 w-4" />
-                  </Link>
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-3">
-                  {highlights.map((item) => (
-                    <span
-                      key={item}
-                      className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm text-slate-600"
-                    >
-                      <CheckCircle2 className="h-4 w-4 text-cyan-600" />
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-
+        <div className="relative z-10 grid gap-16 lg:grid-cols-[1fr_1fr] lg:items-center">
+          <div>
             <motion.div
-              initial={{ opacity: 0, scale: 0.97, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.1 }}
-              className="rounded-[28px] border border-slate-200 bg-slate-950 p-6 text-white shadow-[0_20px_80px_rgba(15,23,42,0.18)]"
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              <div className="mb-5 flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-400">Experience overview</p>
-                  <h2 className="mt-1 text-xl font-semibold">Career Dashboard</h2>
-                </div>
-
-                <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-400/10 text-cyan-300">
-                  <Gauge className="h-5 w-5" />
-                </div>
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
+                <Cloud className="h-4 w-4" />
+                {t('home.badge')}
               </div>
 
-              <div className="space-y-4">
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-xs uppercase tracking-[0.18em] text-slate-500">
-                    Projeto
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-slate-200">
-                    Estrutura orientada a produto, combinando posicionamento,
-                    leitura de carreira e avaliação por trilhas.
-                  </p>
-                </div>
+              <h1 className="max-w-2xl text-4xl font-extrabold tracking-tight text-slate-900 md:text-6xl lg:leading-[1.1]">
+                <Trans i18nKey="home.title" components={{ 1: <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500" /> }} />
+              </h1>
 
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <p className="text-2xl font-bold text-white">3</p>
-                    <p className="mt-1 text-xs text-slate-400">Módulos principais</p>
-                  </div>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
+                {t('home.subtitle')}
+              </p>
 
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <p className="text-2xl font-bold text-white">4</p>
-                    <p className="mt-1 text-xs text-slate-400">Carreiras mapeadas</p>
-                  </div>
-                </div>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link
+                  to="/assessment"
+                  className="group inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-6 py-4 text-base font-semibold text-white transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/25"
+                >
+                  <ClipboardCheck className="h-5 w-5" />
+                  {t('home.startAssessment')}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
 
-                <div className="rounded-2xl border border-cyan-400/15 bg-cyan-400/10 p-4">
-                  <p className="text-sm font-medium text-cyan-200">
-                    Próxima evolução
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-cyan-50/85">
-                    Transformar a avaliação em uma experiência ainda mais visual,
-                    com score, níveis e visão consolidada de maturidade.
-                  </p>
-                </div>
+                <Link
+                  to="/about"
+                  className="inline-flex items-center gap-2 rounded-2xl border-2 border-slate-200 bg-white px-6 py-4 text-base font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+                >
+                  <User className="h-5 w-5 text-slate-400" />
+                  {t('home.aboutMe')}
+                </Link>
               </div>
             </motion.div>
           </div>
-        </section>
 
-        <motion.section
-          {...fadeUp}
-          className="grid gap-5 md:grid-cols-3"
-        >
-          {pillars.map((pillar) => {
-            const Icon = pillar.icon;
+          {/* Abstract Hub Illustration */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative hidden lg:flex h-[450px] w-full items-center justify-center"
+          >
+            {/* Center Node */}
+            <div className="absolute z-20 flex h-32 w-32 items-center justify-center rounded-full bg-gradient-to-tr from-blue-600 to-cyan-400 p-[2px] shadow-2xl shadow-blue-500/30">
+              <div className="flex h-full w-full items-center justify-center rounded-full bg-white">
+                <Cloud className="h-14 w-14 text-blue-500" />
+              </div>
+            </div>
 
+            {/* Orbit Paths */}
+            <div className="absolute h-[320px] w-[320px] rounded-full border border-dashed border-slate-300/80" />
+
+            {/* Surrounding Nodes */}
+            <div className="absolute -top-4 right-16 flex h-16 w-16 items-center justify-center rounded-2xl bg-teal-100 text-teal-600 shadow-lg rotate-12">
+              <Compass className="h-8 w-8" />
+            </div>
+            <div className="absolute bottom-8 right-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 shadow-lg -rotate-6">
+              <Code2 className="h-8 w-8" />
+            </div>
+            <div className="absolute bottom-4 left-12 flex h-16 w-16 items-center justify-center rounded-2xl bg-purple-100 text-purple-600 shadow-lg rotate-6">
+              <Settings className="h-8 w-8" />
+            </div>
+            <div className="absolute top-12 left-10 flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-100 text-orange-600 shadow-lg -rotate-12">
+              <Users className="h-8 w-8" />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Hub and Spoke Career Paths Section */}
+      <motion.section {...fadeUp} className="space-y-6 py-6">
+        <div className="text-center space-y-4">
+          <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">{t('home.careersTitle')}</h2>
+          <p className="mx-auto max-w-2xl text-slate-600 text-lg">
+            {t('home.careersDesc')}
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {mappedCareers.map((career) => {
+            const Icon = career.icon;
             return (
-              <div
-                key={pillar.title}
-                className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_16px_50px_rgba(15,23,42,0.05)]"
+              <Link
+                key={career.id}
+                to={career.link}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-[28px] border-2 bg-white p-6 transition-all duration-300 hover:-translate-y-1 ${career.shadow} border-slate-100 hover:border-opacity-50`}
               >
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-700">
-                  <Icon className="h-5 w-5" />
+                <div className="space-y-4">
+                  <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl border ${career.color}`}>
+                    <Icon className="h-7 w-7" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900">{getLocalizedString(career.title, lang)}</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {getLocalizedString(career.description as any, lang)}
+                  </p>
                 </div>
 
-                <h3 className="mt-5 text-lg font-semibold text-slate-950">
-                  {pillar.title}
-                </h3>
-
-                <p className="mt-3 text-sm leading-7 text-slate-600">
-                  {pillar.description}
-                </p>
-              </div>
+                <div className="mt-8 flex items-center text-sm font-semibold text-slate-400 group-hover:text-slate-900 transition-colors">
+                  {t('home.evaluateSkills')} <ChevronRight className="ml-1 h-4 w-4" />
+                </div>
+              </Link>
             );
           })}
-        </motion.section>
+        </div>
+      </motion.section>
 
-        <motion.section
-          {...fadeUp}
-          className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-[0_16px_50px_rgba(15,23,42,0.05)] md:p-10"
-        >
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700">
-                Visão do projeto
-              </p>
+      {/* The Journey / Timeline Section */}
+      <motion.section {...fadeUp} className="relative overflow-hidden rounded-[40px] bg-slate-900 px-6 py-12 text-white md:px-12">
+        <div className="absolute top-0 right-0 h-[600px] w-[600px] translate-x-1/3 -translate-y-1/3 rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none" />
 
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
-                Mais do que um portfólio pessoal: uma base para um produto de
-                carreira com identidade própria.
-              </h2>
+        <div className="text-center space-y-4 mb-16 relative z-10">
+          <h2 className="text-3xl font-bold md:text-4xl">{t('home.journeyTitle')}</h2>
+          <p className="mx-auto max-w-2xl text-slate-400 text-lg">
+            {t('home.journeyDesc')}
+          </p>
+        </div>
 
-              <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
-                A proposta desta nova home é apresentar o projeto primeiro como uma
-                experiência digital estratégica. A trajetória profissional continua
-                forte, mas agora em uma área dedicada, para que a página inicial
-                comunique valor, visão e direção de evolução.
-              </p>
+        <div className="relative z-10 mx-auto max-w-5xl">
+          {/* Connecting Line Desktop */}
+          <div className="absolute top-12 left-[10%] right-[10%] hidden h-0.5 border-t-2 border-dashed border-slate-700 md:block" />
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  to="/about"
-                  className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
-                >
-                  Ver Sobre mim
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+          <div className="grid gap-10 md:grid-cols-4">
+            {journeySteps.map((step, idx) => {
+              const keys = ['mapping', 'gaps', 'plan', 'achievement'];
+              const Icon = step.icon;
+              return (
+                <div key={idx} className="relative flex flex-col items-center text-center space-y-4">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-slate-800 border-4 border-slate-900 shadow-xl z-10">
+                    <Icon className="h-10 w-10 text-cyan-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-100">{t(`home.steps.${keys[idx]}.title`)}</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed max-w-[200px]">
+                    {t(`home.steps.${keys[idx]}.desc`)}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </motion.section>
 
-                <Link
-                  to="/assessment"
-                  className="inline-flex items-center gap-2 rounded-2xl border border-cyan-200 bg-cyan-50 px-5 py-3 text-sm font-medium text-cyan-700 transition hover:bg-cyan-100"
-                >
-                  Ir para avaliação
-                  <ClipboardCheck className="h-4 w-4" />
-                </Link>
-              </div>
+      {/* The Pyramid Vision Section */}
+      <motion.section {...fadeUp} className="grid gap-10 md:grid-cols-2 items-center rounded-[40px] border border-slate-200 bg-white p-6 shadow-sm md:p-12">
+        <div className="space-y-6">
+          <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-700">
+            <Layers className="h-4 w-4" />
+            {t('home.pyramidBadge')}
+          </div>
+
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+            <Trans i18nKey="home.pyramidTitle" components={{ 1: <span className="text-amber-600" /> }} />
+          </h2>
+
+          <p className="text-lg leading-relaxed text-slate-600">
+            {t('home.pyramidDesc')}
+          </p>
+
+          <ul className="space-y-4">
+            {[0, 1, 2].map((i) => (
+              <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-100 text-amber-600">
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+                {t(`home.pyramidList.${i}`)}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="relative flex justify-center">
+          <div className="flex flex-col items-center gap-2 w-full max-w-sm">
+            {/* Pyramid Peak */}
+            <div className="w-1/3 rounded-t-xl rounded-b-sm border-2 border-amber-300 bg-gradient-to-b from-amber-100 to-amber-50 p-4 text-center font-bold text-amber-800 shadow-md">
+              {t('home.pyramidLevels.cta')}
             </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <p className="text-sm font-medium text-slate-900">Landing premium</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Home focada em proposta de valor e identidade de produto.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <p className="text-sm font-medium text-slate-900">Sobre mim</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Toda a sua trajetória preservada, mas em um espaço mais adequado.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <p className="text-sm font-medium text-slate-900">Assessment</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Trilha prática para avaliar competências por carreira.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <p className="text-sm font-medium text-slate-900">Escalabilidade</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Estrutura pronta para evoluir com score, métricas e roadmap.
-                </p>
-              </div>
+            {/* Pyramid Top */}
+            <div className="w-2/3 rounded-sm border-2 border-teal-300 bg-gradient-to-b from-teal-100 to-teal-50 p-4 text-center font-semibold text-teal-800 shadow-sm">
+              {t('home.pyramidLevels.architect')}
+            </div>
+            {/* Pyramid Middle */}
+            <div className="w-5/6 rounded-sm border-2 border-blue-300 bg-gradient-to-b from-blue-100 to-blue-50 p-4 text-center font-semibold text-blue-800 shadow-sm">
+              {t('home.pyramidLevels.specialist')}
+            </div>
+            {/* Pyramid Base */}
+            <div className="w-full rounded-b-xl rounded-t-sm border-2 border-slate-300 bg-gradient-to-b from-slate-100 to-slate-50 p-4 text-center font-semibold text-slate-700 shadow-sm">
+              {t('home.pyramidLevels.core')}
             </div>
           </div>
-        </motion.section>
+        </div>
+      </motion.section>
 
-      <PageFooter />
     </div>
   );
 };

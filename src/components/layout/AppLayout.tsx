@@ -22,11 +22,7 @@ const AppLayout = () => {
         onToggleCollapse={() => setCollapsed((prev) => !prev)}
       />
 
-      <div
-        className={`min-w-0 flex-1 transition-all duration-300 ${
-          collapsed ? "lg:pl-[88px]" : "lg:pl-[320px]"
-        }`}
-      >
+      <div className="min-w-0 flex-1 transition-all duration-300">
         {/* Mobile-only floating menu trigger */}
         <button
           onClick={() => setOpen(true)}
@@ -36,7 +32,7 @@ const AppLayout = () => {
           <Menu className="h-5 w-5" />
         </button>
 
-        <main>
+        <main className="min-h-screen">
           <Outlet />
         </main>
       </div>

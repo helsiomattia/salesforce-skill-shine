@@ -1,8 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const NotFound = () => {
   const location = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     console.error(
@@ -16,14 +18,14 @@ const NotFound = () => {
       <div className="w-full max-w-xl rounded-2xl border border-border bg-card p-8 text-center shadow-sm">
         <h1 className="mb-4 text-4xl font-bold">404</h1>
         <p className="mb-6 text-xl text-muted-foreground">
-          Oops! Página não encontrada.
+          {t('notFound.title')}
         </p>
 
         <Link
           to="/"
           className="inline-flex rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:opacity-90"
         >
-          Voltar para Home
+          {t('notFound.back')}
         </Link>
       </div>
     </div>

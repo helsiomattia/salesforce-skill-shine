@@ -1,5 +1,8 @@
 import { skillLevels } from "@/data/competencies";
+import { LocString } from "@/data/competencies/types";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
+import { getLocalizedString } from "@/utils/i18nHelper";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,7 +12,7 @@ interface SkillRatingProps {
   onChange: (value: number) => void;
   skillName: string;
   description: string;
-  requirements?: Record<number, string>;
+  requirements?: Record<number, LocString>;
 }
 
 const levelColors: Record<number, string> = {
@@ -23,6 +26,8 @@ const levelColors: Record<number, string> = {
 
 const SkillRating = ({ value, onChange, skillName, description, requirements }: SkillRatingProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { t, i18n } = useTranslation();
+  const lang = i18n.resolvedLanguage || 'pt';
 
   return (
     <div className="p-4 rounded-lg bg-card shadow-card border border-border/50 hover:shadow-card-hover transition-shadow">
@@ -34,7 +39,7 @@ const SkillRating = ({ value, onChange, skillName, description, requirements }: 
               <button 
                 onClick={() => setIsExpanded(!isExpanded)}
                 className="text-muted-foreground hover:text-foreground transition-colors"
-                title="Ver critérios de avaliação"
+                title={t('skillRating.viewCriteria')}
               >
                 <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", isExpanded && "rotate-180")} />
               </button>
@@ -52,11 +57,11 @@ const SkillRating = ({ value, onChange, skillName, description, requirements }: 
                   setIsExpanded(true);
                 }
               }}
-              title={level.label}
+              title={getLocalizedString(level.label, lang)}
               className={cn(
-                "w-8 h-8 rounded-md text-xs font-bold transition-all duration-200 border-2",
+                "w-8 h-8 rounded-md text-xs font-bold transition-all duration-200 border-2 flex items-center justify-center",
                 value === level.value
-                  ? cn(levelColors[level.value], "border-foreground/20 scale-110")
+                  ? cn(levelColors[level.value], "border-foreground/20 scale-110 shadow-sm")
                   : "bg-muted/50 text-muted-foreground border-transparent hover:bg-muted"
               )}
             >
@@ -69,7 +74,7 @@ const SkillRating = ({ value, onChange, skillName, description, requirements }: 
       {value > 0 && !isExpanded && (
         <div className="mt-2">
           <span className={cn("text-xs px-2 py-0.5 rounded-full font-medium inline-block", levelColors[value])}>
-            {skillLevels[value]?.label}
+            {getLocalizedString(skillLevels[value]?.label, lang)}
           </span>
         </div>
       )}
@@ -94,10 +99,10 @@ const SkillRating = ({ value, onChange, skillName, description, requirements }: 
                   style={{ cursor: "pointer" }}
                 >
                   <div className={cn("px-1.5 py-0.5 rounded font-bold whitespace-nowrap self-start", levelColors[level.value])}>
-                    {level.value} - {level.label}
+                    {level.value} - {getLocalizedString(level.label, lang)}
                   </div>
                   <div className="flex-1 text-muted-foreground pt-0.5">
-                    {requirements[level.value] || "Critério não definido para este nível."}
+                    {requirements[level.value] ? getLocalizedString(requirements[level.value], lang) : t('skillRating.noCriteria')}
                   </div>
                 </div>
               ))}

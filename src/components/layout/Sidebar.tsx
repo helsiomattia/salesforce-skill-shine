@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   Home,
   User,
@@ -11,7 +12,10 @@ import {
   Mail,
   ExternalLink,
   LayoutDashboard,
+  MessageSquare,
+  Globe,
 } from "lucide-react";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 type SidebarProps = {
   open: boolean;
@@ -21,29 +25,35 @@ type SidebarProps = {
   onToggleCollapse: () => void;
 };
 
-const navItems = [
+const getNavItems = (t: any) => [
   {
     to: "/",
-    label: "Home",
-    description: "Landing e visão do projeto",
+    label: t('nav.home'),
+    description: t('nav.homeDesc'),
     icon: Home,
     end: true,
   },
   {
     to: "/about",
-    label: "Sobre mim",
-    description: "Trajetória e experiência",
+    label: t('nav.about'),
+    description: t('nav.aboutDesc'),
     icon: User,
   },
   {
     to: "/assessment",
-    label: "Avaliação",
-    description: "Competências e evolução",
+    label: t('nav.assessment'),
+    description: t('nav.assessmentDesc'),
     icon: ClipboardCheck,
+  },
+  {
+    to: "/contact",
+    label: t('nav.contact'),
+    description: t('nav.contactDesc'),
+    icon: MessageSquare,
   },
 ];
 
-const externalLinks = [
+const getExternalLinks = (t: any) => [
   {
     href: "https://github.com/helsiomattia",
     label: "GitHub",
@@ -51,12 +61,17 @@ const externalLinks = [
   },
   {
     href: "https://linkedin.com/in/helsiomattia",
-    label: "LinkedIn",
+    label: t('contact.linkedin'),
     icon: Linkedin,
   },
   {
+    href: "https://trailblazer.me/id/helsiomattia",
+    label: t('about.trailblazer'),
+    icon: Globe,
+  },
+  {
     href: "mailto:helsiomattia@gmail.com",
-    label: "Email",
+    label: t('contact.email'),
     icon: Mail,
   },
 ];
@@ -68,6 +83,9 @@ const Sidebar = ({
   onToggleCollapse,
 }: SidebarProps) => {
   const location = useLocation();
+  const { t } = useTranslation();
+  const navItems = getNavItems(t);
+  const externalLinks = getExternalLinks(t);
 
   const isItemActive = (to: string) => {
     if (to === "/") return location.pathname === "/";
@@ -101,10 +119,10 @@ const Sidebar = ({
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-slate-900">
-                    Salesforce Skill Shine
+                    {t('sidebar.title')}
                   </p>
                   <p className="text-xs text-slate-500">
-                    Dashboard de carreira
+                    {t('sidebar.subtitle')}
                   </p>
                 </div>
               </div>
@@ -134,26 +152,6 @@ const Sidebar = ({
           </div>
 
           <div className="flex-1 overflow-y-auto px-3 py-4">
-            {!collapsed && (
-              <div className="mb-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                <div className="mb-2 flex items-center gap-2">
-                  <LayoutDashboard className="h-4 w-4 text-slate-700" />
-                  <span className="text-xs font-medium uppercase tracking-wide text-slate-500">
-                    Navegação
-                  </span>
-                </div>
-
-                <h2 className="text-sm font-semibold text-slate-900">
-                  Dashboard de carreira Salesforce
-                </h2>
-
-                <p className="mt-1 text-sm leading-6 text-slate-600">
-                  Organizando posicionamento profissional, competências e
-                  evolução em uma experiência mais limpa e objetiva.
-                </p>
-              </div>
-            )}
-
             <nav className="space-y-2">
               {navItems.map((item) => {
                 const Icon = item.icon;
@@ -166,10 +164,9 @@ const Sidebar = ({
                     end={item.end}
                     className={`
                       flex items-center gap-3 rounded-2xl border px-3 py-3 transition-all
-                      ${
-                        active
-                          ? "border-slate-900 bg-slate-900 text-white"
-                          : "border-transparent text-slate-700 hover:border-slate-200 hover:bg-slate-50"
+                      ${active
+                        ? "border-slate-900 bg-slate-900 text-white"
+                        : "border-transparent text-slate-700 hover:border-slate-200 hover:bg-slate-50"
                       }
                     `}
                   >
@@ -179,9 +176,8 @@ const Sidebar = ({
                       <div className="min-w-0">
                         <p className="text-sm font-medium">{item.label}</p>
                         <p
-                          className={`text-xs ${
-                            active ? "text-slate-300" : "text-slate-500"
-                          }`}
+                          className={`text-xs ${active ? "text-slate-300" : "text-slate-500"
+                            }`}
                         >
                           {item.description}
                         </p>
@@ -200,7 +196,7 @@ const Sidebar = ({
                   Helsio Mattia
                 </p>
                 <p className="mt-1 text-xs text-slate-500">
-                  Salesforce • CRM • Carreira • Evolução técnica
+                  {t('sidebar.tags')}
                 </p>
 
                 <div className="mt-4 space-y-2">
@@ -240,11 +236,20 @@ const Sidebar = ({
                 <a href="https://linkedin.com/in/helsiomattia" target="_blank" rel="noreferrer noopener">
                   <Linkedin className="h-5 w-5 text-slate-600" />
                 </a>
+                <a href="https://trailblazer.me/id/helsiomattia" target="_blank" rel="noreferrer noopener">
+                  <Globe className="h-5 w-5 text-slate-600" />
+                </a>
                 <a href="mailto:helsiomattia@gmail.com">
                   <Mail className="h-5 w-5 text-slate-600" />
                 </a>
+
               </div>
             )}
+          </div>
+          <div className="mt-auto border-t border-slate-200 px-3 py-4">
+            <div className={`flex items-center ${collapsed ? 'justify-center' : 'justify-between px-2'}`}>
+              <LanguageSwitcher variant="light" showLabels={!collapsed} />
+            </div>
           </div>
         </div>
       </aside>

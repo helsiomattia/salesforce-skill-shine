@@ -50,8 +50,7 @@
     --shadow-card-hover: 0 12px 40px -8px hsl(215 85% 35% / 0.15);
     --shadow-hero: 0 20px 60px -15px hsl(215 85% 35% / 0.3);
 
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-primary: 'Inter', sans-serif;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -97,13 +96,22 @@
 @layer base {
   * {
     @apply border-border;
+    font-family: var(--font-primary);
+    text-justify: inter-word;
+  }
+  html {
+    font-size: 16px;
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-body);
+    text-align: left;
   }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+  p {
+    text-align: justify;
+  }
+  h1, h2, h3, h4, h5, h6, button, input, select, textarea, span, a {
+    font-family: var(--font-primary);
+    text-align: inherit;
   }
 }
 
@@ -125,5 +133,21 @@
   }
   .shadow-card-hover {
     box-shadow: var(--shadow-card-hover);
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-200%); }
+    100% { transform: translateX(200%); }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s infinite linear;
   }
 }

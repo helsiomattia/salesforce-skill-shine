@@ -1,0 +1,333 @@
+{
+  "nav": {
+    "home": "Home",
+    "homeDesc": "",
+    "about": "Sobre mim",
+    "aboutDesc": "Trajetória e Experiência",
+    "assessment": "Avaliação",
+    "assessmentDesc": "Competências e Evolução",
+    "contact": "Contate-me",
+    "contactDesc": "Mapeamento e Direcionamento",
+    "admin": "Administrator",
+    "developer": "Developer",
+    "architect": "Architect",
+    "consultant": "Consultant",
+    "back": "Voltar"
+  },
+  "footer": {
+    "text": "Desenvolvido por Mattioli. Especialista Salesforce.",
+    "social": "Conecte-se comigo nas redes sociais:",
+    "rights": "© 2025 Helsio Mattia"
+  },
+  "levels": {
+    "0": "Não avaliado",
+    "1": "Iniciante",
+    "2": "Básico",
+    "3": "Intermediário",
+    "4": "Avançado",
+    "5": "Especialista"
+  },
+  "results": {
+    "title": "📊 Seu Perfil de Competências",
+    "avg": "Média Geral",
+    "totalAvg": "média total",
+    "rated": "Avaliadas",
+    "pending": "Pendentes",
+    "guidance": "🧭 Orientação de Desenvolvimento",
+    "strengths": "Pontos Fortes",
+    "evolving": "Em Evolução",
+    "gaps": "Gaps a Desenvolver",
+    "notRated": "Ainda não avaliadas",
+    "status": {
+      "notRated": "Não avaliado",
+      "developing": "Precisa desenvolver",
+      "evolving": "Em evolução",
+      "competent": "Competente",
+      "master": "Domina"
+    },
+    "recommendations": {
+      "none": "Avalie sua competência em {{skill}} para receber orientações.",
+      "level1": "Comece pelos fundamentos de {{skill}}. Busque Trailheads introdutórios e documentação oficial.",
+      "level2": "Pratique {{skill}} em projetos reais. Explore cenários mais complexos e hands-on labs.",
+      "level3": "Aprofunde em {{skill}} com casos avançados. Considere certificações e projetos desafiadores.",
+      "level4": "Você está quase lá em {{skill}}! Mentore outros e busque cenários edge-case para consolidar.",
+      "level5": "Excelente domínio de {{skill}}! Compartilhe conhecimento e mantenha-se atualizado com releases."
+    }
+  },
+  "skillRating": {
+    "viewCriteria": "Ver critérios de avaliação",
+    "noCriteria": "Critério não definido para este nível."
+  },
+  "notFound": {
+    "title": "Oops! Página não encontrada.",
+    "back": "Voltar para Home"
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "subtitle": "Tem uma proposta ou projeto? Vamos conversar.",
+    "email": "E-mail",
+    "linkedin": "LinkedIn"
+  },
+  "sidebar": {
+    "title": "Salesforce Skill Shine",
+    "subtitle": "Organizando posicionamento profissional, competências e evolução em uma experiência mais limpa e objetiva.",
+    "tags": "Salesforce • CRM • Carreira • Evolução técnica"
+  },
+  "home": {
+    "badge": "Seu GPS no Ecossistema Salesforce",
+    "title": "Navegue pelas <1>carreiras Salesforce</1> com clareza.",
+    "subtitle": "Uma plataforma projetada para avaliar suas competências, identificar lacunas e traçar o melhor caminho de evolução para papéis de Admin, Developer, Arquiteto e Consultor.",
+    "startAssessment": "Iniciar Avaliação",
+    "aboutMe": "Conhecer o Profissional",
+    "careersTitle": "Trilhas de Carreira",
+    "careersDesc": "Descubra qual papel no ecossistema Salesforce mais se alinha com seus objetivos e comece a mapear suas competências.",
+    "evaluateSkills": "Avaliar habilidades",
+    "journeyTitle": "A Jornada de Evolução",
+    "journeyDesc": "Uma metodologia contínua para você não ficar estagnado. Funciona como o ciclo de vida de desenvolvimento: planeje, mapeie, valide e alcance novos níveis.",
+    "steps": {
+      "mapping": {
+        "title": "1. Mapeamento",
+        "desc": "Avalie suas habilidades atuais contra o padrão de mercado esperado para cada papel."
+      },
+      "gaps": {
+        "title": "2. Identificação de Gaps",
+        "desc": "Descubra exatamente quais conhecimentos faltam para você atingir o seu próximo nível."
+      },
+      "plan": {
+        "title": "3. Plano de Evolução",
+        "desc": "Crie um roadmap direcionando seus estudos para as competências mais críticas e impactantes."
+      },
+      "achievement": {
+        "title": "4. Conquista",
+        "desc": "Alcance as certificações, execute projetos e consolide sua carreira no ecossistema."
+      }
+    },
+    "pyramidBadge": "Arquitetura do Sucesso",
+    "pyramidTitle": "Sua carreira não é um sprint, é uma <1>pirâmide de valor.</1>",
+    "pyramidDesc": "Assim como o caminho para Technical Architect no ecossistema, o Salesforce Skill Shine ajuda você a construir uma fundação sólida, adquirir especializações e finalmente alcançar o topo da sua jornada profissional.",
+    "pyramidList": {
+      "0": "Fundamentos Sólidos (Core)",
+      "1": "Especializações (Nuvens e Produtos)",
+      "2": "Maturidade e Arquitetura"
+    },
+    "pyramidLevels": {
+      "cta": "CTA / Topo",
+      "architect": "Arquiteto de Domínio",
+      "specialist": "Especializações (Dev, Consultor)",
+      "core": "Fundamentos (Admin & App Builder)"
+    }
+  },
+  "about": {
+    "badge": "Trajetória Profissional",
+    "title": "Helsio Mattia",
+    "role": "Salesforce Consultant | CRM Specialist | Sales & Service Cloud | 4x Certified",
+    "email": "helsiomattia@gmail.com",
+    "linkedin": "linkedin.com/in/helsiomattia",
+    "phone": "+55 49 98814-5714",
+    "bioTitle": "Sobre mim",
+    "bio1": "Profissional Salesforce com mais de 4 anos de experiência em desenho e otimização de soluções de CRM, com foco em escalabilidade e performance de negócio.",
+    "bio2": "Atualmente atua no <1>Efí Bank</1>, liderando iniciativas para melhorar operações de atendimento, fluxos de automação e eficiência do CRM com Sales e Service Cloud.",
+    "bio3": "Combina visão técnica e de negócio, apoiada por histórico anterior em consultoria ERP e QA, o que fortalece a leitura ponta a ponta dos processos corporativos.",
+    "expertiseTitle": "Expertise",
+    "certificationsTitle": "Certificações",
+    "experienceTitle": "Experiência Profissional",
+    "educationTitle": "Formação",
+    "achievementsTitle": "Conquistas & Links",
+    "trailblazer": "Perfil Trailblazer",
+    "languages": {
+      "english": "Inglês",
+      "englishLevel": "Professional Working",
+      "portuguese": "Português",
+      "portugueseLevel": "Nativo / Bilíngue"
+    },
+    "experiences": {
+      "efi": {
+        "company": "Efí Bank",
+        "period": "Ago 2024 - Atual",
+        "role": "Salesforce CRM Administrator",
+        "desc": "Gestão e otimização da plataforma Salesforce, alinhando CRM aos processos e necessidades do negócio. Atua com customizações, resolução de problemas, documentação técnica, suporte aos usuários e iniciativas de performance, escalabilidade e automação."
+      },
+      "eqi": {
+        "company": "EQI Investimentos",
+        "period": "Mar 2022 - Jul 2024",
+        "role": "Salesforce CRM Analyst",
+        "desc": "Trabalhou na evolução da plataforma Salesforce com foco em objetos, campos, layouts, automações, documentação, suporte e tradução de requisitos em soluções práticas."
+      },
+      "cloud11": {
+        "company": "Cloud11",
+        "period": "Out 2021 - Fev 2022",
+        "role": "Salesforce CRM Analyst",
+        "desc": "Durante experiência internacional no Egito, iniciou sua trajetória em Salesforce, colaborando com times de diferentes regiões para adaptar a plataforma às necessidades locais."
+      },
+      "controlsoft": {
+        "company": "ControlSoft Assessoria",
+        "period": "Mar 2018 - Jul 2019",
+        "role": "ERP Software Quality Assurance (QA)",
+        "desc": "Atuação com planejamento, execução e reporte de testes em ERP do agronegócio, com foco em qualidade, confiabilidade e validação de dados críticos."
+      },
+      "proxsis": {
+        "company": "Proxsis Sistemas de Gestão Empresarial",
+        "period": "Mar 2016 - Jul 2017",
+        "role": "ERP Software Consultant",
+        "desc": "Liderou a implementação de ERP em indústrias, mapeando processos, dando suporte, treinando equipes e documentando soluções para otimizar a eficiência operacional."
+      }
+    },
+    "education": {
+      "mbaEng": {
+        "title": "MBA em Engenharia de Software",
+        "inst": "UTFPR",
+        "period": "2023 - 2024"
+      },
+      "sysInfo": {
+        "title": "Sistemas de Informação",
+        "inst": "UNIASSELVI",
+        "period": "Desde 2023"
+      },
+      "mbaProj": {
+        "title": "MBA em Gestão de Projetos",
+        "inst": "UNIASSELVI",
+        "period": "2021"
+      },
+      "mbaBI": {
+        "title": "MBA em Business Intelligence",
+        "inst": "UNIASSELVI",
+        "period": "2020 - 2021"
+      },
+      "admin": {
+        "title": "Bacharelado em Administração",
+        "inst": "Unochapecó",
+        "period": "2011 - 2016"
+      }
+    }
+  },
+  "contactPage": {
+    "badge": "Vamos conversar?",
+    "title": "Contate-me e <1>Evolua</1>",
+    "subtitle": "Tem dúvidas sobre sua carreira, precisa de uma avaliação detalhada ou busca um direcionamento estratégico personalizado? Estou aqui para ajudar você a brilhar no ecossistema Salesforce.",
+    "servicesTitle": "Como funciona o serviço",
+    "servicesSubtitle": "Ofereço uma abordagem estruturada para transformar sua carreira Salesforce através de dois pilares principais.",
+    "services": {
+      "assessment": {
+        "title": "Avaliação de Competências",
+        "desc": "Um diagnóstico profundo das suas hard e soft skills dentro do ecossistema Salesforce, identificando exatamente onde você está e o que precisa para subir de nível.",
+        "f1": "Mapeamento por carreira (Admin, Dev, Arquiteto)",
+        "f2": "Identificação de gaps técnicos",
+        "f3": "Análise de maturidade profissional",
+        "f4": "Dashboard personalizado de resultados"
+      },
+      "mentoring": {
+        "title": "Direcionamento de Carreira – Sessão de Mapeamento",
+        "desc": "Uma sessão focada em traçar um roteiro estratégico personalizado. Receba orientações claras sobre próximos passos, certificações e posicionamento, sem compromisso de resultados garantidos – o protagonismo é seu.",
+        "f1": "Roteiro de estudos direcionado (sem cronograma fixo obrigatório)",
+        "f2": "Recomendações para certificações com base no seu momento",
+        "f3": "Revisão de posicionamento e LinkedIn (sugestões aplicáveis por você)",
+        "f4": "Checklist de desafios técnicos prioritários",
+        "f5": "Sessão de 1h30 com material de apoio",
+        "disclaimer": "* Este serviço oferece direcionamento técnico e estratégico. A aprovação em certificações, promoções ou mudanças de cargo depende exclusivamente da sua preparação e de fatores externos à consultoria."
+      }
+    },
+    "ctaTitle": "Pronto para dar o próximo passo na sua jornada Salesforce?",
+    "ctaSubtitle": "Escolha o melhor canal para conversarmos e darmos início à sua evolução.",
+    "schedule": "Agendar Conversa",
+    "response": "Resposta em até 24h",
+    "strategic": "Direcionamento Estratégico",
+    "disclaimer": "⚠️ Os serviços de avaliação e direcionamento de carreira oferecem análises e recomendações baseadas na minha experiência profissional. Resultados como aprovação em certificações, promoções ou aumento de salário dependem de fatores externos e da aplicação individual por parte do cliente. Não há garantia de resultados específicos."
+  },
+  "careerPage": {
+    "back": "Voltar as Carreiras",
+    "badge": "Carreira Salesforce",
+    "journey": "Etapa da Avaliação",
+    "tabs": {
+      "hard": "Hard Skills",
+      "soft": "Soft Skills",
+      "strategy": "Visão Estratégica",
+      "evolution": "Evolução de Carreira",
+      "knowledge": "Ferramentas",
+      "finish": "Finalizar Avaliação"
+    },
+    "comingSoon": {
+      "title": "Em breve",
+      "desc": "As recomendações de conhecimentos e ferramentas estão sendo mapeadas para esta carreira."
+    },
+    "finish": {
+      "title": "Finalizar sua Avaliação",
+      "desc": "Preencha seus dados para gerar o relatório final da sua avaliação de competências. Estas informações serão utilizadas no cabeçalho do seu PDF.",
+      "form": {
+        "fullName": "Nome Completo",
+        "email": "E-mail",
+        "role": "Função Atual",
+        "phone": "Telefone / WhatsApp",
+        "linkedin": "Perfil do LinkedIn (opcional)",
+        "experience": "Anos de Experiência no Ecossistema",
+        "privacy": "Eu concordo com o processamento dos meus dados para fins de geração deste relatório, em conformidade com a LGPD.",
+        "submit": "FINALIZAR AVALIAÇÃO"
+      },
+      "pdf": {
+        "title": "Relatório de Competências Salesforce",
+        "generatedAt": "Gerado em",
+        "personalInfo": "Informações Pessoais",
+        "assessmentResults": "Resultados da Avaliação",
+        "hardSkills": "Hard Skills (Técnico)",
+        "softSkills": "Soft Skills (Comportamental)",
+        "skillName": "Competência",
+        "score": "Nível",
+        "status": "Status",
+        "disclaimer": "Este relatório é uma ferramenta de autoconhecimento baseada na plataforma Salesforce Skill Shine."
+      }
+    },
+    "navigation": {
+      "prev": "Anterior",
+      "next": "Próxima",
+      "finish": "Finalizar e Voltar"
+    },
+    "strategy": {
+      "badge": "Ambição e Foco",
+      "title": "Como sua função impacta a Estratégia",
+      "impact": "Seu Impacto"
+    },
+    "evolution": {
+      "title": "Evolução de Carreira",
+      "maturityStages": "Estágios de Maturidade",
+      "strategicJourney": "Jornada de Evolução Estratégica"
+    },
+    "assessment": {
+      "badge": "Diagnóstico de Carreira",
+      "title": "Mapeie seu <0>Nível Técnico</0>",
+      "subtitle": "Descubra seus pontos fortes, identifique lacunas e visualize seu roadmap de evolução estratégica dentro do ecossistema Salesforce.",
+      "features": {
+        "mapping": {
+          "title": "Mapeamento Preciso",
+          "desc": "Avalie hard e soft skills essenciais para cada papel."
+        },
+        "growth": {
+          "title": "Visão de Crescimento",
+          "desc": "Entenda o que falta para alcançar o próximo nível."
+        },
+        "highlight": {
+          "title": "Destaque Profissional",
+          "desc": "Use os resultados para guiar seu posicionamento no mercado."
+        }
+      },
+      "selection": {
+        "title": "Escolha sua Carreira",
+        "subtitle": "Selecione o perfil que deseja avaliar hoje:",
+        "tracks": "{{count}} Trilhas Disponíveis"
+      },
+      "card": {
+        "skills": "{{count}} Competências",
+        "start": "Inicie agora"
+      },
+      "support": {
+        "title": "Dúvidas sobre o resultado?",
+        "desc": "A avaliação é um ponto de partida. Se você busca uma análise mais profunda ou um plano de estudos personalizado baseado nesses resultados, entre em contato para um direcionamento.",
+        "contact": "Contate-me",
+        "tags": {
+          "soft": "Soft Skills",
+          "hard": "Hard Skills",
+          "maturity": "Maturidade Técnica",
+          "business": "Visão de Negócio"
+        }
+      }
+    }
+  }
+}

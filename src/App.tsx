@@ -4,10 +4,12 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import AppLayout from "./components/layout/AppLayout";
+import ScrollToTop from "./components/ScrollToTop";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import AssessmentPage from "./pages/AssessmentPage";
 import CareerPage from "./pages/CareerPage";
+import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -18,15 +20,17 @@ const App = () => (
       <Toaster />
       <Sonner />
       <HashRouter>
+        <ScrollToTop />
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/assessment" element={<AssessmentPage />} />
-            <Route path="/admin" element={<CareerPage categoryId="admin" />} />
-            <Route path="/developer" element={<CareerPage categoryId="developer" />} />
-            <Route path="/consultant" element={<CareerPage categoryId="consultant" />} />
-            <Route path="/architect" element={<CareerPage categoryId="architect" />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/assessment/admin" element={<CareerPage categoryId="admin" />} />
+            <Route path="/assessment/developer" element={<CareerPage categoryId="developer" />} />
+            <Route path="/assessment/consultant" element={<CareerPage categoryId="consultant" />} />
+            <Route path="/assessment/architect" element={<CareerPage categoryId="architect" />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />

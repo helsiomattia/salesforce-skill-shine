@@ -1,23 +1,30 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { getLocalizedString } from "@/utils/i18nHelper";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, Sparkles, LayoutDashboard } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CategoryCard from "@/components/CategoryCard";
 import ResultsPanel from "@/components/ResultsPanel";
-import { competencyCategories, skillLevels } from "@/data/competencies";
-import PageFooter from "@/components/layout/PageFooter";
+import { competencyCategories } from "@/data/competencies";
+import KnowledgePanel from "@/components/KnowledgePanel";
+import StrategyPanel from "@/components/StrategyPanel";
+import EvolutionPanel from "@/components/EvolutionPanel";
+import CareerPath from "@/components/CareerPath";
+import FinishPanel from "@/components/FinishPanel";
+
 
 interface CareerPageProps {
   categoryId: string;
 }
 
 const CareerPage = ({ categoryId }: CareerPageProps) => {
+  const { i18n, t } = useTranslation();
+  const lang = i18n.resolvedLanguage || 'pt';
   const [ratings, setRatings] = useState<Record<string, number>>({});
+  const [activeTab, setActiveTab] = useState("hard");
   const category = competencyCategories.find((c) => c.id === categoryId);
-
-  const currentIndex = competencyCategories.findIndex((c) => c.id === categoryId);
-  const prevCategory = competencyCategories[currentIndex - 1];
-  const nextCategory = competencyCategories[currentIndex + 1];
 
   const handleRate = (skillId: string, value: number) => {
     setRatings((prev) => ({ ...prev, [skillId]: value }));
@@ -25,88 +32,146 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
 
   if (!category) return null;
 
-  return (
-    <div className="min-h-screen bg-background">
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-hero">
-        <div className="absolute left-10 top-10 h-72 w-72 rounded-full bg-secondary/10 blur-3xl" />
-        <div className="absolute bottom-10 right-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
+  const pathItems = [
+    { id: "hard", label: t('careerPage.tabs.hard') },
+    { id: "soft", label: t('careerPage.tabs.soft') },
+    ...(category.strategy ? [{ id: "strategy", label: t('careerPage.tabs.strategy') }] : []),
+    ...(category.evolution ? [{ id: "evolution", label: t('careerPage.tabs.evolution') }] : []),
+    { id: "knowledge", label: t('careerPage.tabs.knowledge') },
+    { id: "finish", label: t('careerPage.tabs.finish') },
+  ];
 
-        <div className="relative z-10 mx-auto max-w-5xl px-4 py-12 md:py-20">
+  return (
+    <div className="mx-auto max-w-7xl px-4 py-6 lg:px-6 space-y-8">
+
+      {/* Hero Section */}
+      <section className="relative overflow-hidden rounded-[40px] border border-slate-200 bg-white px-6 py-10 shadow-xl shadow-slate-200/50 md:px-12 md:py-12">
+        <div className="absolute -left-32 -top-32 h-[400px] w-[400px] rounded-full bg-blue-400/10 blur-[100px]" />
+        <div className="absolute -bottom-32 -right-32 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-[100px]" />
+
+        <div className="relative z-10 space-y-6">
           <Link
             to="/assessment"
-            className="mb-6 inline-flex items-center gap-2 text-sm text-primary-foreground/70 transition-colors hover:text-primary-foreground"
+            className="group inline-flex items-center gap-2 text-sm font-bold text-slate-400 transition-colors hover:text-blue-600"
           >
-            <ArrowLeft className="h-4 w-4" />
-            Voltar às carreiras
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-50 transition-colors group-hover:bg-blue-50 group-hover:text-blue-600">
+              <ArrowLeft className="h-4 w-4" />
+            </div>
+            {t('careerPage.back')}
           </Link>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            className="flex flex-col md:flex-row md:items-center gap-8"
           >
-            <span className="mb-4 block text-5xl">{category.icon}</span>
-            <h1 className="mb-3 font-display text-4xl font-bold text-primary-foreground sm:text-5xl">
-              {category.title}
-            </h1>
-            <p className="max-w-2xl text-lg text-primary-foreground/70">
-              {category.description}
-            </p>
+            <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-[32px] bg-slate-50 text-5xl shadow-inner">
+              {category.icon}
+            </div>
+
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700 uppercase tracking-widest">
+                <Sparkles className="h-3 w-3" />
+                {t('careerPage.badge')}
+              </div>
+              <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
+                {getLocalizedString(category.title, lang)}
+              </h1>
+              <p className="max-w-2xl text-lg text-slate-600 leading-relaxed">
+                {getLocalizedString(category.description, lang)}
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 py-12">
-        <div className="mb-8 flex flex-wrap justify-center gap-3">
-          {skillLevels.map((level) => (
-            <span
-              key={level.value}
-              className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground"
-            >
-              {level.value} = {level.label}
-            </span>
-          ))}
+      {/* Career Path Navigation */}
+      <section className="space-y-4">
+        <div className="flex items-center gap-2 px-2 mb-2 text-slate-400">
+          <Sparkles className="h-4 w-4" />
+          <span className="text-xs font-bold uppercase tracking-widest">{t('careerPage.journey')}</span>
         </div>
-
-        <CategoryCard category={category} ratings={ratings} onRate={handleRate} />
-
-        <div className="mt-12">
-          <ResultsPanel ratings={ratings} categories={[category]} />
-        </div>
-
-        <div className="mt-16 flex justify-between">
-          {prevCategory ? (
-            <Link
-              to={`/${prevCategory.id}`}
-              className="inline-flex items-center gap-2 rounded-full bg-muted px-5 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/80"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              {prevCategory.icon} {prevCategory.title}
-            </Link>
-          ) : (
-            <div />
-          )}
-
-          {nextCategory ? (
-            <Link
-              to={`/${nextCategory.id}`}
-              className="inline-flex items-center gap-2 rounded-full bg-secondary px-5 py-2.5 text-sm font-medium text-secondary-foreground transition-opacity hover:opacity-90"
-            >
-              {nextCategory.icon} {nextCategory.title}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          ) : (
-            <Link
-              to="/assessment"
-              className="inline-flex items-center gap-2 rounded-full bg-secondary px-5 py-2.5 text-sm font-medium text-secondary-foreground transition-opacity hover:opacity-90"
-            >
-              Ver todas as carreiras
-            </Link>
-          )}
-        </div>
+        <CareerPath 
+          items={pathItems} 
+          currentId={activeTab} 
+          onSelect={setActiveTab} 
+        />
       </section>
 
-      <PageFooter />
+      {/* Assessment Tabs Section */}
+      <section className="space-y-8">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+
+
+          <div className="mt-8">
+            <TabsContent value="hard" className="mt-0 outline-none focus-visible:ring-0">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div className="lg:col-span-12 xl:col-span-8">
+                  <CategoryCard category={category} ratings={ratings} onRate={handleRate} filterType="hard" />
+                </div>
+                <div className="lg:col-span-12 xl:col-span-4">
+                  <ResultsPanel
+                    ratings={ratings}
+                    categories={[category]}
+                    type="hard"
+                    title={`📊 ${t('careerPage.tabs.hard')}`}
+                  />
+                </div>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="soft" className="mt-0 outline-none focus-visible:ring-0">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div className="lg:col-span-12 xl:col-span-8">
+                  <CategoryCard category={category} ratings={ratings} onRate={handleRate} filterType="soft" />
+                </div>
+                <div className="lg:col-span-12 xl:col-span-4">
+                  <ResultsPanel
+                    ratings={ratings}
+                    categories={[category]}
+                    type="soft"
+                    title={`🗣️ ${t('careerPage.tabs.soft')}`}
+                  />
+                </div>
+              </div>
+            </TabsContent>
+
+            {category.strategy && (
+              <TabsContent value="strategy" className="mt-0 outline-none focus-visible:ring-0">
+                <StrategyPanel strategy={category.strategy} />
+              </TabsContent>
+            )}
+
+            {category.evolution && (
+              <TabsContent value="evolution" className="mt-0 outline-none focus-visible:ring-0">
+                <EvolutionPanel evolution={category.evolution} />
+              </TabsContent>
+            )}
+
+            <TabsContent value="knowledge" className="mt-0 outline-none focus-visible:ring-0">
+              {category.knowledgeGroups ? (
+                <KnowledgePanel groups={category.knowledgeGroups} />
+              ) : (
+                <div className="rounded-[40px] border-2 border-dashed border-slate-200 bg-white p-16 text-center">
+                  <LayoutDashboard className="mx-auto h-12 w-12 text-slate-300 mb-4" />
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">{t('careerPage.comingSoon.title')}</h3>
+                  <p className="text-slate-500 max-w-sm mx-auto">
+                    {t('careerPage.comingSoon.desc')}
+                  </p>
+                </div>
+              )}
+            </TabsContent>
+
+            <TabsContent value="finish" className="mt-0 outline-none focus-visible:ring-0">
+              <FinishPanel category={category} ratings={ratings} />
+            </TabsContent>
+          </div>
+        </Tabs>
+
+
+      </section>
+
     </div>
   );
 };
