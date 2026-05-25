@@ -138,6 +138,47 @@ export const consultantCompetency: CompetencyCategory = {
         }
       }
     },
+    { 
+      id: "con-4", 
+      name: {
+        pt: "User Experience (UX) & Interface Design",
+        en: "User Experience (UX) & Interface Design",
+        es: "Experiencia de Usuario (UX) y Diseño de Interfaz"
+      }, 
+      description: {
+        pt: "Lightning Pages, SLDS, prototipagem e adoção de usuários",
+        en: "Lightning Pages, SLDS, prototyping, and user adoption",
+        es: "Lightning Pages, SLDS, prototipado y adopción de usuarios"
+      },
+      type: "hard",
+      requirements: {
+        1: {
+          pt: "Entende a importância da usabilidade e facilidade de navegação no Salesforce.",
+          en: "Understands the importance of usability and ease of navigation in Salesforce.",
+          es: "Entiende la importancia de la usabilidad y la facilidad de navegación en Salesforce."
+        },
+        2: {
+          pt: "Sabe configurar Lightning Pages, App Builder e visões de lista focadas na produtividade do usuário.",
+          en: "Can configure Lightning Pages, App Builder, and list views focused on user productivity.",
+          es: "Sabe configurar Lightning Pages, App Builder y vistas de lista centradas en la productividad del usuario."
+        },
+        3: {
+          pt: "Propõe melhorias de interface baseadas em feedbacks e utiliza princípios do Salesforce Design System (SLDS).",
+          en: "Proposes interface improvements based on feedback and uses Salesforce Design System (SLDS) principles.",
+          es: "Propone mejoras de interfaz basadas en comentarios y utiliza los principios del Salesforce Design System (SLDS)."
+        },
+        4: {
+          pt: "Desenha jornadas de usuário intuitivas e prototipa fluxos complexos, focando em reduzir a fricção operacional.",
+          en: "Designs intuitive user journeys and prototypes complex flows, focusing on reducing operational friction.",
+          es: "Diseña viajes de usuario intuitivos y prototipa flujos complejos, centrándose en reducir la fricción operativa."
+        },
+        5: {
+          pt: "Define padrões de UX/UI para a empresa e garante que as soluções atendam aos mais altos níveis de acessibilidade e adoção.",
+          en: "Defines UX/UI standards for the company and ensures that solutions meet the highest levels of accessibility and adoption.",
+          es: "Define estándares de UX/UI para la empresa y asegura que las soluciones cumplan con los niveles más altos de accesibilidad y adopción."
+        }
+      }
+    },
     {
       id: "con-s1",
       name: {
@@ -340,6 +381,47 @@ export const consultantCompetency: CompetencyCategory = {
           pt: "Exerce liderança estratégica, gerenciando vários times. Forma novos consultores e desenvolve lideranças internas.",
           en: "Exercises strategic leadership, managing multiple teams. Trains new consultants and develops internal leaders.",
           es: "Ejerce liderazgo estratégico, gestionando varios equipos. Capacita a nuevos consultores y desarrolla líderes internos."
+        }
+      }
+    },
+    {
+      id: "con-s6",
+      name: {
+        pt: "Negociação e Gestão de Expectativas",
+        en: "Negotiation & Expectation Management",
+        es: "Negociación y Gestión de Expectativas"
+      },
+      description: {
+        pt: "Gestão de escopo, prazos, priorização e stakeholders",
+        en: "Scope management, deadlines, prioritization, and stakeholders",
+        es: "Gestión de alcance, plazos, priorización e interesados"
+      },
+      type: "soft",
+      requirements: {
+        1: {
+          pt: "Comunica prazos e entregas básicas de forma clara ao time.",
+          en: "Communicates deadlines and basic deliveries clearly to the team.",
+          es: "Comunica plazos y entregas básicas de forma clara al equipo."
+        },
+        2: {
+          pt: "Consegue explicar de forma simples o motivo de pequenas mudanças no cronograma ou escopo.",
+          en: "Can explain in a simple way the reason for small changes in the schedule or scope.",
+          es: "Puede explicar de forma sencilla el motivo de pequeños cambios en el cronograma o alcance."
+        },
+        3: {
+          pt: "Negocia escopo e prazos com stakeholders técnicos e de negócio, buscando o equilíbrio entre valor e esforço.",
+          en: "Negotiates scope and deadlines with technical and business stakeholders, seeking balance between value and effort.",
+          es: "Negocia alcance y plazos con interesados técnicos y de negocio, buscando el equilibrio entre valor e esfuerzo."
+        },
+        4: {
+          pt: "Gerencia expectativas de níveis gerenciais e resolve conflitos críticos de priorização de backlog.",
+          en: "Manages management-level expectations and resolves critical backlog prioritization conflicts.",
+          es: "Gestiona expectativas de niveles gerenciales y resuelve conflictos críticos de priorización del backlog."
+        },
+        5: {
+          pt: "Referência em negociações complexas de transformações digitais e gestão de crises com C-level.",
+          en: "Reference in complex digital transformation negotiations and crisis management with C-level.",
+          es: "Referencia en negociaciones complejas de transformaciones digitales y gestión de crisis con el nivel C."
         }
       }
     }

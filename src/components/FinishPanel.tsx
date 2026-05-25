@@ -156,7 +156,6 @@ const FinishPanel = ({ category, ratings }: FinishPanelProps) => {
         animate={{ opacity: 1, y: 0 }}
         className="text-center space-y-4"
       >
-        <h2 className="text-3xl font-bold text-slate-900">{t('careerPage.finish.title')}</h2>
         <p className="mx-auto max-w-2xl text-slate-600">
           {t('careerPage.finish.desc')}
         </p>

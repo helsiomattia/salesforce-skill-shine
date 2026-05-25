@@ -8,6 +8,8 @@
     "assessmentDesc": "Competências e Evolução",
     "contact": "Contate-me",
     "contactDesc": "Mapeamento e Direcionamento",
+    "guide": "Guia & Tutoriais",
+    "guideDesc": "Nuvens e Funções",
     "admin": "Administrator",
     "developer": "Developer",
     "architect": "Architect",
@@ -239,10 +241,13 @@
     "journey": "Etapa da Avaliação",
     "tabs": {
       "hard": "Hard Skills",
+      "hardDesc": "Avalie suas competências técnicas e domínio das ferramentas da plataforma para este papel.",
       "soft": "Soft Skills",
+      "softDesc": "Identifique suas habilidades interpessoais e comportamentais fundamentais para o sucesso na carreira.",
       "strategy": "Visão Estratégica",
       "evolution": "Evolução de Carreira",
       "knowledge": "Ferramentas",
+      "knowledgeDesc": "Mapeamento das ferramentas, nuvens e conhecimentos complementares essenciais para o seu dia a dia.",
       "finish": "Finalizar Avaliação"
     },
     "comingSoon": {
@@ -250,7 +255,6 @@
       "desc": "As recomendações de conhecimentos e ferramentas estão sendo mapeadas para esta carreira."
     },
     "finish": {
-      "title": "Finalizar sua Avaliação",
       "desc": "Preencha seus dados para gerar o relatório final da sua avaliação de competências. Estas informações serão utilizadas no cabeçalho do seu PDF.",
       "form": {
         "fullName": "Nome Completo",
@@ -328,6 +332,37 @@
           "business": "Visão de Negócio"
         }
       }
+    }
+  },
+  "guide": {
+    "title": "Guia de Nuvens & Funções",
+    "subtitle": "Centralize seus conhecimentos, anote boas práticas e crie referências rápidas sobre o ecossistema Salesforce.",
+    "searchPlaceholder": "Pesquisar por nuvens, funções, conceitos ou tags...",
+    "tabClouds": "Nuvens",
+    "tabFoundations": "Fundamentos",
+    "tabAdmin": "Admin",
+    "tabDev": "Dev",
+    "tabArchitect": "Arquitetura",
+    "tabTools": "Ferramentas",
+    "addGuideBtn": "Criar Guia Customizado",
+    "emptyState": "Nenhum guia encontrado para a pesquisa.",
+    "notesBadge": "Notas",
+    "personalNotes": "Minhas Anotações Pessoais",
+    "notesPlaceholder": "Escreva aqui suas dicas, comandos úteis, links ou insights que você quer memorizar para este item...",
+    "notesSaved": "Salvo automaticamente",
+    "keyConcepts": "Conceitos Chave",
+    "bestPractices": "Boas Práticas",
+    "resources": "Recursos & Links",
+    "customLabel": "Customizado",
+    "deleteConfirm": "Tem certeza que deseja excluir este guia customizado?",
+    "dialog": {
+      "title": "Adicionar Novo Guia",
+      "titleLabel": "Título",
+      "categoryLabel": "Categoria",
+      "descLabel": "Descrição Curta",
+      "tagsLabel": "Tags (separadas por vírgula)",
+      "save": "Salvar Guia",
+      "cancel": "Cancelar"
     }
   }
 }

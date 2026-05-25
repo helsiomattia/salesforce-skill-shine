@@ -25,7 +25,6 @@ const EvolutionPanel = ({ evolution }: EvolutionPanelProps) => {
     <div className="space-y-12 pb-8">
       {/* Intro Section */}
       <motion.div {...fadeUp} className="text-center space-y-4">
-        <h2 className="text-3xl font-bold text-slate-900">{t('careerPage.evolution.title')}</h2>
         <p className="mx-auto max-w-3xl text-slate-600 leading-relaxed text-lg">
           {getLocalizedString(evolution.intro, lang)}
         </p>

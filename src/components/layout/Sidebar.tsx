@@ -14,6 +14,7 @@ import {
   LayoutDashboard,
   MessageSquare,
   Globe,
+  BookOpen,
 } from "lucide-react";
 import LanguageSwitcher from "../LanguageSwitcher";
 
@@ -44,6 +45,12 @@ const getNavItems = (t: any) => [
     label: t('nav.assessment'),
     description: t('nav.assessmentDesc'),
     icon: ClipboardCheck,
+  },
+  {
+    to: "/guide",
+    label: t('nav.guide'),
+    description: t('nav.guideDesc'),
+    icon: BookOpen,
   },
   {
     to: "/contact",

@@ -8,6 +8,8 @@
     "assessmentDesc": "Skills and Evolution",
     "contact": "Contact Me",
     "contactDesc": "Mapping and Direction",
+    "guide": "Guide & Tutorials",
+    "guideDesc": "Clouds and Functions",
     "admin": "Administrator",
     "developer": "Developer",
     "architect": "Architect",
@@ -239,10 +241,13 @@
     "journey": "Assessment Stage",
     "tabs": {
       "hard": "Hard Skills",
+      "hardDesc": "Evaluate your technical skills and platform tool mastery for this role.",
       "soft": "Soft Skills",
+      "softDesc": "Identify your interpersonal and behavioral skills fundamental to career success.",
       "strategy": "Strategic Vision",
       "evolution": "Career Evolution",
       "knowledge": "Tools",
+      "knowledgeDesc": "Mapping of essential tools, clouds, and complementary knowledge for your daily life.",
       "finish": "Finish Assessment"
     },
     "comingSoon": {
@@ -250,7 +255,6 @@
       "desc": "Knowledge and tool recommendations are being mapped for this career."
     },
     "finish": {
-      "title": "Finish your Assessment",
       "desc": "Fill in your details to generate the final report of your competency assessment. This information will be used in your PDF header.",
       "form": {
         "fullName": "Full Name",
@@ -328,6 +332,37 @@
           "business": "Business Vision"
         }
       }
+    }
+  },
+  "guide": {
+    "title": "Clouds & Functions Guide",
+    "subtitle": "Centralize your knowledge, document best practices, and build quick reference sheets for the Salesforce ecosystem.",
+    "searchPlaceholder": "Search for clouds, functions, concepts, or tags...",
+    "tabClouds": "Clouds",
+    "tabFoundations": "Foundations",
+    "tabAdmin": "Admin",
+    "tabDev": "Dev",
+    "tabArchitect": "Architecture",
+    "tabTools": "Tools",
+    "addGuideBtn": "Create Custom Guide",
+    "emptyState": "No guides found matching your search.",
+    "notesBadge": "Notes",
+    "personalNotes": "My Personal Notes",
+    "notesPlaceholder": "Write down your tips, useful commands, links, or insights you want to remember for this item...",
+    "notesSaved": "Autosaved",
+    "keyConcepts": "Key Concepts",
+    "bestPractices": "Best Practices",
+    "resources": "Resources & Links",
+    "customLabel": "Custom",
+    "deleteConfirm": "Are you sure you want to delete this custom guide?",
+    "dialog": {
+      "title": "Add New Guide",
+      "titleLabel": "Title",
+      "categoryLabel": "Category",
+      "descLabel": "Short Description",
+      "tagsLabel": "Tags (comma-separated)",
+      "save": "Save Guide",
+      "cancel": "Cancel"
     }
   }
 }

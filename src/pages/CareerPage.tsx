@@ -87,11 +87,7 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
       </section>
 
       {/* Career Path Navigation */}
-      <section className="space-y-4">
-        <div className="flex items-center gap-2 px-2 mb-2 text-slate-400">
-          <Sparkles className="h-4 w-4" />
-          <span className="text-xs font-bold uppercase tracking-widest">{t('careerPage.journey')}</span>
-        </div>
+      <section>
         <CareerPath 
           items={pathItems} 
           currentId={activeTab} 
@@ -105,7 +101,17 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
 
 
           <div className="mt-8">
-            <TabsContent value="hard" className="mt-0 outline-none focus-visible:ring-0">
+            <TabsContent value="hard" className="mt-0 outline-none focus-visible:ring-0 space-y-10">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-center space-y-4"
+              >
+                <p className="mx-auto max-w-3xl text-slate-600 leading-relaxed text-lg">
+                  {t('careerPage.tabs.hardDesc')}
+                </p>
+              </motion.div>
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
                 <div className="lg:col-span-12 xl:col-span-8">
                   <CategoryCard category={category} ratings={ratings} onRate={handleRate} filterType="hard" />
@@ -121,7 +127,17 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
               </div>
             </TabsContent>
 
-            <TabsContent value="soft" className="mt-0 outline-none focus-visible:ring-0">
+            <TabsContent value="soft" className="mt-0 outline-none focus-visible:ring-0 space-y-10">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-center space-y-4"
+              >
+                <p className="mx-auto max-w-3xl text-slate-600 leading-relaxed text-lg">
+                  {t('careerPage.tabs.softDesc')}
+                </p>
+              </motion.div>
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
                 <div className="lg:col-span-12 xl:col-span-8">
                   <CategoryCard category={category} ratings={ratings} onRate={handleRate} filterType="soft" />

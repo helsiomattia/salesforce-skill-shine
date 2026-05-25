@@ -8,11 +8,24 @@ interface KnowledgePanelProps {
 }
 
 const KnowledgePanel = ({ groups }: KnowledgePanelProps) => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const lang = i18n.resolvedLanguage || 'pt';
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="space-y-12 pb-8">
+      {/* Intro Section */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center space-y-4"
+      >
+        <p className="mx-auto max-w-3xl text-slate-600 leading-relaxed text-lg">
+          {t('careerPage.tabs.knowledgeDesc')}
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {groups.map((group, groupIdx) => (
         <motion.div
           key={groupIdx}
@@ -34,6 +47,7 @@ const KnowledgePanel = ({ groups }: KnowledgePanelProps) => {
           </ul>
         </motion.div>
       ))}
+      </div>
     </div>
   );
 };

@@ -220,6 +220,47 @@ export const developerCompetency: CompetencyCategory = {
         }
       }
     },
+    { 
+      id: "dev-6", 
+      name: {
+        pt: "Segurança & Gestão de Vulnerabilidades",
+        en: "Security & Vulnerability Management",
+        es: "Seguridad y Gestión de Vulnerabilidades"
+      }, 
+      description: {
+        pt: "CRUD/FLS, Secure Apex, prevenção de injeção e proteção de dados",
+        en: "CRUD/FLS, Secure Apex, injection prevention, and data protection",
+        es: "CRUD/FLS, Secure Apex, prevención de inyecciones y protección de datos"
+      },
+      type: "hard",
+      requirements: {
+        1: {
+          pt: "Reconhece a importância da segurança de dados e configurações de visibilidade.",
+          en: "Recognizes the importance of data security and visibility settings.",
+          es: "Reconoce la importancia de la seguridad de los datos y la configuración de visibilidad."
+        },
+        2: {
+          pt: "Aplica verificações básicas de CRUD/FLS em Apex e entende o uso de 'with sharing'.",
+          en: "Applies basic CRUD/FLS checks in Apex and understands the use of 'with sharing'.",
+          es: "Aplica verificaciones básicas de CRUD/FLS en Apex y entiende el uso de 'with sharing'."
+        },
+        3: {
+          pt: "Identifica vulnerabilidades comuns (SOQL injection, XSS) e utiliza 'Secure Apex' e User Mode.",
+          en: "Identifies common vulnerabilities (SOQL injection, XSS) and uses 'Secure Apex' and User Mode.",
+          es: "Identifica vulnerabilidades comunes (inyección SOQL, XSS) y utiliza 'Secure Apex' y User Mode."
+        },
+        4: {
+          pt: "Desenha estratégias de segurança robustas para integrações e componentes LWC complexos.",
+          en: "Designs robust security strategies for complex integrations and LWC components.",
+          es: "Diseña estrategias de seguridad sólidas para integraciones y componentes LWC complejos."
+        },
+        5: {
+          pt: "Define padrões globais de segurança de código e conduz auditorias preventivas de vulnerabilidade.",
+          en: "Defines global code security standards and conducts preventive vulnerability audits.",
+          es: "Define estándares globales de seguridad de código y realiza auditorías preventivas de vulnerabilidad."
+        }
+      }
+    },
     {
       id: "dev-s1",
       name: {
@@ -422,6 +463,47 @@ export const developerCompetency: CompetencyCategory = {
           pt: "Atua como MVP/mentor, contribui para open-source e eventos globais.",
           en: "Acts as MVP/mentor, contributes to open-source and global events.",
           es: "Actúa como MVP/mentor, contribuye a código abierto y eventos globales."
+        }
+      }
+    },
+    {
+      id: "dev-s6",
+      name: {
+        pt: "Pensamento Sistêmico",
+        en: "Systemic Thinking",
+        es: "Pensamiento Sistémico"
+      },
+      description: {
+        pt: "Visão do ecossistema, interdependências e impacto de longo prazo",
+        en: "Ecosystem vision, interdependencies, and long-term impact",
+        es: "Visión del ecosistema, interdependencias e impacto a largo plazo"
+      },
+      type: "soft",
+      requirements: {
+        1: {
+          pt: "Entende que seu código faz parte de um sistema maior e não isolado.",
+          en: "Understands that their code is part of a larger, not isolated, system.",
+          es: "Entiende que su código es parte de un sistema más grande y no aislado."
+        },
+        2: {
+          pt: "Avalia como uma alteração pontual pode afetar processos imediatos de negócio.",
+          en: "Evaluates how a specific change can affect immediate business processes.",
+          es: "Evalúa cómo un cambio específico puede afectar los procesos comerciales inmediatos."
+        },
+        3: {
+          pt: "Analisa o impacto de mudanças técnicas em todo o ecossistema Salesforce e suas integrações.",
+          en: "Analyzes the impact of technical changes throughout the Salesforce ecosystem and its integrations.",
+          es: "Analiza el impacto de los cambios técnicos en todo el ecosistema de Salesforce y sus integraciones."
+        },
+        4: {
+          pt: "Planeja arquiteturas de desenvolvimento considerando interdependências e escalabilidade futura.",
+          en: "Plans development architectures considering interdependencies and future scalability.",
+          es: "Planifica arquitecturas de desarrollo considerando las interdependencias y la escalabilidad futura."
+        },
+        5: {
+          pt: "Referência em prever impactos em ecossistemas multi-nuvem complexos e antecipar riscos técnicos.",
+          en: "Reference in predicting impacts on complex multi-cloud ecosystems and anticipating technical risks.",
+          es: "Referencia en predecir impactos en ecosistemas multinube complejos y anticipar riesgos técnicos."
         }
       }
     }

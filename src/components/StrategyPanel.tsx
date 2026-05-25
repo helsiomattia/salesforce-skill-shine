@@ -14,25 +14,16 @@ const StrategyPanel = ({ strategy }: StrategyPanelProps) => {
 
   return (
     <div className="space-y-8">
-      {/* Hero / Mission */}
-      <motion.div
+      {/* Intro Section */}
+      <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="rounded-[32px] bg-gradient-to-br from-slate-900 to-blue-900 p-8 text-white shadow-xl relative overflow-hidden"
+        transition={{ duration: 0.5 }}
+        className="text-center space-y-4"
       >
-        <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-blue-500/20 blur-[50px]" />
-        <div className="relative z-10 space-y-4">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-blue-200 backdrop-blur-md">
-            <Target className="h-3 w-3" />
-            {t('careerPage.strategy.badge')}
-          </div>
-          <h2 className="text-2xl md:text-3xl font-bold leading-tight">
-            {getLocalizedString(strategy.mission, lang)}
-          </h2>
-          <p className="text-blue-100 text-sm md:text-base max-w-3xl leading-relaxed">
-            {getLocalizedString(strategy.roleConnection, lang)}
-          </p>
-        </div>
+        <p className="mx-auto max-w-3xl text-slate-600 leading-relaxed text-lg">
+          {getLocalizedString(strategy.roleConnection, lang)}
+        </p>
       </motion.div>
 
       {/* Pillars Grid */}

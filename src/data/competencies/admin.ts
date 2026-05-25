@@ -220,6 +220,47 @@ export const adminCompetency: CompetencyCategory = {
         }
       }
     },
+    { 
+      id: "admin-6", 
+      name: {
+        pt: "AppExchange & Managed Packages",
+        en: "AppExchange & Managed Packages",
+        es: "AppExchange y Paquetes Gestionados"
+      }, 
+      description: {
+        pt: "Seleção, instalação e gestão de soluções de terceiros",
+        en: "Selection, installation, and management of third-party solutions",
+        es: "Selección, instalación y gestión de soluciones de terceros"
+      },
+      type: "hard",
+      requirements: {
+        1: {
+          pt: "Noções sobre o que é o AppExchange e como encontrar soluções.",
+          en: "Notions about what AppExchange is and how to find solutions.",
+          es: "Nociones sobre qué es AppExchange y cómo encontrar soluciones."
+        },
+        2: {
+          pt: "Sabe instalar pacotes em sandbox e verificar permissões básicas de acesso.",
+          en: "Can install packages in sandbox and check basic access permissions.",
+          es: "Sabe instalar paquetes en sandbox y verificar permisos básicos de acceso."
+        },
+        3: {
+          pt: "Avalia criticamente soluções (reviews, segurança, suporte) e gerencia licenças de pacotes.",
+          en: "Critically evaluates solutions (reviews, security, support) and manages package licenses.",
+          es: "Evalúa críticamente las soluciones (reseñas, seguridad, soporte) y gestiona las licencias de los paquetes."
+        },
+        4: {
+          pt: "Planeja o ciclo de vida de pacotes gerenciados e coordena integrações funcionais de terceiros.",
+          en: "Plans the lifecycle of managed packages and coordinates functional third-party integrations.",
+          es: "Planifica el ciclo de vida de los paquetes gestionados y coordina integraciones funcionales de terceros."
+        },
+        5: {
+          pt: "Define governança para o ecossistema de apps da empresa e coordena revisões técnicas e de segurança.",
+          en: "Defines governance for the company's app ecosystem and coordinates technical and security reviews.",
+          es: "Define la gobernanza para el ecosistema de aplicaciones de la empresa y coordina las revisiones técnicas y de seguridad."
+        }
+      }
+    },
     {
       id: "admin-s1",
       name: {
@@ -342,7 +383,48 @@ export const adminCompetency: CompetencyCategory = {
           es: "Actúa como consultor interno anticipando las necesidades corporativas de CRM."
         }
       }
-    }
+    },
+    {
+      id: "admin-s4",
+      name: {
+        pt: "Pensamento Crítico e Resolução de Problemas",
+        en: "Critical Thinking & Problem Solving",
+        es: "Pensamiento Crítico y Resolución de Problemas"
+      },
+      description: {
+        pt: "Análise de causa raiz, avaliação de impacto e lógica de solução",
+        en: "Root cause analysis, impact assessment, and solution logic",
+        es: "Análisis de causa raíz, evaluación de impacto y lógica de solución"
+      },
+      type: "soft",
+      requirements: {
+        1: {
+          pt: "Identifica problemas óbvios no sistema e reporta com clareza.",
+          en: "Identifies obvious problems in the system and reports them clearly.",
+          es: "Identifica problemas obvios en el sistema y los reporta claramente."
+        },
+        2: {
+          pt: "Propõe soluções para problemas simples baseadas em observação direta.",
+          en: "Proposes solutions for simple problems based on direct observation.",
+          es: "Propone soluciones para problemas simples basadas en la observación directa."
+        },
+        3: {
+          pt: "Analisa a causa raiz de problemas intermediários e avalia possíveis impactos colaterais.",
+          en: "Analyzes the root cause of intermediate problems and evaluates possible side impacts.",
+          es: "Analiza la causa raíz de problemas intermedios y evalúa posibles impactos colaterales."
+        },
+        4: {
+          pt: "Desenporte estratégias de resolução de problemas complexos para o time, priorizando eficácia.",
+          en: "Develops complex problem-solving strategies for the team, prioritizing effectiveness.",
+          es: "Desarrolla estrategias de resolución de problemas complejos para el equipo, priorizando la eficacia."
+        },
+        5: {
+          pt: "Referência em antecipar falhas sistêmicas e desenhar soluções preventivas e resilientes.",
+          en: "Reference in anticipating systemic failures and designing preventive and resilient solutions.",
+          es: "Referencia en anticipar fallas sistémicas y diseñar soluciones preventivas y resilientes."
+        }
+      }
+    },
   ],
   knowledgeGroups: [
     {

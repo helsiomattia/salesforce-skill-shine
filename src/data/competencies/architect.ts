@@ -179,6 +179,47 @@ export const architectCompetency: CompetencyCategory = {
         }
       }
     },
+    { 
+      id: "arch-5", 
+      name: {
+        pt: "Estratégia Multi-Org e Gestão de Ambientes",
+        en: "Multi-Org Strategy & Environment Management",
+        es: "Estrategia Multi-Org y Gestión de Entornos"
+      }, 
+      description: {
+        pt: "Single vs. Multi-org, governança de sandboxes, scratch orgs",
+        en: "Single vs. Multi-org, sandbox governance, scratch orgs",
+        es: "Single vs. Multi-org, gobernanza de sandboxes, scratch orgs"
+      },
+      type: "hard",
+      requirements: {
+        1: {
+          pt: "Entende o conceito básico de instâncias (orgs) e tipos de sandboxes.",
+          en: "Understands the basic concept of instances (orgs) and sandbox types.",
+          es: "Entiende el concepto básico de instancias (orgs) y tipos de sandboxes."
+        },
+        2: {
+          pt: "Planeja o uso de sandboxes para diferentes fluxos de desenvolvimento e testes.",
+          en: "Plans the use of sandboxes for different development and testing flows.",
+          es: "Planifica el uso de sandboxes para diferentes flujos de desarrollo y pruebas."
+        },
+        3: {
+          pt: "Define estratégias de sincronização de metadados e dados entre ambientes complexos.",
+          en: "Defines strategies for synchronizing metadata and data across complex environments.",
+          es: "Define estrategias de sincronización de metadatos y datos entre entornos complejos."
+        },
+        4: {
+          pt: "Desenha estratégias de consolidação ou separação de orgs (Single vs. Multi-org) baseadas no negócio.",
+          en: "Designs strategies for consolidation or separation of orgs (Single vs. Multi-org) based on business.",
+          es: "Diseña estrategias de consolidación o separación de orgs (Single vs. Multi-org) basadas en el negocio."
+        },
+        5: {
+          pt: "Define governança global para arquitetura multi-instância e orquestração automática de ambientes.",
+          en: "Defines global governance for multi-instance architecture and automatic environment orchestration.",
+          es: "Define la gobernanza global para la arquitectura multi-instancia y la orquestación automática de entornos."
+        }
+      }
+    },
     {
       id: "arch-s1",
       name: {
@@ -340,6 +381,47 @@ export const architectCompetency: CompetencyCategory = {
           pt: "Inspira a organização inteira. Atrai talentos pela sua referência e atua globalmente elevando a barra técnica.",
           en: "Inspires the entire organization. Attracts talent as a reference and acts globally raising the technical bar.",
           es: "Inspira a toda la organización. Atrae talento por su referencia y actúa a nivel global elevando el nivel técnico."
+        }
+      }
+    },
+    {
+      id: "arch-s5",
+      name: {
+        pt: "Gestão de Riscos e Mitigação",
+        en: "Risk Management & Mitigation",
+        es: "Gestión de Riesgos y Mitigación"
+      },
+      description: {
+        pt: "Identificação de falhas, planos de contingência e resiliência",
+        en: "Failure identification, contingency plans, and resilience",
+        es: "Identificación de fallas, planes de contingencia y resiliencia"
+      },
+      type: "soft",
+      requirements: {
+        1: {
+          pt: "Identifica riscos técnicos óbvios em propostas de solução simples.",
+          en: "Identifies obvious technical risks in simple solution proposals.",
+          es: "Identifica riesgos técnicos obvios en propuestas de solución simples."
+        },
+        2: {
+          pt: "Documenta riscos conhecidos e propõe alternativas técnicas viáveis.",
+          en: "Documents known risks and proposes viable technical alternatives.",
+          es: "Documenta riesgos conocidos y propone alternativas técnicas viables."
+        },
+        3: {
+          pt: "Avalia a probabilidade e o impacto de falhas arquiteturais e define planos de contingência (Plan B).",
+          en: "Evaluates the probability and impact of architectural failures and defines contingency plans (Plan B).",
+          es: "Evalúa la probabilidad y el impacto de fallas arquitectónicas y define planes de contingencia (Plan B)."
+        },
+        4: {
+          pt: "Conduz revisões de arquitetura focadas em resiliência, alta disponibilidade e continuidade de negócio.",
+          en: "Conducts architecture reviews focused on resilience, high availability, and business continuity.",
+          es: "Conducts architecture reviews focused on resilience, high availability, and business continuity."
+        },
+        5: {
+          pt: "Referência em gerenciar crises sistêmicas e definir estratégias globais de mitigação para riscos complexos.",
+          en: "Reference in managing systemic crises and defining global mitigation strategies for complex risks.",
+          es: "Referencia en la gestión de crisis sistémicas y la definición de estrategias globales de mitigación para riesgos complejos."
         }
       }
     }
