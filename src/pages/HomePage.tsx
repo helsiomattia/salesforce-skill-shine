@@ -181,31 +181,112 @@ const HomePage = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative hidden lg:flex h-[450px] w-full items-center justify-center"
+            className="relative hidden lg:flex h-[550px] w-full items-center justify-center"
           >
-            {/* Center Node */}
-            <div className="absolute z-20 flex h-32 w-32 items-center justify-center rounded-full bg-gradient-to-tr from-blue-600 to-cyan-400 p-[2px] shadow-2xl shadow-blue-500/30">
-              <div className="flex h-full w-full items-center justify-center rounded-full bg-white">
-                <Cloud className="h-14 w-14 text-blue-500" />
-              </div>
-            </div>
+            {/* SVG Connecting Lines with Flowing Animation */}
+            <svg className="absolute inset-0 h-full w-full z-0" strokeLinecap="round">
+              <defs>
+                <linearGradient id="grad-teal" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#14b8a6" />
+                  <stop offset="100%" stopColor="#2dd4bf" />
+                </linearGradient>
+              </defs>
 
-            {/* Orbit Paths */}
-            <div className="absolute h-[320px] w-[320px] rounded-full border border-dashed border-slate-300/80" />
+              {/* Main Career Lines */}
+              <motion.line x1="50%" y1="50%" x2="20%" y2="20%" stroke="#f97316" strokeWidth="6" strokeDasharray="12 12" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 3, ease: "linear" }} />
+              <motion.line x1="50%" y1="50%" x2="80%" y2="20%" stroke="#14b8a6" strokeWidth="6" strokeDasharray="12 12" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 3.5, ease: "linear" }} />
+              <motion.line x1="50%" y1="50%" x2="85%" y2="60%" stroke="#3b82f6" strokeWidth="6" strokeDasharray="12 12" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 4, ease: "linear" }} />
+              <motion.line x1="50%" y1="50%" x2="20%" y2="80%" stroke="#a855f7" strokeWidth="6" strokeDasharray="12 12" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 3.2, ease: "linear" }} />
+              <motion.line x1="50%" y1="50%" x2="50%" y2="85%" stroke="#ec4899" strokeWidth="6" strokeDasharray="12 12" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 3.8, ease: "linear" }} />
 
-            {/* Surrounding Nodes */}
-            <div className="absolute -top-4 right-16 flex h-16 w-16 items-center justify-center rounded-2xl bg-teal-100 text-teal-600 shadow-lg rotate-12">
-              <Compass className="h-8 w-8" />
-            </div>
-            <div className="absolute bottom-8 right-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 shadow-lg -rotate-6">
-              <Code2 className="h-8 w-8" />
-            </div>
-            <div className="absolute bottom-4 left-12 flex h-16 w-16 items-center justify-center rounded-2xl bg-purple-100 text-purple-600 shadow-lg rotate-6">
-              <Settings className="h-8 w-8" />
-            </div>
-            <div className="absolute top-12 left-10 flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-100 text-orange-600 shadow-lg -rotate-12">
-              <Users className="h-8 w-8" />
-            </div>
+              {/* Decorative Lines */}
+              <motion.line x1="50%" y1="50%" x2="10%" y2="50%" stroke="#64748b" strokeWidth="4" strokeDasharray="8 8" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 5, ease: "linear" }} opacity="0.5" />
+              <motion.line x1="50%" y1="50%" x2="40%" y2="10%" stroke="#eab308" strokeWidth="4" strokeDasharray="8 8" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 4.5, ease: "linear" }} opacity="0.6" />
+              <motion.line x1="50%" y1="50%" x2="70%" y2="90%" stroke="#06b6d4" strokeWidth="4" strokeDasharray="8 8" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 5.5, ease: "linear" }} opacity="0.6" />
+            </svg>
+
+            {/* Decorative End Nodes (Small Dots) */}
+            <div className="absolute top-[10%] left-[40%] h-4 w-4 rounded-full bg-yellow-400 shadow-lg translate-x-[-50%] translate-y-[-50%]" />
+            <div className="absolute top-[50%] left-[10%] h-4 w-4 rounded-full bg-slate-400 shadow-lg translate-x-[-50%] translate-y-[-50%]" />
+            <div className="absolute top-[90%] left-[70%] h-4 w-4 rounded-full bg-cyan-400 shadow-lg translate-x-[-50%] translate-y-[-50%]" />
+
+            {/* Floating Background Particles */}
+            <motion.div animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 4 }} className="absolute top-[30%] left-[25%] h-2 w-2 rounded-full bg-orange-400" />
+            <motion.div animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 5 }} className="absolute top-[70%] right-[30%] h-3 w-3 rounded-full bg-blue-400" />
+
+            {/* Center Node (Salesforce Style) */}
+            <motion.div 
+              animate={{ 
+                boxShadow: [
+                  "0 0 40px -10px rgba(14, 165, 233, 0.5)",
+                  "0 0 60px -5px rgba(14, 165, 233, 0.8)",
+                  "0 0 40px -10px rgba(14, 165, 233, 0.5)"
+                ]
+              }}
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              className="absolute z-20 flex flex-col items-center justify-center h-40 w-40 rounded-full bg-gradient-to-b from-sky-400 to-blue-700 border-4 border-blue-200/50 p-2 shadow-2xl text-white"
+            >
+              <Cloud className="h-14 w-14 mb-1 fill-white" />
+              <span className="font-bold text-sm tracking-wide">Salesforce</span>
+            </motion.div>
+
+            {/* Main Nodes */}
+            <motion.div 
+              className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-orange-50 border-4 border-orange-400 text-orange-600 shadow-xl"
+              style={{ top: "20%", left: "20%", transform: "translate(-50%, -50%)" }}
+              whileHover={{ scale: 1.1 }}
+            >
+              <Settings className="h-7 w-7" />
+            </motion.div>
+            
+            <motion.div 
+              className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-teal-50 border-4 border-teal-400 text-teal-600 shadow-xl"
+              style={{ top: "20%", left: "80%", transform: "translate(-50%, -50%)" }}
+              whileHover={{ scale: 1.1 }}
+            >
+              <Compass className="h-7 w-7" />
+            </motion.div>
+
+            <motion.div 
+              className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-purple-50 border-4 border-purple-400 text-purple-600 shadow-xl"
+              style={{ top: "80%", left: "20%", transform: "translate(-50%, -50%)" }}
+              whileHover={{ scale: 1.1 }}
+            >
+              <Users className="h-7 w-7" />
+            </motion.div>
+
+            <motion.div 
+              className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-pink-50 border-4 border-pink-400 text-pink-600 shadow-xl"
+              style={{ top: "85%", left: "50%", transform: "translate(-50%, -50%)" }}
+              whileHover={{ scale: 1.1 }}
+            >
+              <Database className="h-7 w-7" />
+            </motion.div>
+
+            <motion.div 
+              className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-blue-50 border-4 border-blue-400 text-blue-600 shadow-xl"
+              style={{ top: "60%", left: "85%", transform: "translate(-50%, -50%)" }}
+              whileHover={{ scale: 1.1 }}
+            >
+              <Code2 className="h-7 w-7" />
+            </motion.div>
+
+            {/* Astro Mascot Animated (Moved to the top left area) */}
+            <motion.div
+              animate={{ 
+                y: [0, -30, 0], 
+                rotate: [0, 8, -8, 0] 
+              }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              className="absolute z-30 w-52 drop-shadow-2xl"
+              style={{ top: "-5%", left: "-28%" }}
+            >
+              <img 
+                src={`${import.meta.env.BASE_URL}astro.png`} 
+                alt="Astro Mascot" 
+                className="w-full h-auto object-contain"
+              />
+            </motion.div>
           </motion.div>
         </div>
       </section>
