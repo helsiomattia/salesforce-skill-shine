@@ -87,9 +87,7 @@ const mappedCareers = [
       description: c.description,
       link: `/assessment/${c.id}`
     };
-  }),
-  // And the data one
-  ...careers.filter(c => c.id === 'data')
+  })
 ];
 
 // Inspired by the Salesforce DX Development Flow and Release Timelines
@@ -300,7 +298,7 @@ const HomePage = () => {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {mappedCareers.map((career) => {
             const Icon = career.icon;
             return (
