@@ -394,6 +394,308 @@ export const defaultGuides: GuideItem[] = [
       }
     ]
   },
+  {
+    id: "data-cloud",
+    category: "clouds",
+    title: {
+      pt: "Data Cloud",
+      en: "Data Cloud",
+      es: "Data Cloud"
+    },
+    subtitle: {
+      pt: "Plataforma de Dados de Clientes (CDP) em Tempo Real",
+      en: "Real-Time Customer Data Platform (CDP)",
+      es: "Plataforma de Datos de Clientes (CDP) en Tiempo Real"
+    },
+    description: {
+      pt: "Unifique todos os dados dos seus clientes em uma única plataforma para criar experiências conectadas e personalizadas em tempo real.",
+      en: "Unify all your customer data in a single platform to create connected and personalized experiences in real-time.",
+      es: "Unifique todos los datos de sus clientes en una sola plataforma para crear experiencias conectadas y personalizadas en tiempo real."
+    },
+    iconName: "Database",
+    tags: {
+      pt: ["Dados", "CDP", "Integração"],
+      en: ["Data", "CDP", "Integration"],
+      es: ["Datos", "CDP", "Integración"]
+    },
+    keyConcepts: [
+      {
+        title: {
+          pt: "Unificação de Perfil",
+          en: "Profile Unification",
+          es: "Unificación de Perfil"
+        },
+        description: {
+          pt: "Resolução de identidade combinando dados de múltiplos sistemas para criar um perfil de cliente único.",
+          en: "Identity resolution combining data from multiple systems to create a single customer profile.",
+          es: "Resolución de identidad combinando datos de múltiples sistemas para crear un perfil de cliente único."
+        }
+      },
+      {
+        title: {
+          pt: "Segmentação em Tempo Real",
+          en: "Real-Time Segmentation",
+          es: "Segmentación en Tiempo Real"
+        },
+        description: {
+          pt: "Criação de segmentos de audiência dinâmicos ativados através de canais de marketing e engajamento.",
+          en: "Creation of dynamic audience segments activated across marketing and engagement channels.",
+          es: "Creación de segmentos de audiencia dinámicos activados a través de canales de marketing y compromiso."
+        }
+      }
+    ],
+    bestPractices: {
+      pt: [
+        "Mapeie cuidadosamente os modelos de dados de origem (DMO) para garantir a qualidade na resolução de identidades."
+      ],
+      en: [
+        "Carefully map source data models (DMO) to ensure quality in identity resolution."
+      ],
+      es: [
+        "Mapee cuidadosamente los modelos de datos de origen (DMO) para garantizar la calidad en la resolución de identidades."
+      ]
+    },
+    resources: [
+      {
+        title: {
+          pt: "Fundamentos do Data Cloud",
+          en: "Data Cloud Basics",
+          es: "Fundamentos de Data Cloud"
+        },
+        url: "https://trailhead.salesforce.com/content/learn/modules/customer-data-platform-basics",
+        type: "trailhead"
+      }
+    ]
+  },
+
+  {
+    id: "security-center",
+    category: "clouds",
+    title: {
+      pt: "Security Center",
+      en: "Security Center",
+      es: "Security Center"
+    },
+    subtitle: {
+      pt: "Monitoramento e Postura de Segurança Multi-Org",
+      en: "Multi-Org Security Monitoring and Posture Management",
+      es: "Monitoreo de Seguridad y Postura Multi-Org"
+    },
+    description: {
+      pt: "Ferramenta centralizada para monitorar e gerenciar a postura de segurança de múltiplas organizações Salesforce em um único painel, identificando riscos e garantindo conformidade com políticas de segurança.",
+      en: "A centralized tool for monitoring and managing the security posture of multiple Salesforce orgs from a single dashboard, identifying risks and ensuring compliance with security policies.",
+      es: "Herramienta centralizada para monitorear y gestionar la postura de seguridad de múltiples organizaciones Salesforce desde un único panel, identificando riesgos y garantizando el cumplimiento de las políticas de seguridad."
+    },
+    iconName: "Lock",
+    tags: {
+      pt: ["Segurança", "Multi-Org", "Conformidade"],
+      en: ["Security", "Multi-Org", "Compliance"],
+      es: ["Seguridad", "Multi-Org", "Cumplimiento"]
+    },
+    keyConcepts: [
+      {
+        title: {
+          pt: "Métricas de Segurança",
+          en: "Security Metrics",
+          es: "Métricas de Seguridad"
+        },
+        description: {
+          pt: "O Security Center coleta e exibe métricas de segurança em tempo real, como configurações de autenticação, permissões de perfis e políticas de sessão em todas as orgs conectadas.",
+          en: "Security Center collects and displays real-time security metrics, such as authentication configurations, profile permissions, and session policies across all connected orgs.",
+          es: "Security Center recopila y muestra métricas de seguridad en tiempo real, como configuraciones de autenticación, permisos de perfiles y políticas de sesión en todas las organizaciones conectadas."
+        }
+      },
+      {
+        title: {
+          pt: "Alertas e Remediação",
+          en: "Alerts and Remediation",
+          es: "Alertas y Remediación"
+        },
+        description: {
+          pt: "Identifica configurações fora do padrão de segurança recomendado e permite que administradores tomem ações corretivas diretamente pelo painel centralizado.",
+          en: "Identifies configurations that deviate from recommended security standards and enables admins to take corrective actions directly from the centralized dashboard.",
+          es: "Identifica configuraciones que se desvían de los estándares de seguridad recomendados y permite a los administradores tomar acciones correctivas directamente desde el panel centralizado."
+        }
+      }
+    ],
+    bestPractices: {
+      pt: [
+        "Conecte todas as suas orgs de produção ao Security Center para ter uma visão consolidada da postura de segurança.",
+        "Revise regularmente as métricas de políticas de senha e autenticação multifator (MFA) para garantir conformidade."
+      ],
+      en: [
+        "Connect all your production orgs to Security Center for a consolidated view of your security posture.",
+        "Regularly review password policy and multi-factor authentication (MFA) metrics to ensure compliance."
+      ],
+      es: [
+        "Conecte todas sus organizaciones de producción a Security Center para obtener una vista consolidada de su postura de seguridad.",
+        "Revise regularmente las métricas de políticas de contraseña y autenticación multifactor (MFA) para garantizar el cumplimiento."
+      ]
+    },
+    resources: [
+      {
+        title: {
+          pt: "Introdução ao Security Center",
+          en: "Get Started with Security Center",
+          es: "Introducción a Security Center"
+        },
+        url: "https://trailhead.salesforce.com/content/learn/modules/salesforce-security-center",
+        type: "trailhead"
+      }
+    ]
+  },
+  {
+    id: "privacy-center",
+    category: "clouds",
+    title: {
+      pt: "Privacy Center",
+      en: "Privacy Center",
+      es: "Privacy Center"
+    },
+    subtitle: {
+      pt: "Gestão de Privacidade de Dados e Conformidade com LGPD/GDPR",
+      en: "Data Privacy Management and LGPD/GDPR Compliance",
+      es: "Gestión de Privacidad de Datos y Cumplimiento LGPD/GDPR"
+    },
+    description: {
+      pt: "Solução nativa do Salesforce para gerenciar políticas de privacidade de dados, automatizar o direito ao esquecimento (Right to Be Forgotten), anonimizar dados sensíveis e atender às regulamentações de proteção de dados como LGPD e GDPR.",
+      en: "A native Salesforce solution to manage data privacy policies, automate Right to Be Forgotten requests, anonymize sensitive data, and comply with data protection regulations such as LGPD and GDPR.",
+      es: "Una solución nativa de Salesforce para gestionar políticas de privacidad de datos, automatizar solicitudes de derecho al olvido, anonimizar datos sensibles y cumplir con regulaciones de protección de datos como LGPD y GDPR."
+    },
+    iconName: "Eye",
+    tags: {
+      pt: ["Privacidade", "LGPD", "GDPR", "Conformidade"],
+      en: ["Privacy", "LGPD", "GDPR", "Compliance"],
+      es: ["Privacidad", "LGPD", "GDPR", "Cumplimiento"]
+    },
+    keyConcepts: [
+      {
+        title: {
+          pt: "Políticas de Retenção de Dados",
+          en: "Data Retention Policies",
+          es: "Políticas de Retención de Datos"
+        },
+        description: {
+          pt: "Defina por quanto tempo os dados pessoais dos clientes são mantidos na plataforma, automatizando a exclusão ou anonimização após o período configurado para cumprir regulações de privacidade.",
+          en: "Define how long personal customer data is retained on the platform, automating deletion or anonymization after the configured period to comply with privacy regulations.",
+          es: "Defina cuánto tiempo se conservan los datos personales de los clientes en la plataforma, automatizando la eliminación o anonimización tras el período configurado para cumplir con las normativas de privacidad."
+        }
+      },
+      {
+        title: {
+          pt: "Direito ao Esquecimento (Right to Be Forgotten)",
+          en: "Right to Be Forgotten",
+          es: "Derecho al Olvido (Right to Be Forgotten)"
+        },
+        description: {
+          pt: "Permite que indivíduos solicitem a exclusão permanente de seus dados pessoais da plataforma. O Privacy Center automatiza esse processo de forma segura e auditável.",
+          en: "Allows individuals to request permanent deletion of their personal data from the platform. Privacy Center automates this process in a secure and auditable way.",
+          es: "Permite a las personas solicitar la eliminación permanente de sus datos personales de la plataforma. Privacy Center automatiza este proceso de forma segura y auditable."
+        }
+      }
+    ],
+    bestPractices: {
+      pt: [
+        "Mapeie todos os objetos que armazenam dados pessoais identificáveis (PII) antes de configurar as políticas de retenção.",
+        "Utilize a funcionalidade de Anonimização ao invés de exclusão completa para preservar relatórios históricos sem expor dados pessoais."
+      ],
+      en: [
+        "Map all objects storing personally identifiable information (PII) before configuring retention policies.",
+        "Use the Anonymization feature instead of full deletion to preserve historical reports without exposing personal data."
+      ],
+      es: [
+        "Mapee todos los objetos que almacenan información de identificación personal (PII) antes de configurar las políticas de retención.",
+        "Utilice la función de Anonimización en lugar de la eliminación completa para conservar informes históricos sin exponer datos personales."
+      ]
+    },
+    resources: [
+      {
+        title: {
+          pt: "Fundamentos do Privacy Center",
+          en: "Privacy Center Basics",
+          es: "Conceptos básicos de Privacy Center"
+        },
+        url: "https://trailhead.salesforce.com/content/learn/modules/salesforce-privacy-center",
+        type: "trailhead"
+      }
+    ]
+  },
+  {
+    id: "salesforce-shield",
+    category: "clouds",
+    title: {
+      pt: "Salesforce Shield",
+      en: "Salesforce Shield",
+      es: "Salesforce Shield"
+    },
+    subtitle: {
+      pt: "Criptografia, Monitoramento de Eventos e Trilha de Auditoria",
+      en: "Encryption, Event Monitoring, and Audit Trail",
+      es: "Cifrado, Monitoreo de Eventos y Registro de Auditoría"
+    },
+    description: {
+      pt: "Conjunto de recursos avançados de segurança para organizações que precisam de maior controle e visibilidade sobre seus dados. Inclui Platform Encryption para dados em repouso, Event Monitoring para rastrear atividades de usuários e Field Audit Trail para histórico estendido de alterações.",
+      en: "A suite of advanced security features for organizations requiring greater control and visibility over their data. Includes Platform Encryption for data at rest, Event Monitoring for tracking user activity, and Field Audit Trail for extended change history.",
+      es: "Un conjunto de características de seguridad avanzadas para organizaciones que necesitan mayor control y visibilidad sobre sus datos. Incluye Platform Encryption para datos en reposo, Event Monitoring para rastrear la actividad de usuarios y Field Audit Trail para el historial extendido de cambios."
+    },
+    iconName: "ShieldCheck",
+    tags: {
+      pt: ["Criptografia", "Segurança Avançada", "Auditoria", "Monitoramento"],
+      en: ["Encryption", "Advanced Security", "Audit", "Monitoring"],
+      es: ["Cifrado", "Seguridad Avanzada", "Auditoría", "Monitoreo"]
+    },
+    keyConcepts: [
+      {
+        title: {
+          pt: "Platform Encryption",
+          en: "Platform Encryption",
+          es: "Platform Encryption"
+        },
+        description: {
+          pt: "Criptografa dados sensíveis em repouso no banco de dados do Salesforce (campos de objetos padrão e personalizados, arquivos e anexos) usando chaves de criptografia gerenciadas pelo cliente (Bring Your Own Key - BYOK).",
+          en: "Encrypts sensitive data at rest in the Salesforce database (standard and custom object fields, files, and attachments) using customer-managed encryption keys (Bring Your Own Key - BYOK).",
+          es: "Cifra datos sensibles en reposo en la base de datos de Salesforce (campos de objetos estándar y personalizados, archivos y adjuntos) utilizando claves de cifrado administradas por el cliente (Bring Your Own Key - BYOK)."
+        }
+      },
+      {
+        title: {
+          pt: "Event Monitoring",
+          en: "Event Monitoring",
+          es: "Event Monitoring"
+        },
+        description: {
+          pt: "Registra logs detalhados de eventos de uso da plataforma (logins, execuções de relatórios, chamadas de API, acessos a registros) permitindo análise de comportamento, detecção de anomalias e investigações forenses.",
+          en: "Records detailed logs of platform usage events (logins, report runs, API calls, record accesses) enabling behavioral analysis, anomaly detection, and forensic investigations.",
+          es: "Registra logs detallados de eventos de uso de la plataforma (inicios de sesión, ejecuciones de informes, llamadas a API, accesos a registros) permitiendo análisis de comportamiento, detección de anomalías e investigaciones forenses."
+        }
+      }
+    ],
+    bestPractices: {
+      pt: [
+        "Avalie cuidadosamente quais campos precisam de criptografia, pois campos criptografados têm limitações em filtros SOQL e pesquisa global.",
+        "Use o Event Monitoring integrado ao Einstein Analytics (CRM Analytics) para criar dashboards de segurança e monitoramento de ameaças em tempo real."
+      ],
+      en: [
+        "Carefully evaluate which fields require encryption, as encrypted fields have limitations with SOQL filters and global search.",
+        "Integrate Event Monitoring with Einstein Analytics (CRM Analytics) to build real-time security monitoring and threat detection dashboards."
+      ],
+      es: [
+        "Evalúe cuidadosamente qué campos requieren cifrado, ya que los campos cifrados tienen limitaciones con los filtros SOQL y la búsqueda global.",
+        "Integre Event Monitoring con Einstein Analytics (CRM Analytics) para crear paneles de monitoreo de seguridad y detección de amenazas en tiempo real."
+      ]
+    },
+    resources: [
+      {
+        title: {
+          pt: "Conceitos Básicos do Salesforce Shield",
+          en: "Salesforce Shield Basics",
+          es: "Conceptos básicos de Salesforce Shield"
+        },
+        url: "https://trailhead.salesforce.com/content/learn/modules/salesforce_shield",
+        type: "trailhead"
+      }
+    ]
+  },
 
   // --- FOUNDATIONS ---
   {
@@ -2155,6 +2457,586 @@ sf project retrieve start`,
           es: "Guía de Data Loader en Trailhead"
         },
         url: "https://trailhead.salesforce.com/content/learn/projects/import-and-export-with-data-management-tools/use-data-loader",
+        type: "trailhead"
+      }
+    ]
+  },
+  {
+    id: "devops-center",
+    category: "tools",
+    title: {
+      pt: "Salesforce DevOps Center",
+      en: "Salesforce DevOps Center",
+      es: "Salesforce DevOps Center"
+    },
+    subtitle: {
+      pt: "CI/CD e Gestão de Pipelines Nativo na Plataforma",
+      en: "Native CI/CD and Pipeline Management on the Platform",
+      es: "CI/CD y Gestión de Pipelines Nativo en la Plataforma"
+    },
+    description: {
+      pt: "Ferramenta nativa da Salesforce para gerenciar pipelines de entrega de mudanças (change management) e CI/CD diretamente dentro da plataforma, integrando com repositórios Git.",
+      en: "Salesforce's native tool for managing change delivery pipelines and CI/CD directly within the platform, integrating with Git repositories.",
+      es: "Herramienta nativa de Salesforce para gestionar pipelines de entrega de cambios y CI/CD directamente dentro de la plataforma, integrándose con repositorios Git."
+    },
+    iconName: "GitMerge",
+    tags: {
+      pt: ["DevOps", "CI/CD", "Pipeline"],
+      en: ["DevOps", "CI/CD", "Pipeline"],
+      es: ["DevOps", "CI/CD", "Pipeline"]
+    },
+    keyConcepts: [
+      {
+        title: {
+          pt: "Work Items e Pipelines",
+          en: "Work Items and Pipelines",
+          es: "Work Items y Pipelines"
+        },
+        description: {
+          pt: "Work Items representam unidades de trabalho (como user stories) que agrupam metadados e são promovidos por estágios do pipeline (Dev → UAT → Produção).",
+          en: "Work Items represent units of work (like user stories) that group metadata changes and are promoted through pipeline stages (Dev → UAT → Production).",
+          es: "Los Work Items representan unidades de trabajo (como user stories) que agrupan metadatos y son promovidos por etapas del pipeline (Dev → UAT → Producción)."
+        }
+      },
+      {
+        title: {
+          pt: "Integração com Git",
+          en: "Git Integration",
+          es: "Integración con Git"
+        },
+        description: {
+          pt: "O DevOps Center sincroniza automaticamente as mudanças de metadados com um repositório Git (GitHub, GitLab, Bitbucket), garantindo rastreabilidade e controle de versão.",
+          en: "DevOps Center automatically synchronizes metadata changes with a Git repository (GitHub, GitLab, Bitbucket), ensuring traceability and version control.",
+          es: "DevOps Center sincroniza automáticamente los cambios de metadatos con un repositorio Git (GitHub, GitLab, Bitbucket), garantizando trazabilidad y control de versiones."
+        }
+      }
+    ],
+    bestPractices: {
+      pt: [
+        "Conecte o DevOps Center a um repositório Git antes de criar os pipelines para garantir rastreabilidade completa das mudanças.",
+        "Use Work Items para agrupar mudanças relacionadas e evitar conflitos de metadados entre equipes."
+      ],
+      en: [
+        "Connect DevOps Center to a Git repository before creating pipelines to ensure complete change traceability.",
+        "Use Work Items to group related changes and avoid metadata conflicts between teams."
+      ],
+      es: [
+        "Conecte DevOps Center a un repositorio Git antes de crear los pipelines para garantizar trazabilidad completa.",
+        "Use Work Items para agrupar cambios relacionados y evitar conflictos de metadatos entre equipos."
+      ]
+    },
+    resources: [
+      {
+        title: {
+          pt: "Conceitos Básicos do DevOps Center",
+          en: "DevOps Center Basics on Trailhead",
+          es: "Conceptos Básicos del DevOps Center en Trailhead"
+        },
+        url: "https://trailhead.salesforce.com/content/learn/modules/salesforce-devops-center-quick-look",
+        type: "trailhead"
+      }
+    ]
+  },
+  {
+    id: "git-github",
+    category: "tools",
+    title: {
+      pt: "Git & GitHub",
+      en: "Git & GitHub",
+      es: "Git & GitHub"
+    },
+    subtitle: {
+      pt: "Versionamento de Código e Colaboração em Equipe",
+      en: "Code Versioning and Team Collaboration",
+      es: "Control de Versiones y Colaboración en Equipo"
+    },
+    description: {
+      pt: "Git é o sistema de controle de versão distribuído padrão do mercado. GitHub é a plataforma de hospedagem de repositórios mais popular, essencial para o ecossistema de desenvolvimento Salesforce moderno.",
+      en: "Git is the industry-standard distributed version control system. GitHub is the most popular repository hosting platform, essential for modern Salesforce development.",
+      es: "Git es el sistema de control de versiones distribuido estándar de la industria. GitHub es la plataforma de alojamiento más popular, esencial para el ecosistema Salesforce moderno."
+    },
+    iconName: "GitBranch",
+    tags: {
+      pt: ["Git", "Versionamento", "Colaboração"],
+      en: ["Git", "Versioning", "Collaboration"],
+      es: ["Git", "Versionado", "Colaboración"]
+    },
+    keyConcepts: [
+      {
+        title: {
+          pt: "Branching Strategy (GitFlow)",
+          en: "Branching Strategy (GitFlow)",
+          es: "Estrategia de Ramas (GitFlow)"
+        },
+        description: {
+          pt: "Estratégia de ramificação para organizar features, hotfixes e releases em branches separados, evitando conflitos e garantindo estabilidade no branch principal.",
+          en: "Branching strategy for organizing features, hotfixes, and releases in separate branches, avoiding conflicts and ensuring stability in the main branch.",
+          es: "Estrategia para organizar features, hotfixes y releases en ramas separadas, evitando conflictos y garantizando estabilidad en la rama principal."
+        },
+        codeSnippet: `# Fluxo básico de trabalho com Git e Salesforce CLI:\n# 1. Criar um branch para nova funcionalidade\ngit checkout -b feature/novo-campo-conta\n\n# 2. Puxar mudanças da Org para o repositório local\nsf project retrieve start\n\n# 3. Commitar e subir para o GitHub\ngit add .\ngit commit -m "feat: adiciona campo Segmento em Conta"\ngit push origin feature/novo-campo-conta`,
+        codeLanguage: "bash"
+      }
+    ],
+    bestPractices: {
+      pt: [
+        "Escreva mensagens de commit descritivas seguindo o padrão Conventional Commits (feat:, fix:, chore:).",
+        "Nunca faça commit de credenciais ou tokens de acesso. Use variáveis de ambiente ou arquivos .env fora do repositório."
+      ],
+      en: [
+        "Write descriptive commit messages following Conventional Commits (feat:, fix:, chore:).",
+        "Never commit credentials or access tokens. Use environment variables or .env files outside the repository."
+      ],
+      es: [
+        "Escriba mensajes de commit descriptivos siguiendo Conventional Commits (feat:, fix:, chore:).",
+        "Nunca haga commit de credenciales. Use variables de entorno o archivos .env fuera del repositorio."
+      ]
+    },
+    resources: [
+      {
+        title: {
+          pt: "Controle de Versão com Git e Salesforce",
+          en: "Source Control with Git and Salesforce",
+          es: "Control de Versiones con Git y Salesforce"
+        },
+        url: "https://trailhead.salesforce.com/content/learn/modules/git-and-git-hub-basics",
+        type: "trailhead"
+      }
+    ]
+  },
+  {
+    id: "developer-console",
+    category: "tools",
+    title: {
+      pt: "Developer Console",
+      en: "Developer Console",
+      es: "Developer Console"
+    },
+    subtitle: {
+      pt: "IDE Nativo e Executor de Apex Anônimo",
+      en: "Native IDE and Anonymous Apex Executor",
+      es: "IDE Nativo y Ejecutor de Apex Anónimo"
+    },
+    description: {
+      pt: "O ambiente de desenvolvimento integrado nativo do Salesforce, acessível diretamente pelo navegador, para escrever e depurar Apex, visualizar logs de execução e rodar queries SOQL/SOSL.",
+      en: "Salesforce's built-in browser-based IDE for writing and debugging Apex, viewing execution logs, and running SOQL/SOSL queries without installing any local tools.",
+      es: "El entorno de desarrollo integrado nativo de Salesforce, accesible desde el navegador, para escribir y depurar Apex, ver logs de ejecución y ejecutar consultas SOQL/SOSL."
+    },
+    iconName: "Terminal",
+    tags: {
+      pt: ["Apex", "Debug", "SOQL"],
+      en: ["Apex", "Debug", "SOQL"],
+      es: ["Apex", "Debug", "SOQL"]
+    },
+    keyConcepts: [
+      {
+        title: {
+          pt: "Execute Anonymous (Apex Anônimo)",
+          en: "Execute Anonymous (Anonymous Apex)",
+          es: "Execute Anonymous (Apex Anónimo)"
+        },
+        description: {
+          pt: "Permite executar blocos de código Apex diretamente na Org sem salvar como classe. Essencial para scripts de manutenção, correções rápidas de dados e testes exploratórios.",
+          en: "Allows running Apex code blocks directly in the Org without saving them as a class. Essential for maintenance scripts, quick data fixes, and exploratory testing.",
+          es: "Permite ejecutar bloques de código Apex directamente en la Org sin guardarlos. Esencial para scripts de mantenimiento, correcciones de datos y pruebas exploratorias."
+        },
+        codeSnippet: `// Exemplo de Apex Anônimo para atualizar registros em massa\nList<Account> contas = [SELECT Id, Rating FROM Account WHERE Rating = null LIMIT 200];\nfor (Account c : contas) {\n    c.Rating = 'Hot';\n}\nupdate contas;\nSystem.debug('Contas atualizadas: ' + contas.size());`,
+        codeLanguage: "apex"
+      },
+      {
+        title: {
+          pt: "Log Inspector & Debug Levels",
+          en: "Log Inspector & Debug Levels",
+          es: "Log Inspector y Niveles de Debug"
+        },
+        description: {
+          pt: "Ferramenta de análise visual de logs que filtra e exibe categorias de log (Apex Code, Database, Workflow) com diferentes níveis de detalhe (NONE, ERROR, WARN, INFO, DEBUG, FINE).",
+          en: "Visual log analysis tool that filters and displays log categories (Apex Code, Database, Workflow) at various detail levels (NONE, ERROR, WARN, INFO, DEBUG, FINE).",
+          es: "Herramienta de análisis visual de logs que filtra y muestra categorías (Apex Code, Database, Workflow) con distintos niveles de detalle."
+        }
+      }
+    ],
+    bestPractices: {
+      pt: [
+        "Sempre remova ou reduza o nível de debug de usuários em Produção após finalizar a depuração para não degradar a performance da Org.",
+        "Use o Query Editor integrado para testar e refinar queries SOQL/SOSL antes de incorporá-las ao código."
+      ],
+      en: [
+        "Always remove or reduce user debug levels in Production after debugging to prevent performance degradation.",
+        "Use the integrated Query Editor to test and refine SOQL/SOSL queries before embedding them in code."
+      ],
+      es: [
+        "Siempre elimine o reduzca los niveles de debug en Producción para no degradar el rendimiento.",
+        "Use el Query Editor integrado para probar y refinar consultas SOQL/SOSL antes de incluirlas en el código."
+      ]
+    },
+    resources: [
+      {
+        title: {
+          pt: "Depuração com o Developer Console",
+          en: "Debugging with the Developer Console on Trailhead",
+          es: "Depuración con la Developer Console en Trailhead"
+        },
+        url: "https://trailhead.salesforce.com/content/learn/modules/developer_console",
+        type: "trailhead"
+      }
+    ]
+  },
+  {
+    id: "soql-sosl",
+    category: "tools",
+    title: {
+      pt: "SOQL & SOSL",
+      en: "SOQL & SOSL",
+      es: "SOQL & SOSL"
+    },
+    subtitle: {
+      pt: "Linguagens de Consulta Nativas da Plataforma Salesforce",
+      en: "Salesforce Platform Native Query Languages",
+      es: "Lenguajes de Consulta Nativos de la Plataforma Salesforce"
+    },
+    description: {
+      pt: "SOQL (Salesforce Object Query Language) e SOSL (Salesforce Object Search Language) são as linguagens nativas para consultar dados e pesquisar texto na plataforma, com sintaxe semelhante ao SQL mas adaptadas para o modelo de metadados.",
+      en: "SOQL (Salesforce Object Query Language) and SOSL (Salesforce Object Search Language) are the native languages for querying data and searching text on the platform, with SQL-like syntax adapted to the metadata model.",
+      es: "SOQL y SOSL son los lenguajes nativos para consultar datos y buscar texto en la plataforma, con sintaxis similar a SQL pero adaptada al modelo de metadatos."
+    },
+    iconName: "Search",
+    tags: {
+      pt: ["SOQL", "SOSL", "Consultas"],
+      en: ["SOQL", "SOSL", "Queries"],
+      es: ["SOQL", "SOSL", "Consultas"]
+    },
+    keyConcepts: [
+      {
+        title: {
+          pt: "SOQL: Consultas Estruturadas por Objeto",
+          en: "SOQL: Object-Based Structured Queries",
+          es: "SOQL: Consultas Estructuradas por Objeto"
+        },
+        description: {
+          pt: "Permite consultar registros de um único objeto por vez, suportando filtros WHERE, ordenação ORDER BY, limites LIMIT e subconsultas de relacionamento pai/filho.",
+          en: "Queries a single object at a time, supporting WHERE filters, ORDER BY sorting, LIMIT clauses, and parent/child relationship subqueries.",
+          es: "Consulta un solo objeto a la vez, soportando filtros WHERE, ordenación ORDER BY, límites LIMIT y subconsultas de relaciones padre/hijo."
+        },
+        codeSnippet: `// SOQL com subconsulta de registros filhos:\nSELECT Id, Name, \n       (SELECT Id, Subject, Status FROM Cases WHERE Status = 'Open')\nFROM Account\nWHERE Industry = 'Technology'\nAND CreatedDate = THIS_YEAR\nORDER BY Name ASC\nLIMIT 100`,
+        codeLanguage: "sql"
+      },
+      {
+        title: {
+          pt: "SOSL: Pesquisa de Texto em Múltiplos Objetos",
+          en: "SOSL: Full-Text Search Across Multiple Objects",
+          es: "SOSL: Búsqueda de Texto en Múltiples Objetos"
+        },
+        description: {
+          pt: "Realiza uma busca textual em múltiplos objetos simultaneamente usando o índice de pesquisa do Salesforce, ideal quando você não sabe em qual objeto o dado está.",
+          en: "Performs a text search across multiple objects simultaneously using Salesforce's search index, ideal when you don't know which object holds the data.",
+          es: "Realiza búsquedas de texto en múltiples objetos simultáneamente usando el índice de búsqueda, ideal cuando no sabes en qué objeto está el dato."
+        },
+        codeSnippet: `// SOSL buscando 'Acme' em Contas, Contatos e Leads:\nFIND {Acme*} IN ALL FIELDS\nRETURNING\n  Account(Id, Name),\n  Contact(Id, FirstName, LastName),\n  Lead(Id, Company)`,
+        codeLanguage: "sql"
+      }
+    ],
+    bestPractices: {
+      pt: [
+        "Prefira SOQL quando souber exatamente qual objeto e campos consultar. Use SOSL para buscas textuais amplas em múltiplos objetos.",
+        "Nunca use SELECT * em SOQL — sempre liste explicitamente os campos necessários para evitar ultrapassar os limites de dados retornados."
+      ],
+      en: [
+        "Prefer SOQL when you know exactly which object and fields to query. Use SOSL for broad text searches across multiple objects.",
+        "Never use SELECT * in SOQL — always explicitly list required fields to avoid exceeding data return limits."
+      ],
+      es: [
+        "Prefiera SOQL cuando sepa exactamente qué objeto consultar. Use SOSL para búsquedas textuales amplias en múltiples objetos.",
+        "Nunca use SELECT * en SOQL — liste siempre los campos necesarios para no superar los límites de retorno de datos."
+      ]
+    },
+    resources: [
+      {
+        title: {
+          pt: "Módulo de SOQL e SOSL no Trailhead",
+          en: "SOQL and SOSL Module on Trailhead",
+          es: "Módulo de SOQL y SOSL en Trailhead"
+        },
+        url: "https://trailhead.salesforce.com/content/learn/modules/apex_database",
+        type: "trailhead"
+      }
+    ]
+  },
+  {
+    id: "setup-audit-trail",
+    category: "tools",
+    title: {
+      pt: "Setup Audit Trail",
+      en: "Setup Audit Trail",
+      es: "Setup Audit Trail"
+    },
+    subtitle: {
+      pt: "Rastreamento de Histórico de Mudanças de Configuração",
+      en: "Configuration Change History Tracking",
+      es: "Seguimiento del Historial de Cambios de Configuración"
+    },
+    description: {
+      pt: "Ferramenta nativa do Salesforce que registra um histórico detalhado de todas as mudanças de configuração (Setup) realizadas na Org, incluindo quem fez a alteração, quando e o que foi modificado.",
+      en: "A native Salesforce tool that logs a detailed history of all configuration (Setup) changes made in the Org, including who made the change, when, and what was modified.",
+      es: "Herramienta nativa de Salesforce que registra un historial detallado de todos los cambios de configuración realizados en la Org, incluyendo quién, cuándo y qué fue modificado."
+    },
+    iconName: "FileText",
+    tags: {
+      pt: ["Auditoria", "Segurança", "Compliance"],
+      en: ["Audit", "Security", "Compliance"],
+      es: ["Auditoría", "Seguridad", "Compliance"]
+    },
+    keyConcepts: [
+      {
+        title: {
+          pt: "Retenção de 180 Dias",
+          en: "180-Day Retention",
+          es: "Retención de 180 Días"
+        },
+        description: {
+          pt: "O Setup Audit Trail retém os últimos 180 dias de histórico de mudanças de configuração. Para retenção de longo prazo, é recomendável exportar os logs regularmente.",
+          en: "The Setup Audit Trail retains the last 180 days of configuration change history. For long-term retention, it is recommended to export logs regularly.",
+          es: "El Setup Audit Trail retiene los últimos 180 días del historial de cambios. Para retención a largo plazo, se recomienda exportar los logs regularmente."
+        }
+      }
+    ],
+    bestPractices: {
+      pt: [
+        "Consulte o Audit Trail antes de qualquer investigação de incidente para identificar mudanças recentes que possam ter causado um problema.",
+        "Exporte e arquive os logs periodicamente em sistemas externos para garantir conformidade com requisitos regulatórios de longo prazo."
+      ],
+      en: [
+        "Check the Audit Trail before any incident investigation to identify recent configuration changes that may have caused the issue.",
+        "Periodically export and archive logs in external systems to ensure compliance with long-term regulatory requirements."
+      ],
+      es: [
+        "Consulte el Audit Trail antes de cualquier investigación de incidentes para identificar cambios recientes que puedan haber causado el problema.",
+        "Exporte y archive los logs periódicamente en sistemas externos para cumplir requisitos regulatorios de largo plazo."
+      ]
+    },
+    resources: [
+      {
+        title: {
+          pt: "Monitoramento e Rastreamento de Mudanças no Trailhead",
+          en: "Monitoring and Change Tracking on Trailhead",
+          es: "Monitoreo y Seguimiento de Cambios en Trailhead"
+        },
+        url: "https://trailhead.salesforce.com/content/learn/modules/security_basics",
+        type: "trailhead"
+      }
+    ]
+  },
+  {
+    id: "apex-replay-debugger",
+    category: "tools",
+    title: {
+      pt: "Apex Replay Debugger",
+      en: "Apex Replay Debugger",
+      es: "Apex Replay Debugger"
+    },
+    subtitle: {
+      pt: "Depuração Visual de Apex com Logs de Execução no VS Code",
+      en: "Visual Apex Debugging Using Execution Logs in VS Code",
+      es: "Depuración Visual de Apex con Logs de Ejecución en VS Code"
+    },
+    description: {
+      pt: "Extensão do VS Code que permite reproduzir (replay) logs de debug do Salesforce passo a passo, visualizando o estado das variáveis em cada linha do código Apex como se estivesse em um debugger local.",
+      en: "A VS Code extension that allows you to replay Salesforce debug logs step by step, visualizing the state of variables at each line of Apex code as if using a local debugger.",
+      es: "Extensión de VS Code que permite reproducir (replay) logs de debug de Salesforce paso a paso, visualizando el estado de variables en cada línea del código Apex."
+    },
+    iconName: "Play",
+    tags: {
+      pt: ["Debug", "Apex", "VS Code"],
+      en: ["Debug", "Apex", "VS Code"],
+      es: ["Debug", "Apex", "VS Code"]
+    },
+    keyConcepts: [
+      {
+        title: {
+          pt: "Checkpoints e Replay de Logs",
+          en: "Checkpoints and Log Replay",
+          es: "Checkpoints y Replay de Logs"
+        },
+        description: {
+          pt: "Você define Checkpoints no código (até 5 por sessão) diretamente no VS Code. Ao executar o código na Org, o log captura o estado do heap de memória naquele ponto e permite o replay offline.",
+          en: "You set Checkpoints in code (up to 5 per session) directly in VS Code. When the code executes in the Org, the log captures the memory heap state at that point for offline replay.",
+          es: "Se definen Checkpoints en el código (hasta 5 por sesión) en VS Code. Al ejecutarse en la Org, el log captura el estado del heap de memoria en ese punto para reproducción offline."
+        }
+      }
+    ],
+    bestPractices: {
+      pt: [
+        "Use o Replay Debugger para problemas complexos de lógica Apex. Para problemas simples, System.debug() ainda é mais rápido.",
+        "Defina os checkpoints nos pontos de decisão do código (dentro de condicionais ou loops) para maximizar o valor do log capturado."
+      ],
+      en: [
+        "Use the Replay Debugger for complex Apex logic issues. For simple problems, System.debug() is still faster.",
+        "Set checkpoints at code decision points (inside conditionals or loops) to maximize the value of the captured log."
+      ],
+      es: [
+        "Use el Replay Debugger para problemas complejos de lógica Apex. Para problemas simples, System.debug() sigue siendo más rápido.",
+        "Defina checkpoints en los puntos de decisión del código (dentro de condicionales o bucles) para maximizar el valor del log."
+      ]
+    },
+    resources: [
+      {
+        title: {
+          pt: "Apex Replay Debugger no Trailhead",
+          en: "Apex Replay Debugger on Trailhead",
+          es: "Apex Replay Debugger en Trailhead"
+        },
+        url: "https://trailhead.salesforce.com/content/learn/projects/find-and-fix-bugs-with-apex-replay-debugger",
+        type: "trailhead"
+      }
+    ]
+  },
+  {
+    id: "copado-gearset",
+    category: "tools",
+    title: {
+      pt: "Copado & Gearset",
+      en: "Copado & Gearset",
+      es: "Copado & Gearset"
+    },
+    subtitle: {
+      pt: "Plataformas Líderes de DevOps e Release Management",
+      en: "Leading DevOps and Release Management Platforms",
+      es: "Plataformas Líderes de DevOps y Release Management"
+    },
+    description: {
+      pt: "Ferramentas de mercado especializadas em DevOps para Salesforce, oferecendo pipelines de CI/CD, comparação visual de metadados, gestão de conflitos e automação de deploy muito além do que as ferramentas nativas oferecem.",
+      en: "Market-leading DevOps tools specialized for Salesforce, offering CI/CD pipelines, visual metadata comparison, conflict management, and deployment automation far beyond native tooling.",
+      es: "Herramientas de mercado especializadas en DevOps para Salesforce, con pipelines de CI/CD, comparación visual de metadatos, gestión de conflictos y automatización de despliegues."
+    },
+    iconName: "Rocket",
+    tags: {
+      pt: ["DevOps", "Release Management", "Mercado"],
+      en: ["DevOps", "Release Management", "Market"],
+      es: ["DevOps", "Release Management", "Mercado"]
+    },
+    keyConcepts: [
+      {
+        title: {
+          pt: "Comparação Visual de Metadados (Gearset)",
+          en: "Visual Metadata Comparison (Gearset)",
+          es: "Comparación Visual de Metadatos (Gearset)"
+        },
+        description: {
+          pt: "O Gearset permite comparar visualmente os metadados entre duas orgs (ex: Produção vs Sandbox), selecionando exatamente quais componentes deseja implantar com validação de dependências.",
+          en: "Gearset allows you to visually compare metadata between two orgs (e.g., Production vs Sandbox), selecting exactly which components to deploy with dependency validation.",
+          es: "Gearset permite comparar visualmente los metadatos entre dos orgs (ej: Producción vs Sandbox), seleccionando exactamente qué componentes desplegar con validación de dependencias."
+        }
+      },
+      {
+        title: {
+          pt: "Pipeline de Release Baseado em User Stories (Copado)",
+          en: "User-Story-Based Release Pipeline (Copado)",
+          es: "Pipeline de Release Basado en User Stories (Copado)"
+        },
+        description: {
+          pt: "O Copado conecta user stories de projetos ágeis diretamente ao pipeline de deploy, garantindo que apenas os metadados aprovados e testados sejam promovidos entre os ambientes.",
+          en: "Copado connects agile project user stories directly to the deployment pipeline, ensuring only approved and tested metadata is promoted between environments.",
+          es: "Copado conecta las user stories de proyectos ágiles directamente al pipeline de despliegue, garantizando que solo los metadatos aprobados sean promovidos entre entornos."
+        }
+      }
+    ],
+    bestPractices: {
+      pt: [
+        "Avalie o Gearset para equipes menores que precisam de comparação e deploy rápido, e o Copado para organizações maiores com fluxos de release complexos.",
+        "Ambas as ferramentas se integram com repositórios Git — sempre use um repositório como fonte da verdade, mesmo com essas plataformas."
+      ],
+      en: [
+        "Evaluate Gearset for smaller teams needing fast comparison and deployment, and Copado for larger organizations with complex release flows.",
+        "Both tools integrate with Git repositories — always use a repository as the source of truth, even with these platforms."
+      ],
+      es: [
+        "Evalúe Gearset para equipos pequeños que necesitan comparación y despliegue rápido, y Copado para organizaciones con flujos de release complejos.",
+        "Ambas herramientas se integran con repositorios Git — use siempre un repositorio como fuente de verdad."
+      ]
+    },
+    resources: [
+      {
+        title: {
+          pt: "Site Oficial do Copado",
+          en: "Copado Official Website",
+          es: "Sitio Oficial de Copado"
+        },
+        url: "https://www.copado.com/",
+        type: "article"
+      }
+    ]
+  },
+  {
+    id: "mulesoft-anypoint",
+    category: "tools",
+    title: {
+      pt: "MuleSoft Anypoint Platform",
+      en: "MuleSoft Anypoint Platform",
+      es: "MuleSoft Anypoint Platform"
+    },
+    subtitle: {
+      pt: "Integração de Sistemas e Gestão de APIs Empresariais",
+      en: "Enterprise System Integration and API Management",
+      es: "Integración de Sistemas y Gestión de APIs Empresariales"
+    },
+    description: {
+      pt: "Plataforma de integração e gestão de APIs da Salesforce (adquirida em 2018) usada para conectar sistemas heterogêneos, criar camadas de API padronizadas e orquestrar fluxos de dados entre o Salesforce e sistemas legados.",
+      en: "Salesforce's integration and API management platform (acquired in 2018) used to connect heterogeneous systems, create standardized API layers, and orchestrate data flows between Salesforce and legacy systems.",
+      es: "Plataforma de integración y gestión de APIs de Salesforce (adquirida en 2018) para conectar sistemas heterogéneos, crear capas de API estandarizadas y orquestar flujos de datos entre Salesforce y sistemas heredados."
+    },
+    iconName: "Share2",
+    tags: {
+      pt: ["Integração", "APIs", "MuleSoft"],
+      en: ["Integration", "APIs", "MuleSoft"],
+      es: ["Integración", "APIs", "MuleSoft"]
+    },
+    keyConcepts: [
+      {
+        title: {
+          pt: "API-Led Connectivity",
+          en: "API-Led Connectivity",
+          es: "Conectividad Liderada por APIs (API-Led)"
+        },
+        description: {
+          pt: "Arquitetura de integração em três camadas: System APIs (conectam sistemas legados), Process APIs (orquestram lógica de negócio) e Experience APIs (entregam dados para canais de consumo como apps e portais).",
+          en: "Three-layer integration architecture: System APIs (connect legacy systems), Process APIs (orchestrate business logic), and Experience APIs (deliver data to consumption channels like apps and portals).",
+          es: "Arquitectura de integración en tres capas: System APIs (conectan sistemas heredados), Process APIs (orquestan lógica de negocio) y Experience APIs (entregan datos a canales de consumo)."
+        }
+      },
+      {
+        title: {
+          pt: "Anypoint Exchange",
+          en: "Anypoint Exchange",
+          es: "Anypoint Exchange"
+        },
+        description: {
+          pt: "Marketplace interno de ativos de integração (conectores, templates, APIs documentadas) da MuleSoft que permite reutilizar componentes prontos para acelerar o desenvolvimento de integrações.",
+          en: "MuleSoft's internal marketplace of integration assets (connectors, templates, documented APIs) that enables reusing ready-made components to accelerate integration development.",
+          es: "Marketplace interno de activos de integración (conectores, plantillas, APIs documentadas) de MuleSoft para reutilizar componentes listos y acelerar el desarrollo de integraciones."
+        }
+      }
+    ],
+    bestPractices: {
+      pt: [
+        "Siga a arquitetura API-Led Connectivity para criar integrações reutilizáveis e desacopladas, evitando integrações ponto a ponto (spaghetti integrations).",
+        "Documente e publique todas as APIs no Anypoint Exchange para promover reutilização e padronização entre times de integração."
+      ],
+      en: [
+        "Follow API-Led Connectivity architecture to build reusable, decoupled integrations, avoiding point-to-point (spaghetti) integrations.",
+        "Document and publish all APIs in Anypoint Exchange to promote reuse and standardization across integration teams."
+      ],
+      es: [
+        "Siga la arquitectura API-Led para construir integraciones reutilizables y desacopladas, evitando integraciones punto a punto.",
+        "Documente y publique todas las APIs en Anypoint Exchange para promover reutilización y estandarización entre equipos."
+      ]
+    },
+    resources: [
+      {
+        title: {
+          pt: "Fundamentos do MuleSoft no Trailhead",
+          en: "MuleSoft Basics on Trailhead",
+          es: "Fundamentos de MuleSoft en Trailhead"
+        },
+        url: "https://trailhead.salesforce.com/content/learn/modules/mulesoft-basics",
         type: "trailhead"
       }
     ]

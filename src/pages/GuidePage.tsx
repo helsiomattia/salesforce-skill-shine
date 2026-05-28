@@ -24,7 +24,10 @@ import {
   Compass,
   Wrench,
   Settings,
-  Layers
+  Layers,
+  Lock,
+  Eye,
+  ShieldCheck
 } from "lucide-react";
 import {
   Sheet,
@@ -57,7 +60,10 @@ const iconMap: Record<string, any> = {
   Compass,
   Wrench,
   Settings,
-  Layers
+  Layers,
+  Lock,
+  Eye,
+  ShieldCheck
 };
 
 const getIcon = (name: string) => iconMap[name] || BookOpen;
