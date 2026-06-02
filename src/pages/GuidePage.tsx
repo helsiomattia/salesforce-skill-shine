@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { getLocalizedString, getLocalizedStringArray } from "@/utils/i18nHelper";
@@ -15,10 +16,7 @@ import {
   LifeBuoy,
   TrendingUp,
   Globe,
-  Check,
-  ExternalLink,
   X,
-  Copy,
   ChevronRight,
   FileText,
   Compass,
@@ -29,13 +27,6 @@ import {
   Eye,
   ShieldCheck
 } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-} from "@/components/ui/sheet";
 import {
   Dialog,
   DialogContent,
@@ -68,41 +59,23 @@ const iconMap: Record<string, any> = {
 
 const getIcon = (name: string) => iconMap[name] || BookOpen;
 
-const CodeBlock = ({ code, language }: { code: string; language?: string }) => {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(code);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  return (
-    <div className="relative my-3 rounded-2xl border border-slate-800 bg-slate-950 p-4 font-mono text-xs text-slate-200 shadow-inner">
-      <div className="absolute right-3 top-3 flex gap-1 z-10">
-        <button
-          onClick={handleCopy}
-          className="rounded-lg bg-slate-900 border border-slate-800 p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 transition-all"
-          title="Copy Code"
-        >
-          {copied ? <Check className="h-3.5 w-3.5 text-green-400" /> : <Copy className="h-3.5 w-3.5" />}
-        </button>
-      </div>
-      {language && (
-        <span className="absolute left-4 top-3 text-[10px] font-bold uppercase tracking-wider text-slate-500">
-          {language}
-        </span>
-      )}
-      <pre className="mt-4 overflow-x-auto whitespace-pre-wrap leading-relaxed">{code}</pre>
-    </div>
-  );
-};
 
 const GuidePage = () => {
   const { t, i18n } = useTranslation();
   const lang = i18n.resolvedLanguage || "pt";
+  const navigate = useNavigate();
 
-  const [activeTab, setActiveTab] = useState<"clouds" | "foundations" | "admin" | "dev" | "architect" | "tools">("clouds");
+  const [activeTab, setActiveTab] = useState<"clouds" | "foundations" | "admin" | "dev" | "architect" | "tools">(() => {
+    const saved = localStorage.getItem("sfs_guide_last_tab");
+    if (saved && ["clouds", "foundations", "admin", "dev", "architect", "tools"].includes(saved)) {
+      return saved as any;
+    }
+    return "clouds";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("sfs_guide_last_tab", activeTab);
+  }, [activeTab]);
 
   const tabs = [
     { id: "clouds", label: t("guide.tabClouds"), icon: Globe },
@@ -114,7 +87,6 @@ const GuidePage = () => {
   ] as const;
   const [searchQuery, setSearchQuery] = useState("");
   const [customGuides, setCustomGuides] = useState<GuideItem[]>([]);
-  const [activeGuide, setActiveGuide] = useState<GuideItem | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   // Form State for custom guides
@@ -123,58 +95,17 @@ const GuidePage = () => {
   const [newCategory, setNewCategory] = useState<"clouds" | "foundations" | "admin" | "dev" | "architect" | "tools">("clouds");
   const [newTags, setNewTags] = useState("");
 
-  // Notes state
-  const [notes, setNotes] = useState<Record<string, string>>({});
-  const [saveStatus, setSaveStatus] = useState<"" | "saving" | "saved">("");
-  const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Load custom guides & notes from localStorage on mount
+  // Load custom guides from localStorage on mount
   useEffect(() => {
-    // Customs
     const customs = localStorage.getItem("sfs_custom_guides");
-    let parsedCustoms: GuideItem[] = [];
     if (customs) {
       try {
-        parsedCustoms = JSON.parse(customs);
-        setCustomGuides(parsedCustoms);
+        setCustomGuides(JSON.parse(customs));
       } catch (e) {
         console.error("Error parsing custom guides", e);
       }
     }
-
-    // Notes
-    const loadedNotes: Record<string, string> = {};
-    defaultGuides.forEach((g) => {
-      const val = localStorage.getItem(`sfs_guide_notes_${g.id}`);
-      if (val) loadedNotes[g.id] = val;
-    });
-    parsedCustoms.forEach((g) => {
-      const val = localStorage.getItem(`sfs_guide_notes_${g.id}`);
-      if (val) loadedNotes[g.id] = val;
-    });
-    setNotes(loadedNotes);
   }, []);
-
-  const handleNotesChange = (itemId: string, content: string) => {
-    setNotes((prev) => ({
-      ...prev,
-      [itemId]: content,
-    }));
-    setSaveStatus("saving");
-
-    if (saveTimeoutRef.current) {
-      clearTimeout(saveTimeoutRef.current);
-    }
-
-    saveTimeoutRef.current = setTimeout(() => {
-      localStorage.setItem(`sfs_guide_notes_${itemId}`, content);
-      setSaveStatus("saved");
-
-      setTimeout(() => {
-        setSaveStatus("");
-      }, 1500);
-    }, 600); // debounce 600ms
-  };
 
   const handleCreateCustomGuide = (e: React.FormEvent) => {
     e.preventDefault();
@@ -224,23 +155,12 @@ const GuidePage = () => {
   };
 
   const handleDeleteCustomGuide = (e: React.MouseEvent, id: string) => {
-    e.stopPropagation(); // prevent opening sheet
+    e.stopPropagation(); // prevent navigating
     if (window.confirm(t("guide.deleteConfirm"))) {
       const updated = customGuides.filter((g) => g.id !== id);
       setCustomGuides(updated);
       localStorage.setItem("sfs_custom_guides", JSON.stringify(updated));
-
-      // Clean up note
       localStorage.removeItem(`sfs_guide_notes_${id}`);
-      setNotes((prev) => {
-        const next = { ...prev };
-        delete next[id];
-        return next;
-      });
-
-      if (activeGuide?.id === id) {
-        setActiveGuide(null);
-      }
     }
   };
 
@@ -362,13 +282,13 @@ const GuidePage = () => {
             >
               {filteredGuides.map((guide) => {
                 const Icon = getIcon(guide.iconName);
-                const hasNotes = !!notes[guide.id]?.trim();
                 const isCustom = guide.id.startsWith("custom-");
+                const hasNotes = !!localStorage.getItem(`sfs_guide_notes_${guide.id}`)?.trim();
 
                 return (
                   <div
                     key={guide.id}
-                    onClick={() => setActiveGuide(guide)}
+                    onClick={() => navigate(`/guide/${guide.id}`)}
                     className="group relative flex flex-col justify-between overflow-hidden rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-200 cursor-pointer"
                   >
                     <div className="space-y-4">
@@ -443,175 +363,7 @@ const GuidePage = () => {
         </AnimatePresence>
       </div>
 
-      {/* Slide-over Detail Sheet */}
-      <Sheet open={!!activeGuide} onOpenChange={(open) => !open && setActiveGuide(null)}>
-        <SheetContent className="sm:max-w-2xl w-full h-full overflow-y-auto bg-white border-l border-slate-200 p-0">
-          {activeGuide && (
-            <div className="flex flex-col h-full">
-              {/* Header */}
-              <div className="p-6 border-b border-slate-100 bg-slate-50/50 relative">
-                <SheetHeader className="pr-8">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white border border-slate-200 text-blue-600 shadow-sm">
-                      {(() => {
-                        const Icon = getIcon(activeGuide.iconName);
-                        return <Icon className="h-5 w-5" />;
-                      })()}
-                    </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                      {activeGuide.category === "clouds" ? t("guide.tabClouds") :
-                       activeGuide.category === "foundations" ? t("guide.tabFoundations") :
-                       activeGuide.category === "admin" ? t("guide.tabAdmin") :
-                       activeGuide.category === "dev" ? t("guide.tabDev") :
-                       activeGuide.category === "architect" ? t("guide.tabArchitect") :
-                       t("guide.tabTools")}
-                    </span>
-                    {activeGuide.id.startsWith("custom-") && (
-                      <Badge className="bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-50 rounded-lg">
-                        {t("guide.customLabel")}
-                      </Badge>
-                    )}
-                  </div>
-                  <SheetTitle className="text-2xl font-extrabold text-slate-900 leading-tight">
-                    {getLocalizedString(activeGuide.title, lang)}
-                  </SheetTitle>
-                  <SheetDescription className="text-sm font-semibold text-slate-500 pt-1">
-                    {getLocalizedString(activeGuide.subtitle, lang)}
-                  </SheetDescription>
-                </SheetHeader>
-              </div>
 
-              {/* Body */}
-              <div className="flex-1 p-6 space-y-8 pb-20">
-                {/* Description */}
-                <div className="space-y-2">
-                  <p className="text-slate-700 leading-relaxed text-sm md:text-base bg-slate-50 border border-slate-100 rounded-2xl p-4 shadow-inner">
-                    {getLocalizedString(activeGuide.description, lang)}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {getLocalizedStringArray(activeGuide.tags, lang).map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="inline-flex items-center rounded-lg bg-slate-50 border border-slate-100 px-2 py-0.5 text-xs text-slate-500 font-medium"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* If default guide, show structured technical templates */}
-                {!activeGuide.id.startsWith("custom-") && (
-                  <>
-                    {/* Key Concepts */}
-                    {activeGuide.keyConcepts && activeGuide.keyConcepts.length > 0 && (
-                      <div className="space-y-4">
-                        <h4 className="text-lg font-bold text-slate-900 border-l-4 border-blue-500 pl-3">
-                          {t("guide.keyConcepts")}
-                        </h4>
-                        <div className="space-y-4">
-                          {activeGuide.keyConcepts.map((concept, idx) => (
-                            <div key={idx} className="space-y-2 bg-white border border-slate-100 rounded-2xl p-4 shadow-sm hover:border-slate-200 transition">
-                              <h5 className="font-bold text-slate-800 text-sm md:text-base">
-                                {getLocalizedString(concept.title, lang)}
-                              </h5>
-                              <p className="text-slate-600 text-sm leading-relaxed">
-                                {getLocalizedString(concept.description, lang)}
-                              </p>
-                              {concept.codeSnippet && (
-                                <CodeBlock
-                                  code={concept.codeSnippet}
-                                  language={concept.codeLanguage}
-                                />
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Best Practices */}
-                    {getLocalizedStringArray(activeGuide.bestPractices, lang).length > 0 && (
-                      <div className="space-y-4">
-                        <h4 className="text-lg font-bold text-slate-900 border-l-4 border-blue-500 pl-3">
-                          {t("guide.bestPractices")}
-                        </h4>
-                        <ul className="space-y-2.5 bg-slate-50/50 border border-slate-100 rounded-2xl p-5 shadow-sm">
-                          {getLocalizedStringArray(activeGuide.bestPractices, lang).map((practice, idx) => (
-                            <li key={idx} className="flex items-start gap-3 text-sm text-slate-700 leading-relaxed">
-                              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-600 text-[10px] font-bold border border-blue-100 mt-0.5">
-                                {idx + 1}
-                              </div>
-                              <span>{practice}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
-                    {/* Resources */}
-                    {activeGuide.resources && activeGuide.resources.length > 0 && (
-                      <div className="space-y-4">
-                        <h4 className="text-lg font-bold text-slate-900 border-l-4 border-blue-500 pl-3">
-                          {t("guide.resources")}
-                        </h4>
-                        <div className="grid gap-3 sm:grid-cols-2">
-                          {activeGuide.resources.map((res, idx) => (
-                            <a
-                              key={idx}
-                              href={res.url}
-                              target="_blank"
-                              rel="noreferrer noopener"
-                              className="flex items-center justify-between p-3.5 border border-slate-200 rounded-xl bg-white text-sm font-semibold text-slate-800 hover:border-blue-500 hover:text-blue-600 transition"
-                            >
-                              <span className="truncate pr-2">
-                                {getLocalizedString(res.title, lang)}
-                              </span>
-                              <ExternalLink className="h-4 w-4 shrink-0 text-slate-400" />
-                            </a>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </>
-                )}
-
-                {/* Personal Notes (Autosaving Notepad) */}
-                <div className="space-y-4 border-t border-slate-100 pt-6">
-                  <div className="flex justify-between items-center">
-                    <h4 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                      <span>📝</span>
-                      {t("guide.personalNotes")}
-                    </h4>
-                    <span className="text-xs font-semibold text-slate-400 flex items-center gap-1.5 min-h-[16px]">
-                      {saveStatus === "saving" && (
-                        <>
-                          <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-ping" />
-                          Salvando...
-                        </>
-                      )}
-                      {saveStatus === "saved" && (
-                        <>
-                          <Check className="h-3.5 w-3.5 text-green-500 font-bold" />
-                          {t("guide.notesSaved")}
-                        </>
-                      )}
-                    </span>
-                  </div>
-
-                  <Textarea
-                    placeholder={t("guide.notesPlaceholder")}
-                    value={notes[activeGuide.id] || ""}
-                    onChange={(e) => handleNotesChange(activeGuide.id, e.target.value)}
-                    rows={8}
-                    className="w-full rounded-2xl border-slate-200 p-4 text-slate-700 bg-slate-50 focus-visible:ring-blue-500 leading-relaxed font-sans shadow-inner resize-y"
-                  />
-                </div>
-              </div>
-            </div>
-          )}
-        </SheetContent>
-      </Sheet>
 
       {/* Add Custom Guide Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

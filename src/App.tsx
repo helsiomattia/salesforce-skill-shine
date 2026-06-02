@@ -11,6 +11,7 @@ import AssessmentPage from "./pages/AssessmentPage";
 import CareerPage from "./pages/CareerPage";
 import ContactPage from "./pages/ContactPage";
 import GuidePage from "./pages/GuidePage";
+import GuideDetailPage from "./pages/GuideDetailPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/assessment" element={<AssessmentPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/guide" element={<GuidePage />} />
+            <Route path="/guide/:id" element={<GuideDetailPage />} />
             <Route path="/assessment/admin" element={<CareerPage categoryId="admin" />} />
             <Route path="/assessment/developer" element={<CareerPage categoryId="developer" />} />
             <Route path="/assessment/consultant" element={<CareerPage categoryId="consultant" />} />
