@@ -230,13 +230,6 @@ const GuidePage = () => {
               )}
             </div>
 
-            <Button
-              onClick={() => setIsDialogOpen(true)}
-              className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-5 py-6 font-semibold hover:bg-blue-700 text-white shadow-lg shadow-blue-600/15"
-            >
-              <Plus className="h-5 w-5" />
-              {t("guide.addGuideBtn")}
-            </Button>
           </div>
         </div>
       </section>

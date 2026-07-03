@@ -12,7 +12,8 @@ import {
   CheckCircle2,
   Phone,
   ExternalLink,
-  ChevronRight
+  ChevronRight,
+  Github
 } from "lucide-react";
 
 const AboutPage = () => {
@@ -137,12 +138,18 @@ const AboutPage = () => {
               {t('about.role')}
             </p>
 
-            <div className="flex flex-wrap justify-center gap-6 pt-4 text-sm font-medium text-slate-500">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 pt-4 text-sm font-medium text-slate-500">
               <a href={`mailto:${t('about.email')}`} className="flex items-center gap-2 transition hover:text-blue-600">
                 <Mail className="h-4 w-4" /> {t('about.email')}
               </a>
               <a href={`https://${t('about.linkedin')}`} target="_blank" rel="noreferrer" className="flex items-center gap-2 transition hover:text-blue-600">
                 <Linkedin className="h-4 w-4" /> {t('about.linkedin')}
+              </a>
+              <a href="https://github.com/helsiomattia" target="_blank" rel="noreferrer" className="flex items-center gap-2 transition hover:text-slate-900">
+                <Github className="h-4 w-4" /> GitHub
+              </a>
+              <a href="https://trailblazer.me/id/helsiomattia" target="_blank" rel="noreferrer" className="flex items-center gap-2 transition hover:text-blue-600">
+                <Globe className="h-4 w-4" /> {t('about.trailblazer')}
               </a>
               <span className="flex items-center gap-2">
                 <Phone className="h-4 w-4" /> {t('about.phone')}
@@ -307,6 +314,8 @@ const AboutPage = () => {
           </div>
         </motion.section>
       </div>
+
+
 
     </div>
   );

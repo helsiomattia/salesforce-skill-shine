@@ -52,6 +52,7 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
         <div className="relative z-10 space-y-6">
           <Link
             to="/assessment"
+            viewTransition
             className="group inline-flex items-center gap-2 text-sm font-bold text-slate-400 transition-colors hover:text-blue-600"
           >
             <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-50 transition-colors group-hover:bg-blue-50 group-hover:text-blue-600">

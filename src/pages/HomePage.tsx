@@ -156,6 +156,7 @@ const HomePage = () => {
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   to="/assessment"
+                  viewTransition
                   className="group inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-6 py-4 text-base font-semibold text-white transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/25"
                 >
                   <ClipboardCheck className="h-5 w-5" />
@@ -165,6 +166,7 @@ const HomePage = () => {
 
                 <Link
                   to="/about"
+                  viewTransition
                   className="inline-flex items-center gap-2 rounded-2xl border-2 border-slate-200 bg-white px-6 py-4 text-base font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
                 >
                   <User className="h-5 w-5 text-slate-400" />
@@ -229,45 +231,50 @@ const HomePage = () => {
             </motion.div>
 
             {/* Main Nodes */}
-            <motion.div 
-              className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-orange-50 border-4 border-orange-400 text-orange-600 shadow-xl"
-              style={{ top: "20%", left: "20%", transform: "translate(-50%, -50%)" }}
-              whileHover={{ scale: 1.1 }}
-            >
-              <Settings className="h-7 w-7" />
-            </motion.div>
+            <div className="absolute z-10" style={{ top: "20%", left: "20%", transform: "translate(-50%, -50%)" }}>
+              <motion.div 
+                className="flex h-16 w-16 items-center justify-center rounded-full bg-orange-50 border-4 border-orange-400 text-orange-600 shadow-xl"
+                whileHover={{ scale: 1.1 }}
+              >
+                <Settings className="h-7 w-7" />
+              </motion.div>
+            </div>
             
-            <motion.div 
-              className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-teal-50 border-4 border-teal-400 text-teal-600 shadow-xl"
-              style={{ top: "20%", left: "80%", transform: "translate(-50%, -50%)" }}
-              whileHover={{ scale: 1.1 }}
-            >
-              <Compass className="h-7 w-7" />
-            </motion.div>
+            <div className="absolute z-10" style={{ top: "20%", left: "80%", transform: "translate(-50%, -50%)" }}>
+              <motion.div 
+                className="flex h-16 w-16 items-center justify-center rounded-full bg-teal-50 border-4 border-teal-400 text-teal-600 shadow-xl"
+                whileHover={{ scale: 1.1 }}
+              >
+                <Compass className="h-7 w-7" />
+              </motion.div>
+            </div>
 
-            <motion.div 
-              className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-purple-50 border-4 border-purple-400 text-purple-600 shadow-xl"
-              style={{ top: "80%", left: "20%", transform: "translate(-50%, -50%)" }}
-              whileHover={{ scale: 1.1 }}
-            >
-              <Users className="h-7 w-7" />
-            </motion.div>
+            <div className="absolute z-10" style={{ top: "80%", left: "20%", transform: "translate(-50%, -50%)" }}>
+              <motion.div 
+                className="flex h-16 w-16 items-center justify-center rounded-full bg-purple-50 border-4 border-purple-400 text-purple-600 shadow-xl"
+                whileHover={{ scale: 1.1 }}
+              >
+                <Users className="h-7 w-7" />
+              </motion.div>
+            </div>
 
-            <motion.div 
-              className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-pink-50 border-4 border-pink-400 text-pink-600 shadow-xl"
-              style={{ top: "85%", left: "50%", transform: "translate(-50%, -50%)" }}
-              whileHover={{ scale: 1.1 }}
-            >
-              <Database className="h-7 w-7" />
-            </motion.div>
+            <div className="absolute z-10" style={{ top: "85%", left: "50%", transform: "translate(-50%, -50%)" }}>
+              <motion.div 
+                className="flex h-16 w-16 items-center justify-center rounded-full bg-pink-50 border-4 border-pink-400 text-pink-600 shadow-xl"
+                whileHover={{ scale: 1.1 }}
+              >
+                <Database className="h-7 w-7" />
+              </motion.div>
+            </div>
 
-            <motion.div 
-              className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-blue-50 border-4 border-blue-400 text-blue-600 shadow-xl"
-              style={{ top: "60%", left: "85%", transform: "translate(-50%, -50%)" }}
-              whileHover={{ scale: 1.1 }}
-            >
-              <Code2 className="h-7 w-7" />
-            </motion.div>
+            <div className="absolute z-10" style={{ top: "60%", left: "85%", transform: "translate(-50%, -50%)" }}>
+              <motion.div 
+                className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-50 border-4 border-blue-400 text-blue-600 shadow-xl"
+                whileHover={{ scale: 1.1 }}
+              >
+                <Code2 className="h-7 w-7" />
+              </motion.div>
+            </div>
 
             {/* Astro Mascot Animated (Moved to the top left area) */}
             <motion.div
@@ -305,6 +312,7 @@ const HomePage = () => {
               <Link
                 key={career.id}
                 to={career.link}
+                viewTransition
                 className={`group relative flex flex-col justify-between overflow-hidden rounded-[28px] border-2 bg-white p-6 transition-all duration-300 hover:-translate-y-1 ${career.shadow} border-slate-100 hover:border-opacity-50`}
               >
                 <div className="space-y-4">

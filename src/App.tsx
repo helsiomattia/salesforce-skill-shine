@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { createHashRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,30 +16,38 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Create the router using the Data Router API to enable View Transitions
+const router = createHashRouter([
+  {
+    element: (
+      <>
+        <ScrollToTop />
+        <AppLayout />
+      </>
+    ),
+    errorElement: <NotFound />,
+    children: [
+      { path: "/", element: <HomePage /> },
+      { path: "/about", element: <AboutPage /> },
+      { path: "/assessment", element: <AssessmentPage /> },
+      { path: "/contact", element: <ContactPage /> },
+      { path: "/guide", element: <GuidePage /> },
+      { path: "/guide/:id", element: <GuideDetailPage /> },
+      { path: "/assessment/admin", element: <CareerPage categoryId="admin" /> },
+      { path: "/assessment/developer", element: <CareerPage categoryId="developer" /> },
+      { path: "/assessment/consultant", element: <CareerPage categoryId="consultant" /> },
+      { path: "/assessment/architect", element: <CareerPage categoryId="architect" /> },
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+]);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <HashRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route element={<AppLayout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/assessment" element={<AssessmentPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/guide" element={<GuidePage />} />
-            <Route path="/guide/:id" element={<GuideDetailPage />} />
-            <Route path="/assessment/admin" element={<CareerPage categoryId="admin" />} />
-            <Route path="/assessment/developer" element={<CareerPage categoryId="developer" />} />
-            <Route path="/assessment/consultant" element={<CareerPage categoryId="consultant" />} />
-            <Route path="/assessment/architect" element={<CareerPage categoryId="architect" />} />
-          </Route>
-
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </HashRouter>
+      <RouterProvider router={router} />
     </TooltipProvider>
   </QueryClientProvider>
 );

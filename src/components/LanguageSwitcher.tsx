@@ -15,33 +15,34 @@ const LanguageSwitcher = ({ variant = 'dark', showLabels = true }: LanguageSwitc
 
   const isDark = variant === 'dark';
   
-  const baseColor = isDark ? 'text-primary-foreground/60' : 'text-slate-500';
-  const activeColor = isDark ? 'text-white font-bold' : 'text-slate-900 font-bold';
-  const hoverColor = isDark ? 'hover:text-white' : 'hover:text-slate-900';
-  const dividerColor = isDark ? 'text-primary-foreground/20' : 'text-slate-200';
+  const baseColor = isDark ? 'text-slate-300' : 'text-slate-600';
+  const activeColor = isDark ? 'bg-white/20' : 'bg-slate-200 shadow-sm';
+  const hoverColor = isDark ? 'hover:bg-white/10' : 'hover:bg-slate-100';
 
   return (
-    <div className={`flex items-center ${showLabels ? 'gap-3' : 'gap-1'} text-sm ${baseColor} font-medium`}>
-      {showLabels && <Globe className="h-4 w-4" />}
+    <div className={`flex items-center gap-1.5 text-sm ${baseColor} font-medium`}>
+      {showLabels && <Globe className="h-4 w-4 mr-1" />}
+      {!showLabels && <Globe className="h-4 w-4 mr-1 opacity-70" />}
       <button 
         onClick={() => changeLanguage('pt')} 
-        className={`transition-colors ${hoverColor} ${i18n.resolvedLanguage === 'pt' ? activeColor : ''}`}
+        title="Português"
+        className={`flex items-center justify-center h-7 w-7 rounded-full transition-all text-base ${hoverColor} ${i18n.resolvedLanguage === 'pt' ? activeColor : ''}`}
       >
-        PT
+        🇧🇷
       </button>
-      <span className={dividerColor}>|</span>
       <button 
         onClick={() => changeLanguage('en')} 
-        className={`transition-colors ${hoverColor} ${i18n.resolvedLanguage === 'en' ? activeColor : ''}`}
+        title="English"
+        className={`flex items-center justify-center h-7 w-7 rounded-full transition-all text-base ${hoverColor} ${i18n.resolvedLanguage === 'en' ? activeColor : ''}`}
       >
-        EN
+        🇺🇸
       </button>
-      <span className={dividerColor}>|</span>
       <button 
         onClick={() => changeLanguage('es')} 
-        className={`transition-colors ${hoverColor} ${i18n.resolvedLanguage === 'es' ? activeColor : ''}`}
+        title="Español"
+        className={`flex items-center justify-center h-7 w-7 rounded-full transition-all text-base ${hoverColor} ${i18n.resolvedLanguage === 'es' ? activeColor : ''}`}
       >
-        ES
+        🇪🇸
       </button>
     </div>
   );
