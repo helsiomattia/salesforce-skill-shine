@@ -28,21 +28,21 @@ const LanguageSwitcher = ({ variant = 'dark', showLabels = true }: LanguageSwitc
         title="Português"
         className={`flex items-center justify-center h-7 w-7 rounded-full transition-all text-base ${hoverColor} ${i18n.resolvedLanguage === 'pt' ? activeColor : ''}`}
       >
-        🇧🇷
+        <img src="https://hatscripts.github.io/circle-flags/flags/br.svg" alt="PT" className="h-4 w-4" />
       </button>
       <button 
         onClick={() => changeLanguage('en')} 
         title="English"
         className={`flex items-center justify-center h-7 w-7 rounded-full transition-all text-base ${hoverColor} ${i18n.resolvedLanguage === 'en' ? activeColor : ''}`}
       >
-        🇺🇸
+        <img src="https://hatscripts.github.io/circle-flags/flags/us.svg" alt="EN" className="h-4 w-4" />
       </button>
       <button 
         onClick={() => changeLanguage('es')} 
         title="Español"
         className={`flex items-center justify-center h-7 w-7 rounded-full transition-all text-base ${hoverColor} ${i18n.resolvedLanguage === 'es' ? activeColor : ''}`}
       >
-        🇪🇸
+        <img src="https://hatscripts.github.io/circle-flags/flags/es.svg" alt="ES" className="h-4 w-4" />
       </button>
     </div>
   );
