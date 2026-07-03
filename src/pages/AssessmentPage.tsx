@@ -43,10 +43,11 @@ const AssessmentPage = () => {
             {t('careerPage.assessment.badge')}
           </motion.div>
 
-          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
-            <Trans i18nKey="careerPage.assessment.title">
-              Mapeie seu <span className="text-blue-600" />
-            </Trans>
+          <h1 className="text-3xl font-extrabold tracking-tight text-black md:text-5xl">
+            <Trans 
+              i18nKey="careerPage.assessment.title"
+              components={[<span key="0" />]}
+            />
           </h1>
 
           <p className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-600">
