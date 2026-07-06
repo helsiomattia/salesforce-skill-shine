@@ -126,7 +126,7 @@ const HomePage = () => {
   const lang = i18n.resolvedLanguage || 'pt';
 
   return (
-    <div className="mx-auto min-h-screen max-w-7xl space-y-8 bg-background px-4 py-6 lg:px-6">
+    <div className="mx-auto min-h-screen max-w-7xl space-y-8 px-4 py-6 lg:px-6">
 
       {/* Hero Section */}
       <section className="relative overflow-hidden rounded-[40px] border border-slate-200 bg-white px-6 py-10 shadow-xl shadow-slate-200/50 md:px-12 md:py-16">

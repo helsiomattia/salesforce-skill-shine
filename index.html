@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Salesforce Skill Shine</title>
+    <title>Salesforce Skill Shine | Career Paths & Skills</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <meta
       name="description"
-      content="Plataforma web para visualizar trilhas de carreira no ecossistema Salesforce, com caminhos para Admin, Developer, Consultant e Architect."
+      content="Ajuda profissionais Salesforce a entender trilhas de carreira, identificar gaps de habilidades e evoluir para Admin, Developer, Consultant ou Architect."
     />
     <meta name="author" content="Helsio Mattia" />
     <meta
@@ -36,6 +36,24 @@
 
     <meta name="theme-color" content="#0b1120" />
     <link rel="canonical" href="https://helsiomattia.github.io/salesforce-skill-shine/" />
+    <script>
+      (function () {
+        var base = "/salesforce-skill-shine";
+
+        if (window.location.hash.indexOf("#/") === 0) {
+          window.history.replaceState(null, "", base + window.location.hash.slice(1));
+          return;
+        }
+
+        var params = new URLSearchParams(window.location.search);
+        var redirect = params.get("redirect");
+
+        if (redirect) {
+          var target = redirect.charAt(0) === "/" ? redirect : "/" + redirect;
+          window.history.replaceState(null, "", base + target);
+        }
+      })();
+    </script>
   </head>
 
   <body>
