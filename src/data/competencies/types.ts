@@ -10,6 +10,11 @@ export type LocStringArray = {
   es: string[];
 };
 
+export interface InterviewQuestion {
+  question: LocString;
+  answer: LocString;
+}
+
 export interface Skill {
   id: string;
   name: LocString;
@@ -47,6 +52,7 @@ export interface CompetencyCategory {
   knowledgeGroups?: KnowledgeGroup[];
   strategy?: StrategyContent;
   evolution?: EvolutionContent;
+  interviewQuestions?: InterviewQuestion[];
 }
 
 export interface KnowledgeGroup {

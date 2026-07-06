@@ -247,7 +247,9 @@
       "strategy": "Visión Estratégica",
       "evolution": "Evolución de Carrera",
       "knowledge": "Herramientas",
-      "knowledgeDesc": "Mapeo de herramientas, nubes y conocimientos complementarios esenciales para su día a día.",
+      "knowledgeDesc": "Mapeo de las herramientas, nubes y conocimientos complementarios esenciales para tu día a día.",
+      "interviews": "Preguntas de Entrevista",
+      "interviewsDesc": "Top 10 preguntas y respuestas más comunes en entrevistas para esta carrera.",
       "finish": "Finalizar Evaluación"
     },
     "comingSoon": {

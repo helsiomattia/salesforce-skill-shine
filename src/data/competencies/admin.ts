@@ -800,5 +800,127 @@ export const adminCompetency: CompetencyCategory = {
         }
       }
     ]
-  }
+  },
+  interviewQuestions: [
+    {
+      question: {
+        pt: "Qual a diferença entre Profile e Permission Set?",
+        en: "What is the difference between Profile and Permission Set?",
+        es: "¿Cuál es la diferencia entre Profile y Permission Set?"
+      },
+      answer: {
+        pt: "Profile define as permissões base de um usuário (CRUD, FLS, login hours etc.), e cada usuário tem exatamente 1 Profile. Permission Sets concedem permissões ADICIONAIS a usuários específicos sem mudar o Profile. Permission Set Groups agrupam vários Permission Sets.",
+        en: "Profile defines a user's baseline permissions (CRUD, FLS, login hours, etc.) and each user has exactly 1 Profile. Permission Sets grant ADDITIONAL permissions to specific users without changing their Profile. Permission Set Groups bundle multiple Permission Sets.",
+        es: "El Profile define los permisos base de un usuario (CRUD, FLS, horarios de login, etc.) y cada usuario tiene exactamente 1 Profile. Los Permission Sets otorgan permisos ADICIONALES sin cambiar el Profile. Los Permission Set Groups agrupan múltiples Permission Sets."
+      }
+    },
+    {
+      question: {
+        pt: "O que são Record Types e quando usá-los?",
+        en: "What are Record Types and when should you use them?",
+        es: "¿Qué son los Record Types y cuándo usarlos?"
+      },
+      answer: {
+        pt: "Record Types permitem exibir diferentes Page Layouts, Picklist Values e processos de negócio para o mesmo objeto, variando conforme o tipo do registro. Use quando times distintos ou fluxos de negócio diferentes precisam de campos/opções diferentes — ex: Oportunidade de Nova Venda vs. Renovação.",
+        en: "Record Types allow you to present different Page Layouts, Picklist Values, and business processes for the same object, based on record type. Use when distinct teams or processes need different fields/options — e.g., New Sale Opportunity vs. Renewal.",
+        es: "Los Record Types permiten mostrar diferentes Page Layouts, valores de Picklist y procesos para el mismo objeto según el tipo de registro. Úsalos cuando distintos equipos o procesos necesiten campos u opciones diferentes — ej. Oportunidad de Venta vs. Renovación."
+      }
+    },
+    {
+      question: {
+        pt: "Explique a diferença entre Master-Detail e Lookup Relationship.",
+        en: "Explain the difference between Master-Detail and Lookup Relationship.",
+        es: "Explica la diferencia entre Master-Detail y Lookup Relationship."
+      },
+      answer: {
+        pt: "Master-Detail: vínculo forte — se o registro pai for deletado, os filhos também são (cascade delete). O campo obrigatório. Permite Roll-Up Summaries. Segurança herdada do pai. Lookup: vínculo fraco — a exclusão do pai não apaga o filho por padrão. Campo opcional. Sem Roll-Up nativo. Segurança independente.",
+        en: "Master-Detail: strong bond — deleting the parent deletes children (cascade delete). Field is mandatory. Enables Roll-Up Summaries. Security inherited from parent. Lookup: loose bond — deleting parent doesn't cascade. Field is optional. No native Roll-Up. Independent security.",
+        es: "Master-Detail: vínculo fuerte — eliminar el padre elimina los hijos. Campo obligatorio. Permite Roll-Up Summaries. Seguridad heredada del padre. Lookup: vínculo débil — eliminar el padre no afecta al hijo. Campo opcional. Sin Roll-Up nativo. Seguridad independiente."
+      }
+    },
+    {
+      question: {
+        pt: "O que são Roll-up Summary Fields e onde podem ser criados?",
+        en: "What are Roll-up Summary Fields and where can they be created?",
+        es: "¿Qué son los Roll-up Summary Fields y dónde se pueden crear?"
+      },
+      answer: {
+        pt: "Campos que calculam automaticamente valores agregados (COUNT, SUM, MIN, MAX) de registros filho. Só podem ser criados no objeto Master de uma relação Master-Detail. Para Lookups, use Apex ou Flow para simular o comportamento.",
+        en: "Fields that automatically calculate aggregate values (COUNT, SUM, MIN, MAX) from child records. Can ONLY be created on the Master object in a Master-Detail relationship. For Lookups, use Apex or Flow to simulate the behavior.",
+        es: "Campos que calculan automáticamente valores agregados (COUNT, SUM, MIN, MAX) de registros hijo. Solo se pueden crear en el objeto Master de una relación Master-Detail. Para Lookups, usa Apex o Flow para simular el comportamiento."
+      }
+    },
+    {
+      question: {
+        pt: "Como funciona o modelo de segurança OWD + Role Hierarchy + Sharing Rules?",
+        en: "How does the OWD + Role Hierarchy + Sharing Rules security model work?",
+        es: "¿Cómo funciona el modelo de seguridad OWD + Role Hierarchy + Sharing Rules?"
+      },
+      answer: {
+        pt: "OWD define o acesso mais restritivo (base). Role Hierarchy abre acesso verticalmente (gerentes veem registros de subordinados). Sharing Rules abrem acesso horizontalmente (por critérios ou grupos). Manual Sharing e Apex Sharing permitem exceções pontuais. O acesso só pode ser ABERTO a partir do OWD, nunca restringido.",
+        en: "OWD sets the most restrictive baseline. Role Hierarchy opens access vertically (managers see subordinate records). Sharing Rules open access horizontally (by criteria or groups). Manual/Apex Sharing allow exceptions. Access can only be OPENED from OWD, never restricted.",
+        es: "OWD define la base más restrictiva. Role Hierarchy abre acceso verticalmente (gerentes ven registros de subordinados). Sharing Rules abren acceso horizontalmente. El acceso solo puede ABRIRSE desde el OWD, nunca restringirse más."
+      }
+    },
+    {
+      question: {
+        pt: "O que são Validation Rules?",
+        en: "What are Validation Rules?",
+        es: "¿Qué son las Validation Rules?"
+      },
+      answer: {
+        pt: "Fórmulas que verificam se os dados de um registro atendem a critérios definidos. Se a fórmula retornar TRUE, o salvamento é bloqueado e uma mensagem de erro é exibida ao usuário. Úteis para garantir integridade dos dados sem código Apex.",
+        en: "Formulas that check if a record's data meets defined criteria. If the formula returns TRUE, saving is blocked and an error message is shown to the user. Useful for enforcing data integrity without Apex code.",
+        es: "Fórmulas que verifican si los datos de un registro cumplen criterios definidos. Si la fórmula devuelve TRUE, se bloquea el guardado y se muestra un mensaje de error. Útiles para garantizar la integridad de los datos sin código Apex."
+      }
+    },
+    {
+      question: {
+        pt: "Qual a diferença entre Flow, Process Builder e Workflow Rules?",
+        en: "What is the difference between Flow, Process Builder, and Workflow Rules?",
+        es: "¿Cuál es la diferencia entre Flow, Process Builder y Workflow Rules?"
+      },
+      answer: {
+        pt: "Workflow Rules: automação legada, apenas atualizações de campo, envio de email e tasks. Process Builder: automação legada mais poderosa, múltiplos critérios. Salesforce está aposentando ambos. Flow (Record-Triggered Flow) é o padrão atual — mais performático, com loops, variáveis e suporte a telas. Recomendação: migrar tudo para Flow.",
+        en: "Workflow Rules: legacy, only field updates, emails, and tasks. Process Builder: more powerful legacy automation with multiple criteria. Both are being retired by Salesforce. Flow (Record-Triggered Flow) is the current standard — more performant, with loops, variables, and screen support. Recommendation: migrate everything to Flow.",
+        es: "Workflow Rules: automatización heredada, solo actualizaciones de campo, emails y tareas. Process Builder: más potente pero también heredado. Salesforce está retirando ambos. Flow es el estándar actual — más eficiente, con bucles, variables y soporte a pantallas."
+      }
+    },
+    {
+      question: {
+        pt: "Qual a diferença entre Role Hierarchy e Sharing Rules?",
+        en: "What is the difference between Role Hierarchy and Sharing Rules?",
+        es: "¿Cuál es la diferencia entre Role Hierarchy y Sharing Rules?"
+      },
+      answer: {
+        pt: "Role Hierarchy: baseada na estrutura organizacional — acesso automático e vertical (superiores veem registros de subordinados). Sharing Rules: regras explícitas e horizontais, concedendo acesso baseado em critérios do registro ou grupos de usuários, independente da hierarquia.",
+        en: "Role Hierarchy: based on org structure — automatic vertical access (superiors see subordinate records). Sharing Rules: explicit horizontal rules granting access based on record criteria or user groups, independent of hierarchy.",
+        es: "Role Hierarchy: basada en la estructura organizacional — acceso vertical automático (superiores ven registros de subordinados). Sharing Rules: reglas horizontales explícitas que otorgan acceso basado en criterios del registro o grupos, independiente de la jerarquía."
+      }
+    },
+    {
+      question: {
+        pt: "O que é Data Loader e quando usá-lo em vez do Data Import Wizard?",
+        en: "What is Data Loader and when to use it instead of Data Import Wizard?",
+        es: "¿Qué es Data Loader y cuándo usarlo en lugar de Data Import Wizard?"
+      },
+      answer: {
+        pt: "Data Loader: app cliente para importação/exportação em massa (até 5M registros), suporta todos os objetos, via CSV. Data Import Wizard: ferramenta web, limitada a 50K registros e poucos objetos, mas mais fácil para detectar duplicidades. Use Data Loader para volumes maiores e automatizações via CLI.",
+        en: "Data Loader: client app for bulk import/export (up to 5M records), supports all objects, via CSV. Data Import Wizard: web tool, limited to 50K records and few objects, but easier for duplicate detection. Use Data Loader for larger volumes and CLI automation.",
+        es: "Data Loader: app cliente para importación/exportación masiva (hasta 5M registros), admite todos los objetos. Data Import Wizard: herramienta web, limitada a 50K registros y pocos objetos, más fácil para detectar duplicados. Usa Data Loader para volúmenes mayores."
+      }
+    },
+    {
+      question: {
+        pt: "Como diagnosticar o erro 'Too many SOQL queries: 101' sem escrever código?",
+        en: "How to diagnose 'Too many SOQL queries: 101' without writing code?",
+        es: "¿Cómo diagnosticar el error 'Too many SOQL queries: 101' sin escribir código?"
+      },
+      answer: {
+        pt: "Esse erro indica automações disparando queries em loop. Passos: 1) Ativar Debug Log para o usuário afetado e reproduzir o erro. 2) Analisar o log no Developer Console (categoria de Database). 3) Revisar Flows record-triggered que possam estar acionando DMLs recursivos. 4) Combinar múltiplos Flows em um único com condições. 5) Verificar pacotes gerenciados instalados.",
+        en: "This error indicates automations triggering queries in loops. Steps: 1) Enable Debug Log for the affected user and reproduce the error. 2) Analyze the log in Developer Console (Database category). 3) Review record-triggered Flows for recursive DMLs. 4) Merge multiple Flows into one with conditions. 5) Check installed managed packages.",
+        es: "Este error indica automatizaciones disparando consultas en bucle. Pasos: 1) Activar Debug Log para el usuario afectado. 2) Analizar el log en Developer Console. 3) Revisar Flows desencadenados por registro con DMLs recursivos. 4) Combinar Flows. 5) Verificar paquetes gestionados."
+      }
+    }
+  ]
 };

@@ -872,5 +872,127 @@ export const developerCompetency: CompetencyCategory = {
         }
       }
     ]
-  }
+  },
+  interviewQuestions: [
+    {
+      question: {
+        pt: "O que são Governor Limits e por que eles existem?",
+        en: "What are Governor Limits and why do they exist?",
+        es: "¿Qué son los Governor Limits y por qué existen?"
+      },
+      answer: {
+        pt: "São limites de execução impostos pelo Salesforce (ex: 100 SOQL queries, 150 DML statements por transação síncrona) para garantir que recursos sejam compartilhados de forma justa no ambiente multitenant. Ignorá-los gera exceptions em runtime.",
+        en: "They are execution limits enforced by Salesforce (e.g., 100 SOQL queries, 150 DML statements per synchronous transaction) to ensure resources are shared fairly in the multitenant environment. Ignoring them causes runtime exceptions.",
+        es: "Son límites de ejecución impuestos por Salesforce para garantizar que los recursos se compartan equitativamente en el entorno multitenant. Ignorarlos genera excepciones en tiempo de ejecución."
+      }
+    },
+    {
+      question: {
+        pt: "Qual a diferença entre Trigger.new e Trigger.newMap?",
+        en: "What is the difference between Trigger.new and Trigger.newMap?",
+        es: "¿Cuál es la diferencia entre Trigger.new y Trigger.newMap?"
+      },
+      answer: {
+        pt: "Trigger.new é uma lista (List<sObject>) dos novos registros, disponível em insert e update. Trigger.newMap é um mapa (Map<Id, sObject>) dos novos registros, disponível apenas em after insert, before update e after update — ideal para lookups rápidos por ID.",
+        en: "Trigger.new is a list (List<sObject>) of new records, available in insert and update. Trigger.newMap is a map (Map<Id, sObject>), available only in after insert, before/after update — ideal for fast ID-based lookups.",
+        es: "Trigger.new es una lista de los nuevos registros, disponible en insert y update. Trigger.newMap es un mapa (Map<Id, sObject>), disponible solo en after insert, before/after update — ideal para búsquedas rápidas por ID."
+      }
+    },
+    {
+      question: {
+        pt: "Como evitar atingir o limite de SOQL dentro de uma Trigger?",
+        en: "How to avoid hitting the SOQL limit inside a Trigger?",
+        es: "¿Cómo evitar alcanzar el límite de SOQL dentro de un Trigger?"
+      },
+      answer: {
+        pt: "Usando Bulkification: nunca escreva queries SOQL dentro de loops 'for'. Colete os Ids em um Set/List fora do loop e faça uma única query para trazer todos os registros necessários de uma vez.",
+        en: "Using Bulkification: never write SOQL queries inside 'for' loops. Collect Ids in a Set/List outside the loop and run a single query to fetch all needed records at once.",
+        es: "Usando Bulkification: nunca escribas consultas SOQL dentro de bucles 'for'. Recopila los Ids en un Set/List fuera del bucle y realiza una sola consulta para obtener todos los registros necesarios."
+      }
+    },
+    {
+      question: {
+        pt: "Explique a diferença entre @future, Queueable, Schedulable e Batch Apex.",
+        en: "Explain the difference between @future, Queueable, Schedulable, and Batch Apex.",
+        es: "Explica la diferencia entre @future, Queueable, Schedulable y Batch Apex."
+      },
+      answer: {
+        pt: "@future: processamento assíncrono simples, não suporta tipos complexos. Queueable: como future, mas suporta SObjects e encadeamento de jobs. Schedulable: agenda execução em horário definido (cron). Batch Apex: processa grandes volumes em blocos (até 50M registros), ideal para ETL.",
+        en: "@future: simple async processing, no complex types. Queueable: like future but supports SObjects and job chaining. Schedulable: schedules execution via cron. Batch Apex: processes large volumes in chunks (up to 50M records), ideal for ETL.",
+        es: "@future: procesamiento asíncrono simple, sin tipos complejos. Queueable: como future pero admite SObjects y encadenamiento. Schedulable: agenda ejecución por cron. Batch Apex: procesa grandes volúmenes en bloques (hasta 50M registros)."
+      }
+    },
+    {
+      question: {
+        pt: "O que são LWC e como diferem do Aura?",
+        en: "What are LWC and how do they differ from Aura?",
+        es: "¿Qué son los LWC y cómo se diferencian de Aura?"
+      },
+      answer: {
+        pt: "LWC (Lightning Web Components) é o framework moderno do Salesforce, construído sobre padrões web nativos (ES Modules, Web Components), resultando em melhor performance e menor curva de aprendizado. Aura é o framework legado, mais pesado e com sintaxe proprietária.",
+        en: "LWC (Lightning Web Components) is Salesforce's modern framework built on native web standards (ES Modules, Web Components), offering better performance and a lower learning curve. Aura is the legacy framework, heavier with proprietary syntax.",
+        es: "LWC es el framework moderno de Salesforce, construido sobre estándares web nativos, con mejor rendimiento. Aura es el framework heredado, más pesado y con sintaxis propietaria."
+      }
+    },
+    {
+      question: {
+        pt: "Como ocorre a comunicação entre componentes pai e filho em LWC?",
+        en: "How does communication happen between parent and child LWC components?",
+        es: "¿Cómo ocurre la comunicación entre componentes padre e hijo en LWC?"
+      },
+      answer: {
+        pt: "Pai → Filho: passando propriedades públicas declaradas com @api no filho. Filho → Pai: despachando CustomEvents nativos com dispatchEvent(new CustomEvent('eventName', { detail: data })). Para componentes sem relação pai-filho, use um LMS (Lightning Message Service).",
+        en: "Parent → Child: passing public properties declared with @api in the child. Child → Parent: dispatching native CustomEvents via dispatchEvent(new CustomEvent('eventName', { detail: data })). For unrelated components, use Lightning Message Service (LMS).",
+        es: "Padre → Hijo: pasando propiedades públicas declaradas con @api en el hijo. Hijo → Padre: despachando CustomEvents nativos. Para componentes sin relación, se usa Lightning Message Service (LMS)."
+      }
+    },
+    {
+      question: {
+        pt: "Para que serve o @wire em LWC e quando preferi-lo ao @AuraEnabled imperativo?",
+        en: "What is @wire used for in LWC and when to prefer it over imperative @AuraEnabled?",
+        es: "¿Para qué sirve @wire en LWC y cuándo preferirlo sobre @AuraEnabled imperativo?"
+      },
+      answer: {
+        pt: "@wire provisiona dados reativamente via Lightning Data Service — ideal para leitura de dados que mudam automaticamente com a atualização do cache. Use chamadas imperativas (@AuraEnabled(cacheable=false)) quando precisar de controle de execução explícito, como em ações disparadas por botões.",
+        en: "@wire reactively provisions data via Lightning Data Service — ideal for reading data that auto-refreshes with cache updates. Use imperative calls (@AuraEnabled(cacheable=false)) when you need explicit execution control, like button-triggered actions.",
+        es: "@wire provisiona datos de forma reactiva via LDS — ideal para lectura de datos. Usa llamadas imperativas cuando necesites control explícito de ejecución, como en acciones de botones."
+      }
+    },
+    {
+      question: {
+        pt: "Qual é a diferença entre Database.insert() e insert simples?",
+        en: "What is the difference between Database.insert() and a simple insert?",
+        es: "¿Cuál es la diferencia entre Database.insert() e insert simple?"
+      },
+      answer: {
+        pt: "insert obj lança exception e reverte toda a transação se qualquer registro falhar (all-or-none). Database.insert(obj, false) permite salvamento parcial: registros válidos são inseridos e os inválidos retornam erros em um array de SaveResult, sem reverter os sucessos.",
+        en: "insert obj throws an exception and rolls back the entire transaction if any record fails (all-or-none). Database.insert(obj, false) allows partial saves: valid records are inserted and invalid ones return errors in a SaveResult array, without reverting successes.",
+        es: "insert obj lanza una excepción y revierte toda la transacción si falla algún registro. Database.insert(obj, false) permite guardado parcial: los registros válidos se insertan y los inválidos devuelven errores en un array SaveResult."
+      }
+    },
+    {
+      question: {
+        pt: "O que é 'with sharing' vs 'without sharing' no Apex?",
+        en: "What is 'with sharing' vs 'without sharing' in Apex?",
+        es: "¿Qué es 'with sharing' vs 'without sharing' en Apex?"
+      },
+      answer: {
+        pt: "'with sharing' respeita as Sharing Rules e OWD do usuário atual — é o padrão de segurança recomendado. 'without sharing' ignora essas regras e roda como contexto de sistema, necessário para operações administrativas. Omitir herda o contexto do chamador.",
+        en: "'with sharing' enforces the current user's Sharing Rules and OWD — the recommended security standard. 'without sharing' ignores these rules, running in system context, needed for admin operations. Omitting inherits the caller's context.",
+        es: "'with sharing' respeta las Sharing Rules y OWD del usuario actual. 'without sharing' ignora estas reglas y se ejecuta en contexto de sistema. Si se omite, hereda el contexto del llamador."
+      }
+    },
+    {
+      question: {
+        pt: "Quais as melhores práticas para integrações REST/SOAP no Salesforce?",
+        en: "What are the best practices for REST/SOAP integrations in Salesforce?",
+        es: "¿Cuáles son las mejores prácticas para integraciones REST/SOAP en Salesforce?"
+      },
+      answer: {
+        pt: "1) Usar Named Credentials para gerenciar autenticação sem hardcode. 2) Nunca fazer callouts dentro de Triggers síncronos (use @future ou Queueable). 3) Respeitar o limite de 100 callouts por transação. 4) Tratar todos os status HTTP de erro. 5) Usar logs detalhados para monitoramento.",
+        en: "1) Use Named Credentials to manage auth without hardcoding. 2) Never make callouts inside synchronous Triggers (use @future or Queueable). 3) Respect the 100 callouts-per-transaction limit. 4) Handle all HTTP error statuses. 5) Use detailed logs for monitoring.",
+        es: "1) Usar Named Credentials. 2) Nunca hacer callouts en Triggers síncronos (usar @future o Queueable). 3) Respetar el límite de 100 callouts por transacción. 4) Manejar todos los errores HTTP. 5) Usar registros detallados para monitoreo."
+      }
+    }
+  ]
 };

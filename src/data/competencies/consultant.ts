@@ -745,5 +745,127 @@ export const consultantCompetency: CompetencyCategory = {
         }
       }
     ]
-  }
+  },
+  interviewQuestions: [
+    {
+      question: {
+        pt: "Como você conduz uma sessão de Discovery com um cliente?",
+        en: "How do you conduct a Discovery session with a client?",
+        es: "¿Cómo conduces una sesión de Discovery con un cliente?"
+      },
+      answer: {
+        pt: "Preparo uma agenda com objetivos claros, pesquiso o negócio do cliente previamente. Na sessão: faço perguntas abertas sobre processos atuais ('As-Is'), identifico pontos de dor, gargalos e objetivos de negócio. Uso frameworks como 'Jobs to Be Done'. Documento tudo em tempo real. Ao final, consolido em um Documento de Requisitos e um mapa de processo 'To-Be', validando com o cliente antes de prosseguir.",
+        en: "I prepare an agenda with clear objectives and research the client's business beforehand. In the session: I ask open-ended questions about current processes ('As-Is'), identify pain points, bottlenecks, and business objectives. I use frameworks like 'Jobs to Be Done'. Document everything in real-time. At the end, consolidate into a Requirements Document and a 'To-Be' process map, validating with the client before proceeding.",
+        es: "Preparo una agenda con objetivos claros e investigo el negocio del cliente previamente. En la sesión: hago preguntas abiertas sobre procesos actuales ('As-Is'), identifico puntos de dolor y objetivos de negocio. Uso frameworks como 'Jobs to Be Done'. Al final, consolido en un Documento de Requisitos y un mapa de proceso 'To-Be', validando con el cliente."
+      }
+    },
+    {
+      question: {
+        pt: "Como você gerencia um stakeholder resistente à mudança durante uma implementação?",
+        en: "How do you manage a change-resistant stakeholder during an implementation?",
+        es: "¿Cómo manejas a un stakeholder resistente al cambio durante una implementación?"
+      },
+      answer: {
+        pt: "1) Entender a raiz da resistência (medo de perder controle, desconhecimento, experiências negativas passadas). 2) Trazer o stakeholder para o processo cedo — envolver como 'co-criador' da solução. 3) Mostrar valor com quick-wins concretos e métricas. 4) Adaptar a comunicação ao estilo da pessoa (técnico vs. negócio). 5) Garantir treinamento adequado. 6) Escalar ao sponsor executivo se necessário, com dados e fatos.",
+        en: "1) Understand the root of resistance (fear of losing control, lack of knowledge, past bad experiences). 2) Bring the stakeholder into the process early — involve them as a 'co-creator' of the solution. 3) Show value with concrete quick-wins and metrics. 4) Adapt communication to their style (technical vs. business). 5) Ensure adequate training. 6) Escalate to executive sponsor if needed, with data and facts.",
+        es: "1) Entender la raíz de la resistencia. 2) Incluir al stakeholder en el proceso como 'co-creador'. 3) Mostrar valor con quick-wins concretos y métricas. 4) Adaptar la comunicación a su estilo. 5) Garantizar capacitación adecuada. 6) Escalar al sponsor ejecutivo si es necesario, con datos y hechos."
+      }
+    },
+    {
+      question: {
+        pt: "O que é um Business Requirements Document (BRD) e um Functional Specification Document (FSD)?",
+        en: "What is a Business Requirements Document (BRD) and a Functional Specification Document (FSD)?",
+        es: "¿Qué es un Business Requirements Document (BRD) y un Functional Specification Document (FSD)?"
+      },
+      answer: {
+        pt: "BRD: captura os requisitos de negócio do cliente — o 'o quê' e 'por quê'. Descreve objetivos, processos e regras de negócio. Não é técnico. FSD: traduz o BRD para especificações técnicas e funcionais — o 'como'. Detalha configurações, customizações, integrações, fluxos de dados e regras de sistema que serão implementadas no Salesforce.",
+        en: "BRD: captures the client's business requirements — the 'what' and 'why'. Describes objectives, processes, and business rules. Not technical. FSD: translates the BRD into technical and functional specifications — the 'how'. Details configurations, customizations, integrations, data flows, and system rules to be implemented in Salesforce.",
+        es: "BRD: captura los requisitos de negocio del cliente — el 'qué' y 'por qué'. No es técnico. FSD: traduce el BRD en especificaciones técnicas y funcionales — el 'cómo'. Detalla configuraciones, personalizaciones, integraciones y flujos de datos a implementar en Salesforce."
+      }
+    },
+    {
+      question: {
+        pt: "Como você prioriza requisitos quando há mais demandas do que capacidade de entrega?",
+        en: "How do you prioritize requirements when there are more demands than delivery capacity?",
+        es: "¿Cómo priorizas requisitos cuando hay más demandas que capacidad de entrega?"
+      },
+      answer: {
+        pt: "Uso o framework MoSCoW (Must Have, Should Have, Could Have, Won't Have) combinado com análise de impacto de negócio × esforço. Facilito workshops com stakeholders para alinhar prioridades. Separo quick-wins (alto impacto, baixo esforço) das features estratégicas de longo prazo. Garanto que o MVP cobre o core do processo antes de expansões.",
+        en: "I use the MoSCoW framework (Must Have, Should Have, Could Have, Won't Have) combined with business impact × effort analysis. I facilitate workshops with stakeholders to align priorities. I separate quick-wins (high impact, low effort) from long-term strategic features. I ensure the MVP covers the core process before expansions.",
+        es: "Uso el framework MoSCoW (Must Have, Should Have, Could Have, Won't Have) combinado con análisis de impacto de negocio × esfuerzo. Facilito talleres con stakeholders para alinear prioridades. Separo quick-wins de features estratégicas de largo plazo."
+      }
+    },
+    {
+      question: {
+        pt: "Qual sua abordagem para conduzir um User Acceptance Testing (UAT)?",
+        en: "What is your approach to conducting User Acceptance Testing (UAT)?",
+        es: "¿Cuál es tu enfoque para conducir un User Acceptance Testing (UAT)?"
+      },
+      answer: {
+        pt: "1) Definir cenários de teste baseados nos requisitos aprovados (não em funcionalidades técnicas). 2) Selecionar usuários-chave representativos de cada área do negócio. 3) Criar scripts de teste claros com dados reais. 4) Facilitar as sessões — não fazer os testes pelos usuários. 5) Registrar e classificar bugs (crítico/alto/médio/baixo). 6) Revalidar apenas o que foi corrigido. 7) Obter sign-off formal antes do go-live.",
+        en: "1) Define test scenarios based on approved requirements (not technical features). 2) Select key representative users from each business area. 3) Create clear test scripts with real data. 4) Facilitate sessions — don't run the tests for users. 5) Log and classify bugs (critical/high/medium/low). 6) Revalidate only what was fixed. 7) Obtain formal sign-off before go-live.",
+        es: "1) Definir escenarios basados en requisitos aprobados. 2) Seleccionar usuarios clave representativos. 3) Crear scripts de prueba claros con datos reales. 4) Facilitar las sesiones sin hacer las pruebas por los usuarios. 5) Registrar bugs y clasificarlos. 6) Revalidar solo lo corregido. 7) Obtener sign-off formal antes del go-live."
+      }
+    },
+    {
+      question: {
+        pt: "Como você explica um conceito técnico complexo do Salesforce para um executivo não-técnico?",
+        en: "How do you explain a complex Salesforce technical concept to a non-technical executive?",
+        es: "¿Cómo explicas un concepto técnico complejo de Salesforce a un ejecutivo no técnico?"
+      },
+      answer: {
+        pt: "Uso a técnica da analogia e foco no impacto de negócio, não na tecnologia. Por exemplo, para explicar um Flow: 'É como um gerente digital que, quando um vendedor fecha um contrato, automaticamente notifica o financeiro, cria a cobrança e agenda o onboarding — sem intervenção humana.' Depois mostro o benefício concreto: 'Isso elimina 3 e-mails manuais e reduz erros em 80%.'",
+        en: "I use the analogy technique and focus on business impact, not technology. For example, to explain a Flow: 'It's like a digital manager that, when a salesperson closes a deal, automatically notifies finance, creates the invoice, and schedules onboarding — without human intervention.' Then show the concrete benefit: 'This eliminates 3 manual emails and reduces errors by 80%.'",
+        es: "Uso la técnica de la analogía y me enfoco en el impacto de negocio, no en la tecnología. Por ejemplo, para explicar un Flow: 'Es como un gerente digital que, cuando un vendedor cierra un contrato, automáticamente notifica al área financiera y agenda el onboarding — sin intervención humana.' Luego muestro el beneficio concreto."
+      }
+    },
+    {
+      question: {
+        pt: "O que é Change Management e por que é crítico em implementações Salesforce?",
+        en: "What is Change Management and why is it critical in Salesforce implementations?",
+        es: "¿Qué es Change Management y por qué es crítico en implementaciones de Salesforce?"
+      },
+      answer: {
+        pt: "Change Management é o conjunto de práticas para garantir que as pessoas adotem a mudança. Em Salesforce, a tecnologia é fácil — o desafio é a adoção. Elementos-chave: comunicação clara e antecipada (o quê, por que, como), envolvimento de champions internos, treinamentos adaptados ao público, suporte no pós-go-live, e métricas de adoção monitoradas (login rate, % de dados preenchidos).",
+        en: "Change Management is the set of practices to ensure people adopt the change. In Salesforce, technology is easy — the challenge is adoption. Key elements: clear and early communication (what, why, how), internal champions involvement, audience-tailored training, post-go-live support, and monitored adoption metrics (login rate, % data completeness).",
+        es: "Change Management es el conjunto de prácticas para garantizar que las personas adopten el cambio. En Salesforce, la tecnología es fácil — el desafío es la adopción. Elementos clave: comunicación clara y anticipada, champions internos, capacitación adaptada, soporte post go-live y métricas de adopción monitoreadas."
+      }
+    },
+    {
+      question: {
+        pt: "Como você lida com um escopo que 'cresce' durante a implementação (scope creep)?",
+        en: "How do you handle growing scope during an implementation (scope creep)?",
+        es: "¿Cómo manejas el crecimiento del alcance durante una implementación (scope creep)?"
+      },
+      answer: {
+        pt: "1) Prevenir: ter um Scope Statement assinado com critérios de aceite claros. 2) Detectar cedo: qualquer nova solicitação fora do escopo é formalmente registrada. 3) Avaliar impacto: estimar esforço, prazo e custo adicional antes de aceitar. 4) Decidir com o cliente: aprovar mudança de escopo formalmente (Change Order) ou deferir para fase futura. 5) Documentar tudo: nunca absorver escopo silenciosamente.",
+        en: "1) Prevent: have a signed Scope Statement with clear acceptance criteria. 2) Detect early: any new out-of-scope request is formally logged. 3) Assess impact: estimate effort, timeline, and additional cost before accepting. 4) Decide with client: formally approve scope change (Change Order) or defer to a future phase. 5) Document everything: never silently absorb scope.",
+        es: "1) Prevenir: tener un Scope Statement firmado con criterios de aceptación claros. 2) Detectar temprano: registrar formalmente cualquier solicitud fuera del alcance. 3) Evaluar impacto: estimar esfuerzo y costo adicional. 4) Decidir con el cliente: aprovar formalmente (Change Order) o diferir. 5) Documentar todo."
+      }
+    },
+    {
+      question: {
+        pt: "Quais métricas você usaria para medir o sucesso de uma implementação Salesforce?",
+        en: "What metrics would you use to measure the success of a Salesforce implementation?",
+        es: "¿Qué métricas usarías para medir el éxito de una implementación de Salesforce?"
+      },
+      answer: {
+        pt: "Métricas de Adoção: login rate, % de registros com dados críticos preenchidos, volume de atividades registradas. Métricas de Processo: tempo de ciclo de vendas antes/depois, taxa de conversão de leads, SLA de resolução de casos. Métricas de Negócio: crescimento de receita, redução de churn, NPS. Métricas Técnicas: tempo de resposta do sistema, taxa de erro em integrações.",
+        en: "Adoption Metrics: login rate, % records with critical data filled, volume of logged activities. Process Metrics: sales cycle time before/after, lead conversion rate, case resolution SLA. Business Metrics: revenue growth, churn reduction, NPS. Technical Metrics: system response time, integration error rate.",
+        es: "Métricas de Adopción: tasa de login, % de registros con datos críticos completos, volumen de actividades registradas. Métricas de Proceso: tiempo de ciclo de ventas antes/después, tasa de conversión. Métricas de Negocio: crecimiento de ingresos, reducción de churn, NPS. Métricas Técnicas: tiempo de respuesta, tasa de error en integraciones."
+      }
+    },
+    {
+      question: {
+        pt: "Como você estrutura um plano de treinamento para usuários finais após o go-live?",
+        en: "How do you structure a training plan for end users after go-live?",
+        es: "¿Cómo estructuras un plan de capacitación para usuarios finales después del go-live?"
+      },
+      answer: {
+        pt: "1) Segmentar por perfil: cada grupo de usuários tem necessidades diferentes (vendedores, managers, suporte). 2) Modos múltiplos: vídeos curtos (< 5 min), guias passo-a-passo, sessões ao vivo e office hours semanais no primeiro mês. 3) Treinar em sandbox com dados reais simulados. 4) Documentar FAQs e respostas aos erros mais comuns. 5) Champions internos: capacitar 'super-usuários' em cada área para suporte de primeiro nível. 6) Monitorar adoção e oferecer reforço onde necessário.",
+        en: "1) Segment by profile: each user group has different needs (salespeople, managers, support). 2) Multiple formats: short videos (< 5 min), step-by-step guides, live sessions, and weekly office hours in the first month. 3) Train in sandbox with simulated real data. 4) Document FAQs and common error responses. 5) Internal champions: train 'super-users' in each area for first-level support. 6) Monitor adoption and provide reinforcement where needed.",
+        es: "1) Segmentar por perfil: cada grupo de usuarios tiene diferentes necesidades. 2) Múltiples formatos: videos cortos, guías paso a paso, sesiones en vivo y office hours semanales. 3) Entrenar en sandbox con datos reales simulados. 4) Documentar FAQs. 5) Champions internos: capacitar 'super-usuarios' para soporte de primer nivel. 6) Monitorar adopción."
+      }
+    }
+  ]
 };

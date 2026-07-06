@@ -247,7 +247,9 @@
       "strategy": "Strategic Vision",
       "evolution": "Career Evolution",
       "knowledge": "Tools",
-      "knowledgeDesc": "Mapping of essential tools, clouds, and complementary knowledge for your daily life.",
+      "knowledgeDesc": "Mapping of tools, clouds, and complementary knowledge essential for your daily work.",
+      "interviews": "Interview Questions",
+      "interviewsDesc": "Top 10 most common interview questions and answers for this career path.",
       "finish": "Finish Assessment"
     },
     "comingSoon": {

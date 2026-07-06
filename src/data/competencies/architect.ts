@@ -741,5 +741,127 @@ export const architectCompetency: CompetencyCategory = {
         }
       }
     ]
-  }
+  },
+  interviewQuestions: [
+    {
+      question: {
+        pt: "O que é o modelo de governança multitenant do Salesforce e como ele impacta decisões arquiteturais?",
+        en: "What is Salesforce's multitenant governance model and how does it impact architectural decisions?",
+        es: "¿Qué es el modelo de gobernanza multitenant de Salesforce y cómo impacta las decisiones arquitectónicas?"
+      },
+      answer: {
+        pt: "O modelo multitenant significa que todos os clientes compartilham a mesma infraestrutura, impondo Governor Limits para garantir fairness. Decisões arquiteturais devem ser desenhadas considerando esses limites: bulkification obrigatória, processamento assíncrono para grandes volumes, evitar recursão em triggers, e monitoramento contínuo de governor limits em produção.",
+        en: "The multitenant model means all customers share the same infrastructure, enforcing Governor Limits for fairness. Architectural decisions must account for these limits: mandatory bulkification, async processing for large volumes, avoiding trigger recursion, and continuous governor limit monitoring in production.",
+        es: "El modelo multitenant significa que todos los clientes comparten la misma infraestructura, imponiendo Governor Limits para garantizar equidad. Las decisiones arquitectónicas deben considerar estos límites: bulkification obligatoria, procesamiento asíncrono para grandes volúmenes y monitoreo continuo."
+      }
+    },
+    {
+      question: {
+        pt: "Como você abordaria a escolha entre customização declarativa vs. programática?",
+        en: "How would you approach the choice between declarative vs. programmatic customization?",
+        es: "¿Cómo abordarías la elección entre personalización declarativa vs. programática?"
+      },
+      answer: {
+        pt: "A regra de ouro é: declarativo primeiro. Flows, Validation Rules e Formula Fields têm menor custo de manutenção, upgrades automáticos e não consomem governor limits. Apex deve ser usado quando a lógica de negócio é complexa demais para ferramentas declarativas, quando há necessidade de integração HTTP ou processamento assíncrono avançado.",
+        en: "The golden rule is: declarative first. Flows, Validation Rules, and Formula Fields have lower maintenance cost, auto-upgrades, and don't consume governor limits. Apex should be used when business logic is too complex for declarative tools, HTTP integrations are needed, or advanced async processing is required.",
+        es: "La regla de oro es: declarativo primero. Flows, Validation Rules y Formula Fields tienen menor costo de mantenimiento y no consumen governor limits. Apex debe usarse cuando la lógica es demasiado compleja, se necesitan integraciones HTTP o procesamiento asíncrono avanzado."
+      }
+    },
+    {
+      question: {
+        pt: "Explique os padrões de integração disponíveis no Salesforce e quando usar cada um.",
+        en: "Explain the integration patterns available in Salesforce and when to use each.",
+        es: "Explica los patrones de integración disponibles en Salesforce y cuándo usar cada uno."
+      },
+      answer: {
+        pt: "1) Request-Reply síncrono (REST/SOAP Callouts) — para operações imediatas onde a resposta é necessária. 2) Fire-and-Forget assíncrono (@future/Queueable) — para notificar sistemas externos sem bloquear. 3) Batch Data Sync — ETL via Data Loader/Bulk API para grandes volumes. 4) Remote Call-In (API REST/SOAP exposta) — para sistemas externos interagirem com o Salesforce. 5) Event-Driven (Platform Events/Change Data Capture) — para arquiteturas reativas em tempo real.",
+        en: "1) Sync Request-Reply (REST/SOAP Callouts) — for immediate operations requiring a response. 2) Async Fire-and-Forget (@future/Queueable) — for external notifications without blocking. 3) Batch Data Sync — ETL via Data Loader/Bulk API for large volumes. 4) Remote Call-In (REST/SOAP API exposed) — for external systems interacting with Salesforce. 5) Event-Driven (Platform Events/CDC) — for real-time reactive architectures.",
+        es: "1) Request-Reply síncrono — para operaciones inmediatas. 2) Fire-and-Forget asíncrono — para notificar sistemas externos. 3) Batch Data Sync — ETL para grandes volúmenes. 4) Remote Call-In — para que sistemas externos interactúen con Salesforce. 5) Event-Driven (Platform Events/CDC) — para arquitecturas reactivas en tiempo real."
+      }
+    },
+    {
+      question: {
+        pt: "O que é Large Data Volume (LDV) e quais estratégias você usa para lidar com isso?",
+        en: "What is Large Data Volume (LDV) and what strategies do you use to handle it?",
+        es: "¿Qué es Large Data Volume (LDV) y qué estrategias usas para manejarlo?"
+      },
+      answer: {
+        pt: "LDV são orgs com dezenas de milhões de registros, que podem causar timeouts, lentidão em reports e degradação de performance. Estratégias: 1) Custom Indexes para campos de filtro frequentes. 2) Skinny Tables para queries complexas. 3) Archiving com Big Objects. 4) Bulk API 2.0 para cargas. 5) Evitar relatórios de Count(*) em objetos grandes. 6) Otimizar OWD para evitar Sharing Recalculations custosas.",
+        en: "LDV orgs have tens of millions of records, causing timeouts and report slowdowns. Strategies: 1) Custom Indexes for frequent filter fields. 2) Skinny Tables for complex queries. 3) Archiving with Big Objects. 4) Bulk API 2.0 for loads. 5) Avoid Count(*) reports on large objects. 6) Optimize OWD to avoid costly Sharing Recalculations.",
+        es: "Orgs LDV tienen decenas de millones de registros, causando timeouts y lentitud. Estrategias: 1) Custom Indexes para campos de filtro frecuentes. 2) Skinny Tables. 3) Archiving con Big Objects. 4) Bulk API 2.0. 5) Evitar Count(*) en objetos grandes. 6) Optimizar OWD."
+      }
+    },
+    {
+      question: {
+        pt: "Como você garante segurança em uma solução complexa multi-nuvem Salesforce?",
+        en: "How do you ensure security in a complex Salesforce multi-cloud solution?",
+        es: "¿Cómo garantizas la seguridad en una solución compleja multi-nube de Salesforce?"
+      },
+      answer: {
+        pt: "1) Defense in Depth: camadas de segurança (Profiles + Permission Sets + OWD + Sharing Rules). 2) FLS/CRUD enforcement em todo código Apex. 3) SOQL injection prevention com binding variables. 4) Named Credentials para autenticação de integrações. 5) Platform Encryption para dados sensíveis. 6) Event Monitoring para auditoria. 7) Connected Apps com OAuth 2.0 e escopos mínimos.",
+        en: "1) Defense in Depth: security layers (Profiles + Permission Sets + OWD + Sharing Rules). 2) FLS/CRUD enforcement in all Apex code. 3) SOQL injection prevention with binding variables. 4) Named Credentials for integration auth. 5) Platform Encryption for sensitive data. 6) Event Monitoring for auditing. 7) Connected Apps with OAuth 2.0 and minimum scopes.",
+        es: "1) Defense in Depth: capas de seguridad. 2) Cumplimiento de FLS/CRUD en todo el código Apex. 3) Prevención de inyección SOQL. 4) Named Credentials para autenticación. 5) Platform Encryption para datos sensibles. 6) Event Monitoring para auditoría. 7) Connected Apps con OAuth 2.0."
+      }
+    },
+    {
+      question: {
+        pt: "O que é o Salesforce Well-Architected Framework?",
+        en: "What is the Salesforce Well-Architected Framework?",
+        es: "¿Qué es el Salesforce Well-Architected Framework?"
+      },
+      answer: {
+        pt: "É o framework oficial da Salesforce que define as melhores práticas de arquitetura em 5 pilares: 1) Trusted (segurança, compliance, resiliência). 2) Easy (adoção, usabilidade, manutenibilidade). 3) Adaptable (flexibilidade, escalabilidade). 4) Well-Operated (monitoramento, DevOps, incidentes). 5) Performant (performance, LDV, otimização). Serve como guia para certificações de arquiteto.",
+        en: "It's Salesforce's official framework defining best practices in 5 pillars: 1) Trusted (security, compliance, resilience). 2) Easy (adoption, usability, maintainability). 3) Adaptable (flexibility, scalability). 4) Well-Operated (monitoring, DevOps, incidents). 5) Performant (performance, LDV, optimization). Used as a guide for architect certifications.",
+        es: "Es el framework oficial de Salesforce que define mejores prácticas en 5 pilares: 1) Trusted (seguridad, compliance). 2) Easy (adopción, usabilidad). 3) Adaptable (flexibilidad, escalabilidad). 4) Well-Operated (monitoreo, DevOps). 5) Performant (rendimiento, LDV). Sirve como guía para certificaciones de arquitecto."
+      }
+    },
+    {
+      question: {
+        pt: "Como você abordaria a migração de um CRM legado para Salesforce?",
+        en: "How would you approach migrating a legacy CRM to Salesforce?",
+        es: "¿Cómo abordarías la migración de un CRM heredado a Salesforce?"
+      },
+      answer: {
+        pt: "Fases: 1) Discovery: mapear objetos, campos, volumes e integrações legadas. 2) Design: data model no Salesforce, mapeamento de campos, definir o que migrar vs. arquivar. 3) Data Cleansing: deduplicação e enriquecimento antes da migração. 4) ETL: migração em fases por objeto, usando Bulk API 2.0. 5) Validation: reconciliação de contagens e dados críticos. 6) Cutover: freeze de dados + migração incremental final + go-live.",
+        en: "Phases: 1) Discovery: map objects, fields, volumes, and legacy integrations. 2) Design: Salesforce data model, field mapping, decide what to migrate vs. archive. 3) Data Cleansing: deduplication and enrichment before migration. 4) ETL: phased migration by object using Bulk API 2.0. 5) Validation: count reconciliation and critical data checks. 6) Cutover: data freeze + incremental final migration + go-live.",
+        es: "Fases: 1) Discovery: mapear objetos, campos y volúmenes. 2) Design: modelo de datos, mapeo de campos. 3) Limpieza de datos: deduplicación antes de migrar. 4) ETL: migración por fases usando Bulk API 2.0. 5) Validación: reconciliación de conteos. 6) Cutover: freeze de datos + go-live."
+      }
+    },
+    {
+      question: {
+        pt: "O que são Platform Events e Change Data Capture (CDC)?",
+        en: "What are Platform Events and Change Data Capture (CDC)?",
+        es: "¿Qué son Platform Events y Change Data Capture (CDC)?"
+      },
+      answer: {
+        pt: "Platform Events: mensagens baseadas em publish/subscribe para integração event-driven. Publicados via Apex, Flow ou API. Consumidos por Triggers, Flows ou sistemas externos via Streaming API. CDC: mecanismo nativo que publica automaticamente eventos com as mudanças em registros Salesforce (create/update/delete/undelete), permitindo que sistemas externos mantenham sincronismo em tempo real.",
+        en: "Platform Events: publish/subscribe messages for event-driven integration. Published via Apex, Flow, or API. Consumed by Triggers, Flows, or external systems via Streaming API. CDC: native mechanism that automatically publishes events with Salesforce record changes (create/update/delete/undelete), enabling external systems to stay in real-time sync.",
+        es: "Platform Events: mensajes publish/subscribe para integración event-driven. Publicados via Apex, Flow o API. CDC: mecanismo nativo que publica automáticamente eventos con los cambios en registros de Salesforce, permitiendo que sistemas externos se sincronicen en tiempo real."
+      }
+    },
+    {
+      question: {
+        pt: "Como você estruturaria uma estratégia de DevOps para Salesforce?",
+        en: "How would you structure a DevOps strategy for Salesforce?",
+        es: "¿Cómo estructurarías una estrategia de DevOps para Salesforce?"
+      },
+      answer: {
+        pt: "1) Source of Truth: todo metadata no Git, nunca editar produção diretamente. 2) Ambientes: Dev Sandboxes → Integration → UAT → Produção. 3) CI: validação automática com SFDX, testes unitários (>75%) e análise estática (PMD). 4) CD: deploy automatizado por pipeline (GitHub Actions/GitLab CI/Copado). 5) Feature flags para releases graduais. 6) Monitoramento pós-deploy com Event Monitoring.",
+        en: "1) Source of Truth: all metadata in Git, never edit production directly. 2) Environments: Dev Sandboxes → Integration → UAT → Production. 3) CI: automated validation with SFDX, unit tests (>75%), and static analysis (PMD). 4) CD: automated deployment via pipeline (GitHub Actions/GitLab CI/Copado). 5) Feature flags for gradual releases. 6) Post-deploy monitoring with Event Monitoring.",
+        es: "1) Source of Truth: todo metadata en Git. 2) Ambientes: Dev → Integración → UAT → Producción. 3) CI: validación automática con SFDX y pruebas unitarias. 4) CD: despliegue automatizado via pipeline. 5) Feature flags para releases graduales. 6) Monitoreo post-deploy."
+      }
+    },
+    {
+      question: {
+        pt: "Como você justificaria ROI de uma implementação Salesforce para a diretoria?",
+        en: "How would you justify the ROI of a Salesforce implementation to the board?",
+        es: "¿Cómo justificarías el ROI de una implementación de Salesforce ante la junta directiva?"
+      },
+      answer: {
+        pt: "Framework em 4 dimensões: 1) Ganhos de eficiência (horas economizadas via automação × custo hora). 2) Aumento de receita (melhoria na taxa de conversão de pipeline, upsell/cross-sell habilitado). 3) Redução de custo (menos sistemas legados, menos retrabalho). 4) Redução de risco (compliance, auditoria, dados confiáveis). Apresentar com TCO vs. benefícios projetados em 3 anos, com quick-wins no curto prazo.",
+        en: "Framework in 4 dimensions: 1) Efficiency gains (hours saved via automation × hourly cost). 2) Revenue increase (pipeline conversion rate improvement, enabled upsell/cross-sell). 3) Cost reduction (fewer legacy systems, less rework). 4) Risk reduction (compliance, auditing, reliable data). Present with TCO vs. projected benefits over 3 years, with short-term quick-wins.",
+        es: "Framework en 4 dimensiones: 1) Ganancias de eficiencia (horas ahorradas × costo hora). 2) Aumento de ingresos (mejora en conversión de pipeline). 3) Reducción de costos (menos sistemas heredados). 4) Reducción de riesgos (compliance, auditoría). Presentar con TCO vs. beneficios proyectados a 3 años."
+      }
+    }
+  ]
 };
