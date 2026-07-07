@@ -1,0 +1,348 @@
+Quero transformar o PDF gerado pelo projeto `salesforce-skill-shine` em uma entrega premium, com qualidade de diagnóstico profissional de mentoria internacional.
+
+O PDF não deve parecer apenas uma exportação de dados da avaliação. Ele deve parecer uma devolutiva consultiva, como se um mentor experiente em Salesforce tivesse analisado o resultado do usuário e entregue um plano claro de evolução.
+
+O objetivo é que o PDF seja uma das partes mais importantes do projeto, porque é nele que a pessoa percebe o real valor de usar o serviço de mentoria de Helsio Mattia.
+
+## Direção principal
+
+Transformar o relatório em:
+
+`Diagnóstico Profissional de Carreira Salesforce`
+
+O PDF deve combinar:
+
+* resultado da autoavaliação;
+* interpretação profissional;
+* leitura de maturidade;
+* plano de evolução;
+* recomendações práticas;
+* conexão natural com mentoria;
+* visual premium.
+
+## 1. Adicionar uma “Nota do Mentor”
+
+Logo após o header/capa, adicionar uma seção chamada:
+
+`Nota do Mentor`
+
+Texto sugerido:
+
+`Este relatório não deve ser lido como uma nota final sobre sua carreira. Ele é um ponto de partida para entender onde você está hoje, quais fundamentos já estão sólidos e quais lacunas podem limitar sua evolução em projetos reais.`
+
+`A proposta da mentoria é transformar esse diagnóstico em plano prático, com foco em portfólio, posicionamento profissional, entrevistas e decisões técnicas mais maduras.`
+
+Essa seção deve ter tom humano, profissional e consultivo.
+
+## 2. Criar uma leitura profissional do momento atual
+
+Adicionar seção:
+
+`Leitura profissional do seu momento atual`
+
+Essa seção deve interpretar o score e a trilha avaliada.
+
+Não quero apenas:
+
+* score geral
+* nível
+* tabela
+
+Quero uma análise textual com base nos dados.
+
+Exemplo:
+
+`Seu resultado indica um perfil em consolidação para a trilha Administrator. Você já demonstra base prática em configuração de objetos, campos, automações e relatórios, mas ainda precisa fortalecer segurança, suporte ao usuário, documentação e visão de pacote/plataforma para atuar com mais autonomia em ambientes corporativos.`
+
+A interpretação deve variar conforme:
+
+* trilha escolhida;
+* score geral;
+* melhores competências;
+* menores competências;
+* quantidade de itens não avaliados.
+
+## 3. Substituir nível simples por perfil de maturidade
+
+Além de Iniciante / Intermediário / Avançado, criar um conceito mais premium:
+
+`Perfil identificado`
+
+Possíveis perfis:
+
+* Explorer
+* Builder em consolidação
+* Problem Solver
+* Consultant Mindset
+* Strategic Architect
+
+Cada perfil deve ter uma descrição.
+
+Exemplo:
+
+`Builder em consolidação: você já consegue construir soluções e entender fundamentos da plataforma, mas precisa fortalecer critérios de decisão, documentação, governança e repertório de projeto para evoluir para uma atuação mais consultiva.`
+
+O perfil deve ser calculado com base no score geral.
+
+## 4. Criar matriz Pronto / Em evolução / Atenção prioritária
+
+Adicionar uma seção visual chamada:
+
+`Mapa de maturidade`
+
+Separar as competências em três grupos:
+
+### Pronto para usar
+
+Competências com nível alto.
+
+### Em evolução
+
+Competências com nível médio.
+
+### Atenção prioritária
+
+Competências com nível baixo ou não avaliadas.
+
+Cada grupo deve ter:
+
+* lista de competências;
+* leitura do mentor;
+* impacto profissional.
+
+Exemplo:
+
+`Atenção prioritária: temas nesta coluna podem limitar sua autonomia em projetos reais, especialmente quando envolvem segurança, documentação, troubleshooting ou decisões com impacto em usuários.`
+
+## 5. Adicionar seção “O que esse resultado revela”
+
+Criar uma seção chamada:
+
+`O que esse diagnóstico revela`
+
+Ela deve gerar bullets consultivos, como:
+
+* Você não está começando do zero.
+* Sua base já permite atuar em demandas controladas.
+* O próximo salto não é estudar tudo ao mesmo tempo.
+* O maior ganho virá de prática guiada e repertório de projeto.
+* Suas lacunas precisam ser priorizadas conforme impacto profissional, não apenas conforme preferência de estudo.
+
+Os bullets devem variar de acordo com o nível do usuário.
+
+## 6. Melhorar o plano 30/60/90 dias
+
+O plano atual está genérico. Tornar mais específico e estratégico.
+
+Criar:
+
+`Plano de evolução recomendado`
+
+Dividir em:
+
+### Próximos 30 dias — Fundamentos críticos
+
+* focar nas 2 ou 3 menores competências;
+* revisar documentação oficial;
+* executar exercícios práticos;
+* registrar aprendizados.
+
+### Próximos 60 dias — Projeto guiado
+
+* construir um mini projeto alinhado à trilha;
+* documentar decisões;
+* simular cenário real;
+* criar evidências para portfólio.
+
+### Próximos 90 dias — Posicionamento profissional
+
+* revisar LinkedIn/CV;
+* preparar narrativa de entrevista;
+* organizar portfólio;
+* refazer avaliação;
+* definir próxima certificação ou trilha.
+
+O plano deve usar as competências reais de menor pontuação.
+
+## 7. Criar projetos práticos recomendados
+
+Adicionar uma seção:
+
+`Projetos práticos para fortalecer seu portfólio`
+
+Gerar de 2 a 3 projetos conforme a trilha.
+
+Para Administrator:
+
+* Gestão de atendimento no Service Cloud
+* Modelo de segurança e permissões
+* Automação com Flow e relatórios
+
+Para Developer:
+
+* API REST com Apex
+* LWC com dados reais
+* Testes e tratamento de exceções
+
+Para Consultant:
+
+* Discovery e mapeamento de processo
+* User stories e critérios de aceite
+* UAT e documentação funcional
+
+Para Architect:
+
+* Modelo de dados e segurança
+* Arquitetura de integração
+* Governança e escalabilidade
+
+Cada projeto deve ter:
+
+* objetivo;
+* competências praticadas;
+* entrega esperada;
+* evidência para portfólio.
+
+## 8. Adicionar benchmark de mercado
+
+Adicionar seção:
+
+`Como esse resultado conversa com o mercado`
+
+A seção deve explicar o que o resultado significa para:
+
+* posição inicial;
+* posição pleno;
+* evolução para consultoria;
+* evolução para arquitetura;
+* preparação para entrevistas.
+
+Exemplo:
+
+`Para uma posição inicial de Salesforce Administrator, este resultado mostra uma base promissora. Para uma posição pleno, ainda seria importante fortalecer segurança, documentação, troubleshooting e domínio de automações em cenários com exceções.`
+
+Não prometer vaga, certificação ou contratação.
+
+## 9. Criar seção de mentoria
+
+Adicionar uma seção no final chamada:
+
+`Como a mentoria pode acelerar sua evolução`
+
+Ela deve conectar o diagnóstico com o serviço de mentoria de Helsio Mattia.
+
+Texto sugerido:
+
+`Este relatório mostra onde você está. A mentoria ajuda a transformar esse diagnóstico em direção, prática e posicionamento profissional.`
+
+Listar áreas que podem ser trabalhadas:
+
+* plano individual de carreira Salesforce;
+* revisão de competências técnicas;
+* construção de portfólio prático;
+* preparação para entrevistas;
+* organização de estudos;
+* posicionamento no LinkedIn;
+* transição para Admin, Business Analyst, Developer, Consultant ou Architect.
+
+Adicionar CTAs:
+
+* `Conectar com Helsio Mattia no LinkedIn`
+* `Conhecer o projeto Salesforce Skill Shine`
+* `Agendar conversa de mentoria`, se houver link disponível
+
+Se não existir link de agendamento, deixar estrutura preparada sem inventar URL.
+
+## 10. Melhorar design para parecer premium
+
+O visual deve parecer relatório profissional, não tabela gerada.
+
+Melhorias:
+
+* usar capa mais elegante;
+* criar cards com fundo suave;
+* usar divisores finos;
+* criar blocos de insight;
+* destacar “leitura do mentor” com box visual;
+* usar cores consistentes com o site;
+* reduzir aparência de planilha;
+* melhorar espaçamento;
+* melhorar margens;
+* evitar excesso de tabelas longas;
+* usar tipografia e hierarquia fortes.
+
+## 11. Melhorar tabelas
+
+As tabelas devem continuar existindo, mas não devem dominar o PDF.
+
+Antes das tabelas, mostrar a interpretação.
+
+Nas tabelas:
+
+* usar nomes em português se o idioma atual for PT-BR;
+* evitar mistura de inglês e português;
+* usar status amigáveis;
+* melhorar largura das colunas;
+* evitar quebra ruim de texto;
+* usar menos colunas se necessário.
+
+## 12. Adicionar assinatura profissional
+
+No fim do PDF, adicionar uma assinatura:
+
+`Helsio Mattia`
+`Salesforce CRM Professional | Salesforce Administrator | Platform App Builder`
+`Projeto: Salesforce Skill Shine`
+
+Usar somente credenciais reais.
+
+## 13. Adicionar disclaimers corretos
+
+Manter aviso:
+
+`Relatório orientativo. Não representa certificação oficial Salesforce.`
+
+Adicionar também:
+
+`Salesforce é marca registrada de sua respectiva proprietária. Este projeto é independente e educacional.`
+
+## 14. Gerar PDF com melhor paginação
+
+O relatório pode ter mais páginas. Não tem problema.
+
+Preferência:
+
+* 5 a 7 páginas bem organizadas;
+* sem cortes;
+* sem seções órfãs;
+* sem tabelas quebradas de forma feia;
+* rodapé em todas as páginas;
+* capa e conclusão bem definidas.
+
+## 15. Critérios de aceite
+
+O PDF final deve:
+
+* parecer uma entrega de mentoria profissional;
+* ter nota do mentor;
+* ter leitura profissional do momento atual;
+* ter perfil de maturidade;
+* ter mapa Pronto / Em evolução / Atenção prioritária;
+* ter plano 30/60/90 personalizado;
+* ter projetos práticos recomendados;
+* ter benchmark de mercado;
+* ter seção conectando com a mentoria de Helsio Mattia;
+* ter assinatura profissional;
+* ter visual premium;
+* manter dados reais da avaliação;
+* não inventar conquistas, clientes ou promessas;
+* não misturar idiomas;
+* preservar o funcionamento da exportação.
+
+Depois da alteração, explique:
+
+1. quais arquivos foram alterados;
+2. como o PDF foi reorganizado;
+3. como o perfil de maturidade é calculado;
+4. como o plano 30/60/90 usa as lacunas reais;
+5. como a seção de mentoria foi estruturada.

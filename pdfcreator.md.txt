@@ -1,0 +1,430 @@
+Preciso melhorar muito a qualidade visual e estrutural do PDF gerado pelo projeto `salesforce-skill-shine`.
+
+Hoje o PDF exportado está funcional, mas visualmente simples demais. Ele parece um relatório técnico cru, com tabelas básicas, pouco design, pouca hierarquia visual e baixo valor percebido.
+
+Quero transformar o PDF em um **relatório profissional de diagnóstico de competências Salesforce**, com aparência mais moderna, clara e útil para o usuário.
+
+## Problema atual
+
+O PDF gerado hoje tem estes problemas:
+
+* Visual muito básico.
+* Cabeçalho escuro simples e pesado.
+* Tabelas com aparência genérica.
+* Pouca hierarquia entre seções.
+* Quase nenhuma interpretação do resultado.
+* Não há resumo executivo.
+* Não há score geral destacado.
+* Não há plano de ação.
+* Não há identidade visual consistente com o site.
+* O PDF parece mais uma exportação de dados do que um relatório de carreira.
+
+## Objetivo
+
+Melhorar o PDF para que ele pareça um documento profissional, bonito e útil, que o usuário tenha vontade de salvar, compartilhar ou anexar em um plano de desenvolvimento.
+
+O relatório deve ser claro, moderno e alinhado com a identidade visual do site.
+
+## Estrutura desejada do novo PDF
+
+### 1. Capa / Header profissional
+
+Criar uma primeira área visual mais forte, contendo:
+
+* Nome do relatório:
+
+  * `Salesforce Competency Report`
+  * ou em PT-BR: `Relatório de Competências Salesforce`
+* Nome da trilha avaliada:
+
+  * Administrator, Developer, Consultant ou Architect
+* Nome da pessoa avaliada
+* Data de geração
+* Pequena descrição:
+
+  * `Diagnóstico orientativo para mapear competências, lacunas e próximos passos de desenvolvimento profissional.`
+* Identidade visual com tons azul, ciano e branco, próximos do site.
+
+Evitar um bloco escuro pesado ocupando muito espaço.
+
+### 2. Resumo executivo
+
+Adicionar uma seção logo no início chamada:
+
+`Resumo do Diagnóstico`
+
+Ela deve mostrar de forma clara:
+
+* Score geral do usuário
+* Nível estimado:
+
+  * Iniciante
+  * Em desenvolvimento
+  * Intermediário
+  * Avançado
+  * Referência
+* Quantidade de competências avaliadas
+* Quantidade de competências avançadas
+* Quantidade de competências não avaliadas
+* Principal ponto forte
+* Principal lacuna
+
+Exemplo de texto:
+
+`Seu diagnóstico indica uma base em desenvolvimento para a trilha Administrator. Os melhores resultados aparecem em segurança e configuração, enquanto automação e dados ainda precisam de mais atenção para formar uma base mais completa.`
+
+A interpretação deve ser gerada com base nos dados reais da avaliação.
+
+### 3. Cards visuais de indicadores
+
+Antes das tabelas, adicionar pequenos cards/caixas com números principais:
+
+* Score geral
+* Competências avaliadas
+* Competências fortes
+* Competências a desenvolver
+* Trilha escolhida
+
+Esses cards devem deixar o PDF mais visual e menos parecido com uma planilha.
+
+### 4. Informações pessoais mais elegantes
+
+A seção atual `Personal Information` deve ser melhorada.
+
+Problemas atuais:
+
+* Está muito simples.
+* Parece formulário bruto.
+* Usa mistura de idioma.
+* Ocupa espaço sem design.
+
+Melhorar para algo como:
+
+`Dados do participante`
+
+Campos:
+
+* Nome
+* E-mail
+* Telefone / WhatsApp
+* Função atual
+* Anos de experiência
+* Trilha avaliada
+
+Usar layout em duas colunas, com espaçamento melhor.
+
+Importante:
+
+* Se algum campo estiver vazio, não exibir “undefined”, “null” ou valor quebrado.
+* Se o usuário não informar um dado, mostrar `Não informado` ou ocultar o campo.
+
+### 5. Tabelas mais bonitas
+
+As tabelas atuais estão muito básicas.
+
+Melhorar:
+
+* Cabeçalhos com cor da categoria.
+* Bordas mais suaves.
+* Espaçamento interno maior.
+* Fonte mais elegante.
+* Linhas alternadas sutis.
+* Status com texto mais amigável.
+* Evitar cores fortes demais.
+* Manter boa legibilidade em impressão.
+
+Categorias:
+
+* Hard Skills / Competências Técnicas
+* Soft Skills / Competências Comportamentais
+* Visão Estratégica
+* Evolução de Carreira
+* Ferramentas
+* Questões de Entrevista, se aplicável
+
+Cada tabela deve ter:
+
+* Nome da competência
+* Nível informado
+* Status
+* Breve interpretação, se possível
+
+### 6. Melhorar os status
+
+Hoje aparecem status como:
+
+* Advanced
+* Not evaluated
+
+Quero status mais úteis e consistentes.
+
+Sugestão:
+
+Para PT-BR:
+
+* `Não avaliado`
+* `Inicial`
+* `Em desenvolvimento`
+* `Intermediário`
+* `Avançado`
+
+Para inglês:
+
+* `Not evaluated`
+* `Beginner`
+* `Developing`
+* `Intermediate`
+* `Advanced`
+
+Se o site estiver em português, o PDF deve ser em português.
+Se o site estiver em inglês, o PDF deve ser em inglês.
+Se houver i18n no projeto, o PDF deve respeitar o idioma atual.
+
+### 7. Adicionar interpretação por categoria
+
+Depois de cada tabela ou antes dela, adicionar uma frase curta interpretando a categoria.
+
+Exemplo:
+
+`As competências técnicas mostram o quanto você domina a configuração, segurança, automação e gestão da plataforma. Pontuações baixas nessa área indicam temas importantes para reforçar antes de avançar para desafios mais complexos.`
+
+Ou gerar interpretação com base no score da categoria:
+
+* score baixo: indicar base inicial
+* score médio: indicar evolução consistente
+* score alto: indicar maturidade na categoria
+
+### 8. Adicionar plano de ação
+
+Adicionar uma seção chamada:
+
+`Plano de ação sugerido`
+
+Ela deve trazer recomendações práticas com base nas lacunas.
+
+Estrutura sugerida:
+
+#### Próximos 30 dias
+
+* Revisar fundamentos da trilha escolhida.
+* Estudar os temas com menor pontuação.
+* Praticar em uma Developer Org ou Trailhead Playground.
+
+#### Próximos 60 dias
+
+* Criar um mini projeto prático.
+* Documentar aprendizados.
+* Revisar dúvidas recorrentes.
+
+#### Próximos 90 dias
+
+* Consolidar portfólio.
+* Simular cenários reais.
+* Preparar-se para certificação ou entrevistas, se fizer sentido.
+
+O plano deve considerar a trilha escolhida. Por exemplo:
+
+Administrator:
+
+* Security
+* Object Manager
+* Flow
+* Reports
+* Data management
+
+Developer:
+
+* Apex
+* SOQL
+* LWC
+* APIs
+* Tests
+
+Consultant:
+
+* Discovery
+* Requirements
+* User stories
+* Process mapping
+* UAT
+
+Architect:
+
+* Data model
+* Integration
+* Security
+* Scalability
+* Governance
+
+### 9. Adicionar seção de recomendações
+
+Criar seção:
+
+`Recomendações de estudo`
+
+Incluir recomendações gerais, como:
+
+* Trailhead
+* Documentação oficial Salesforce
+* Projetos práticos
+* Simulados
+* Revisão de casos reais
+* Comunidade Salesforce
+
+Se possível, incluir links clicáveis no PDF para:
+
+* Salesforce Trailhead
+* Salesforce Admins
+* Salesforce Developers
+* Salesforce Architects
+* GitHub do projeto
+
+### 10. Adicionar rodapé profissional
+
+Adicionar rodapé em todas as páginas com:
+
+* Nome do projeto: `Salesforce Skill Shine`
+* URL do projeto
+* Data de geração
+* Número da página
+* Texto pequeno:
+
+  * `Relatório orientativo. Não representa certificação oficial Salesforce.`
+
+Importante:
+
+* Salesforce é marca de terceiros.
+* Não afirmar que o relatório é oficial da Salesforce.
+
+### 11. Melhorar paginação
+
+O PDF deve lidar bem com múltiplas páginas.
+
+Corrigir:
+
+* tabelas cortadas;
+* seções começando no fim da página;
+* títulos órfãos sem conteúdo abaixo;
+* rodapé sobreposto;
+* margens inconsistentes.
+
+Usar quebras de página quando necessário.
+
+### 12. Melhorar idioma e consistência
+
+Hoje o PDF mistura inglês e português.
+
+Quero consistência:
+
+* Se a interface estiver em PT-BR, gerar PDF em português.
+* Se estiver em inglês, gerar PDF em inglês.
+* Se estiver em espanhol, gerar PDF em espanhol, se o projeto já suportar.
+* Caso não tenha suporte completo, priorizar PT-BR por enquanto.
+
+Não misturar:
+
+* `Personal Information` com campos em português;
+* `Assessment Results` com status em português;
+* `Not evaluated` dentro de PDF PT-BR.
+
+### 13. Melhorar identidade visual
+
+Usar o estilo visual do site:
+
+* azul principal;
+* ciano/azul claro;
+* cards com bordas suaves;
+* bastante espaço branco;
+* títulos fortes;
+* divisores leves;
+* sem excesso de cores.
+
+O PDF deve parecer parte do mesmo produto.
+
+### 14. Melhorar nome do arquivo
+
+Hoje o arquivo pode sair com nome feio ou com dados digitados diretamente.
+
+Gerar nome mais limpo:
+
+Formato sugerido:
+`relatorio-salesforce-skill-shine-administrator-nome-do-usuario.pdf`
+
+Regras:
+
+* remover caracteres especiais;
+* usar lowercase;
+* substituir espaços por hífen;
+* se não tiver nome, usar:
+
+  * `relatorio-salesforce-skill-shine-administrator.pdf`
+
+### 15. Não expor dados sensíveis desnecessários
+
+Como o PDF contém dados pessoais, cuidar para:
+
+* Não adicionar informações extras sem necessidade.
+* Não enviar dados para backend.
+* Não salvar dados fora do navegador, se o projeto for local/client-side.
+* Não exibir telefone/e-mail se o usuário não informou.
+
+### 16. Melhorar código do gerador
+
+Revisar o código responsável pelo PDF, provavelmente usando `jsPDF` e `jspdf-autotable`.
+
+Quero que o código fique mais organizado:
+
+* separar funções auxiliares;
+* criar constantes de tema;
+* criar função para header;
+* criar função para footer;
+* criar função para cards;
+* criar função para tabelas;
+* criar função para recomendações;
+* evitar código repetido;
+* facilitar manutenção por trilha e idioma.
+
+Sugestão de estrutura:
+
+* `pdfTheme`
+* `addCoverHeader`
+* `addParticipantInfo`
+* `addExecutiveSummary`
+* `addMetricCards`
+* `addCategoryTable`
+* `addActionPlan`
+* `addRecommendations`
+* `addFooter`
+* `sanitizeFileName`
+
+### 17. Critérios de aceite
+
+O novo PDF deve:
+
+* parecer um relatório profissional;
+* ter capa/header mais bonito;
+* incluir resumo executivo;
+* mostrar score geral e nível estimado;
+* apresentar dados pessoais de forma elegante;
+* ter tabelas bem formatadas;
+* trazer interpretação dos resultados;
+* incluir plano de ação de 30/60/90 dias;
+* incluir recomendações de estudo;
+* ter rodapé com página, projeto e aviso;
+* respeitar o idioma atual do site;
+* não misturar inglês com português;
+* não cortar tabelas ou seções;
+* gerar nome de arquivo limpo;
+* manter funcionamento atual da exportação.
+
+### 18. Depois da alteração
+
+Ao final, me informe:
+
+1. Qual arquivo/componente gerava o PDF.
+2. Quais arquivos foram alterados.
+3. Como ficou a nova estrutura do relatório.
+4. Como o score geral é calculado.
+5. Como o nível estimado é definido.
+6. Como o plano de ação é gerado.
+7. Se há algum limite técnico do `jsPDF` ou `jspdf-autotable`.
