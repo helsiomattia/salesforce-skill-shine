@@ -19,7 +19,12 @@ import {
   Layers,
   ChevronRight,
   Database,
-  CheckCircle2
+  CheckCircle2,
+  ExternalLink,
+  Github,
+  Globe,
+  Linkedin,
+  ShieldCheck
 } from "lucide-react";
 
 // Inspired by the "Salesforce as a Career" hub-and-spoke image
@@ -121,9 +126,28 @@ const fadeUp = {
   transition: { duration: 0.5 },
 };
 
+const authorLinks = [
+  { href: "https://github.com/helsiomattia", label: "GitHub", icon: Github },
+  { href: "https://linkedin.com/in/helsiomattia", label: "LinkedIn", icon: Linkedin },
+  { href: "https://trailblazer.me/id/helsiomattia", label: "Trailblazer", icon: Globe },
+];
+
+const officialReferences = [
+  { href: "https://help.salesforce.com/", label: "Salesforce Help" },
+  { href: "https://trailhead.salesforce.com/", label: "Trailhead" },
+  { href: "https://architect.salesforce.com/", label: "Salesforce Architects" },
+];
+
 const HomePage = () => {
   const { t, i18n } = useTranslation();
   const lang = i18n.resolvedLanguage || 'pt';
+  const heroParagraphs = t('home.heroParagraphs', { returnObjects: true }) as string[];
+  const heroContextLabels = t('home.heroContextLabels', { returnObjects: true }) as string[];
+  const careersContext = t('home.careersContext', { returnObjects: true }) as string[];
+  const journeyContext = t('home.journeyContext', { returnObjects: true }) as string[];
+  const pyramidContext = t('home.pyramidContext', { returnObjects: true }) as string[];
+  const contextLabels = t('home.contextLabels', { returnObjects: true }) as string[];
+  const trustParagraphs = t('home.trust.paragraphs', { returnObjects: true }) as string[];
 
   return (
     <div className="mx-auto min-h-screen max-w-7xl space-y-8 px-4 py-6 lg:px-6">
@@ -133,27 +157,41 @@ const HomePage = () => {
         <div className="absolute -left-32 -top-32 h-[500px] w-[500px] rounded-full bg-cyan-400/10 blur-[100px]" />
         <div className="absolute -bottom-32 -right-32 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-[100px]" />
 
-        <div className="relative z-10 grid gap-16 lg:grid-cols-[1fr_1fr] lg:items-center">
-          <div>
+        <div className="relative z-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(420px,0.9fr)] lg:items-center xl:gap-16">
+          <div className="relative z-20 max-w-2xl min-w-0">
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              className="space-y-7"
             >
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
                 <Cloud className="h-4 w-4" />
                 {t('home.badge')}
               </div>
 
-              <h1 className="max-w-2xl text-4xl font-extrabold tracking-tight text-slate-900 md:text-6xl lg:leading-[1.1]">
+              <h1 className="max-w-2xl text-4xl font-extrabold tracking-tight text-slate-900 md:text-6xl lg:leading-[1.05]">
                 <Trans i18nKey="home.title" components={{ 1: <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500" /> }} />
               </h1>
 
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
+              <p className="max-w-xl text-lg leading-8 text-slate-600 md:text-xl">
                 {t('home.subtitle')}
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+                {heroParagraphs.map((paragraph, index) => (
+                  <article key={paragraph} className="rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm shadow-slate-200/40">
+                    <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-blue-600">
+                      {heroContextLabels[index]}
+                    </p>
+                    <p className="text-sm leading-6 text-slate-600">
+                      {paragraph}
+                    </p>
+                  </article>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-4 pt-1">
                 <Link
                   to="/assessment"
                   viewTransition
@@ -181,8 +219,26 @@ const HomePage = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative hidden lg:flex h-[550px] w-full items-center justify-center"
+            className="relative z-10 hidden h-[640px] w-full min-w-0 flex-col gap-8 lg:flex"
           >
+            <div className="relative flex h-48 items-center justify-center rounded-[32px] bg-gradient-to-b from-sky-50/80 to-white/30 xl:h-52">
+              <motion.div
+                animate={{
+                  y: [0, -12, 0],
+                  rotate: [0, 6, -6, 0]
+                }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                className="relative z-10 flex h-full w-full items-center justify-center p-5 drop-shadow-2xl"
+              >
+                <img
+                  src={`${import.meta.env.BASE_URL}astro.png`}
+                  alt="Astro Mascot"
+                  className="h-full max-h-40 w-auto max-w-full object-contain xl:max-h-44"
+                />
+              </motion.div>
+            </div>
+
+            <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden rounded-[32px]">
             {/* SVG Connecting Lines with Flowing Animation */}
             <svg className="absolute inset-0 h-full w-full z-0" strokeLinecap="round">
               <defs>
@@ -276,33 +332,90 @@ const HomePage = () => {
               </motion.div>
             </div>
 
-            {/* Astro Mascot Animated (Moved to the top left area) */}
-            <motion.div
-              animate={{ 
-                y: [0, -30, 0], 
-                rotate: [0, 8, -8, 0] 
-              }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute z-30 w-52 drop-shadow-2xl"
-              style={{ top: "-5%", left: "-28%" }}
-            >
-              <img 
-                src={`${import.meta.env.BASE_URL}astro.png`} 
-                alt="Astro Mascot" 
-                className="w-full h-auto object-contain"
-              />
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Hub and Spoke Career Paths Section */}
-      <motion.section {...fadeUp} className="space-y-6 py-6">
-        <div className="text-center space-y-4">
-          <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">{t('home.careersTitle')}</h2>
-          <p className="mx-auto max-w-2xl text-slate-600 text-lg">
-            {t('home.careersDesc')}
+      <motion.section {...fadeUp} className="grid gap-6 rounded-[40px] border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-[1.1fr_0.9fr] md:p-8">
+        <div className="max-w-3xl space-y-5">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
+            <ShieldCheck className="h-4 w-4" />
+            {t('home.trust.badge')}
+          </div>
+          <div className="space-y-3 text-slate-600 leading-7">
+            <h2 className="text-2xl font-bold text-slate-900">{t('home.trust.title')}</h2>
+            {trustParagraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            <p className="text-sm text-slate-500">
+              {t('home.trust.meta')}
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {authorLinks.map((link) => {
+              const Icon = link.icon;
+
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-blue-200 hover:text-blue-600"
+                >
+                  <Icon className="h-4 w-4" />
+                  {link.label}
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="rounded-[28px] border border-slate-100 bg-slate-50 p-5">
+          <h3 className="font-bold text-slate-900">{t('home.references.title')}</h3>
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            {t('home.references.desc')}
           </p>
+          <div className="mt-4 space-y-2">
+            {officialReferences.map((reference) => (
+              <a
+                key={reference.href}
+                href={reference.href}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="flex items-center justify-between rounded-xl bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:text-blue-600"
+              >
+                {reference.label}
+                <ExternalLink className="h-4 w-4 text-slate-400" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Hub and Spoke Career Paths Section */}
+      <motion.section {...fadeUp} className="space-y-8 py-6">
+        <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+          <div className="max-w-xl space-y-3">
+            <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">{t('home.careersTitle')}</h2>
+            <p className="text-lg leading-8 text-slate-600">
+              {t('home.careersDesc')}
+            </p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2">
+            {careersContext.map((paragraph, index) => (
+              <article key={paragraph} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+                  {contextLabels[index]}
+                </p>
+                <p className="text-sm leading-6 text-slate-600">
+                  {paragraph}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -321,7 +434,7 @@ const HomePage = () => {
                   </div>
                   <h3 className="text-xl font-bold text-slate-900">{getLocalizedString(career.title, lang)}</h3>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    {getLocalizedString(career.description as any, lang)}
+                    {getLocalizedString(career.description, lang)}
                   </p>
                 </div>
 
@@ -335,14 +448,28 @@ const HomePage = () => {
       </motion.section>
 
       {/* The Journey / Timeline Section */}
-      <motion.section {...fadeUp} className="relative overflow-hidden rounded-[40px] bg-slate-900 px-6 py-12 text-white md:px-12">
+      <motion.section {...fadeUp} className="relative overflow-hidden rounded-[40px] bg-slate-900 px-6 py-10 text-white md:px-12 md:py-12">
         <div className="absolute top-0 right-0 h-[600px] w-[600px] translate-x-1/3 -translate-y-1/3 rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none" />
 
-        <div className="text-center space-y-4 mb-16 relative z-10">
-          <h2 className="text-3xl font-bold md:text-4xl">{t('home.journeyTitle')}</h2>
-          <p className="mx-auto max-w-2xl text-slate-400 text-lg">
-            {t('home.journeyDesc')}
-          </p>
+        <div className="relative z-10 mb-12 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div className="max-w-xl space-y-3">
+            <h2 className="text-3xl font-bold md:text-4xl">{t('home.journeyTitle')}</h2>
+            <p className="text-lg leading-8 text-slate-300">
+              {t('home.journeyDesc')}
+            </p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2">
+            {journeyContext.map((paragraph, index) => (
+              <article key={paragraph} className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
+                <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-cyan-300">
+                  {contextLabels[index]}
+                </p>
+                <p className="text-sm leading-6 text-slate-300">
+                  {paragraph}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
 
         <div className="relative z-10 mx-auto max-w-5xl">
@@ -370,8 +497,8 @@ const HomePage = () => {
       </motion.section>
 
       {/* The Pyramid Vision Section */}
-      <motion.section {...fadeUp} className="grid gap-10 md:grid-cols-2 items-center rounded-[40px] border border-slate-200 bg-white p-6 shadow-sm md:p-12">
-        <div className="space-y-6">
+      <motion.section {...fadeUp} className="grid gap-10 items-center rounded-[40px] border border-slate-200 bg-white p-6 shadow-sm lg:grid-cols-[1.05fr_0.95fr] md:p-12">
+        <div className="max-w-2xl space-y-6">
           <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-700">
             <Layers className="h-4 w-4" />
             {t('home.pyramidBadge')}
@@ -381,13 +508,26 @@ const HomePage = () => {
             <Trans i18nKey="home.pyramidTitle" components={{ 1: <span className="text-amber-600" /> }} />
           </h2>
 
-          <p className="text-lg leading-relaxed text-slate-600">
+          <p className="text-lg leading-8 text-slate-600">
             {t('home.pyramidDesc')}
           </p>
 
-          <ul className="space-y-4">
+          <div className="grid gap-3 sm:grid-cols-2">
+            {pyramidContext.map((paragraph, index) => (
+              <article key={paragraph} className="rounded-3xl border border-amber-100 bg-amber-50/40 p-5">
+                <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-amber-700">
+                  {contextLabels[index]}
+                </p>
+                <p className="text-sm leading-6 text-slate-600">
+                  {paragraph}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <ul className="grid gap-3 sm:grid-cols-3">
             {[0, 1, 2].map((i) => (
-              <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
+              <li key={i} className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700">
                 <div className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-100 text-amber-600">
                   <CheckCircle2 className="h-4 w-4" />
                 </div>
@@ -397,7 +537,7 @@ const HomePage = () => {
           </ul>
         </div>
 
-        <div className="relative flex justify-center">
+        <div className="relative flex justify-center lg:justify-end">
           <div className="flex flex-col items-center gap-2 w-full max-w-sm">
             {/* Pyramid Peak */}
             <div className="w-1/3 rounded-t-xl rounded-b-sm border-2 border-amber-300 bg-gradient-to-b from-amber-100 to-amber-50 p-4 text-center font-bold text-amber-800 shadow-md">

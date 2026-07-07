@@ -12,6 +12,7 @@ import CareerPage from "./pages/CareerPage";
 import ContactPage from "./pages/ContactPage";
 import GuidePage from "./pages/GuidePage";
 import GuideDetailPage from "./pages/GuideDetailPage";
+import { EditorialPolicyPage, PrivacyPolicyPage, TermsPage } from "./pages/LegalPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,9 @@ const router = createBrowserRouter([
       { path: "/contact", element: <ContactPage /> },
       { path: "/guide", element: <GuidePage /> },
       { path: "/guide/:id", element: <GuideDetailPage /> },
+      { path: "/privacy", element: <PrivacyPolicyPage /> },
+      { path: "/terms", element: <TermsPage /> },
+      { path: "/editorial-policy", element: <EditorialPolicyPage /> },
       { path: "/assessment/admin", element: <CareerPage categoryId="admin" /> },
       { path: "/assessment/developer", element: <CareerPage categoryId="developer" /> },
       { path: "/assessment/consultant", element: <CareerPage categoryId="consultant" /> },

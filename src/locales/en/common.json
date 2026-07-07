@@ -19,7 +19,122 @@
   "footer": {
     "text": "Developed by Mattioli. Salesforce Specialist.",
     "social": "Connect with me on social media:",
-    "rights": "© 2025 Helsio Mattia"
+    "rights": "© 2025 Helsio Mattia",
+    "description": "Independent project by Helsio Mattia to organize paths, competency assessment, and practical references about CRM and Salesforce.",
+    "updated": "Published on Jul 06, 2026. Last updated: Jul 06, 2026.",
+    "transparency": "Transparency",
+    "authorChannels": "Author and official channels",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "editorial": "Editorial Policy"
+    }
+  },
+  "legal": {
+    "common": {
+      "badge": "Transparency and trust",
+      "published": "Published on",
+      "updated": "Last updated",
+      "author": "Author",
+      "date": "Jul 06, 2026",
+      "backHome": "Back to Home"
+    },
+    "references": {
+      "title": "External references used",
+      "desc": "Technical content should be checked against official sources and updated according to product changes, releases, and documentation."
+    },
+    "pages": {
+      "privacy": {
+        "title": "Privacy Policy",
+        "description": "This policy explains which data may be processed by Skill Shine and what limits exist in the use of the tool.",
+        "sections": [
+          {
+            "title": "Data collected",
+            "body": [
+              "The site does not use registration, payment, a logged-in area, or analytics configured in the current code. Main navigation can happen without providing personal data.",
+              "At the final step of the assessment, the user may enter name, email, phone, LinkedIn, role, and experience to generate a local PDF. This data is used in the browser itself to create the requested document.",
+              "The guide area allows users to create custom content and notes. This information is saved in the user's browser localStorage when that feature is used."
+            ]
+          },
+          {
+            "title": "Use of information",
+            "body": [
+              "Information entered in the assessment is used to personalize the result, support PDF generation, and organize the user's study path.",
+              "If the user contacts Helsio Mattia by email, LinkedIn, GitHub, or Trailblazer, data processing also follows the rules of those external services.",
+              "The project does not promise certification approval, promotion, salary increase, or job change. The content provides educational guidance and study organization."
+            ]
+          },
+          {
+            "title": "User control",
+            "body": [
+              "Because guide data and notes stay in the browser, the user can remove them by clearing local site data in the browser settings.",
+              "To request information about direct contact with Helsio Mattia, use the email helsiomattia@gmail.com.",
+              "This policy may be updated when new collection features, forms, analytics, or integrations are added."
+            ]
+          }
+        ]
+      },
+      "terms": {
+        "title": "Terms of Use",
+        "description": "These terms define how Skill Shine should be used and clarify the limits of the educational content offered.",
+        "sections": [
+          {
+            "title": "Project purpose",
+            "body": [
+              "Skill Shine is an independent project by Helsio Mattia to support self-assessment, study, and organization of professional paths in CRM and Salesforce.",
+              "The content combines practical experience, public documentation, and official references. It does not replace Salesforce documentation, formal training, contracted consulting, or detailed individual assessment.",
+              "Assessment routes, guides, and informational pages may change according to editorial reviews, technical improvements, and product updates."
+            ]
+          },
+          {
+            "title": "User responsibility",
+            "body": [
+              "The user should use the answers as study support and self-awareness, not as a definitive diagnosis of employability or seniority.",
+              "Before applying recommendations in real environments, validate requirements, security, governance, and official documentation for the platform involved.",
+              "It is not allowed to present the site content as official Salesforce material or as a guarantee of professional results."
+            ]
+          },
+          {
+            "title": "Limits and availability",
+            "body": [
+              "The site is offered as an educational tool, without a promise of continuous availability, complete absence of errors, or suitability for every business scenario.",
+              "External links lead to third-party sites. They are included as references and may change outside Skill Shine's control.",
+              "Salesforce, Trailhead, and related product names belong to their respective owners. Skill Shine is not an official Salesforce product."
+            ]
+          }
+        ]
+      },
+      "editorial": {
+        "title": "Editorial Policy",
+        "description": "This policy describes how content is created, reviewed, and limited to maintain transparency, usefulness, and reliability.",
+        "sections": [
+          {
+            "title": "Authorship and experience",
+            "body": [
+              "The content is produced by Helsio Mattia, a CRM professional with practical experience in Salesforce administration and analysis, Sales Cloud, Service Cloud, automations, user support, documentation, and process improvement.",
+              "The About page presents experience at Efí Bank, EQI Investimentos, Cloud11, ControlSoft Assessoria, and Proxsis Sistemas de Gestão Empresarial, as well as academic background and certifications reported by the author.",
+              "Public authorship signals include GitHub, LinkedIn, Trailblazer, and email, all linked in the footer and on the About page."
+            ]
+          },
+          {
+            "title": "Sources and review",
+            "body": [
+              "When content mentions platform concepts, the main reference should be official documentation, Trailhead, Salesforce Architects, and trusted public Salesforce pages.",
+              "Texts are written to make understanding and study organization easier. When there is any divergence, the official source prevails.",
+              "The last updated date is displayed to indicate the most recent review of editorial and legal content."
+            ]
+          },
+          {
+            "title": "Independence and limits",
+            "body": [
+              "Skill Shine does not publish invented testimonials, unverified physical addresses, artificial badges, or promises of certification approval.",
+              "The content may reflect the author's practical experience, but it does not represent official Salesforce communication or replace technical analysis in a real project.",
+              "Suggestions for improvement, correction, or update can be sent through the author's public channels."
+            ]
+          }
+        ]
+      }
+    }
   },
   "levels": {
     "0": "Not evaluated",
@@ -76,37 +191,76 @@
     "tags": "Salesforce • CRM • Career • Technical Evolution"
   },
   "home": {
-    "badge": "Your GPS in the Salesforce Ecosystem",
-    "title": "Navigate <1>Salesforce careers</1> with clarity.",
-    "subtitle": "A platform designed to assess your competencies, identify gaps, and outline the best evolution path for Admin, Developer, Architect, and Consultant roles.",
+    "badge": "CRM Path Guide",
+    "title": "Navigate <1>your next steps</1> with clarity.",
+    "subtitle": "Use the assessment as a starting point to review competencies, spot gaps, and organize priorities for Admin, Developer, Architect, and Consultant roles.",
+    "heroParagraphs": [
+      "This page brings together a practical view for people who work with Salesforce or want to enter the CRM ecosystem without relying on generic promises. The goal is to help you compare what you already know with common market demands in a simple and useful way.",
+      "The diagnosis does not replace study, real experience, or individual mentoring. It works as an initial map. Based on your answers, it becomes easier to separate foundations, intermediate topics, and advanced subjects that need more attention in your learning plan.",
+      "Each path considers technical knowledge, process understanding, communication with business teams, and the ability to document decisions. These points matter because CRM projects require more than configuring screens or writing code. They require context, judgment, and consistency."
+    ],
+    "heroContextLabels": [
+      "Practical view",
+      "Initial map",
+      "Project context"
+    ],
+    "contextLabels": [
+      "How to read",
+      "How to use"
+    ],
     "startAssessment": "Start Assessment",
     "aboutMe": "Meet the Professional",
-    "careersTitle": "Career Paths",
-    "careersDesc": "Discover which role in the Salesforce ecosystem best aligns with your goals and start mapping your skills.",
-    "evaluateSkills": "Evaluate skills",
-    "journeyTitle": "The Evolution Journey",
-    "journeyDesc": "A continuous methodology so you don't stagnate. It works like the development lifecycle: plan, map, validate, and reach new levels.",
+    "trust": {
+      "badge": "Authorship and transparency",
+      "title": "Project created by Helsio Mattia",
+      "paragraphs": [
+        "Skill Shine is an independent project based on practical experience with CRM, Salesforce administration, Sales Cloud, Service Cloud, automations, user support, documentation, and process improvement.",
+        "The certifications listed on the site include Salesforce Certified Administrator, Salesforce Certified App Builder, and Salesforce AI Associate. The About page also lists complementary education and professional experience that can be checked through the author's public channels."
+      ],
+      "meta": "Published on Jul 06, 2026. Last updated: Jul 06, 2026. This content is not official Salesforce material and does not promise certification approval, promotion, or financial results."
+    },
+    "references": {
+      "title": "Official references",
+      "desc": "Technical concepts should be compared with official documentation and learning paths, especially before applying anything in real environments."
+    },
+    "careersTitle": "Professional Paths",
+    "careersDesc": "Compare the available roles, understand the focus of each one, and choose where to start your analysis.",
+    "careersContext": [
+      "The Administrator role usually focuses on configuration, security, declarative automation, and platform support. Developer goes deeper into custom logic, integrations, and components. Consultant connects business requirements with possible solutions. Architect looks at design, governance, risks, and scalability.",
+      "These paths do not need to be treated as fixed boxes. A person can move between them over time. What matters is knowing which role describes the current moment and which competencies deserve priority before taking on more complex challenges."
+    ],
+    "evaluateSkills": "Evaluate competencies",
+    "journeyTitle": "Development Journey",
+    "journeyDesc": "A simple flow to turn self-assessment into clear next steps. First you map, then you prioritize and track progress.",
+    "journeyContext": [
+      "The process starts with objective questions. They help organize evidence about technical practice, conceptual understanding, and professional maturity. The result should not be read as a final score. It points to areas where you feel confident, areas where there is doubt, and areas where exercises, documentation, or guided projects may help.",
+      "With that view, learning is no longer a loose list of topics. You can see smaller blocks that are easier to execute. Instead of trying to learn everything at once, you can focus on a group of themes, validate learning in real scenarios, and adjust the route when needed."
+    ],
     "steps": {
       "mapping": {
         "title": "1. Mapping",
-        "desc": "Assess your current skills against the expected market standard for each role."
+        "desc": "Review your current repertoire and compare it with common expectations for each role."
       },
       "gaps": {
-        "title": "2. Identifying Gaps",
-        "desc": "Discover exactly what knowledge you lack to reach your next level."
+        "title": "2. Gaps",
+        "desc": "Identify knowledge that still needs practice, reading, or validation."
       },
       "plan": {
-        "title": "3. Evolution Plan",
-        "desc": "Create a roadmap directing your studies to the most critical and impactful competencies."
+        "title": "3. Action Plan",
+        "desc": "Organize study, exercises, and review around the topics that bring more clarity."
       },
       "achievement": {
         "title": "4. Achievement",
-        "desc": "Achieve certifications, execute projects, and consolidate your career in the ecosystem."
+        "desc": "Apply what you learn in projects, exams, interviews, and work decisions."
       }
     },
-    "pyramidBadge": "Architecture of Success",
-    "pyramidTitle": "Your career is not a sprint, it's a <1>pyramid of value.</1>",
-    "pyramidDesc": "Just like the path to Technical Architect in the ecosystem, Salesforce Skill Shine helps you build a solid foundation, acquire specializations, and finally reach the top of your professional journey.",
+    "pyramidBadge": "Growth Architecture",
+    "pyramidTitle": "Your path is not a sprint, it is a <1>pyramid of value.</1>",
+    "pyramidDesc": "The pyramid shows that foundation comes before specialization. Strong fundamentals reduce rework and make advanced choices safer.",
+    "pyramidContext": [
+      "Starting with the platform core makes conversations with users, data analysis, automation design, and impact review easier. After that, choosing a cloud, product, or technical area for deeper study becomes more natural. This order avoids fragile shortcuts and makes learning more sustainable.",
+      "The top represents maturity, not speed. It depends on accumulated repertoire, regular review, and participation in real problems. That is why the assessment encourages an honest plan: understand the base, practice with intention, document lessons, and seek feedback when there is doubt."
+    ],
     "pyramidList": {
       "0": "Solid Foundation (Core)",
       "1": "Specializations (Clouds and Products)",
@@ -122,7 +276,7 @@
   "about": {
     "badge": "Professional Journey",
     "title": "Helsio Mattia",
-    "role": "Salesforce Consultant | CRM Specialist | Sales & Service Cloud | 4x Certified",
+    "role": "Salesforce Consultant | CRM Specialist | Sales & Service Cloud",
     "email": "helsiomattia@gmail.com",
     "linkedin": "linkedin.com/in/helsiomattia",
     "phone": "+55 49 98814-5714",

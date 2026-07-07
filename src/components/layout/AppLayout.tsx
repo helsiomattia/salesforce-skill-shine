@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import TopNav from "./TopNav";
+import Footer from "./Footer";
 
 const AppLayout = () => {
   return (
@@ -8,8 +9,9 @@ const AppLayout = () => {
       <main className="flex-1">
         <Outlet />
       </main>
+      <Footer />
     </div>
   );
 };
 
-export default AppLayout;
+export default AppLayout;
