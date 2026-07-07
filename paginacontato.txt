@@ -1,0 +1,374 @@
+Preciso melhorar a página **Contate-me** do projeto `salesforce-skill-shine`.
+
+Hoje a página está passando uma impressão muito formal/comercial, como se eu fosse um “mentor profissional formado” ou uma consultoria estruturada. Não é essa a intenção.
+
+Quero reposicionar essa página para um tom mais **premium, humano, informal e honesto**.
+
+## Contexto real
+
+O projeto `Salesforce Skill Shine` é principalmente um **guia para iniciantes** no ecossistema Salesforce.
+
+A ideia principal é ajudar pessoas que estão começando ou explorando a área a:
+
+* entender trilhas possíveis;
+* organizar os primeiros estudos;
+* identificar competências importantes;
+* comparar caminhos como Admin, Developer, Consultant e Architect;
+* ter mais clareza antes de escolher próximos passos.
+
+Eu, Helsio Mattia, não quero me posicionar como “mentor certificado”, “coach de carreira” ou “consultor internacional formal”.
+
+Quero me posicionar como alguém com **experiência prática na área Salesforce/CRM**, que criou um guia útil e está aberto a conversar com quem quiser tirar dúvidas, receber uma visão externa ou organizar melhor seus próximos passos.
+
+A conversa deve parecer algo próximo de:
+
+> “Se o guia te ajudou e você quiser conversar comigo sobre sua jornada, podemos marcar um papo.”
+
+Não quero que pareça venda agressiva de mentoria.
+
+---
+
+## Objetivo da página
+
+Transformar a página “Contate-me” em uma página premium e leve para:
+
+* convidar pessoas a conversar;
+* explicar que o projeto é um guia;
+* deixar claro que a conversa é opcional;
+* evitar promessas de resultado;
+* reduzir tom excessivamente corporativo;
+* manter visual sofisticado;
+* não expor contatos pessoais demais além do que já existe no site.
+
+---
+
+## Tom desejado
+
+O tom deve ser:
+
+* humano;
+* acessível;
+* premium;
+* confiante, mas sem arrogância;
+* informal, mas profissional;
+* honesto;
+* acolhedor para iniciantes;
+* sem parecer venda forçada.
+
+Evitar frases como:
+
+* `direcionamento estratégico personalizado`
+* `brilhar no ecossistema Salesforce`
+* `serviço de mentoria`
+* `subir de nível`
+* `transformar sua carreira`
+* `diagnóstico profundo`
+* `análise de maturidade profissional`
+* `consultoria`
+* `mentoria internacional`
+* `resultado garantido`
+* `serviço premium`
+
+Preferir frases como:
+
+* `um guia para começar com mais clareza`
+* `um papo para tirar dúvidas`
+* `uma conversa para organizar próximos passos`
+* `uma visão prática de quem atua com Salesforce`
+* `sem promessa mágica`
+* `sem fórmula pronta`
+* `com base em experiência real de projeto`
+* `para quem está começando ou se reposicionando`
+
+---
+
+## Ajustar o hero da página
+
+Texto atual está muito formal:
+
+`Contate-me e Evolua`
+
+Trocar por algo mais humano e premium.
+
+Sugestões de título:
+
+Opção 1:
+`Quer conversar sobre sua jornada Salesforce?`
+
+Opção 2:
+`Vamos falar sobre seus próximos passos?`
+
+Opção 3:
+`Começando em Salesforce? Podemos conversar.`
+
+Subtítulo sugerido:
+
+`O Salesforce Skill Shine nasceu como um guia para quem está iniciando ou tentando se localizar melhor no ecossistema Salesforce. Se a página te ajudou e você quiser trocar uma ideia sobre estudos, trilhas, dúvidas ou próximos passos, podemos marcar uma conversa simples e direta.`
+
+Remover tom de “avaliação detalhada” e “direcionamento estratégico personalizado”.
+
+---
+
+## Reformular seção “Como funciona o serviço”
+
+Essa seção está formal demais. Trocar o título.
+
+Título sugerido:
+
+`Como posso te ajudar`
+
+Ou:
+
+`O que podemos conversar`
+
+A seção deve explicar de forma simples que a conversa pode ajudar em dois pontos:
+
+### 1. Entender seu momento atual
+
+Texto sugerido:
+
+`Podemos olhar juntos para onde você está hoje: se está começando do zero, estudando para certificação, tentando entrar na área ou buscando entender qual trilha faz mais sentido para você.`
+
+Bullets sugeridos:
+
+* `Dúvidas sobre por onde começar`
+* `Escolha entre Admin, Developer, Consultant ou Architect`
+* `Organização dos primeiros estudos`
+* `Leitura prática do seu momento atual`
+
+### 2. Organizar próximos passos
+
+Texto sugerido:
+
+`A ideia não é entregar uma fórmula pronta, mas ajudar você a sair da confusão inicial com uma direção mais clara, usando exemplos práticos do ecossistema Salesforce.`
+
+Bullets sugeridos:
+
+* `Sugestões de temas para estudar`
+* `Ideias de projetos simples para praticar`
+* `Dicas para montar portfólio`
+* `Pontos de atenção para entrevistas e LinkedIn`
+
+Evitar chamar isso de “serviço” se possível. Usar “conversa”, “papo”, “troca” ou “orientação prática”.
+
+---
+
+## Remover excesso de contato pessoal
+
+Hoje aparecem cards com:
+
+* e-mail;
+* LinkedIn;
+* WhatsApp.
+
+Quero evitar deixar muitos contatos pessoais em destaque.
+
+Manter somente o necessário:
+
+Preferência:
+
+* destacar apenas LinkedIn como canal principal;
+* manter botão de conversa/agendamento se já existir;
+* remover ou reduzir destaque do WhatsApp;
+* não exibir telefone pessoal;
+* não deixar e-mail tão exposto se não for necessário.
+
+Sugestão para a área de contato:
+
+Título:
+`O melhor caminho é pelo LinkedIn`
+
+Texto:
+`Se quiser conversar, me chame pelo LinkedIn com uma mensagem simples contando seu momento atual e o que você está buscando no ecossistema Salesforce.`
+
+Botões:
+
+* `Me chamar no LinkedIn`
+* `Agendar uma conversa`, somente se houver link real configurado
+
+Se não existir link real de agendamento, não criar URL falsa. Deixar botão preparado ou remover.
+
+---
+
+## Reformular CTA escuro final
+
+A seção escura está bonita visualmente, mas o texto está formal/comercial demais.
+
+Título atual:
+`Pronto para dar o próximo passo na sua jornada Salesforce?`
+
+Sugestões melhores:
+
+Opção 1:
+`Se fizer sentido para você, vamos conversar.`
+
+Opção 2:
+`Quer uma visão externa sobre seus próximos passos?`
+
+Opção 3:
+`O guia é o começo. A conversa é opcional.`
+
+Texto sugerido:
+
+`Use o guia no seu tempo. Se depois disso você sentir que vale conversar sobre dúvidas, trilhas, estudos ou posicionamento, me chame pelo LinkedIn. A ideia é uma troca prática, sem promessa mágica e sem fórmula pronta.`
+
+CTA principal:
+`Me chamar no LinkedIn`
+
+CTA secundário:
+`Voltar para o guia`
+
+Evitar:
+
+* `Agendar conversa` como CTA principal se parecer venda;
+* `Direcionamento Estratégico`;
+* `Resposta em até 24h`;
+* frases que pareçam atendimento comercial.
+
+---
+
+## Ajustar disclaimers
+
+Manter um disclaimer, mas com linguagem mais natural.
+
+Texto sugerido:
+
+`Este projeto tem finalidade educacional e orientativa. As conversas, quando acontecerem, são trocas baseadas em experiência prática e não garantem emprego, aprovação em certificações, promoção ou qualquer resultado específico.`
+
+Também incluir:
+
+`Salesforce é marca de sua respectiva proprietária. Este projeto é independente e não oficial.`
+
+O disclaimer deve ser visível, mas discreto.
+
+---
+
+## Melhorar o posicionamento premium
+
+Mesmo com tom informal, a página deve continuar premium.
+
+Visual desejado:
+
+* layout limpo;
+* bastante espaço em branco;
+* cards elegantes;
+* menos texto comercial;
+* menos ícones chamativos;
+* mais foco em clareza;
+* CTA simples;
+* aparência de produto sério, mas humano.
+
+Evitar:
+
+* excesso de badges;
+* excesso de contatos;
+* muitas promessas;
+* textos longos demais;
+* termos exagerados de marketing.
+
+---
+
+## Estrutura sugerida da nova página
+
+### 1. Hero
+
+Badge:
+`Vamos conversar?`
+
+Título:
+`Quer conversar sobre sua jornada Salesforce?`
+
+Subtítulo:
+`O Salesforce Skill Shine é um guia para quem está começando ou tentando se localizar melhor no ecossistema Salesforce. Se ele te ajudou e você quiser trocar uma ideia sobre estudos, trilhas ou próximos passos, podemos conversar.`
+
+### 2. Como posso te ajudar
+
+Dois cards:
+
+Card 1:
+`Entender seu momento atual`
+
+Conteúdo:
+
+* dúvidas sobre por onde começar;
+* escolha de trilha;
+* organização dos estudos;
+* leitura prática do seu momento atual.
+
+Card 2:
+`Organizar próximos passos`
+
+Conteúdo:
+
+* temas para estudar;
+* ideias de projetos;
+* portfólio;
+* LinkedIn e entrevistas.
+
+### 3. O que essa conversa não é
+
+Adicionar uma seção curta e honesta:
+
+Título:
+`Sem promessa mágica`
+
+Texto:
+`Não é uma fórmula pronta, nem uma garantia de vaga ou certificação. É uma conversa prática para te ajudar a pensar com mais clareza, usando experiência real com Salesforce e CRM.`
+
+Isso aumenta confiança e reduz tom comercial.
+
+### 4. CTA final
+
+Título:
+`Se fizer sentido para você, me chame no LinkedIn.`
+
+Texto:
+`Conte rapidamente onde você está hoje e qual dúvida quer organizar. Assim a conversa começa de forma mais objetiva.`
+
+Botão:
+`Me chamar no LinkedIn`
+
+Botão secundário:
+`Voltar para o guia`
+
+---
+
+## SEO e E-E-A-T
+
+A página ainda deve ajudar E-E-A-T, mas sem exagerar.
+
+Adicionar de forma natural:
+
+* `Criado por Helsio Mattia`
+* `Experiência prática com Salesforce CRM, Service Cloud, Sales Cloud, Flow e processos de CRM`
+* `Projeto educacional independente`
+* `Publicado/atualizado em julho de 2026`
+* `Projeto criado no Brasil`
+
+Não transformar isso em propaganda pessoal.
+
+---
+
+## Critérios de aceite
+
+Depois da alteração:
+
+* A página não deve parecer venda agressiva de mentoria.
+* A página deve parecer premium, leve e humana.
+* O texto deve deixar claro que o projeto é um guia para iniciantes.
+* A conversa deve aparecer como opcional.
+* Não deve afirmar que sou mentor formado, coach ou consultor certificado.
+* Não deve prometer emprego, certificação, promoção ou resultado.
+* Deve reduzir destaque de contatos pessoais.
+* LinkedIn deve ser o principal canal.
+* O visual deve continuar sofisticado.
+* O conteúdo deve continuar ajudando SEO/E-E-A-T.
+* Não deve quebrar rotas, responsividade ou layout global.
+
+Depois de alterar, me informe:
+
+1. Quais textos foram substituídos.
+2. Quais contatos foram mantidos ou removidos.
+3. Como a página ficou mais informal.
+4. Como manteve o aspecto premium.
+5. Como os disclaimers foram tratados.

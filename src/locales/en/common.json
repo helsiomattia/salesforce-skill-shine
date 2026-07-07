@@ -2,8 +2,6 @@
   "nav": {
     "home": "Home",
     "homeDesc": "",
-    "about": "About Me",
-    "aboutDesc": "Journey and Experience",
     "assessment": "Assessment",
     "assessmentDesc": "Skills and Evolution",
     "contact": "Contact Me",
@@ -112,8 +110,8 @@
             "title": "Authorship and experience",
             "body": [
               "The content is produced by Helsio Mattia, a CRM professional with practical experience in Salesforce administration and analysis, Sales Cloud, Service Cloud, automations, user support, documentation, and process improvement.",
-              "The About page presents experience at Efí Bank, EQI Investimentos, Cloud11, ControlSoft Assessoria, and Proxsis Sistemas de Gestão Empresarial, as well as academic background and certifications reported by the author.",
-              "Public authorship signals include GitHub, LinkedIn, Trailblazer, and email, all linked in the footer and on the About page."
+              "The author's experience includes Salesforce, CRM, ERP, QA, process improvement, documentation, and user support in corporate contexts.",
+              "Public authorship signals include GitHub, LinkedIn, Trailblazer, and email, all linked in the footer."
             ]
           },
           {
@@ -209,13 +207,12 @@
       "How to use"
     ],
     "startAssessment": "Start Assessment",
-    "aboutMe": "Meet the Professional",
     "trust": {
       "badge": "Authorship and transparency",
       "title": "Project created by Helsio Mattia",
       "paragraphs": [
         "Skill Shine is an independent project based on practical experience with CRM, Salesforce administration, Sales Cloud, Service Cloud, automations, user support, documentation, and process improvement.",
-        "The certifications listed on the site include Salesforce Certified Administrator, Salesforce Certified App Builder, and Salesforce AI Associate. The About page also lists complementary education and professional experience that can be checked through the author's public channels."
+        "The certifications listed on the site include Salesforce Certified Administrator, Salesforce Certified App Builder, and Salesforce AI Associate. The author's public channels remain available to validate professional background and experience."
       ],
       "meta": "Published on Jul 06, 2026. Last updated: Jul 06, 2026. This content is not official Salesforce material and does not promise certification approval, promotion, or financial results."
     },
@@ -273,121 +270,45 @@
       "core": "Foundation (Admin & App Builder)"
     }
   },
-  "about": {
-    "badge": "Professional Journey",
-    "title": "Helsio Mattia",
-    "role": "Salesforce Consultant | CRM Specialist | Sales & Service Cloud",
-    "email": "helsiomattia@gmail.com",
-    "linkedin": "linkedin.com/in/helsiomattia",
-    "phone": "+55 49 98814-5714",
-    "bioTitle": "About me",
-    "bio1": "Salesforce professional with over 4 years of experience in designing and optimizing CRM solutions, focusing on business scalability and performance.",
-    "bio2": "Currently works at <1>Efí Bank</1>, leading initiatives to improve support operations, automation flows, and CRM efficiency with Sales and Service Cloud.",
-    "bio3": "Combines technical and business vision, supported by a previous background in ERP consulting and QA, which strengthens end-to-end understanding of corporate processes.",
-    "expertiseTitle": "Expertise",
-    "certificationsTitle": "Certifications",
-    "experienceTitle": "Professional Experience",
-    "educationTitle": "Education",
-    "achievementsTitle": "Achievements & Links",
-    "trailblazer": "Trailblazer Profile",
-    "languages": {
-      "english": "English",
-      "englishLevel": "Professional Working",
-      "portuguese": "Portuguese",
-      "portugueseLevel": "Native / Bilingual"
-    },
-    "experiences": {
-      "efi": {
-        "company": "Efí Bank",
-        "period": "Aug 2024 - Present",
-        "role": "Salesforce CRM Administrator",
-        "desc": "Management and optimization of the Salesforce platform, aligning CRM with business processes and needs. Works on customizations, problem-solving, technical documentation, user support, and performance, scalability, and automation initiatives."
-      },
-      "eqi": {
-        "company": "EQI Investimentos",
-        "period": "Mar 2022 - Jul 2024",
-        "role": "Salesforce CRM Analyst",
-        "desc": "Worked on the evolution of the Salesforce platform focusing on objects, fields, layouts, automations, documentation, support, and translating requirements into practical solutions."
-      },
-      "cloud11": {
-        "company": "Cloud11",
-        "period": "Oct 2021 - Feb 2022",
-        "role": "Salesforce CRM Analyst",
-        "desc": "During an international experience in Egypt, started his trajectory in Salesforce, collaborating with teams from different regions to adapt the platform to local needs."
-      },
-      "controlsoft": {
-        "company": "ControlSoft Assessoria",
-        "period": "Mar 2018 - Jul 2019",
-        "role": "ERP Software Quality Assurance (QA)",
-        "desc": "Worked with planning, execution, and reporting of tests in agribusiness ERP, focusing on quality, reliability, and critical data validation."
-      },
-      "proxsis": {
-        "company": "Proxsis Sistemas de Gestão Empresarial",
-        "period": "Mar 2016 - Jul 2017",
-        "role": "ERP Software Consultant",
-        "desc": "Led ERP implementation in industries, mapping processes, providing support, training teams, and documenting solutions to optimize operational efficiency."
-      }
-    },
-    "education": {
-      "mbaEng": {
-        "title": "MBA in Software Engineering",
-        "inst": "UTFPR",
-        "period": "2023 - 2024"
-      },
-      "sysInfo": {
-        "title": "Information Systems",
-        "inst": "UNIASSELVI",
-        "period": "Since 2023"
-      },
-      "mbaProj": {
-        "title": "MBA in Project Management",
-        "inst": "UNIASSELVI",
-        "period": "2021"
-      },
-      "mbaBI": {
-        "title": "MBA in Business Intelligence",
-        "inst": "UNIASSELVI",
-        "period": "2020 - 2021"
-      },
-      "admin": {
-        "title": "Bachelor of Business Administration",
-        "inst": "Unochapecó",
-        "period": "2011 - 2016"
-      }
-    }
-  },
   "contactPage": {
     "badge": "Let's talk?",
-    "title": "Contact me and <1>Evolve</1>",
-    "subtitle": "Do you have questions about your career, need a detailed evaluation, or are seeking personalized strategic direction? I'm here to help you shine in the Salesforce ecosystem.",
-    "servicesTitle": "How the service works",
-    "servicesSubtitle": "I offer a structured approach to transforming your Salesforce career through two main pillars.",
-    "services": {
-      "assessment": {
-        "title": "Competency Assessment",
-        "desc": "A deep diagnosis of your hard and soft skills within the Salesforce ecosystem, identifying exactly where you are and what you need to level up.",
-        "f1": "Mapping by career (Admin, Dev, Architect)",
-        "f2": "Identification of technical gaps",
-        "f3": "Professional maturity analysis",
-        "f4": "Custom results dashboard"
+    "title": "Want to talk about your Salesforce journey?",
+    "subtitle": "Salesforce Skill Shine is a guide for people who are starting out or trying to find their place in the Salesforce ecosystem. If it helped you and you want to talk about studies, paths, questions, or next steps, we can have a simple conversation.",
+    "linkedinButton": "Message me on LinkedIn",
+    "guideButton": "Back to the guide",
+    "helpTitle": "How I can help",
+    "helpSubtitle": "The idea is a simple, practical, optional conversation to organize questions without a ready-made formula.",
+    "help": {
+      "current": {
+        "title": "Understand your current moment",
+        "desc": "We can look together at where you are today: starting from zero, studying for certification, trying to enter the area, or figuring out which path makes more sense for you.",
+        "f1": "Questions about where to start",
+        "f2": "Choosing between Admin, Developer, Consultant, or Architect",
+        "f3": "Organizing the first study steps",
+        "f4": "A practical reading of your current moment"
       },
-      "mentoring": {
-        "title": "Career Direction – Mapping Session",
-        "desc": "A session focused on outlining a personalized strategic roadmap. Receive clear guidance on next steps, certifications, and positioning, without a commitment to guaranteed results – the protagonism is yours.",
-        "f1": "Targeted study roadmap (no mandatory fixed schedule)",
-        "f2": "Recommendations for certifications based on your current moment",
-        "f3": "Positioning and LinkedIn review (suggestions applicable by you)",
-        "f4": "Checklist of priority technical challenges",
-        "f5": "1h30 session with support material",
-        "disclaimer": "* This service offers technical and strategic direction. Approval for certifications, promotions, or job changes depends exclusively on your preparation and factors external to the consultancy."
+      "next": {
+        "title": "Organize next steps",
+        "desc": "The idea is not to deliver a ready-made formula, but to help you move out of the initial confusion with a clearer direction, using practical examples from the Salesforce ecosystem.",
+        "f1": "Suggestions of topics to study",
+        "f2": "Simple project ideas to practice",
+        "f3": "Tips to build a portfolio",
+        "f4": "Attention points for interviews and LinkedIn"
       }
     },
-    "ctaTitle": "Ready to take the next step in your Salesforce journey?",
-    "ctaSubtitle": "Choose the best channel for us to talk and start your evolution.",
-    "schedule": "Schedule Talk",
-    "response": "Response within 24h",
-    "strategic": "Strategic Direction",
-    "disclaimer": "⚠️ Career assessment and direction services offer analysis and recommendations based on my professional experience. Results such as approval for certifications, promotions, or salary increases depend on external factors and individual application by the client. There is no guarantee of specific results."
+    "limitsTitle": "No magic promise",
+    "limitsText": "It is not a ready-made formula, nor a guarantee of a job or certification. It is a practical conversation to help you think more clearly, based on real experience with Salesforce and CRM.",
+    "primaryChannel": "The best path is LinkedIn",
+    "ctaTitle": "If it makes sense for you, message me on LinkedIn.",
+    "ctaSubtitle": "Briefly tell me where you are today and what question you want to organize. That way the conversation starts more objectively, with no magic promise and no ready-made formula.",
+    "meta": {
+      "createdBy": "Created by Helsio Mattia.",
+      "experience": "Practical experience with Salesforce CRM, Service Cloud, Sales Cloud, Flow, and CRM processes.",
+      "independent": "Independent educational project, not officially affiliated with Salesforce.",
+      "updated": "Published and updated in July 2026.",
+      "location": "Project created in Brazil."
+    },
+    "disclaimer": "This project is educational and orientative. Conversations, when they happen, are exchanges based on practical experience and do not guarantee employment, certification approval, promotion, or any specific result. Salesforce is a trademark of its respective owner. This project is independent and unofficial."
   },
   "careerPage": {
     "back": "Back to Careers",

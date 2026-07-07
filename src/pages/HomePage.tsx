@@ -5,7 +5,6 @@ import { getLocalizedString } from "@/utils/i18nHelper";
 import { competencyCategories } from "@/data/competencies";
 import {
   ArrowRight,
-  User,
   ClipboardCheck,
   Code2,
   Settings,
@@ -200,15 +199,6 @@ const HomePage = () => {
                   <ClipboardCheck className="h-5 w-5" />
                   {t('home.startAssessment')}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-
-                <Link
-                  to="/about"
-                  viewTransition
-                  className="inline-flex items-center gap-2 rounded-2xl border-2 border-slate-200 bg-white px-6 py-4 text-base font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
-                >
-                  <User className="h-5 w-5 text-slate-400" />
-                  {t('home.aboutMe')}
                 </Link>
               </div>
             </motion.div>

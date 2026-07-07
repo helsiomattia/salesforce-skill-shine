@@ -6,7 +6,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import AppLayout from "./components/layout/AppLayout";
 import ScrollToTop from "./components/ScrollToTop";
 import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
 import AssessmentPage from "./pages/AssessmentPage";
 import CareerPage from "./pages/CareerPage";
 import ContactPage from "./pages/ContactPage";
@@ -31,7 +30,6 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: "/", element: <HomePage /> },
-      { path: "/about", element: <AboutPage /> },
       { path: "/assessment", element: <AssessmentPage /> },
       { path: "/contact", element: <ContactPage /> },
       { path: "/guide", element: <GuidePage /> },

@@ -6,7 +6,6 @@ import LanguageSwitcher from "../LanguageSwitcher";
 
 const getNavItems = (t: any) => [
   { to: "/", label: t('nav.home'), end: true },
-  { to: "/about", label: t('nav.about') },
   { to: "/assessment", label: t('nav.assessment') },
   { to: "/guide", label: t('nav.guide') },
   { to: "/contact", label: t('nav.contact') },

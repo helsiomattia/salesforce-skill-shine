@@ -19,12 +19,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://helsiomattia.github.io/salesforce-skill-shine/about</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://helsiomattia.github.io/salesforce-skill-shine/privacy</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>yearly</changefreq>

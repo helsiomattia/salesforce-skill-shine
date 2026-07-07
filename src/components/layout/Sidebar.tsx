@@ -2,7 +2,6 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   Home,
-  User,
   ClipboardCheck,
   X,
   PanelLeftClose,
@@ -33,12 +32,6 @@ const getNavItems = (t: any) => [
     description: t('nav.homeDesc'),
     icon: Home,
     end: true,
-  },
-  {
-    to: "/about",
-    label: t('nav.about'),
-    description: t('nav.aboutDesc'),
-    icon: User,
   },
   {
     to: "/assessment",
@@ -73,7 +66,7 @@ const getExternalLinks = (t: any) => [
   },
   {
     href: "https://trailblazer.me/id/helsiomattia",
-    label: t('about.trailblazer'),
+    label: "Trailblazer",
     icon: Globe,
   },
   {
