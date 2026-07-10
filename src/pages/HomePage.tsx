@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTranslation, Trans } from "react-i18next";
+import JsonLd from "@/components/JsonLd";
 import { getLocalizedString } from "@/utils/i18nHelper";
 import { competencyCategories } from "@/data/competencies";
+import { absoluteUrl, authorJsonLd, SITE_URL } from "@/lib/site";
 import {
   ArrowRight,
   ClipboardCheck,
@@ -19,7 +21,7 @@ import {
   ChevronRight,
   Database,
   CheckCircle2,
-  ShieldCheck
+  ShieldCheck,
 } from "lucide-react";
 
 // Inspired by the "Salesforce as a Career" hub-and-spoke image
@@ -126,63 +128,97 @@ const HomePage = () => {
   const lang = i18n.resolvedLanguage || 'pt';
   const heroParagraphs = t('home.heroParagraphs', { returnObjects: true }) as string[];
   const heroContextLabels = t('home.heroContextLabels', { returnObjects: true }) as string[];
+  const heroBenefits = t('home.heroBenefits', { returnObjects: true }) as string[];
   const careersContext = t('home.careersContext', { returnObjects: true }) as string[];
   const journeyContext = t('home.journeyContext', { returnObjects: true }) as string[];
   const pyramidContext = t('home.pyramidContext', { returnObjects: true }) as string[];
   const contextLabels = t('home.contextLabels', { returnObjects: true }) as string[];
+  const benefitIcons = [Target, Layers, ShieldCheck];
+  const homeJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      authorJsonLd,
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}#website`,
+        name: "Skill Shine",
+        url: SITE_URL,
+        description: t("footer.description"),
+        publisher: { "@id": `${SITE_URL}/about#person` },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${absoluteUrl()}#webpage`,
+        url: absoluteUrl(),
+        name: "Skill Shine",
+        description: t("home.subtitle"),
+        isPartOf: { "@id": `${SITE_URL}#website` },
+        author: { "@id": `${SITE_URL}/about#person` },
+      },
+    ],
+  };
 
   return (
-    <div className="mx-auto min-h-screen max-w-7xl space-y-8 px-4 py-6 lg:px-6">
+    <div className="space-y-6 bg-slate-50 pb-6">
+      <JsonLd data={homeJsonLd} />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-[40px] border border-slate-200 bg-white px-6 py-10 shadow-xl shadow-slate-200/50 md:px-12 md:py-16">
-        <div className="absolute -left-32 -top-32 h-[500px] w-[500px] rounded-full bg-cyan-400/10 blur-[100px]" />
-        <div className="absolute -bottom-32 -right-32 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-[100px]" />
+      <section className="relative isolate px-[clamp(24px,5vw,72px)] py-[clamp(3.5rem,5vw,4.5rem)] text-left">
+        <div className="pointer-events-none absolute -left-40 top-8 h-[min(34vw,420px)] w-[min(34vw,420px)] rounded-full bg-cyan-300/20 blur-[110px]" />
+        <div className="pointer-events-none absolute -right-40 bottom-4 h-[min(38vw,460px)] w-[min(38vw,460px)] rounded-full bg-blue-500/15 blur-[120px]" />
 
-        <div className="relative z-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(420px,0.9fr)] lg:items-center xl:gap-16">
-          <div className="relative z-20 max-w-2xl min-w-0">
+        <div className="relative z-10 mx-auto grid w-full max-w-[1200px] gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(380px,0.9fr)] lg:items-center xl:gap-16">
+          <div className="relative z-20 max-w-[640px] min-w-0">
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-7"
+              className="space-y-6"
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm shadow-blue-100/60 backdrop-blur">
                 <Cloud className="h-4 w-4" />
                 {t('home.badge')}
               </div>
 
-              <h1 className="max-w-2xl text-4xl font-extrabold tracking-tight text-slate-900 md:text-6xl lg:leading-[1.05]">
+              <h1 className="max-w-[640px] text-[clamp(2.625rem,4.5vw,4.25rem)] font-extrabold leading-[1.04] tracking-tight text-slate-950">
                 <Trans i18nKey="home.title" components={{ 1: <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500" /> }} />
               </h1>
 
-              <p className="max-w-xl text-lg leading-8 text-slate-600 md:text-xl">
+              <p className="max-w-[600px] text-[clamp(1rem,1.4vw,1.25rem)] leading-[1.6] text-slate-600">
                 {t('home.subtitle')}
               </p>
 
-              <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-                {heroParagraphs.map((paragraph, index) => (
-                  <article key={paragraph} className="rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm shadow-slate-200/40">
-                    <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-blue-600">
-                      {heroContextLabels[index]}
-                    </p>
-                    <p className="text-sm leading-6 text-slate-600">
-                      {paragraph}
-                    </p>
-                  </article>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-4 pt-1">
+              <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center">
                 <Link
                   to="/assessment"
                   viewTransition
-                  className="group inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-6 py-4 text-base font-semibold text-white transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/25"
+                  className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-blue-600/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                 >
                   <ClipboardCheck className="h-5 w-5" />
                   {t('home.startAssessment')}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
+                <a
+                  href="#career-paths"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-6 py-4 text-base font-semibold text-slate-700 shadow-sm transition-all hover:border-blue-200 hover:text-blue-700 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                >
+                  {t('home.explorePaths')}
+                  <ChevronRight className="h-4 w-4" />
+                </a>
+              </div>
+
+              <div className="grid max-w-[640px] gap-3 pt-1 sm:grid-cols-3">
+                {heroBenefits.map((benefit, index) => {
+                  const BenefitIcon = benefitIcons[index] || CheckCircle2;
+                  return (
+                    <div key={benefit} className="flex items-center gap-3 rounded-2xl border border-blue-100 bg-white/75 px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm shadow-blue-100/40 backdrop-blur">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                        <BenefitIcon className="h-4 w-4" />
+                      </span>
+                      <span className="leading-snug">{benefit}</span>
+                    </div>
+                  );
+                })}
               </div>
             </motion.div>
           </div>
@@ -192,126 +228,59 @@ const HomePage = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative z-10 hidden h-[640px] w-full min-w-0 flex-col gap-8 lg:flex"
+            className="relative z-10 mx-auto w-full max-w-[360px] min-w-0 sm:max-w-[420px] lg:max-w-[480px]"
           >
-            <div className="relative flex h-48 items-center justify-center rounded-[32px] bg-gradient-to-b from-sky-50/80 to-white/30 xl:h-52">
-              <motion.div
-                animate={{
-                  y: [0, -12, 0],
-                  rotate: [0, 6, -6, 0]
-                }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                className="relative z-10 flex h-full w-full items-center justify-center p-5 drop-shadow-2xl"
-              >
+            <div className="rounded-[36px] border border-blue-100 bg-gradient-to-br from-white via-sky-50 to-blue-100 p-5 shadow-2xl shadow-blue-200/50 sm:p-6">
+              <div className="rounded-[28px] border border-white/80 bg-white/65 p-5 shadow-inner shadow-blue-100/60 backdrop-blur">
                 <img
                   src={`${import.meta.env.BASE_URL}astro.png`}
-                  alt="Astro Mascot"
-                  className="h-full max-h-40 w-auto max-w-full object-contain xl:max-h-44"
+                  alt={t('home.astroAlt')}
+                  className="mx-auto h-auto w-full max-w-[360px] object-contain drop-shadow-xl lg:max-w-[420px]"
                 />
-              </motion.div>
-            </div>
+              </div>
 
-            <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden rounded-[32px]">
-            {/* SVG Connecting Lines with Flowing Animation */}
-            <svg className="absolute inset-0 h-full w-full z-0" strokeLinecap="round">
-              <defs>
-                <linearGradient id="grad-teal" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#14b8a6" />
-                  <stop offset="100%" stopColor="#2dd4bf" />
-                </linearGradient>
-              </defs>
-
-              {/* Main Career Lines */}
-              <motion.line x1="50%" y1="50%" x2="20%" y2="20%" stroke="#f97316" strokeWidth="6" strokeDasharray="12 12" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 3, ease: "linear" }} />
-              <motion.line x1="50%" y1="50%" x2="80%" y2="20%" stroke="#14b8a6" strokeWidth="6" strokeDasharray="12 12" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 3.5, ease: "linear" }} />
-              <motion.line x1="50%" y1="50%" x2="85%" y2="60%" stroke="#3b82f6" strokeWidth="6" strokeDasharray="12 12" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 4, ease: "linear" }} />
-              <motion.line x1="50%" y1="50%" x2="20%" y2="80%" stroke="#a855f7" strokeWidth="6" strokeDasharray="12 12" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 3.2, ease: "linear" }} />
-              <motion.line x1="50%" y1="50%" x2="50%" y2="85%" stroke="#ec4899" strokeWidth="6" strokeDasharray="12 12" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 3.8, ease: "linear" }} />
-
-              {/* Decorative Lines */}
-              <motion.line x1="50%" y1="50%" x2="10%" y2="50%" stroke="#64748b" strokeWidth="4" strokeDasharray="8 8" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 5, ease: "linear" }} opacity="0.5" />
-              <motion.line x1="50%" y1="50%" x2="40%" y2="10%" stroke="#eab308" strokeWidth="4" strokeDasharray="8 8" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 4.5, ease: "linear" }} opacity="0.6" />
-              <motion.line x1="50%" y1="50%" x2="70%" y2="90%" stroke="#06b6d4" strokeWidth="4" strokeDasharray="8 8" animate={{ strokeDashoffset: [0, -100] }} transition={{ repeat: Infinity, duration: 5.5, ease: "linear" }} opacity="0.6" />
-            </svg>
-
-            {/* Decorative End Nodes (Small Dots) */}
-            <div className="absolute top-[10%] left-[40%] h-4 w-4 rounded-full bg-yellow-400 shadow-lg translate-x-[-50%] translate-y-[-50%]" />
-            <div className="absolute top-[50%] left-[10%] h-4 w-4 rounded-full bg-slate-400 shadow-lg translate-x-[-50%] translate-y-[-50%]" />
-            <div className="absolute top-[90%] left-[70%] h-4 w-4 rounded-full bg-cyan-400 shadow-lg translate-x-[-50%] translate-y-[-50%]" />
-
-            {/* Floating Background Particles */}
-            <motion.div animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 4 }} className="absolute top-[30%] left-[25%] h-2 w-2 rounded-full bg-orange-400" />
-            <motion.div animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 5 }} className="absolute top-[70%] right-[30%] h-3 w-3 rounded-full bg-blue-400" />
-
-            {/* Center Node (Salesforce Style) */}
-            <motion.div 
-              animate={{ 
-                boxShadow: [
-                  "0 0 40px -10px rgba(14, 165, 233, 0.5)",
-                  "0 0 60px -5px rgba(14, 165, 233, 0.8)",
-                  "0 0 40px -10px rgba(14, 165, 233, 0.5)"
-                ]
-              }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              className="absolute z-20 flex flex-col items-center justify-center h-40 w-40 rounded-full bg-gradient-to-b from-sky-400 to-blue-700 border-4 border-blue-200/50 p-2 shadow-2xl text-white"
-            >
-              <Cloud className="h-14 w-14 mb-1 fill-white" />
-              <span className="font-bold text-sm tracking-wide">Salesforce</span>
-            </motion.div>
-
-            {/* Main Nodes */}
-            <div className="absolute z-10" style={{ top: "20%", left: "20%", transform: "translate(-50%, -50%)" }}>
-              <motion.div 
-                className="flex h-16 w-16 items-center justify-center rounded-full bg-orange-50 border-4 border-orange-400 text-orange-600 shadow-xl"
-                whileHover={{ scale: 1.1 }}
-              >
-                <Settings className="h-7 w-7" />
-              </motion.div>
-            </div>
-            
-            <div className="absolute z-10" style={{ top: "20%", left: "80%", transform: "translate(-50%, -50%)" }}>
-              <motion.div 
-                className="flex h-16 w-16 items-center justify-center rounded-full bg-teal-50 border-4 border-teal-400 text-teal-600 shadow-xl"
-                whileHover={{ scale: 1.1 }}
-              >
-                <Compass className="h-7 w-7" />
-              </motion.div>
-            </div>
-
-            <div className="absolute z-10" style={{ top: "80%", left: "20%", transform: "translate(-50%, -50%)" }}>
-              <motion.div 
-                className="flex h-16 w-16 items-center justify-center rounded-full bg-purple-50 border-4 border-purple-400 text-purple-600 shadow-xl"
-                whileHover={{ scale: 1.1 }}
-              >
-                <Users className="h-7 w-7" />
-              </motion.div>
-            </div>
-
-            <div className="absolute z-10" style={{ top: "85%", left: "50%", transform: "translate(-50%, -50%)" }}>
-              <motion.div 
-                className="flex h-16 w-16 items-center justify-center rounded-full bg-pink-50 border-4 border-pink-400 text-pink-600 shadow-xl"
-                whileHover={{ scale: 1.1 }}
-              >
-                <Database className="h-7 w-7" />
-              </motion.div>
-            </div>
-
-            <div className="absolute z-10" style={{ top: "60%", left: "85%", transform: "translate(-50%, -50%)" }}>
-              <motion.div 
-                className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-50 border-4 border-blue-400 text-blue-600 shadow-xl"
-                whileHover={{ scale: 1.1 }}
-              >
-                <Code2 className="h-7 w-7" />
-              </motion.div>
-            </div>
+              <div className="mt-5 grid grid-cols-2 gap-3">
+                {[
+                  { icon: Settings, label: t('nav.admin'), className: "border-purple-100 bg-purple-50 text-purple-700" },
+                  { icon: Code2, label: t('nav.developer'), className: "border-blue-100 bg-blue-50 text-blue-700" },
+                  { icon: Compass, label: t('nav.architect'), className: "border-teal-100 bg-teal-50 text-teal-700" },
+                  { icon: Users, label: t('nav.consultant'), className: "border-orange-100 bg-orange-50 text-orange-700" },
+                ].map(({ icon: NodeIcon, label, className }) => (
+                  <div key={label} className={`flex items-center gap-2 rounded-2xl border px-3 py-2 text-xs font-bold ${className}`}>
+                    <NodeIcon className="h-4 w-4" />
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </div>
 
             </div>
           </motion.div>
         </div>
       </section>
 
+      <motion.section {...fadeUp} className="mx-auto max-w-7xl px-4 lg:px-6">
+        <div className="rounded-[32px] border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <div className="mb-6 max-w-2xl space-y-3">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">{t('home.assessmentHelpTitle')}</h2>
+            <p className="text-base leading-7 text-slate-600 md:text-lg">{t('home.assessmentHelpDesc')}</p>
+          </div>
+          <div className="grid gap-4 lg:grid-cols-3">
+            {heroParagraphs.map((paragraph, index) => (
+              <article key={paragraph} className="rounded-3xl border border-slate-200 bg-slate-50/70 p-5">
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-blue-600">
+                  {heroContextLabels[index]}
+                </p>
+                <p className="text-sm leading-6 text-slate-600">
+                  {paragraph}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
       {/* Hub and Spoke Career Paths Section */}
-      <motion.section {...fadeUp} className="space-y-8 py-6">
+      <motion.section {...fadeUp} id="career-paths" className="mx-auto max-w-7xl scroll-mt-16 space-y-8 px-4 py-6 lg:px-6">
         <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
           <div className="max-w-xl space-y-3">
             <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">{t('home.careersTitle')}</h2>
@@ -341,7 +310,7 @@ const HomePage = () => {
                 key={career.id}
                 to={career.link}
                 viewTransition
-                className={`group relative flex flex-col justify-between overflow-hidden rounded-[28px] border-2 bg-white p-6 transition-all duration-300 hover:-translate-y-1 ${career.shadow} border-slate-100 hover:border-opacity-50`}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-[28px] border-2 bg-white p-6 transition-all duration-300 ${career.shadow} border-slate-100 hover:border-opacity-50`}
               >
                 <div className="space-y-4">
                   <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl border ${career.color}`}>
@@ -363,8 +332,8 @@ const HomePage = () => {
       </motion.section>
 
       {/* The Journey / Timeline Section */}
-      <motion.section {...fadeUp} className="relative overflow-hidden rounded-[40px] bg-slate-900 px-6 py-10 text-white md:px-12 md:py-12">
-        <div className="absolute top-0 right-0 h-[600px] w-[600px] translate-x-1/3 -translate-y-1/3 rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none" />
+      <motion.section {...fadeUp} className="relative mx-4 max-w-7xl overflow-hidden rounded-[40px] bg-slate-900 px-6 py-10 text-white md:px-12 md:py-12 lg:mx-auto">
+        <div className="absolute right-0 top-0 h-[600px] w-[600px] rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 mb-12 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div className="max-w-xl space-y-3">
@@ -412,7 +381,7 @@ const HomePage = () => {
       </motion.section>
 
       {/* The Pyramid Vision Section */}
-      <motion.section {...fadeUp} className="grid gap-10 items-center rounded-[40px] border border-slate-200 bg-white p-6 shadow-sm lg:grid-cols-[1.05fr_0.95fr] md:p-12">
+      <motion.section {...fadeUp} className="mx-4 grid max-w-7xl gap-10 items-center rounded-[40px] border border-slate-200 bg-white p-6 shadow-sm md:p-12 lg:mx-auto lg:grid-cols-[1.05fr_0.95fr]">
         <div className="max-w-2xl space-y-6">
           <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-700">
             <Layers className="h-4 w-4" />
@@ -473,28 +442,6 @@ const HomePage = () => {
           </div>
         </div>
       </motion.section>
-
-      <motion.section {...fadeUp} className="pb-2">
-        <div className="mx-auto flex max-w-4xl flex-col gap-4 rounded-3xl border border-slate-200/80 bg-white/60 px-5 py-4 text-sm text-slate-500 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-          <div className="flex gap-3">
-            <ShieldCheck className="mt-0.5 h-4 w-4 flex-none text-slate-400" />
-            <div>
-              <p className="font-semibold text-slate-700">{t('home.trust.badge')}</p>
-              <p className="mt-1 leading-6">{t('home.trust.summary')}</p>
-              <p className="mt-1 text-xs text-slate-400">{t('home.trust.meta')}</p>
-            </div>
-          </div>
-
-          <Link
-            to="/editorial-policy"
-            viewTransition
-            className="shrink-0 text-sm font-semibold text-slate-500 transition hover:text-blue-600"
-          >
-            {t('home.trust.policyLink')}
-          </Link>
-        </div>
-      </motion.section>
-
     </div>
   );
 };

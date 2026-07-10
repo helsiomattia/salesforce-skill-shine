@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
 import { CompetencyCategory, competencyCategories, skillLevels } from "@/data/competencies";
-import { CheckCircle, AlertTriangle, XCircle, Star, TrendingUp } from "lucide-react";
+import { CheckCircle, AlertTriangle, XCircle, Star, TrendingUp, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
+import type { TFunction } from "i18next";
 import { getLocalizedString } from "@/utils/i18nHelper";
+import { calculateResultsSummary } from "@/lib/resultsSummary";
 
 interface ResultsPanelProps {
   ratings: Record<string, number>;
@@ -13,7 +15,14 @@ interface ResultsPanelProps {
   title?: string;
 }
 
-const getSkillStatus = (rating: number, t: any) => {
+type SkillStatus = {
+  label: string;
+  icon: LucideIcon;
+  color: string;
+  bg: string;
+};
+
+const getSkillStatus = (rating: number, t: TFunction): SkillStatus => {
   if (rating === 0) return { label: t('results.status.notRated'), icon: XCircle, color: "text-muted-foreground", bg: "bg-muted/50" };
   if (rating <= 2) return { label: t('results.status.developing'), icon: AlertTriangle, color: "text-destructive", bg: "bg-destructive/10" };
   if (rating <= 3) return { label: t('results.status.evolving'), icon: TrendingUp, color: "text-warning", bg: "bg-warning/10" };
@@ -21,7 +30,7 @@ const getSkillStatus = (rating: number, t: any) => {
   return { label: t('results.status.master'), icon: Star, color: "text-success", bg: "bg-success/10" };
 };
 
-const getRecommendation = (rating: number, skillName: string, t: any) => {
+const getRecommendation = (rating: number, skillName: string, t: TFunction) => {
   if (rating === 0) return t('results.recommendations.none', { skill: skillName });
   if (rating === 1) return t('results.recommendations.level1', { skill: skillName });
   if (rating === 2) return t('results.recommendations.level2', { skill: skillName });
@@ -49,20 +58,7 @@ const ResultsPanel = ({ ratings, categories, type = "all", title }: ResultsPanel
     };
   });
 
-  const totalSkills = filteredSkills.length;
-  const ratedSkills = filteredSkills.filter((s) => (ratings[s.id] || 0) > 0).length;
-  const overallAvg =
-    ratedSkills > 0
-      ? filteredSkills.reduce((sum, s) => sum + (ratings[s.id] || 0), 0) / ratedSkills
-      : 0;
-
-  const strengths = filteredSkills.filter((s) => (ratings[s.id] || 0) >= 4);
-  const gaps = filteredSkills.filter((s) => {
-    const r = ratings[s.id] || 0;
-    return r > 0 && r <= 2;
-  });
-  const evolving = filteredSkills.filter((s) => (ratings[s.id] || 0) === 3);
-  const notRated = filteredSkills.filter((s) => (ratings[s.id] || 0) === 0);
+  const { totalSkills, ratedSkills, overallAvg, strengths, gaps, evolving, notRated } = calculateResultsSummary(ratings, cats, type);
 
   if (totalSkills === 0) return null;
 

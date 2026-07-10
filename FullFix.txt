@@ -1,0 +1,107 @@
+# Tarefa: Corrigir problemas de qualidade do projeto salesforce-skill-shine
+
+Você vai trabalhar no projeto **salesforce-skill-shine** (SPA React 18 + TypeScript + Vite, React Router v6, Tailwind, i18next pt/en/es). Aplique as correções abaixo na ordem de prioridade indicada.
+
+## Regras gerais (não violar)
+
+- NÃO invente backend, autenticação, banco de dados ou APIs. O projeto é 100% client-side.
+- NÃO remova dados de domínio (`src/data/competencies/*`, `src/data/guideData.ts`) sem validar todas as rotas e componentes que os consomem.
+- PRESERVE i18n em pt/en/es: todo texto novo visível ao usuário vai para `src/locales/{pt,en,es}/common.json`, com as três línguas sincronizadas.
+- NÃO persista dados pessoais além do comportamento atual.
+- Ao terminar CADA bloco, valide com `npm run build` e `npm test`. No bloco de lint, valide também com `npm run lint`.
+- Se mexer em rotas publicadas, revise `public/sitemap.xml`, `public/404.html`, `index.html` e `vite.config.ts`.
+- Faça commits separados por bloco, com mensagens claras.
+
+---
+
+## PRIORIDADE 1 — Estabilização
+
+### 1.1 Corrigir o lint até `npm run lint` passar sem erros
+- `@typescript-eslint/no-explicit-any` em: `src/components/ResultsPanel.tsx`, `src/components/layout/Sidebar.tsx`, `src/components/layout/TopNav.tsx`, `src/pages/GuidePage.tsx`, `src/pages/GuideDetailPage.tsx`. Substitua cada `any` por tipos reais (crie/importe os tipos necessários; o `getNavItems` do `TopNav` deve ter tipo de retorno explícito).
+- `@typescript-eslint/no-empty-object-type` em `src/components/ui/command.tsx` e `src/components/ui/textarea.tsx`. Troque interface vazia por `type X = React.ComponentProps<...>`.
+- `@typescript-eslint/no-require-imports` em `tailwind.config.ts`. Migre `require()` para `import`.
+- Resolva os warnings `react-refresh/only-export-components` onde for viável sem quebrar os wrappers de UI.
+- Critério de aceite: `npm run lint` retorna 0 erros.
+
+### 1.2 Resolver o CI/deploy fantasma
+- O `README.md` afirma deploy automático via GitHub Actions, mas não existe `.github/workflows`.
+- Ação preferida: criar `.github/workflows/deploy.yml` que rode em push na branch `main`, execute `npm ci`, `npm run lint`, `npm test`, `npm run build` e publique `dist/` no GitHub Pages (respeitando o base path `/salesforce-skill-shine/`).
+- Se não for criar o workflow, corrija o `README.md` para refletir a realidade.
+
+### 1.3 Testes de smoke mínimos
+- Substitua o teste trivial `src/test/example.test.ts`.
+- Crie testes de smoke que montem cada rota principal sem erro: `/`, `/assessment`, `/assessment/admin`, `/guide`, `/guide/:id`, `/contact`, `/privacy`, e o wildcard `*` (NotFound).
+- Adicione um teste unitário para a lógica de cálculo do `ResultsPanel` (média, forças, gaps) — é lógica pura, priorize.
+
+---
+
+## PRIORIDADE 2 — Manutenibilidade
+
+### 2.1 Quebrar `src/components/FinishPanel.tsx`
+Separe em:
+- `src/components/finish/finishPanelSchema.ts` (schema Zod, com mensagens vindo de i18n).
+- `src/components/finish/generatePdf.ts` (função pura de geração de PDF via jsPDF/jsPDF-autotable).
+- Textos do PDF movidos para os locales.
+- `FinishPanel.tsx` fica só com o componente visual e orquestração.
+- Preserve o comportamento atual (gera PDF local, não persiste nada).
+
+### 2.2 Dividir `src/data/guideData.ts`
+- Separe os dados por categoria em `src/data/guides/{admin,developer,consultant,architect}.ts` (ou conforme as categorias reais).
+- Mova as funções de enriquecimento para um módulo próprio.
+- Mantenha um `index.ts` que reexporte `defaultGuides` com a mesma assinatura pública, para não quebrar `GuidePage`/`GuideDetailPage`.
+
+### 2.3 Validar `localStorage` com schema Zod
+- Chaves: `sfs_custom_guides` (array de `GuideItem`), `sfs_guide_notes_${id}`, `sfs_guide_last_tab`.
+- Ao ler, valide o shape com Zod. Se inválido, ignore o valor corrompido com fallback seguro e registre `console.warn`. Não deixe JSON corrompido quebrar a tela.
+
+### 2.4 Resolver o React Query não utilizado
+- `QueryClientProvider` está montado mas não há `useQuery`/`useMutation`.
+- Como não há backend, remova a dependência e o provider, OU mantenha com um comentário explícito de que é preparação futura. Prefira remover para reduzir bundle, salvo se houver plano concreto de uso.
+
+---
+
+## PRIORIDADE 3 — Performance e SEO
+
+### 3.1 Code splitting por rota
+- Em `src/App.tsx`, converta os imports diretos das páginas para `React.lazy` + `Suspense` com fallback.
+- Carregue `jsPDF`/`jspdf-autotable` sob demanda (dynamic import) apenas quando o PDF for gerado.
+- Se viável, lazy load do `recharts` no `ResultsPanel`.
+- Objetivo: reduzir o chunk principal (hoje acima de 500 kB).
+
+### 3.2 Atualizar o sitemap
+- Adicione a `public/sitemap.xml`: `/contact` e as rotas `/assessment/admin`, `/assessment/developer`, `/assessment/consultant`, `/assessment/architect`.
+
+### 3.3 Hospedar bandeiras localmente
+- `src/components/LanguageSwitcher.tsx` puxa imagens de `hatscripts.github.io`. Baixe os SVGs/PNGs das bandeiras para `public/` (ou `src/assets`) e referencie localmente, removendo a dependência externa.
+
+---
+
+## PRIORIDADE 4 — Limpeza
+
+### 4.1 Código morto / não integrado
+- `src/components/layout/Sidebar.tsx`: integrar ao `AppLayout` de forma consciente OU remover. Decida e execute (na dúvida, remova, já que o layout atual usa só TopNav/Footer).
+- Remover `date-fns` do `package.json` (sem imports em `src`).
+- `legacy-pages/*.html`: mover para `docs/legacy/` ou remover. Não devem confundir a manutenção.
+
+### 4.2 Fechar furos de i18n
+- Mover as mensagens de validação Zod do `FinishPanel` para os locales (feito junto ao item 2.1).
+- Trocar a string direta `"Menu"` no `TopNav` por `t()`.
+- Criar um teste automatizado que compare recursivamente as chaves de `pt/en/es` em `common.json` e falhe se houver divergência.
+
+### 4.3 Acessibilidade
+- Menu mobile no `TopNav`: adicionar `aria-expanded`, `aria-controls` e `aria-label`.
+- Remover a regra global `p { text-align: justify; }` de `src/index.css` e aplicar `justify` só onde for desejado.
+- Adicionar suporte a `prefers-reduced-motion` para as animações do Framer Motion.
+
+### 4.4 Design tokens
+- Promover valores repetidos a tokens no `tailwind.config.ts`/`src/index.css`: raios `rounded-[40px]/[32px]/[28px]`, sombras (`shadow-slate-200/50`, `shadow-blue-600/20`) e blobs decorativos (`blur-[100px]/[120px]`). Substitua os usos espalhados pelos novos tokens.
+
+---
+
+## Entrega final
+
+Ao concluir, gere um resumo com:
+- O que foi corrigido em cada bloco.
+- Resultado de `npm run lint`, `npm test` e `npm run build`.
+- Qualquer item que não pôde ser resolvido e o motivo.
+- Lista de arquivos criados/removidos/movidos.

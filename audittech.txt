@@ -1,0 +1,549 @@
+Analise tecnicamente este projeto inteiro e produza uma documentação completa da implementação atual.
+
+Não altere nenhum arquivo do projeto nesta etapa.
+
+Sua tarefa é inspecionar o repositório e documentar somente o que puder ser comprovado pelo código e pelos arquivos de configuração. Não presuma tecnologias, padrões ou funcionalidades.
+
+## 1. Escopo da análise
+
+Leia, quando existirem:
+
+- package.json
+- package-lock.json, yarn.lock, pnpm-lock.yaml ou bun.lock
+- tsconfig.json e arquivos relacionados
+- vite.config.*
+- next.config.*
+- tailwind.config.*
+- postcss.config.*
+- eslint.config.* ou .eslintrc*
+- prettier.config.* ou .prettierrc*
+- arquivos de ambiente de exemplo
+- README
+- estrutura completa de src/
+- componentes
+- páginas
+- layouts
+- rotas
+- hooks
+- contexts
+- stores
+- services
+- APIs
+- tipos e interfaces
+- utilitários
+- testes
+- workflows do GitHub Actions
+- configurações de deploy
+- arquivos públicos e assets
+
+Ignore:
+
+- node_modules
+- dist
+- build
+- coverage
+- arquivos gerados
+- caches
+- binários
+- dependências vendorizadas
+
+## 2. Regra de evidência
+
+Toda conclusão técnica deve citar os arquivos que comprovam a informação.
+
+Exemplo:
+
+- React 18 — evidência: `package.json`
+- TypeScript com modo strict — evidência: `tsconfig.json`
+- Roteamento com React Router — evidência: `src/App.tsx` e `src/routes/...`
+- Deploy no GitHub Pages — evidência: `.github/workflows/deploy.yml`
+
+Quando não for possível confirmar algo, escreva:
+
+> Não foi possível confirmar com os arquivos analisados.
+
+Não invente:
+
+- arquitetura;
+- banco de dados;
+- backend;
+- autenticação;
+- testes;
+- CI/CD;
+- integrações;
+- padrões de projeto;
+- bibliotecas não encontradas no repositório.
+
+## 3. Informações que devem ser extraídas
+
+### Identificação geral
+
+Documente:
+
+- nome do projeto;
+- objetivo aparente;
+- tipo de aplicação;
+- nível de maturidade atual;
+- comandos disponíveis;
+- forma de execução local;
+- forma de build;
+- forma de publicação.
+
+### Stack tecnológica
+
+Crie uma tabela contendo:
+
+- categoria;
+- tecnologia;
+- versão;
+- finalidade;
+- arquivo de evidência.
+
+Inclua, quando aplicável:
+
+- linguagem;
+- framework;
+- runtime;
+- bundler;
+- biblioteca de interface;
+- CSS;
+- roteamento;
+- gerenciamento de estado;
+- formulários;
+- validação;
+- internacionalização;
+- ícones;
+- animações;
+- consumo de APIs;
+- autenticação;
+- testes;
+- lint;
+- formatação;
+- build;
+- deploy;
+- analytics;
+- banco de dados;
+- backend.
+
+Diferencie claramente:
+
+- dependências de produção;
+- dependências de desenvolvimento;
+- dependências instaladas mas aparentemente não utilizadas.
+
+### Arquitetura
+
+Explique a arquitetura realmente encontrada, incluindo:
+
+- ponto de entrada;
+- árvore de componentes;
+- composição de layouts;
+- estratégia de rotas;
+- fluxo de navegação;
+- organização por páginas, features ou camadas;
+- estado local e global;
+- fluxo de dados;
+- persistência;
+- integrações externas;
+- carregamento de assets;
+- internacionalização;
+- tratamento de erros;
+- responsividade;
+- temas;
+- separação de responsabilidades.
+
+Não classifique a arquitetura como Clean Architecture, MVC, MVVM, Atomic Design ou Feature-Sliced Design sem evidência suficiente.
+
+Caso o projeto não siga uma arquitetura formal, descreva a organização real sem tentar encaixá-la artificialmente em um padrão.
+
+### Estrutura de diretórios
+
+Gere uma árvore simplificada das pastas relevantes.
+
+Para cada pasta importante, explique:
+
+- responsabilidade;
+- principais arquivos;
+- relação com outras pastas;
+- riscos de organização;
+- oportunidades de melhoria.
+
+### Componentes e páginas
+
+Crie um inventário contendo:
+
+- nome;
+- caminho;
+- tipo;
+- responsabilidade;
+- dependências principais;
+- props;
+- estado;
+- eventos;
+- rotas relacionadas;
+- reutilização;
+- observações técnicas.
+
+Agrupe por:
+
+- páginas;
+- layouts;
+- componentes compartilhados;
+- componentes de domínio;
+- hooks;
+- serviços;
+- utilitários.
+
+### Rotas e navegação
+
+Liste todas as rotas encontradas com:
+
+- URL;
+- componente renderizado;
+- layout;
+- parâmetros;
+- proteção;
+- redirecionamentos;
+- navegação relacionada;
+- arquivo de definição.
+
+Inclua rotas implementadas, rotas incompletas e links que apontam para destinos inexistentes.
+
+### Modelo de dados
+
+Identifique:
+
+- interfaces;
+- types;
+- enums;
+- schemas;
+- objetos principais;
+- relacionamento entre estruturas;
+- dados mockados;
+- armazenamento local;
+- dados estáticos;
+- origem dos dados exibidos.
+
+Para cada modelo importante, mostre:
+
+- nome;
+- campos;
+- tipos;
+- onde é criado;
+- onde é consumido;
+- onde é transformado;
+- onde é persistido.
+
+### Estado e fluxo de dados
+
+Explique:
+
+- onde o estado nasce;
+- quais componentes o alteram;
+- como os dados são repassados;
+- uso de props;
+- Context API;
+- stores;
+- hooks;
+- localStorage ou sessionStorage;
+- chamadas assíncronas;
+- efeitos colaterais;
+- possíveis problemas de sincronização.
+
+### Estilização e design system
+
+Documente:
+
+- estratégia de CSS;
+- Tailwind, CSS Modules, styled-components ou CSS global;
+- tokens;
+- cores;
+- tipografia;
+- espaçamento;
+- breakpoints;
+- sombras;
+- bordas;
+- componentes visuais reutilizáveis;
+- responsividade;
+- tema escuro;
+- acessibilidade visual.
+
+Identifique valores repetidos que deveriam virar tokens.
+
+### Internacionalização
+
+Documente:
+
+- idiomas disponíveis;
+- idioma padrão;
+- estrutura das traduções;
+- detecção e troca de idioma;
+- fallback;
+- textos ainda escritos diretamente nos componentes;
+- inconsistências entre idiomas;
+- risco de chaves ausentes.
+
+### Integrações e APIs
+
+Para cada integração, informe:
+
+- nome;
+- finalidade;
+- endpoint ou serviço;
+- método de autenticação;
+- variáveis de ambiente;
+- arquivos envolvidos;
+- tratamento de erro;
+- timeout;
+- retry;
+- estado de carregamento;
+- exposição de informações sensíveis.
+
+Não exponha valores secretos. Informe apenas os nomes das variáveis.
+
+### Segurança
+
+Verifique:
+
+- segredos no código;
+- chaves públicas e privadas;
+- arquivos `.env`;
+- uso inseguro de HTML;
+- `dangerouslySetInnerHTML`;
+- armazenamento de dados sensíveis;
+- validação de entrada;
+- links externos;
+- dependências vulneráveis visíveis;
+- exposição de stack trace;
+- permissões;
+- autenticação e autorização;
+- headers de segurança, quando aplicável.
+
+Não execute ações destrutivas ou correções automáticas.
+
+### Qualidade e boas práticas
+
+Avalie:
+
+- responsabilidade dos componentes;
+- duplicação;
+- acoplamento;
+- coesão;
+- tipagem;
+- uso de `any`;
+- tratamento de erros;
+- acessibilidade;
+- semântica HTML;
+- performance;
+- lazy loading;
+- code splitting;
+- gerenciamento de imagens;
+- SEO;
+- organização de imports;
+- código morto;
+- dependências não utilizadas;
+- comentários;
+- consistência de nomenclatura.
+
+Para cada problema, informe:
+
+- severidade: crítica, alta, média ou baixa;
+- arquivo;
+- evidência;
+- impacto;
+- recomendação;
+- esforço estimado.
+
+### Testes
+
+Identifique:
+
+- ferramentas;
+- tipos de teste;
+- cobertura aparente;
+- arquivos testados;
+- funcionalidades sem teste;
+- comandos de execução;
+- mocks;
+- testes de acessibilidade;
+- testes end-to-end.
+
+Caso não existam testes, diga isso explicitamente.
+
+### Build, deploy e CI/CD
+
+Documente:
+
+- scripts de build;
+- diretório gerado;
+- base path;
+- variáveis de ambiente;
+- pipeline;
+- gatilhos;
+- branch usada;
+- etapas;
+- cache;
+- publicação;
+- domínio;
+- GitHub Pages, Vercel, Netlify ou outra plataforma;
+- riscos de deploy.
+
+### Performance
+
+Verifique:
+
+- tamanho e uso de imagens;
+- imports pesados;
+- dependências grandes;
+- renderizações desnecessárias;
+- ausência de memoização onde relevante;
+- carregamento de fontes;
+- divisão de código;
+- lazy loading;
+- recursos que bloqueiam a renderização;
+- possíveis problemas de Core Web Vitals.
+
+Não invente métricas que não foram medidas.
+
+### Acessibilidade
+
+Verifique:
+
+- hierarquia de títulos;
+- textos alternativos;
+- labels;
+- navegação por teclado;
+- foco visível;
+- contraste aparente;
+- landmarks;
+- botões e links;
+- atributos ARIA;
+- suporte a leitores de tela;
+- preferência por redução de movimento.
+
+## 4. Arquivos de saída
+
+Crie uma pasta:
+
+`docs/technical-audit/`
+
+Dentro dela, gere:
+
+1. `README.md`  
+   Índice geral da documentação.
+
+2. `PROJECT_OVERVIEW.md`  
+   Visão geral do projeto.
+
+3. `TECH_STACK.md`  
+   Tecnologias, versões e dependências.
+
+4. `ARCHITECTURE.md`  
+   Arquitetura, fluxo da aplicação e diagramas Mermaid.
+
+5. `DIRECTORY_STRUCTURE.md`  
+   Estrutura de pastas e responsabilidades.
+
+6. `COMPONENT_INVENTORY.md`  
+   Inventário de páginas, layouts, componentes, hooks e serviços.
+
+7. `ROUTES.md`  
+   Rotas e navegação.
+
+8. `DATA_MODEL.md`  
+   Tipos, modelos, dados estáticos e persistência.
+
+9. `STATE_AND_DATA_FLOW.md`  
+   Estado e fluxo de dados.
+
+10. `UI_DESIGN_SYSTEM.md`  
+    Estilos, tokens e padrões visuais.
+
+11. `I18N.md`  
+    Internacionalização.
+
+12. `INTEGRATIONS.md`  
+    APIs, serviços externos e variáveis de ambiente.
+
+13. `SECURITY.md`  
+    Análise de segurança.
+
+14. `TESTING.md`  
+    Estratégia e cobertura de testes.
+
+15. `BUILD_AND_DEPLOY.md`  
+    Build, CI/CD e publicação.
+
+16. `QUALITY_REPORT.md`  
+    Problemas encontrados, severidade e recomendações.
+
+17. `ROADMAP.md`  
+    Plano priorizado de evolução técnica.
+
+18. `PROJECT_CONTEXT_FOR_AI.md`  
+    Resumo autocontido para ser fornecido a outras IAs antes de solicitar alterações no projeto.
+
+## 5. Diagramas
+
+No arquivo `ARCHITECTURE.md`, inclua diagramas Mermaid para:
+
+- visão geral da aplicação;
+- navegação entre páginas;
+- árvore simplificada de componentes;
+- fluxo de dados;
+- processo de build e deploy.
+
+Use apenas relações comprovadas no código.
+
+## 6. PROJECT_CONTEXT_FOR_AI.md
+
+Esse arquivo deve ser especialmente objetivo e conter:
+
+- propósito do projeto;
+- stack;
+- arquitetura;
+- estrutura;
+- convenções;
+- rotas;
+- componentes principais;
+- estratégia de estado;
+- estratégia de estilos;
+- internacionalização;
+- comandos;
+- deploy;
+- limitações;
+- regras que uma IA deve respeitar ao alterar o projeto.
+
+O arquivo deve permitir que outra IA compreenda rapidamente o projeto sem precisar reler todo o repositório.
+
+Não inclua segredos, tokens ou valores de ambiente.
+
+## 7. Processo obrigatório
+
+Siga esta ordem:
+
+1. Liste a estrutura do repositório.
+2. Identifique os arquivos de configuração.
+3. Leia as dependências e scripts.
+4. Localize o ponto de entrada.
+5. Mapeie páginas e rotas.
+6. Mapeie componentes e fluxo de dados.
+7. Analise estilos e internacionalização.
+8. Analise build e deploy.
+9. Verifique testes, segurança e qualidade.
+10. Gere a documentação.
+11. Revise cada afirmação contra os arquivos analisados.
+
+## 8. Resposta final
+
+Ao terminar, apresente:
+
+- arquivos criados;
+- resumo da stack;
+- resumo da arquitetura;
+- cinco principais pontos positivos;
+- cinco principais riscos;
+- itens que não puderam ser confirmados;
+- arquivos que não foram analisados e o motivo.
+
+Não modifique a aplicação. Crie somente a documentação solicitada.

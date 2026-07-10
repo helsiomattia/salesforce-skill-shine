@@ -12,14 +12,18 @@
     "developer": "Developer",
     "architect": "Architect",
     "consultant": "Consultant",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
     "back": "Back"
   },
   "footer": {
-    "text": "Developed by Mattioli. Salesforce Specialist.",
-    "social": "Connect with me on social media:",
-    "rights": "© 2025 Helsio Mattia",
+    "rights": "© 2026 Helsio Mattia",
     "description": "Independent project by Helsio Mattia to organize paths, competency assessment, and practical references about CRM and Salesforce.",
-    "updated": "Published on Jul 06, 2026. Last updated: Jul 06, 2026.",
+    "independent": "Independent educational content. Not official Salesforce material.",
+    "aboutAuthor": "About Helsio Mattia",
+    "published": "Published on Jul 06, 2026",
+    "lastUpdated": "Last updated: Jul 06, 2026",
     "transparency": "Transparency",
     "authorChannels": "Author and official channels",
     "legal": {
@@ -202,17 +206,20 @@
       "Initial map",
       "Project context"
     ],
+    "heroBenefits": [
+      "Practical diagnosis",
+      "Personalized paths",
+      "Real project context"
+    ],
     "contextLabels": [
       "How to read",
       "How to use"
     ],
     "startAssessment": "Start Assessment",
-    "trust": {
-      "badge": "Authorship and transparency",
-      "summary": "Independent project by Helsio Mattia, created as educational support for study and growth in CRM and Salesforce.",
-      "meta": "Not official Salesforce material. Last updated: Jul 06, 2026.",
-      "policyLink": "View editorial policy"
-    },
+    "explorePaths": "Explore paths",
+    "astroAlt": "Salesforce Astro mascot",
+    "assessmentHelpTitle": "How the assessment helps you",
+    "assessmentHelpDesc": "The first fold highlights the main path. These details explain how to use the diagnosis as support for study and growth.",
     "references": {
       "title": "Official references",
       "desc": "Technical concepts should be compared with official documentation and learning paths, especially before applying anything in real environments."
@@ -407,6 +414,17 @@
         }
       }
     }
+  },
+  "about": {
+    "badge": "Author and transparency",
+    "title": "About Helsio Mattia",
+    "subtitle": "Author of Skill Shine and CRM professional with practical experience in Salesforce, documentation, user support, and process improvement.",
+    "body": [
+      "Skill Shine is an independent project created to organize paths, competency assessments, and practical references about CRM and Salesforce.",
+      "The content combines practical experience, public documentation, and official references for educational purposes. It does not represent official Salesforce material or replace technical consulting in a real project.",
+      "The editorial policy prioritizes clarity, periodic review, reliable sources, and transparency about the limits of the published content."
+    ],
+    "channelsTitle": "Official channels"
   },
   "guide": {
     "title": "Clouds & Functions Guide",

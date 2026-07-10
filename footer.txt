@@ -1,0 +1,97 @@
+Refatore a área final do site para remover a redundância entre o bloco
+“Autoria e transparência” e o footer.
+
+Atualmente, os dois blocos repetem
+
+- nome do autor;
+- objetivo do projeto;
+- aviso de que o conteúdo não é oficial da Salesforce;
+- data de publicação e atualização;
+- política editorial;
+- links do autor.
+
+Quero consolidar tudo em um único footer minimalista, profissional e
+semanticamente correto.
+
+Objetivos
+
+1. Remover completamente o card separado “Autoria e transparência”.
+2. Transferir suas informações relevantes para o footer.
+3. Reduzir a altura total da área.
+4. Evitar repetição de textos.
+5. Manter transparência editorial e identificação clara do autor.
+6. Preservar informações úteis para SEO e confiança do usuário.
+
+Estrutura do novo footer
+
+Coluna 1 — Projeto
+
+- Nome Skill Shine
+- Descrição curta
+  “Projeto autoral de Helsio Mattia para organizar trilhas, avaliações
+  de competências e referências práticas sobre CRM e Salesforce.”
+- Aviso
+  “Conteúdo educacional independente. Não é material oficial da
+  Salesforce.”
+
+Coluna 2 — Transparência
+
+- Política de Privacidade
+- Termos de Uso
+- Política Editorial
+
+Coluna 3 — Autor e canais
+
+- GitHub
+- LinkedIn
+- Trailblazer
+- E-mail
+
+Linha inferior
+
+- © 2026 Helsio Mattia
+- Data de publicação
+- Data da última atualização
+
+Requisitos de UI
+
+- max-width entre 1120px e 1200px;
+- três colunas no desktop;
+- uma coluna no mobile;
+- border-top discreta;
+- fundo branco ou levemente diferenciado;
+- padding vertical entre 36px e 48px;
+- tipografia compacta;
+- sem cards internos;
+- sem sombras grandes;
+- sem repetir títulos ou descrições;
+- links externos com ícone discreto;
+- links externos devem usar target=_blank e
+  rel=me noopener noreferrer quando aplicável;
+- usar elementos semânticos footer, nav, ul e address quando adequado.
+
+Requisitos de SEO
+
+- Não depender apenas do footer para autoria.
+- Garantir que páginas de tutorial utilizem dados estruturados
+  Article ou BlogPosting.
+- Incluir author como Person.
+- Incluir name, url e sameAs.
+- Incluir datePublished e dateModified.
+- Criar ou utilizar uma página de autor em sobre.
+- O conteúdo dos dados estruturados deve corresponder às informações
+  visíveis na página.
+- Na Home, usar WebSite, WebPage e Person, evitando marcar a Home
+  incorretamente como Article.
+- Não expor dados pessoais desnecessários.
+- Não incluir marcação falsa ou informações que não estejam visíveis
+  ou comprováveis.
+
+Após implementar
+
+- valide o HTML semântico;
+- valide o JSON-LD;
+- verifique links quebrados;
+- verifique responsividade;
+- confirme que não existe mais conteúdo duplicado entre seções;
+- liste todos os arquivos alterados.

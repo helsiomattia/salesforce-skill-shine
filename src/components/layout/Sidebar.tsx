@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import type { TFunction } from "i18next";
 import {
   Home,
   ClipboardCheck,
@@ -14,6 +15,7 @@ import {
   MessageSquare,
   Globe,
   BookOpen,
+  type LucideIcon,
 } from "lucide-react";
 import LanguageSwitcher from "../LanguageSwitcher";
 
@@ -25,7 +27,21 @@ type SidebarProps = {
   onToggleCollapse: () => void;
 };
 
-const getNavItems = (t: any) => [
+type SidebarNavItem = {
+  to: string;
+  label: string;
+  description: string;
+  icon: LucideIcon;
+  end?: boolean;
+};
+
+type SidebarExternalLink = {
+  href: string;
+  label: string;
+  icon: LucideIcon;
+};
+
+const getNavItems = (t: TFunction): SidebarNavItem[] => [
   {
     to: "/",
     label: t('nav.home'),
@@ -53,7 +69,7 @@ const getNavItems = (t: any) => [
   },
 ];
 
-const getExternalLinks = (t: any) => [
+const getExternalLinks = (t: TFunction): SidebarExternalLink[] => [
   {
     href: "https://github.com/helsiomattia",
     label: "GitHub",

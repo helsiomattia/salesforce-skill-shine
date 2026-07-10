@@ -1,10 +1,17 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import type { TFunction } from "i18next";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import LanguageSwitcher from "../LanguageSwitcher";
 
-const getNavItems = (t: any) => [
+type TopNavItem = {
+  to: string;
+  label: string;
+  end?: boolean;
+};
+
+const getNavItems = (t: TFunction): TopNavItem[] => [
   { to: "/", label: t('nav.home'), end: true },
   { to: "/assessment", label: t('nav.assessment') },
   { to: "/guide", label: t('nav.guide') },
@@ -51,10 +58,14 @@ const TopNav = () => {
 
         {/* Mobile menu trigger */}
         <div className="flex md:hidden items-center justify-between w-full">
-          <div className="font-semibold text-slate-800">Menu</div>
+          <div className="font-semibold text-slate-800">{t("nav.menu")}</div>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 text-slate-600 transition hover:text-blue-600"
+            type="button"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={mobileMenuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -63,7 +74,7 @@ const TopNav = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="absolute left-0 top-14 w-full bg-white/95 backdrop-blur-xl border-b border-slate-200 md:hidden pb-4 shadow-md">
+        <div id="mobile-navigation" className="absolute left-0 top-14 w-full bg-white/95 backdrop-blur-xl border-b border-slate-200 md:hidden pb-4 shadow-md">
           <nav className="flex flex-col px-4 pt-2 pb-4 space-y-4 text-sm">
             {navItems.map((item) => (
               <NavLink

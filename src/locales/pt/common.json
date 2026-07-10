@@ -12,14 +12,18 @@
     "developer": "Developer",
     "architect": "Architect",
     "consultant": "Consultant",
+    "menu": "Menu",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
     "back": "Voltar"
   },
   "footer": {
-    "text": "Desenvolvido por Mattioli. Especialista Salesforce.",
-    "social": "Conecte-se comigo nas redes sociais:",
-    "rights": "© 2025 Helsio Mattia",
+    "rights": "© 2026 Helsio Mattia",
     "description": "Projeto autoral de Helsio Mattia para organizar trilhas, avaliação de competências e referências práticas sobre CRM e Salesforce.",
-    "updated": "Publicado em 06 jul 2026. Última atualização: 06 jul 2026.",
+    "independent": "Conteúdo educacional independente. Não é material oficial da Salesforce.",
+    "aboutAuthor": "Sobre Helsio Mattia",
+    "published": "Publicado em 06 jul 2026",
+    "lastUpdated": "Última atualização: 06 jul 2026",
     "transparency": "Transparência",
     "authorChannels": "Autor e canais oficiais",
     "legal": {
@@ -202,17 +206,20 @@
       "Mapa inicial",
       "Contexto de projeto"
     ],
+    "heroBenefits": [
+      "Diagnóstico prático",
+      "Trilhas personalizadas",
+      "Contexto de projetos reais"
+    ],
     "contextLabels": [
       "Como ler",
       "Como usar"
     ],
     "startAssessment": "Iniciar Avaliação",
-    "trust": {
-      "badge": "Autoria e transparência",
-      "summary": "Projeto autoral de Helsio Mattia, criado como apoio educacional para estudo e evolução em CRM e Salesforce.",
-      "meta": "Não é material oficial da Salesforce. Última atualização: 06 jul 2026.",
-      "policyLink": "Ver política editorial"
-    },
+    "explorePaths": "Explorar trilhas",
+    "astroAlt": "Mascote Astro do Salesforce",
+    "assessmentHelpTitle": "Como a avaliação ajuda você",
+    "assessmentHelpDesc": "A primeira dobra mostra o caminho principal. Aqui ficam os detalhes para entender melhor como usar o diagnóstico como apoio de estudo e evolução.",
     "references": {
       "title": "Referências oficiais",
       "desc": "Conceitos técnicos devem ser comparados com documentação e trilhas oficiais, especialmente antes de aplicar algo em ambientes reais."
@@ -407,6 +414,17 @@
         }
       }
     }
+  },
+  "about": {
+    "badge": "Autor e transparência",
+    "title": "Sobre Helsio Mattia",
+    "subtitle": "Autor do Skill Shine e profissional de CRM com experiência prática em Salesforce, documentação, suporte a usuários e melhoria de processos.",
+    "body": [
+      "O Skill Shine é um projeto autoral criado para organizar trilhas, avaliações de competências e referências práticas sobre CRM e Salesforce.",
+      "O conteúdo combina experiência prática, documentação pública e referências oficiais, sempre com finalidade educacional. Ele não representa material oficial da Salesforce nem substitui consultoria técnica em um projeto real.",
+      "A política editorial prioriza clareza, revisão periódica, fontes confiáveis e transparência sobre os limites do conteúdo publicado."
+    ],
+    "channelsTitle": "Canais oficiais"
   },
   "guide": {
     "title": "Guia de Nuvens & Funções",

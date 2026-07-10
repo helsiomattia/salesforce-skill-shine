@@ -5,6 +5,15 @@ import { useTranslation } from "react-i18next";
 import { getLocalizedString, getLocalizedStringArray } from "@/utils/i18nHelper";
 import { defaultGuides, GuideItem } from "@/data/guideData";
 import {
+  getCustomGuides,
+  getGuideLastTab,
+  hasGuideNote,
+  removeGuideNote,
+  setCustomGuides as saveCustomGuides,
+  setGuideLastTab,
+  type GuideCategory,
+} from "@/lib/guideStorage";
+import {
   Search,
   Plus,
   Trash2,
@@ -25,7 +34,8 @@ import {
   Layers,
   Lock,
   Eye,
-  ShieldCheck
+  ShieldCheck,
+  type LucideIcon,
 } from "lucide-react";
 import {
   Dialog,
@@ -39,7 +49,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, LucideIcon> = {
   TrendingUp,
   LifeBuoy,
   Globe,
@@ -65,16 +75,10 @@ const GuidePage = () => {
   const lang = i18n.resolvedLanguage || "pt";
   const navigate = useNavigate();
 
-  const [activeTab, setActiveTab] = useState<"clouds" | "foundations" | "admin" | "dev" | "architect" | "tools">(() => {
-    const saved = localStorage.getItem("sfs_guide_last_tab");
-    if (saved && ["clouds", "foundations", "admin", "dev", "architect", "tools"].includes(saved)) {
-      return saved as any;
-    }
-    return "clouds";
-  });
+  const [activeTab, setActiveTab] = useState<GuideCategory>(() => getGuideLastTab());
 
   useEffect(() => {
-    localStorage.setItem("sfs_guide_last_tab", activeTab);
+    setGuideLastTab(activeTab);
   }, [activeTab]);
 
   const tabs = [
@@ -92,19 +96,12 @@ const GuidePage = () => {
   // Form State for custom guides
   const [newTitle, setNewTitle] = useState("");
   const [newDesc, setNewDesc] = useState("");
-  const [newCategory, setNewCategory] = useState<"clouds" | "foundations" | "admin" | "dev" | "architect" | "tools">("clouds");
+  const [newCategory, setNewCategory] = useState<GuideCategory>("clouds");
   const [newTags, setNewTags] = useState("");
 
   // Load custom guides from localStorage on mount
   useEffect(() => {
-    const customs = localStorage.getItem("sfs_custom_guides");
-    if (customs) {
-      try {
-        setCustomGuides(JSON.parse(customs));
-      } catch (e) {
-        console.error("Error parsing custom guides", e);
-      }
-    }
+    setCustomGuides(getCustomGuides());
   }, []);
 
   const handleCreateCustomGuide = (e: React.FormEvent) => {
@@ -144,7 +141,7 @@ const GuidePage = () => {
 
     const updated = [...customGuides, item];
     setCustomGuides(updated);
-    localStorage.setItem("sfs_custom_guides", JSON.stringify(updated));
+    saveCustomGuides(updated);
 
     // Reset Form
     setNewTitle("");
@@ -159,8 +156,8 @@ const GuidePage = () => {
     if (window.confirm(t("guide.deleteConfirm"))) {
       const updated = customGuides.filter((g) => g.id !== id);
       setCustomGuides(updated);
-      localStorage.setItem("sfs_custom_guides", JSON.stringify(updated));
-      localStorage.removeItem(`sfs_guide_notes_${id}`);
+      saveCustomGuides(updated);
+      removeGuideNote(id);
     }
   };
 
@@ -276,7 +273,7 @@ const GuidePage = () => {
               {filteredGuides.map((guide) => {
                 const Icon = getIcon(guide.iconName);
                 const isCustom = guide.id.startsWith("custom-");
-                const hasNotes = !!localStorage.getItem(`sfs_guide_notes_${guide.id}`)?.trim();
+                const hasNotes = hasGuideNote(guide.id);
 
                 return (
                   <div

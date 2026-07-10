@@ -1,0 +1,99 @@
+A alteração anterior quebrou o layout da Home.
+
+Analise a hero atual e corrija os problemas estruturais, sem apenas alterar margens isoladas.
+
+Problemas visíveis:
+
+- Existe um espaço vertical vazio muito grande abaixo da hero.
+- A hero está ocupando altura excessiva.
+- A imagem fica parcialmente cortada ao rolar a página.
+- A segunda seção começa longe demais da primeira.
+- O conteúdo parece centralizado dentro de uma área maior do que deveria.
+- A hero não se comporta bem em diferentes alturas de viewport.
+- A composição fica quebrada quando a página é rolada.
+
+Correções obrigatórias:
+
+1. Remover da hero qualquer uso de:
+
+   - height: 100vh
+   - min-height: 100vh
+   - min-height: calc(100vh - ...)
+   - min-height: calc(100svh - ...)
+   - alturas fixas grandes
+
+2. A altura da hero deve ser definida pelo conteúdo e por padding responsivo.
+
+Use aproximadamente:
+
+- padding-top: 56px a 72px
+- padding-bottom: 56px a 72px
+
+3. A hero deve ter:
+
+- max-width entre 1160px e 1200px
+- margin horizontal automática
+- grid de duas colunas no desktop
+- align-items: center
+- gap entre 48px e 64px
+
+4. Estrutura desktop sugerida:
+
+grid-template-columns:
+minmax(0, 1.1fr) minmax(380px, 0.9fr);
+
+5. A coluna de texto deve ter largura máxima entre 600px e 640px.
+
+6. A imagem deve:
+
+- permanecer dentro do fluxo normal da página;
+- não usar position absolute;
+- não usar translateY negativo;
+- não ter altura fixa;
+- usar width: 100%;
+- usar height: auto;
+- usar object-fit: contain;
+- ter max-width entre 440px e 480px.
+
+7. Remover overflow: hidden de containers que estejam cortando a ilustração, exceto se comprovadamente necessário para efeitos decorativos.
+
+8. A seção “How the assessment helps you” deve começar logo após a hero.
+
+Use aproximadamente:
+
+- padding-top: 24px a 40px
+- sem min-height
+- sem margin-top excessiva
+
+9. Não deixe um vazio grande entre a hero e a próxima seção.
+
+10. Os três benefícios da hero devem permanecer compactos, preferencialmente em uma linha no desktop.
+
+11. No mobile:
+
+- usar uma coluna;
+- texto antes da imagem;
+- imagem com largura máxima de aproximadamente 360px;
+- botões podem quebrar de linha;
+- benefícios podem ficar em uma coluna.
+
+12. Verificar também:
+
+- se o header sticky está sobrepondo o conteúdo;
+- se existe scroll-margin-top incorreto;
+- se algum container pai possui min-height;
+- se a imagem possui posição absoluta;
+- se existe transform negativo;
+- se a próxima seção possui margem superior excessiva.
+
+Critérios de aceite:
+
+- A hero aparece inteira sem espaço vazio exagerado.
+- A imagem nunca fica cortada.
+- A próxima seção começa logo após a hero.
+- Texto e imagem ficam alinhados verticalmente.
+- Não existe altura fixa baseada em viewport.
+- O layout funciona em 1366x768, 1440x900 e 1920x1080.
+- O layout continua responsivo no mobile.
+
+Revise os componentes e estilos envolvidos e remova regras antigas conflitantes, em vez de apenas adicionar novos estilos por cima.

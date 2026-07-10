@@ -2,8 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import JsonLd from "@/components/JsonLd";
 import { getLocalizedString, getLocalizedStringArray } from "@/utils/i18nHelper";
 import { defaultGuides, GuideItem } from "@/data/guideData";
+import { absoluteUrl, AUTHOR_NAME, authorJsonLd, DATE_MODIFIED, DATE_PUBLISHED } from "@/lib/site";
+import { getCustomGuides, getGuideNote, setGuideNote } from "@/lib/guideStorage";
 import {
   ArrowLeft,
   BookOpen,
@@ -29,6 +32,7 @@ import {
   StickyNote,
   ChevronRight,
   Zap,
+  type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -37,7 +41,7 @@ import { Textarea } from "@/components/ui/textarea";
 // ──────────────────────────────────────────────
 // Icon map
 // ──────────────────────────────────────────────
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, LucideIcon> = {
   TrendingUp,
   LifeBuoy,
   Globe,
@@ -124,20 +128,12 @@ const GuideDetailPage = () => {
       setGuide(found);
       return;
     }
-    // Check custom guides from localStorage
-    try {
-      const raw = localStorage.getItem("sfs_custom_guides");
-      if (raw) {
-        const customs: GuideItem[] = JSON.parse(raw);
-        const custom = customs.find((g) => g.id === id);
-        if (custom) {
-          setGuide(custom);
-          return;
-        }
-      }
-    } catch (e) {
-      console.error("Error parsing custom guides", e);
+    const custom = getCustomGuides().find((g) => g.id === id);
+    if (custom) {
+      setGuide(custom);
+      return;
     }
+
     setNotFound(true);
   }, [id]);
 
@@ -148,8 +144,7 @@ const GuideDetailPage = () => {
 
   useEffect(() => {
     if (!id) return;
-    const val = localStorage.getItem(`sfs_guide_notes_${id}`);
-    setNotes(val || "");
+    setNotes(getGuideNote(id));
   }, [id]);
 
   const handleNotesChange = (content: string) => {
@@ -157,7 +152,7 @@ const GuideDetailPage = () => {
     setSaveStatus("saving");
     if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
     saveTimeoutRef.current = setTimeout(() => {
-      localStorage.setItem(`sfs_guide_notes_${id}`, content);
+      setGuideNote(id, content);
       setSaveStatus("saved");
       setTimeout(() => setSaveStatus(""), 1500);
     }, 600);
@@ -216,6 +211,23 @@ const GuideDetailPage = () => {
   const realUseCases = guide.realUseCases ? getLocalizedStringArray(guide.realUseCases, lang) : [];
   const resources = guide.resources ?? [];
   const tags = getLocalizedStringArray(guide.tags, lang);
+  const title = getLocalizedString(guide.title, lang);
+  const subtitle = getLocalizedString(guide.subtitle, lang);
+  const description = getLocalizedString(guide.description, lang);
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    name: title,
+    description,
+    url: absoluteUrl(`/guide/${guide.id}`),
+    mainEntityOfPage: absoluteUrl(`/guide/${guide.id}`),
+    author: authorJsonLd,
+    publisher: authorJsonLd,
+    datePublished: DATE_PUBLISHED,
+    dateModified: DATE_MODIFIED,
+    keywords: tags,
+  };
 
   return (
     <motion.div
@@ -224,6 +236,7 @@ const GuideDetailPage = () => {
       transition={{ duration: 0.4 }}
       className="mx-auto min-h-screen max-w-4xl px-4 py-6 lg:px-6 space-y-8"
     >
+      {!isCustom && <JsonLd data={articleJsonLd} />}
       {/* ── Back button ────────────────────────── */}
       <button
         onClick={() => navigate("/guide")}
@@ -260,11 +273,16 @@ const GuideDetailPage = () => {
           {/* Title & subtitle */}
           <div>
             <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-              {getLocalizedString(guide.title, lang)}
+              {title}
             </h1>
             <p className="mt-2 text-base md:text-lg text-slate-600 font-medium">
-              {getLocalizedString(guide.subtitle, lang)}
+              {subtitle}
             </p>
+            {!isCustom && (
+              <p className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
+                {t("legal.common.author")}: {AUTHOR_NAME} · {t("legal.common.published")} {t("legal.common.date")} · {t("legal.common.updated")}: {t("legal.common.date")}
+              </p>
+            )}
           </div>
 
           {/* Tags */}
@@ -286,7 +304,7 @@ const GuideDetailPage = () => {
       {/* ── Description ────────────────────────── */}
       <section className="rounded-3xl border border-slate-200 bg-white p-6 md:p-8 shadow-sm">
         <p className="text-slate-700 leading-relaxed text-base md:text-lg">
-          {getLocalizedString(guide.description, lang)}
+          {description}
         </p>
       </section>
 
