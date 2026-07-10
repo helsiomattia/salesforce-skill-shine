@@ -210,7 +210,9 @@ const GuideDetailPage = () => {
   const catBadge = categoryBg[guide.category] || categoryBg.clouds;
   const isCustom = guide.id.startsWith("custom-");
   const keyConcepts = guide.keyConcepts ?? [];
+  const implementationGuide = guide.implementationGuide ?? [];
   const bestPractices = getLocalizedStringArray(guide.bestPractices, lang);
+  const realUseCases = guide.realUseCases ? getLocalizedStringArray(guide.realUseCases, lang) : [];
   const resources = guide.resources ?? [];
   const tags = getLocalizedStringArray(guide.tags, lang);
 
@@ -287,6 +289,39 @@ const GuideDetailPage = () => {
         </p>
       </section>
 
+      {/* ── Practical Implementation ───────────── */}
+      {implementationGuide.length > 0 && (
+        <section className="space-y-5">
+          <div className="flex items-center gap-3">
+            <div className="h-8 w-1 rounded-full bg-slate-900" />
+            <h2 className="text-2xl font-extrabold text-slate-900">
+              {t("guide.implementationGuide")}
+            </h2>
+          </div>
+          <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
+            <div className="grid gap-3 md:grid-cols-2">
+              {implementationGuide.map((item, idx) => (
+                <article key={idx} className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-white text-xs font-bold text-slate-700 shadow-sm">
+                      {idx + 1}
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-bold text-slate-900">
+                        {getLocalizedString(item.title, lang)}
+                      </h3>
+                      <p className="mt-2 text-sm leading-6 text-slate-600">
+                        {getLocalizedString(item.description, lang)}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── Key Concepts ───────────────────────── */}
       {keyConcepts.length > 0 && (
         <section className="space-y-5">
@@ -353,6 +388,31 @@ const GuideDetailPage = () => {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+      )}
+
+      {/* ── Real Use Cases ─────────────────────── */}
+      {realUseCases.length > 0 && (
+        <section className="space-y-5">
+          <div className="flex items-center gap-3">
+            <div className="h-8 w-1 rounded-full bg-amber-500" />
+            <h2 className="text-2xl font-extrabold text-slate-900">
+              {t("guide.realUseCases")}
+            </h2>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2">
+            {realUseCases.map((useCase, idx) => (
+              <article
+                key={idx}
+                className="flex gap-4 rounded-2xl border border-amber-100 bg-amber-50/40 p-5 text-slate-700 shadow-sm"
+              >
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-amber-200 bg-white text-xs font-bold text-amber-700">
+                  {idx + 1}
+                </div>
+                <p className="text-sm leading-6 md:text-base">{useCase}</p>
+              </article>
+            ))}
           </div>
         </section>
       )}

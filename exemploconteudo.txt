@@ -1,0 +1,152 @@
+Revise todo o conteúdo das abas **Sales Cloud** e **Service Cloud** do meu site.
+
+O conteúdo atual está bom, mas ainda está genérico e poderia servir para praticamente qualquer produto ou plataforma. Quero transformar cada aba em um conteúdo realmente autêntico, técnico e específico da respectiva nuvem Salesforce.
+
+## Objetivo
+
+Criar conteúdos que demonstrem experiência prática com Salesforce, evitando textos institucionais, superficiais ou parecidos com documentação de marketing.
+
+Cada conteúdo deve responder claramente:
+
+* Em qual cenário real esse recurso é utilizado?
+* Qual problema de negócio ele resolve?
+* Quais objetos, campos, automações e configurações estão envolvidos?
+* Como o processo funciona dentro do Salesforce?
+* Quais erros, limitações e decisões de arquitetura são comuns?
+* Como validar se a implementação está funcionando corretamente?
+
+## Diferenciação obrigatória entre as nuvens
+
+### Sales Cloud
+
+Os conteúdos devem ser orientados à operação comercial e ao ciclo de vendas, abordando temas como:
+
+* Lead, Account, Contact e Opportunity
+* Conversão de Lead
+* Qualificação comercial
+* Funil de vendas e etapas da oportunidade
+* Produtos, Price Books e Opportunity Products
+* Forecast, metas e previsibilidade de receita
+* Distribuição e reatribuição de registros
+* Territory Management, equipes e compartilhamento
+* Regras de validação comerciais
+* Aprovação de descontos e margem
+* Duplicidade de Leads, Contatos e Contas
+* Integrações com marketing, ERP e plataformas comerciais
+* Indicadores como taxa de conversão, aging, win rate, ticket médio e ciclo de venda
+
+### Service Cloud
+
+Os conteúdos devem ser orientados ao atendimento, suporte e operação de canais, abordando temas como:
+
+* Case, Contact, Account e Entitlement
+* Filas, roteamento e Omni-Channel
+* Messaging Session, WhatsApp e atendimento digital
+* Email-to-Case e Web-to-Case
+* Bots e transferência para agentes
+* SLA, Milestones e Entitlements
+* Escalonamento e priorização de casos
+* Knowledge
+* Service Console
+* Agent Work e presença dos agentes
+* Tempo de espera, tempo de atendimento e abandono
+* Reabertura de casos e First Contact Resolution
+* CSAT, NPS e indicadores de atendimento
+* Integrações com telefonia, mensageria e sistemas internos
+
+## Regras de escrita
+
+Não use frases vagas como:
+
+* “melhore a eficiência”
+* “otimize processos”
+* “aumente a produtividade”
+* “centralize informações”
+* “ofereça uma experiência personalizada”
+
+Essas expressões só podem aparecer quando forem acompanhadas de uma explicação concreta de como isso acontece no Salesforce.
+
+Evite introduções como:
+
+* “O Salesforce é uma plataforma poderosa”
+* “No mundo atual”
+* “As empresas precisam cada vez mais”
+* “A transformação digital”
+
+Não escreva como material publicitário da Salesforce.
+
+Escreva como alguém que já participou de implementações, sustentação, debugging e evolução de uma org real.
+
+## Estrutura de cada tutorial
+
+Cada tutorial deve possuir:
+
+1. Título específico e orientado a um problema real
+2. Contexto de negócio
+3. Cenário prático
+4. Objetos e recursos Salesforce envolvidos
+5. Regra de negócio
+6. Passo a passo da implementação
+7. Exemplo com nomes de campos e valores
+8. Erros comuns
+9. Como testar
+10. Critérios para considerar a implementação concluída
+11. Boas práticas
+12. Quando não utilizar essa solução
+
+## Nível de profundidade
+
+Não explique apenas o que o recurso é.
+
+Explique como ele se comporta em uma implementação real.
+
+Por exemplo, em vez de escrever:
+
+“O Omni-Channel distribui atendimentos entre os agentes.”
+
+Escreva algo semelhante a:
+
+“No Service Cloud, o Omni-Channel pode distribuir Cases, Messaging Sessions e outros registros de trabalho de acordo com capacidade, presença, fila e configuração de roteamento. Em uma operação de WhatsApp, uma Messaging Session pode permanecer vinculada inicialmente ao bot e, após a transferência, gerar um Agent Work para o agente. Por isso, relatórios de Messaging Session e Agent Work nem sempre terão a mesma quantidade de registros.”
+
+Em vez de escrever:
+
+“As oportunidades ajudam a controlar vendas.”
+
+Escreva algo semelhante a:
+
+“Na Sales Cloud, a Opportunity representa uma negociação em andamento e deve refletir o avanço comercial por meio de Stage, Probability, Close Date, Amount, Products e campos próprios da empresa. Uma oportunidade não deve avançar para Proposal sem que informações como produto, margem, decisor e previsão de fechamento estejam preenchidas.”
+
+## Autenticidade
+
+Inclua detalhes que normalmente aparecem em projetos reais, como:
+
+* nomes de objetos padrão e customizados
+* exemplos de API Names
+* fórmulas
+* decisões em Flow
+* consultas SOQL
+* regras de validação
+* Permission Sets
+* Record Types
+* filas
+* erros comuns de automação
+* limites da plataforma
+* diferenças entre before-save e after-save
+* efeitos em relatórios
+* impactos em compartilhamento e segurança
+
+Não invente funcionalidades inexistentes.
+
+Quando houver mais de uma solução possível, apresente as alternativas e explique os trade-offs.
+
+## Resultado esperado
+
+Quero que uma pessoa consiga ler os conteúdos e perceber imediatamente que:
+
+* Sales Cloud e Service Cloud possuem objetivos e arquiteturas diferentes
+* os textos foram escritos por alguém que conhece Salesforce na prática
+* os tutoriais não foram copiados de uma documentação genérica
+* cada conteúdo resolve um problema real
+* os exemplos são aplicáveis em uma org Salesforce
+
+Agora revise os conteúdos existentes seguindo essas diretrizes, preservando a estrutura visual atual do site.

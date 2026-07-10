@@ -19,10 +19,6 @@ import {
   ChevronRight,
   Database,
   CheckCircle2,
-  ExternalLink,
-  Github,
-  Globe,
-  Linkedin,
   ShieldCheck
 } from "lucide-react";
 
@@ -125,18 +121,6 @@ const fadeUp = {
   transition: { duration: 0.5 },
 };
 
-const authorLinks = [
-  { href: "https://github.com/helsiomattia", label: "GitHub", icon: Github },
-  { href: "https://linkedin.com/in/helsiomattia", label: "LinkedIn", icon: Linkedin },
-  { href: "https://trailblazer.me/id/helsiomattia", label: "Trailblazer", icon: Globe },
-];
-
-const officialReferences = [
-  { href: "https://help.salesforce.com/", label: "Salesforce Help" },
-  { href: "https://trailhead.salesforce.com/", label: "Trailhead" },
-  { href: "https://architect.salesforce.com/", label: "Salesforce Architects" },
-];
-
 const HomePage = () => {
   const { t, i18n } = useTranslation();
   const lang = i18n.resolvedLanguage || 'pt';
@@ -146,7 +130,6 @@ const HomePage = () => {
   const journeyContext = t('home.journeyContext', { returnObjects: true }) as string[];
   const pyramidContext = t('home.pyramidContext', { returnObjects: true }) as string[];
   const contextLabels = t('home.contextLabels', { returnObjects: true }) as string[];
-  const trustParagraphs = t('home.trust.paragraphs', { returnObjects: true }) as string[];
 
   return (
     <div className="mx-auto min-h-screen max-w-7xl space-y-8 px-4 py-6 lg:px-6">
@@ -327,64 +310,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      <motion.section {...fadeUp} className="grid gap-6 rounded-[40px] border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-[1.1fr_0.9fr] md:p-8">
-        <div className="max-w-3xl space-y-5">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
-            <ShieldCheck className="h-4 w-4" />
-            {t('home.trust.badge')}
-          </div>
-          <div className="space-y-3 text-slate-600 leading-7">
-            <h2 className="text-2xl font-bold text-slate-900">{t('home.trust.title')}</h2>
-            {trustParagraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-            <p className="text-sm text-slate-500">
-              {t('home.trust.meta')}
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {authorLinks.map((link) => {
-              const Icon = link.icon;
-
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-blue-200 hover:text-blue-600"
-                >
-                  <Icon className="h-4 w-4" />
-                  {link.label}
-                  <ExternalLink className="h-3.5 w-3.5" />
-                </a>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="rounded-[28px] border border-slate-100 bg-slate-50 p-5">
-          <h3 className="font-bold text-slate-900">{t('home.references.title')}</h3>
-          <p className="mt-2 text-sm leading-6 text-slate-600">
-            {t('home.references.desc')}
-          </p>
-          <div className="mt-4 space-y-2">
-            {officialReferences.map((reference) => (
-              <a
-                key={reference.href}
-                href={reference.href}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="flex items-center justify-between rounded-xl bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:text-blue-600"
-              >
-                {reference.label}
-                <ExternalLink className="h-4 w-4 text-slate-400" />
-              </a>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
       {/* Hub and Spoke Career Paths Section */}
       <motion.section {...fadeUp} className="space-y-8 py-6">
         <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
@@ -546,6 +471,27 @@ const HomePage = () => {
               {t('home.pyramidLevels.core')}
             </div>
           </div>
+        </div>
+      </motion.section>
+
+      <motion.section {...fadeUp} className="pb-2">
+        <div className="mx-auto flex max-w-4xl flex-col gap-4 rounded-3xl border border-slate-200/80 bg-white/60 px-5 py-4 text-sm text-slate-500 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+          <div className="flex gap-3">
+            <ShieldCheck className="mt-0.5 h-4 w-4 flex-none text-slate-400" />
+            <div>
+              <p className="font-semibold text-slate-700">{t('home.trust.badge')}</p>
+              <p className="mt-1 leading-6">{t('home.trust.summary')}</p>
+              <p className="mt-1 text-xs text-slate-400">{t('home.trust.meta')}</p>
+            </div>
+          </div>
+
+          <Link
+            to="/editorial-policy"
+            viewTransition
+            className="shrink-0 text-sm font-semibold text-slate-500 transition hover:text-blue-600"
+          >
+            {t('home.trust.policyLink')}
+          </Link>
         </div>
       </motion.section>
 

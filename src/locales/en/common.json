@@ -209,12 +209,9 @@
     "startAssessment": "Start Assessment",
     "trust": {
       "badge": "Authorship and transparency",
-      "title": "Project created by Helsio Mattia",
-      "paragraphs": [
-        "Skill Shine is an independent project based on practical experience with CRM, Salesforce administration, Sales Cloud, Service Cloud, automations, user support, documentation, and process improvement.",
-        "The certifications listed on the site include Salesforce Certified Administrator, Salesforce Certified App Builder, and Salesforce AI Associate. The author's public channels remain available to validate professional background and experience."
-      ],
-      "meta": "Published on Jul 06, 2026. Last updated: Jul 06, 2026. This content is not official Salesforce material and does not promise certification approval, promotion, or financial results."
+      "summary": "Independent project by Helsio Mattia, created as educational support for study and growth in CRM and Salesforce.",
+      "meta": "Not official Salesforce material. Last updated: Jul 06, 2026.",
+      "policyLink": "View editorial policy"
     },
     "references": {
       "title": "Official references",
@@ -427,8 +424,10 @@
     "personalNotes": "My Personal Notes",
     "notesPlaceholder": "Write down your tips, useful commands, links, or insights you want to remember for this item...",
     "notesSaved": "Autosaved",
+    "implementationGuide": "Practical Implementation",
     "keyConcepts": "Key Concepts",
     "bestPractices": "Best Practices",
+    "realUseCases": "Real-World Use Cases",
     "resources": "Resources & Links",
     "customLabel": "Custom",
     "deleteConfirm": "Are you sure you want to delete this custom guide?",
