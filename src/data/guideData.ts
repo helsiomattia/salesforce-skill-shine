@@ -3787,31 +3787,124 @@ const profileFor = (guide: GuideItem): GuideContentProfile => guideProfiles[guid
   integration: `Defina origem, destino, frequencia, chave externa e tratamento de erro quando houver sistemas externos.`
 };
 
-const localizedConcept = (title: LocString, description: string): KeyConcept => ({
+type GuideProfileField = keyof GuideContentProfile;
+
+const localizedProfileField = (
+  guide: GuideItem,
+  profile: GuideContentProfile,
+  field: GuideProfileField
+): LocString => {
+  const title = {
+    pt: guideTitle(guide, "pt"),
+    en: guideTitle(guide, "en"),
+    es: guideTitle(guide, "es")
+  };
+
+  const translated: Record<GuideProfileField, { en: string; es: string }> = {
+    scenario: {
+      en: `Real use of ${title.en} in a Salesforce org involving users, data, automation, and governance.`,
+      es: `Uso real de ${title.es} en una org Salesforce con usuarios, datos, automatizaciones y gobernanza.`
+    },
+    problem: {
+      en: `Solves a specific operational problem that should not be treated as only a generic platform configuration.`,
+      es: `Resuelve un problema operativo especifico que no debe tratarse solo como una configuracion generica de plataforma.`
+    },
+    records: {
+      en: `Objects, fields, permissions, automations, and reports related to ${title.en}.`,
+      es: `Objetos, campos, permisos, automatizaciones e informes relacionados con ${title.es}.`
+    },
+    fields: {
+      en: `Status fields, owner, record type, external identifiers, control dates, and required process fields.`,
+      es: `Campos de estado, owner, record type, identificadores externos, fechas de control y campos obligatorios del proceso.`
+    },
+    automation: {
+      en: `Flow, validation rules, permissions, reports, and integrations according to the expected behavior.`,
+      es: `Flow, reglas de validacion, permisos, informes e integraciones segun el comportamiento esperado.`
+    },
+    rule: {
+      en: `The business rule must be explicit, testable, and documented before configuration.`,
+      es: `La regla de negocio debe ser explicita, comprobable y documentada antes de la configuracion.`
+    },
+    implementation: {
+      en: `Map the process, configure it in a sandbox, test with real users, and publish with a rollback plan.`,
+      es: `Mapea el proceso, configuralo en sandbox, prueba con usuarios reales y publica con un plan de rollback.`
+    },
+    example: {
+      en: `Use API names, sample values, and realistic test records to validate ${title.en}.`,
+      es: `Usa API names, valores de ejemplo y registros de prueba realistas para validar ${title.es}.`
+    },
+    errors: {
+      en: `Common mistakes include duplicated automation, broad permissions, required fields without governance, and reports without the correct filters.`,
+      es: `Errores comunes incluyen automatizacion duplicada, permisos amplios, campos obligatorios sin gobernanza e informes sin filtros correctos.`
+    },
+    testing: {
+      en: `Test restricted profiles, volume, error paths, the happy path, and impact on reports or integrations.`,
+      es: `Prueba perfiles restringidos, volumen, rutas de error, camino feliz e impacto en informes o integraciones.`
+    },
+    done: {
+      en: `The implementation is complete when users, support, and leadership can operate and measure the process without recurring manual fixes.`,
+      es: `La implementacion esta completa cuando usuarios, soporte y liderazgo pueden operar y medir el proceso sin ajustes manuales recurrentes.`
+    },
+    avoid: {
+      en: `Do not use it when the real problem is missing process, ownership, or minimum data quality.`,
+      es: `No lo uses cuando el problema real sea falta de proceso, ownership o calidad minima de datos.`
+    },
+    metrics: {
+      en: `Track adoption, errors, incomplete records, cycle time, and real usage.`,
+      es: `Acompana adopcion, errores, registros incompletos, tiempo de ciclo y uso real.`
+    },
+    security: {
+      en: `Validate CRUD, FLS, sharing, profiles, permission sets, and sensitive data.`,
+      es: `Valida CRUD, FLS, sharing, perfiles, permission sets y datos sensibles.`
+    },
+    integration: {
+      en: `Define source, target, frequency, external key, and error handling when external systems are involved.`,
+      es: `Define origen, destino, frecuencia, clave externa y manejo de errores cuando haya sistemas externos.`
+    }
+  };
+
+  return {
+    pt: profile[field],
+    en: translated[field].en,
+    es: translated[field].es
+  };
+};
+
+const profileText = (
+  guide: GuideItem,
+  profile: GuideContentProfile,
+  field: GuideProfileField,
+  locale: Locale
+) => localizedProfileField(guide, profile, field)[locale];
+
+const localizedConcept = (title: LocString, description: LocString): KeyConcept => ({
   title,
-  description: {
-    pt: description,
-    en: description,
-    es: description
-  }
+  description
 });
 
 const implementationGuide = (guide: GuideItem): KeyConcept[] => {
   const profile = profileFor(guide);
 
   return [
-    localizedConcept({ pt: "Título orientado ao problema", en: "Problem-oriented title", es: "Título orientado al problema" }, `${guideTitle(guide, "pt")}: como aplicar em uma org real sem tratar o tema como configuração genérica.`),
-    localizedConcept({ pt: "Contexto de negócio", en: "Business context", es: "Contexto de negocio" }, profile.scenario),
-    localizedConcept({ pt: "Cenário prático", en: "Practical scenario", es: "Escenario práctico" }, profile.problem),
-    localizedConcept({ pt: "Objetos e recursos envolvidos", en: "Objects and features involved", es: "Objetos y recursos involucrados" }, profile.records),
-    localizedConcept({ pt: "Campos e valores de exemplo", en: "Example fields and values", es: "Campos y valores de ejemplo" }, profile.fields),
-    localizedConcept({ pt: "Regra de negócio", en: "Business rule", es: "Regla de negocio" }, profile.rule),
-    localizedConcept({ pt: "Passo a passo de implementação", en: "Implementation walkthrough", es: "Paso a paso de implementación" }, profile.implementation),
-    localizedConcept({ pt: "Exemplo aplicável", en: "Applicable example", es: "Ejemplo aplicable" }, profile.example),
-    localizedConcept({ pt: "Erros comuns", en: "Common mistakes", es: "Errores comunes" }, profile.errors),
-    localizedConcept({ pt: "Como testar", en: "How to test", es: "Cómo probar" }, profile.testing),
-    localizedConcept({ pt: "Critério de conclusão", en: "Completion criteria", es: "Criterio de conclusión" }, profile.done),
-    localizedConcept({ pt: "Quando não utilizar", en: "When not to use", es: "Cuándo no utilizar" }, profile.avoid)
+    localizedConcept(
+      { pt: "Título orientado ao problema", en: "Problem-oriented title", es: "Título orientado al problema" },
+      {
+        pt: `${guideTitle(guide, "pt")}: como aplicar em uma org real sem tratar o tema como configuração genérica.`,
+        en: `${guideTitle(guide, "en")}: how to apply it in a real org without treating the topic as generic configuration.`,
+        es: `${guideTitle(guide, "es")}: como aplicarlo en una org real sin tratar el tema como configuracion generica.`
+      }
+    ),
+    localizedConcept({ pt: "Contexto de negócio", en: "Business context", es: "Contexto de negocio" }, localizedProfileField(guide, profile, "scenario")),
+    localizedConcept({ pt: "Cenário prático", en: "Practical scenario", es: "Escenario práctico" }, localizedProfileField(guide, profile, "problem")),
+    localizedConcept({ pt: "Objetos e recursos envolvidos", en: "Objects and features involved", es: "Objetos y recursos involucrados" }, localizedProfileField(guide, profile, "records")),
+    localizedConcept({ pt: "Campos e valores de exemplo", en: "Example fields and values", es: "Campos y valores de ejemplo" }, localizedProfileField(guide, profile, "fields")),
+    localizedConcept({ pt: "Regra de negócio", en: "Business rule", es: "Regla de negocio" }, localizedProfileField(guide, profile, "rule")),
+    localizedConcept({ pt: "Passo a passo de implementação", en: "Implementation walkthrough", es: "Paso a paso de implementación" }, localizedProfileField(guide, profile, "implementation")),
+    localizedConcept({ pt: "Exemplo aplicável", en: "Applicable example", es: "Ejemplo aplicable" }, localizedProfileField(guide, profile, "example")),
+    localizedConcept({ pt: "Erros comuns", en: "Common mistakes", es: "Errores comunes" }, localizedProfileField(guide, profile, "errors")),
+    localizedConcept({ pt: "Como testar", en: "How to test", es: "Cómo probar" }, localizedProfileField(guide, profile, "testing")),
+    localizedConcept({ pt: "Critério de conclusão", en: "Completion criteria", es: "Criterio de conclusión" }, localizedProfileField(guide, profile, "done")),
+    localizedConcept({ pt: "Quando não utilizar", en: "When not to use", es: "Cuándo no utilizar" }, localizedProfileField(guide, profile, "avoid"))
   ];
 };
 
@@ -3819,39 +3912,68 @@ const supplementalKeyConcepts = (guide: GuideItem): KeyConcept[] => {
   const profile = profileFor(guide);
 
   return [
-    localizedConcept({ pt: "Cenário real de uso", en: "Real usage scenario", es: "Escenario real de uso" }, profile.scenario),
-    localizedConcept({ pt: "Problema que resolve", en: "Problem it solves", es: "Problema que resuelve" }, profile.problem),
-    localizedConcept({ pt: "Objetos Salesforce envolvidos", en: "Salesforce objects involved", es: "Objetos Salesforce involucrados" }, profile.records),
-    localizedConcept({ pt: "Campos e API Names relevantes", en: "Relevant fields and API names", es: "Campos y API Names relevantes" }, profile.fields),
-    localizedConcept({ pt: "Automações e configurações", en: "Automations and settings", es: "Automatizaciones y configuraciones" }, profile.automation),
-    localizedConcept({ pt: "Regra operacional", en: "Operational rule", es: "Regla operativa" }, profile.rule),
-    localizedConcept({ pt: "Validação em projeto real", en: "Validation in a real project", es: "Validación en proyecto real" }, profile.testing),
-    localizedConcept({ pt: "Erros e limitações comuns", en: "Common errors and limitations", es: "Errores y limitaciones comunes" }, profile.errors),
-    localizedConcept({ pt: "Indicadores de acompanhamento", en: "Tracking metrics", es: "Indicadores de seguimiento" }, profile.metrics),
-    localizedConcept({ pt: "Segurança e compartilhamento", en: "Security and sharing", es: "Seguridad y compartición" }, profile.security),
-    localizedConcept({ pt: "Integrações e dependências", en: "Integrations and dependencies", es: "Integraciones y dependencias" }, profile.integration),
-    localizedConcept({ pt: "Critério de pronto", en: "Definition of done", es: "Criterio de listo" }, profile.done)
+    localizedConcept({ pt: "Cenário real de uso", en: "Real usage scenario", es: "Escenario real de uso" }, localizedProfileField(guide, profile, "scenario")),
+    localizedConcept({ pt: "Problema que resolve", en: "Problem it solves", es: "Problema que resuelve" }, localizedProfileField(guide, profile, "problem")),
+    localizedConcept({ pt: "Objetos Salesforce envolvidos", en: "Salesforce objects involved", es: "Objetos Salesforce involucrados" }, localizedProfileField(guide, profile, "records")),
+    localizedConcept({ pt: "Campos e API Names relevantes", en: "Relevant fields and API names", es: "Campos y API Names relevantes" }, localizedProfileField(guide, profile, "fields")),
+    localizedConcept({ pt: "Automações e configurações", en: "Automations and settings", es: "Automatizaciones y configuraciones" }, localizedProfileField(guide, profile, "automation")),
+    localizedConcept({ pt: "Regra operacional", en: "Operational rule", es: "Regla operativa" }, localizedProfileField(guide, profile, "rule")),
+    localizedConcept({ pt: "Validação em projeto real", en: "Validation in a real project", es: "Validación en proyecto real" }, localizedProfileField(guide, profile, "testing")),
+    localizedConcept({ pt: "Erros e limitações comuns", en: "Common errors and limitations", es: "Errores y limitaciones comunes" }, localizedProfileField(guide, profile, "errors")),
+    localizedConcept({ pt: "Indicadores de acompanhamento", en: "Tracking metrics", es: "Indicadores de seguimiento" }, localizedProfileField(guide, profile, "metrics")),
+    localizedConcept({ pt: "Segurança e compartilhamento", en: "Security and sharing", es: "Seguridad y compartición" }, localizedProfileField(guide, profile, "security")),
+    localizedConcept({ pt: "Integrações e dependências", en: "Integrations and dependencies", es: "Integraciones y dependencias" }, localizedProfileField(guide, profile, "integration")),
+    localizedConcept({ pt: "Critério de pronto", en: "Definition of done", es: "Criterio de listo" }, localizedProfileField(guide, profile, "done"))
   ];
 };
 
 const supplementalBestPractices = (guide: GuideItem): LocStringArray => {
   const profile = profileFor(guide);
-  const practices = [
-    `Comece pelo cenário real: ${profile.scenario}`,
-    `Documente o problema antes da solução: ${profile.problem}`,
-    `Liste objetos e recursos antes de configurar: ${profile.records}`,
-    `Use API Names e valores de exemplo na especificação: ${profile.fields}`,
-    `Escolha automação pelo comportamento esperado, não por preferência de ferramenta: ${profile.automation}`,
-    `Transforme a regra de negócio em validação testável: ${profile.rule}`,
-    `Implemente em sandbox seguindo um caminho reproduzível: ${profile.implementation}`,
-    `Inclua exemplo concreto no handover: ${profile.example}`,
-    `Teste os erros comuns antes do go-live: ${profile.errors}`,
-    `Defina evidências de teste claras: ${profile.testing}`,
-    `Considere pronto apenas quando o critério for verificável: ${profile.done}`,
-    `Registre quando não usar essa abordagem: ${profile.avoid}`
-  ];
 
-  return { pt: practices, en: practices, es: practices };
+  return {
+    pt: [
+      `Comece pelo cenário real: ${profileText(guide, profile, "scenario", "pt")}`,
+      `Documente o problema antes da solução: ${profileText(guide, profile, "problem", "pt")}`,
+      `Liste objetos e recursos antes de configurar: ${profileText(guide, profile, "records", "pt")}`,
+      `Use API Names e valores de exemplo na especificação: ${profileText(guide, profile, "fields", "pt")}`,
+      `Escolha automação pelo comportamento esperado, não por preferência de ferramenta: ${profileText(guide, profile, "automation", "pt")}`,
+      `Transforme a regra de negócio em validação testável: ${profileText(guide, profile, "rule", "pt")}`,
+      `Implemente em sandbox seguindo um caminho reproduzível: ${profileText(guide, profile, "implementation", "pt")}`,
+      `Inclua exemplo concreto no handover: ${profileText(guide, profile, "example", "pt")}`,
+      `Teste os erros comuns antes do go-live: ${profileText(guide, profile, "errors", "pt")}`,
+      `Defina evidências de teste claras: ${profileText(guide, profile, "testing", "pt")}`,
+      `Considere pronto apenas quando o critério for verificável: ${profileText(guide, profile, "done", "pt")}`,
+      `Registre quando não usar essa abordagem: ${profileText(guide, profile, "avoid", "pt")}`
+    ],
+    en: [
+      `Start from the real scenario: ${profileText(guide, profile, "scenario", "en")}`,
+      `Document the problem before the solution: ${profileText(guide, profile, "problem", "en")}`,
+      `List objects and features before configuring: ${profileText(guide, profile, "records", "en")}`,
+      `Use API names and sample values in the specification: ${profileText(guide, profile, "fields", "en")}`,
+      `Choose automation based on expected behavior, not tool preference: ${profileText(guide, profile, "automation", "en")}`,
+      `Turn the business rule into a testable validation: ${profileText(guide, profile, "rule", "en")}`,
+      `Implement in a sandbox following a reproducible path: ${profileText(guide, profile, "implementation", "en")}`,
+      `Include a concrete example in the handover: ${profileText(guide, profile, "example", "en")}`,
+      `Test common mistakes before go-live: ${profileText(guide, profile, "errors", "en")}`,
+      `Define clear test evidence: ${profileText(guide, profile, "testing", "en")}`,
+      `Consider it done only when the criterion is verifiable: ${profileText(guide, profile, "done", "en")}`,
+      `Record when not to use this approach: ${profileText(guide, profile, "avoid", "en")}`
+    ],
+    es: [
+      `Comienza por el escenario real: ${profileText(guide, profile, "scenario", "es")}`,
+      `Documenta el problema antes de la solucion: ${profileText(guide, profile, "problem", "es")}`,
+      `Lista objetos y recursos antes de configurar: ${profileText(guide, profile, "records", "es")}`,
+      `Usa API Names y valores de ejemplo en la especificacion: ${profileText(guide, profile, "fields", "es")}`,
+      `Elige automatizacion por el comportamiento esperado, no por preferencia de herramienta: ${profileText(guide, profile, "automation", "es")}`,
+      `Convierte la regla de negocio en una validacion comprobable: ${profileText(guide, profile, "rule", "es")}`,
+      `Implementa en sandbox siguiendo un camino reproducible: ${profileText(guide, profile, "implementation", "es")}`,
+      `Incluye un ejemplo concreto en el handover: ${profileText(guide, profile, "example", "es")}`,
+      `Prueba errores comunes antes del go-live: ${profileText(guide, profile, "errors", "es")}`,
+      `Define evidencias de prueba claras: ${profileText(guide, profile, "testing", "es")}`,
+      `Consideralo listo solo cuando el criterio sea verificable: ${profileText(guide, profile, "done", "es")}`,
+      `Registra cuando no usar este enfoque: ${profileText(guide, profile, "avoid", "es")}`
+    ]
+  };
 };
 
 const withoutDuplicateConceptTitles = (guide: GuideItem, concepts: KeyConcept[]) => {
@@ -3884,20 +4006,45 @@ const completeBestPractices = (guide: GuideItem): LocStringArray => {
 
 const realUseCases = (guide: GuideItem): LocStringArray => {
   const profile = profileFor(guide);
-  const useCases = [
-    `Usar em operação real quando o cenário se parece com: ${profile.scenario}`,
-    `Resolver o problema de negócio descrito por: ${profile.problem}`,
-    `Mapear registros e relacionamentos antes da entrega usando: ${profile.records}`,
-    `Validar campos, API Names e valores que sustentam a rotina: ${profile.fields}`,
-    `Configurar automações e recursos envolvidos sem sobrepor lógica: ${profile.automation}`,
-    `Aplicar regra operacional que o usuário consegue reconhecer no dia a dia: ${profile.rule}`,
-    `Executar a implementação com passos reproduzíveis: ${profile.implementation}`,
-    `Demonstrar o funcionamento com exemplo concreto: ${profile.example}`,
-    `Investigar chamados e incidentes a partir dos erros comuns: ${profile.errors}`,
-    `Encerrar a demanda somente depois de testar e provar: ${profile.testing} Critério final: ${profile.done}`
-  ];
 
-  return { pt: useCases, en: useCases, es: useCases };
+  return {
+    pt: [
+      `Usar em operação real quando o cenário se parece com: ${profileText(guide, profile, "scenario", "pt")}`,
+      `Resolver o problema de negócio descrito por: ${profileText(guide, profile, "problem", "pt")}`,
+      `Mapear registros e relacionamentos antes da entrega usando: ${profileText(guide, profile, "records", "pt")}`,
+      `Validar campos, API Names e valores que sustentam a rotina: ${profileText(guide, profile, "fields", "pt")}`,
+      `Configurar automações e recursos envolvidos sem sobrepor lógica: ${profileText(guide, profile, "automation", "pt")}`,
+      `Aplicar regra operacional que o usuário consegue reconhecer no dia a dia: ${profileText(guide, profile, "rule", "pt")}`,
+      `Executar a implementação com passos reproduzíveis: ${profileText(guide, profile, "implementation", "pt")}`,
+      `Demonstrar o funcionamento com exemplo concreto: ${profileText(guide, profile, "example", "pt")}`,
+      `Investigar chamados e incidentes a partir dos erros comuns: ${profileText(guide, profile, "errors", "pt")}`,
+      `Encerrar a demanda somente depois de testar e provar: ${profileText(guide, profile, "testing", "pt")} Critério final: ${profileText(guide, profile, "done", "pt")}`
+    ],
+    en: [
+      `Use it in a real operation when the scenario looks like: ${profileText(guide, profile, "scenario", "en")}`,
+      `Solve the business problem described by: ${profileText(guide, profile, "problem", "en")}`,
+      `Map records and relationships before delivery using: ${profileText(guide, profile, "records", "en")}`,
+      `Validate fields, API names, and values that support the routine: ${profileText(guide, profile, "fields", "en")}`,
+      `Configure automations and involved features without overlapping logic: ${profileText(guide, profile, "automation", "en")}`,
+      `Apply an operational rule users can recognize day to day: ${profileText(guide, profile, "rule", "en")}`,
+      `Run the implementation with reproducible steps: ${profileText(guide, profile, "implementation", "en")}`,
+      `Demonstrate how it works with a concrete example: ${profileText(guide, profile, "example", "en")}`,
+      `Investigate tickets and incidents from common mistakes: ${profileText(guide, profile, "errors", "en")}`,
+      `Close the request only after testing and proving: ${profileText(guide, profile, "testing", "en")} Final criterion: ${profileText(guide, profile, "done", "en")}`
+    ],
+    es: [
+      `Usalo en una operacion real cuando el escenario se parezca a: ${profileText(guide, profile, "scenario", "es")}`,
+      `Resuelve el problema de negocio descrito por: ${profileText(guide, profile, "problem", "es")}`,
+      `Mapea registros y relaciones antes de la entrega usando: ${profileText(guide, profile, "records", "es")}`,
+      `Valida campos, API Names y valores que sostienen la rutina: ${profileText(guide, profile, "fields", "es")}`,
+      `Configura automatizaciones y recursos involucrados sin superponer logica: ${profileText(guide, profile, "automation", "es")}`,
+      `Aplica una regla operativa que el usuario pueda reconocer en el dia a dia: ${profileText(guide, profile, "rule", "es")}`,
+      `Ejecuta la implementacion con pasos reproducibles: ${profileText(guide, profile, "implementation", "es")}`,
+      `Demuestra el funcionamiento con un ejemplo concreto: ${profileText(guide, profile, "example", "es")}`,
+      `Investiga tickets e incidentes a partir de errores comunes: ${profileText(guide, profile, "errors", "es")}`,
+      `Cierra la demanda solo despues de probar y demostrar: ${profileText(guide, profile, "testing", "es")} Criterio final: ${profileText(guide, profile, "done", "es")}`
+    ]
+  };
 };
 
 const completeRealUseCases = (guide: GuideItem): LocStringArray => {

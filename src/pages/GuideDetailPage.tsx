@@ -70,6 +70,7 @@ const categoryBg: Record<string, string> = {
 // Code Block Component
 // ──────────────────────────────────────────────
 const CodeBlock = ({ code, language }: { code: string; language?: string }) => {
+  const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {
     navigator.clipboard.writeText(code);
@@ -82,7 +83,7 @@ const CodeBlock = ({ code, language }: { code: string; language?: string }) => {
         <button
           onClick={handleCopy}
           className="rounded-lg bg-slate-900 border border-slate-800 p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 transition-all"
-          title="Copy Code"
+          title={t("guide.copyCode")}
         >
           {copied ? (
             <Check className="h-3.5 w-3.5 text-green-400" />
@@ -181,17 +182,17 @@ const GuideDetailPage = () => {
       <div className="mx-auto min-h-screen max-w-4xl px-4 py-16 flex flex-col items-center justify-center text-center space-y-6">
         <FileText className="h-16 w-16 text-slate-300" />
         <h1 className="text-3xl font-extrabold text-slate-900">
-          Guia não encontrado
+          {t("guide.notFound.title")}
         </h1>
         <p className="text-slate-500 max-w-sm">
-          O guia que você está procurando não existe ou foi removido.
+          {t("guide.notFound.desc")}
         </p>
         <Button
           onClick={() => navigate("/guide")}
           className="rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-semibold"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
-          Voltar para Guias
+          {t("guide.notFound.back")}
         </Button>
       </div>
     );
@@ -229,7 +230,7 @@ const GuideDetailPage = () => {
         className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-blue-600 transition-colors group"
       >
         <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-        {t("guide.tabClouds") ? "Voltar para Guias e Tutoriais" : "Back to Guides"}
+        {t("guide.backToGuide")}
       </button>
 
       {/* ── Hero Banner ────────────────────────── */}
@@ -456,19 +457,14 @@ const GuideDetailPage = () => {
           <FileText className="h-7 w-7" />
         </div>
         <h3 className="text-xl font-extrabold text-slate-700">
-          Wiki em Construção
+          {t("guide.wiki.title")}
         </h3>
         <p className="text-slate-400 text-sm max-w-sm mx-auto leading-relaxed">
-          Esta seção será expandida com conteúdo detalhado, exemplos práticos,
-          fluxos e documentação avançada sobre{" "}
-          <strong className="text-slate-600">
-            {getLocalizedString(guide.title, lang)}
-          </strong>
-          .
+          {t("guide.wiki.desc", { title: getLocalizedString(guide.title, lang) })}
         </p>
         <div className="flex items-center justify-center gap-2 text-xs text-slate-400 font-medium">
           <ChevronRight className="h-3.5 w-3.5" />
-          Em breve
+          {t("guide.wiki.soon")}
         </div>
       </section>
 
@@ -483,7 +479,7 @@ const GuideDetailPage = () => {
             {saveStatus === "saving" && (
               <>
                 <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-ping" />
-                Salvando...
+                {t("guide.notesSaving")}
               </>
             )}
             {saveStatus === "saved" && (

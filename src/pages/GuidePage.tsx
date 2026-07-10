@@ -377,7 +377,7 @@ const GuidePage = () => {
                 required
                 value={newTitle}
                 onChange={(e) => setNewTitle(e.target.value)}
-                placeholder="Ex: Marketing Cloud, Apex Classes de Integração"
+                placeholder={t("guide.dialog.titlePlaceholder")}
                 className="rounded-xl border-slate-200 focus-visible:ring-blue-500"
               />
             </div>
@@ -419,7 +419,7 @@ const GuidePage = () => {
                 rows={3}
                 value={newDesc}
                 onChange={(e) => setNewDesc(e.target.value)}
-                placeholder="Uma breve descrição sobre do que se trata..."
+                placeholder={t("guide.dialog.descPlaceholder")}
                 className="rounded-xl border-slate-200 focus-visible:ring-blue-500 resize-none"
               />
             </div>
@@ -432,7 +432,7 @@ const GuidePage = () => {
                 type="text"
                 value={newTags}
                 onChange={(e) => setNewTags(e.target.value)}
-                placeholder="Ex: Marketing, Automation, Apex, Admin"
+                placeholder={t("guide.dialog.tagsPlaceholder")}
                 className="rounded-xl border-slate-200 focus-visible:ring-blue-500"
               />
             </div>

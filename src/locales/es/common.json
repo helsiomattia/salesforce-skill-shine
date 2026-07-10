@@ -430,13 +430,29 @@
     "realUseCases": "Escenarios de Uso Real",
     "resources": "Recursos & Enlaces",
     "customLabel": "Personalizado",
+    "backToGuide": "Volver a Guías y Tutoriales",
+    "copyCode": "Copiar código",
+    "notesSaving": "Guardando...",
     "deleteConfirm": "¿Está seguro de que desea eliminar esta guía personalizada?",
+    "notFound": {
+      "title": "Guía no encontrada",
+      "desc": "La guía que estás buscando no existe o fue eliminada.",
+      "back": "Volver a Guías"
+    },
+    "wiki": {
+      "title": "Wiki en Construcción",
+      "desc": "Esta sección se ampliará con contenido detallado, ejemplos prácticos, flujos y documentación avanzada sobre {{title}}.",
+      "soon": "Próximamente"
+    },
     "dialog": {
       "title": "Añadir Nueva Guía",
       "titleLabel": "Título",
+      "titlePlaceholder": "Ej.: Marketing Cloud, Clases Apex de Integración",
       "categoryLabel": "Categoría",
       "descLabel": "Descripción Corta",
+      "descPlaceholder": "Una breve descripción sobre de qué se trata...",
       "tagsLabel": "Etiquetas (separadas por comas)",
+      "tagsPlaceholder": "Ej.: Marketing, Automation, Apex, Admin",
       "save": "Guardar Guía",
       "cancel": "Cancelar"
     }
