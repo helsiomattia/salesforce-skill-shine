@@ -75,6 +75,21 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        card: "1.75rem",
+        section: "2rem",
+        feature: "2.25rem",
+        panel: "2.5rem",
+      },
+      blur: {
+        blob: "100px",
+        "blob-sm": "90px",
+        "blob-lg": "120px",
+      },
+      boxShadow: {
+        panel: "0 20px 25px -5px rgb(226 232 240 / 0.5), 0 8px 10px -6px rgb(226 232 240 / 0.5)",
+        "panel-strong": "0 20px 25px -5px rgb(226 232 240 / 0.6), 0 8px 10px -6px rgb(226 232 240 / 0.6)",
+        "blue-glow": "0 20px 25px -5px rgb(37 99 235 / 0.2), 0 8px 10px -6px rgb(37 99 235 / 0.2)",
+        "blue-glow-sm": "0 10px 15px -3px rgb(37 99 235 / 0.2), 0 4px 6px -4px rgb(37 99 235 / 0.2)",
       },
       keyframes: {
         "accordion-down": {

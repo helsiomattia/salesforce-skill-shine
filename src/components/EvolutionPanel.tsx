@@ -35,7 +35,7 @@ const EvolutionPanel = ({ evolution }: EvolutionPanelProps) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="rounded-[40px] border border-slate-200 bg-white p-8 md:p-12 shadow-sm"
+        className="rounded-panel border border-slate-200 bg-white p-8 md:p-12 shadow-sm"
       >
         <h3 className="text-2xl font-bold text-slate-900 mb-8">{t('careerPage.evolution.maturityStages')}</h3>
         <div className="space-y-6 relative before:absolute before:left-8 before:top-4 before:bottom-4 before:w-0.5 before:bg-slate-100">

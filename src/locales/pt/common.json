@@ -347,6 +347,14 @@
         "privacy": "Eu concordo com o processamento dos meus dados para fins de geração deste relatório, em conformidade com a LGPD.",
         "submit": "FINALIZAR AVALIAÇÃO"
       },
+      "validation": {
+        "fullName": "O nome deve ter pelo menos 3 caracteres.",
+        "email": "E-mail inválido.",
+        "role": "Informe sua função atual.",
+        "phone": "Informe um telefone válido.",
+        "experience": "Informe sua experiência.",
+        "lgpd": "Você deve aceitar os termos da LGPD para continuar."
+      },
       "pdf": {
         "title": "Relatório de Competências Salesforce",
         "generatedAt": "Gerado em",
@@ -357,7 +365,9 @@
         "skillName": "Competência",
         "score": "Nível",
         "status": "Status",
-        "disclaimer": "Este relatório é uma ferramenta de autoconhecimento baseada na plataforma Salesforce Skill Shine."
+        "disclaimer": "Este relatório é uma ferramenta de autoconhecimento baseada na plataforma Salesforce Skill Shine.",
+        "error": "Não foi possível gerar o PDF. Revise os dados e tente novamente.",
+        "errorLog": "Erro ao gerar PDF:"
       }
     },
     "navigation": {

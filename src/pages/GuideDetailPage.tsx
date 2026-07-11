@@ -247,10 +247,10 @@ const GuideDetailPage = () => {
       </button>
 
       {/* ── Hero Banner ────────────────────────── */}
-      <section className="relative overflow-hidden rounded-[40px] border border-slate-200 bg-white px-6 py-10 shadow-xl shadow-slate-200/50 md:px-12 md:py-12">
+      <section className="relative overflow-hidden rounded-panel border border-slate-200 bg-white px-6 py-10 shadow-panel md:px-12 md:py-12">
         {/* Blur blobs */}
-        <div className="absolute -left-32 -top-32 h-[400px] w-[400px] rounded-full bg-blue-400/10 blur-[100px] pointer-events-none" />
-        <div className="absolute -bottom-32 -right-32 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-[100px] pointer-events-none" />
+        <div className="absolute -left-32 -top-32 h-[400px] w-[400px] rounded-full bg-blue-400/10 blur-blob pointer-events-none" />
+        <div className="absolute -bottom-32 -right-32 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-blob pointer-events-none" />
 
         <div className="relative z-10 flex flex-col gap-5">
           {/* Icon + badges */}

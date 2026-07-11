@@ -47,9 +47,9 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
     <div className="mx-auto max-w-7xl px-4 py-6 lg:px-6 space-y-8">
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-[40px] border border-slate-200 bg-white px-6 py-10 shadow-xl shadow-slate-200/50 md:px-12 md:py-12">
-        <div className="absolute -left-32 -top-32 h-[400px] w-[400px] rounded-full bg-blue-400/10 blur-[100px]" />
-        <div className="absolute -bottom-32 -right-32 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-[100px]" />
+      <section className="relative overflow-hidden rounded-panel border border-slate-200 bg-white px-6 py-10 shadow-panel md:px-12 md:py-12">
+        <div className="absolute -left-32 -top-32 h-[400px] w-[400px] rounded-full bg-blue-400/10 blur-blob" />
+        <div className="absolute -bottom-32 -right-32 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-blob" />
 
         <div className="relative z-10 space-y-6">
           <Link
@@ -69,7 +69,7 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
             transition={{ duration: 0.5 }}
             className="flex flex-col md:flex-row md:items-center gap-8"
           >
-            <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-[32px] bg-slate-50 text-5xl shadow-inner">
+            <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-section bg-slate-50 text-5xl shadow-inner">
               {category.icon}
             </div>
 
@@ -172,7 +172,7 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
               {category.knowledgeGroups ? (
                 <KnowledgePanel groups={category.knowledgeGroups} />
               ) : (
-                <div className="rounded-[40px] border-2 border-dashed border-slate-200 bg-white p-16 text-center">
+                <div className="rounded-panel border-2 border-dashed border-slate-200 bg-white p-16 text-center">
                   <LayoutDashboard className="mx-auto h-12 w-12 text-slate-300 mb-4" />
                   <h3 className="text-xl font-bold text-slate-900 mb-2">{t('careerPage.comingSoon.title')}</h3>
                   <p className="text-slate-500 max-w-sm mx-auto">
@@ -186,7 +186,7 @@ const CareerPage = ({ categoryId }: CareerPageProps) => {
               {category.interviewQuestions ? (
                 <InterviewPanel questions={category.interviewQuestions} />
               ) : (
-                <div className="rounded-[40px] border-2 border-dashed border-slate-200 bg-white p-16 text-center">
+                <div className="rounded-panel border-2 border-dashed border-slate-200 bg-white p-16 text-center">
                   <LayoutDashboard className="mx-auto h-12 w-12 text-slate-300 mb-4" />
                   <h3 className="text-xl font-bold text-slate-900 mb-2">{t('careerPage.comingSoon.title')}</h3>
                   <p className="text-slate-500 max-w-sm mx-auto">

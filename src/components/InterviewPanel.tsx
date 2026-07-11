@@ -20,7 +20,7 @@ const InterviewPanel = ({ questions }: InterviewPanelProps) => {
 
   if (!questions || questions.length === 0) {
     return (
-      <div className="rounded-[40px] border-2 border-dashed border-slate-200 bg-white p-16 text-center">
+      <div className="rounded-panel border-2 border-dashed border-slate-200 bg-white p-16 text-center">
         <MessageCircleQuestion className="mx-auto h-12 w-12 text-slate-300 mb-4" />
         <h3 className="text-xl font-bold text-slate-900 mb-2">{t('careerPage.comingSoon.title')}</h3>
         <p className="text-slate-500 max-w-sm mx-auto">

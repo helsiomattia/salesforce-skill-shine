@@ -165,7 +165,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <section className="relative isolate px-[clamp(24px,5vw,72px)] py-[clamp(3.5rem,5vw,4.5rem)] text-left">
         <div className="pointer-events-none absolute -left-40 top-8 h-[min(34vw,420px)] w-[min(34vw,420px)] rounded-full bg-cyan-300/20 blur-[110px]" />
-        <div className="pointer-events-none absolute -right-40 bottom-4 h-[min(38vw,460px)] w-[min(38vw,460px)] rounded-full bg-blue-500/15 blur-[120px]" />
+        <div className="pointer-events-none absolute -right-40 bottom-4 h-[min(38vw,460px)] w-[min(38vw,460px)] rounded-full bg-blue-500/15 blur-blob-lg" />
 
         <div className="relative z-10 mx-auto grid w-full max-w-[1200px] gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(380px,0.9fr)] lg:items-center xl:gap-16">
           <div className="relative z-20 max-w-[640px] min-w-0">
@@ -192,7 +192,7 @@ const HomePage = () => {
                 <Link
                   to="/assessment"
                   viewTransition
-                  className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-blue-600/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                  className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-6 py-4 text-base font-semibold text-white shadow-blue-glow-sm transition-all hover:bg-blue-700 hover:shadow-blue-600/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                 >
                   <ClipboardCheck className="h-5 w-5" />
                   {t('home.startAssessment')}
@@ -230,8 +230,8 @@ const HomePage = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative z-10 mx-auto w-full max-w-[360px] min-w-0 sm:max-w-[420px] lg:max-w-[480px]"
           >
-            <div className="rounded-[36px] border border-blue-100 bg-gradient-to-br from-white via-sky-50 to-blue-100 p-5 shadow-2xl shadow-blue-200/50 sm:p-6">
-              <div className="rounded-[28px] border border-white/80 bg-white/65 p-5 shadow-inner shadow-blue-100/60 backdrop-blur">
+            <div className="rounded-feature border border-blue-100 bg-gradient-to-br from-white via-sky-50 to-blue-100 p-5 shadow-2xl shadow-blue-200/50 sm:p-6">
+              <div className="rounded-card border border-white/80 bg-white/65 p-5 shadow-inner shadow-blue-100/60 backdrop-blur">
                 <img
                   src={`${import.meta.env.BASE_URL}astro.png`}
                   alt={t('home.astroAlt')}
@@ -259,7 +259,7 @@ const HomePage = () => {
       </section>
 
       <motion.section {...fadeUp} className="mx-auto max-w-7xl px-4 lg:px-6">
-        <div className="rounded-[32px] border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+        <div className="rounded-section border border-slate-200 bg-white p-6 shadow-sm md:p-8">
           <div className="mb-6 max-w-2xl space-y-3">
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">{t('home.assessmentHelpTitle')}</h2>
             <p className="text-base leading-7 text-slate-600 md:text-lg">{t('home.assessmentHelpDesc')}</p>
@@ -310,7 +310,7 @@ const HomePage = () => {
                 key={career.id}
                 to={career.link}
                 viewTransition
-                className={`group relative flex flex-col justify-between overflow-hidden rounded-[28px] border-2 bg-white p-6 transition-all duration-300 ${career.shadow} border-slate-100 hover:border-opacity-50`}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-card border-2 bg-white p-6 transition-all duration-300 ${career.shadow} border-slate-100 hover:border-opacity-50`}
               >
                 <div className="space-y-4">
                   <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl border ${career.color}`}>
@@ -332,8 +332,8 @@ const HomePage = () => {
       </motion.section>
 
       {/* The Journey / Timeline Section */}
-      <motion.section {...fadeUp} className="relative mx-4 max-w-7xl overflow-hidden rounded-[40px] bg-slate-900 px-6 py-10 text-white md:px-12 md:py-12 lg:mx-auto">
-        <div className="absolute right-0 top-0 h-[600px] w-[600px] rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none" />
+      <motion.section {...fadeUp} className="relative mx-4 max-w-7xl overflow-hidden rounded-panel bg-slate-900 px-6 py-10 text-white md:px-12 md:py-12 lg:mx-auto">
+        <div className="absolute right-0 top-0 h-[600px] w-[600px] rounded-full bg-cyan-500/10 blur-blob-lg pointer-events-none" />
 
         <div className="relative z-10 mb-12 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div className="max-w-xl space-y-3">
@@ -381,7 +381,7 @@ const HomePage = () => {
       </motion.section>
 
       {/* The Pyramid Vision Section */}
-      <motion.section {...fadeUp} className="mx-4 grid max-w-7xl gap-10 items-center rounded-[40px] border border-slate-200 bg-white p-6 shadow-sm md:p-12 lg:mx-auto lg:grid-cols-[1.05fr_0.95fr]">
+      <motion.section {...fadeUp} className="mx-4 grid max-w-7xl gap-10 items-center rounded-panel border border-slate-200 bg-white p-6 shadow-sm md:p-12 lg:mx-auto lg:grid-cols-[1.05fr_0.95fr]">
         <div className="max-w-2xl space-y-6">
           <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-700">
             <Layers className="h-4 w-4" />

@@ -189,9 +189,9 @@ const GuidePage = () => {
   return (
     <div className="mx-auto min-h-screen max-w-7xl space-y-8 bg-background px-4 py-6 lg:px-6">
       {/* Hero section */}
-      <section className="relative overflow-hidden rounded-[40px] border border-slate-200 bg-white px-6 py-10 shadow-xl shadow-slate-200/50 md:px-12 md:py-12">
-        <div className="absolute -left-32 -top-32 h-[400px] w-[400px] rounded-full bg-blue-400/10 blur-[100px]" />
-        <div className="absolute -bottom-32 -right-32 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-[100px]" />
+      <section className="relative overflow-hidden rounded-panel border border-slate-200 bg-white px-6 py-10 shadow-panel md:px-12 md:py-12">
+        <div className="absolute -left-32 -top-32 h-[400px] w-[400px] rounded-full bg-blue-400/10 blur-blob" />
+        <div className="absolute -bottom-32 -right-32 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-blob" />
 
         <div className="relative z-10 space-y-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
@@ -279,7 +279,7 @@ const GuidePage = () => {
                   <div
                     key={guide.id}
                     onClick={() => navigate(`/guide/${guide.id}`)}
-                    className="group relative flex flex-col justify-between overflow-hidden rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-200 cursor-pointer"
+                    className="group relative flex flex-col justify-between overflow-hidden rounded-card border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-200 cursor-pointer"
                   >
                     <div className="space-y-4">
                       <div className="flex justify-between items-start">

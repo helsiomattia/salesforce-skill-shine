@@ -24,8 +24,8 @@ const LegalPage = ({ pageKey }: LegalPageProps) => {
 
   return (
     <div className="mx-auto max-w-5xl space-y-8 px-4 py-6 lg:px-6">
-      <section className="relative overflow-hidden rounded-[40px] border border-slate-200 bg-white px-6 py-10 shadow-xl shadow-slate-200/50 md:px-12">
-        <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-blue-400/10 blur-[90px]" />
+      <section className="relative overflow-hidden rounded-panel border border-slate-200 bg-white px-6 py-10 shadow-panel md:px-12">
+        <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-blue-400/10 blur-blob-sm" />
         <div className="relative z-10 space-y-5">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
             <ShieldCheck className="h-4 w-4" />
@@ -41,7 +41,7 @@ const LegalPage = ({ pageKey }: LegalPageProps) => {
         </div>
       </section>
 
-      <section className="space-y-5 rounded-[40px] border border-slate-200 bg-white p-6 shadow-sm md:p-10">
+      <section className="space-y-5 rounded-panel border border-slate-200 bg-white p-6 shadow-sm md:p-10">
         {sections.map((section) => (
           <article key={section.title} className="space-y-3 border-b border-slate-100 pb-5 last:border-0 last:pb-0">
             <div className="flex items-center gap-3 text-blue-600">
@@ -57,7 +57,7 @@ const LegalPage = ({ pageKey }: LegalPageProps) => {
         ))}
       </section>
 
-      <section className="rounded-[40px] border border-slate-200 bg-slate-900 p-6 text-white md:p-10">
+      <section className="rounded-panel border border-slate-200 bg-slate-900 p-6 text-white md:p-10">
         <h2 className="text-2xl font-bold">{t('legal.references.title')}</h2>
         <p className="mt-3 max-w-3xl text-slate-300">
           {t('legal.references.desc')}

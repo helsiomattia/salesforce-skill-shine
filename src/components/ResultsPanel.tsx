@@ -1,5 +1,5 @@
+import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
 import { CompetencyCategory, competencyCategories, skillLevels } from "@/data/competencies";
 import { CheckCircle, AlertTriangle, XCircle, Star, TrendingUp, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -7,6 +7,8 @@ import { useTranslation } from "react-i18next";
 import type { TFunction } from "i18next";
 import { getLocalizedString } from "@/utils/i18nHelper";
 import { calculateResultsSummary } from "@/lib/resultsSummary";
+
+const ResultsRadarChart = lazy(() => import("./ResultsRadarChart"));
 
 interface ResultsPanelProps {
   ratings: Record<string, number>;
@@ -90,24 +92,9 @@ const ResultsPanel = ({ ratings, categories, type = "all", title }: ResultsPanel
         </div>
 
         <div className="w-full h-72">
-          <ResponsiveContainer width="100%" height="100%">
-            <RadarChart data={chartData}>
-              <PolarGrid stroke="hsl(var(--border))" />
-              <PolarAngleAxis
-                dataKey="category"
-                tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 10 }}
-              />
-              <PolarRadiusAxis angle={30} domain={[0, 5]} tick={{ fontSize: 10 }} />
-              <Radar
-                name="Score"
-                dataKey="score"
-                stroke="hsl(var(--secondary))"
-                fill="hsl(var(--secondary))"
-                fillOpacity={0.25}
-                strokeWidth={2}
-              />
-            </RadarChart>
-          </ResponsiveContainer>
+          <Suspense fallback={<div className="h-full rounded-xl bg-muted/40" />}>
+            <ResultsRadarChart data={chartData} />
+          </Suspense>
         </div>
       </motion.div>
 

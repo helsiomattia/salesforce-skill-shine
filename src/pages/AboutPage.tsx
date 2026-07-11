@@ -17,7 +17,7 @@ const AboutPage = () => {
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 lg:px-6">
       <JsonLd data={{ "@context": "https://schema.org", ...authorJsonLd }} />
-      <section className="rounded-[36px] border border-slate-200 bg-white px-6 py-10 shadow-sm md:px-10">
+      <section className="rounded-feature border border-slate-200 bg-white px-6 py-10 shadow-sm md:px-10">
         <div className="space-y-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
             <ShieldCheck className="h-4 w-4" />

@@ -29,9 +29,9 @@ const AssessmentPage = () => {
     <div className="mx-auto max-w-7xl px-4 py-6 lg:px-6 space-y-8">
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-[40px] border border-slate-200 bg-white px-6 py-10 shadow-xl shadow-slate-200/50 md:px-12 md:py-16 text-center">
-        <div className="absolute -left-32 -top-32 h-[500px] w-[500px] rounded-full bg-blue-400/10 blur-[100px]" />
-        <div className="absolute -bottom-32 -right-32 h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-[100px]" />
+      <section className="relative overflow-hidden rounded-panel border border-slate-200 bg-white px-6 py-10 shadow-panel md:px-12 md:py-16 text-center">
+        <div className="absolute -left-32 -top-32 h-[500px] w-[500px] rounded-full bg-blue-400/10 blur-blob" />
+        <div className="absolute -bottom-32 -right-32 h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-blob" />
 
         <div className="relative z-10 space-y-6">
           <motion.div
@@ -67,7 +67,7 @@ const AssessmentPage = () => {
                 transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
                 className="flex flex-col items-center text-center p-4 space-y-3 rounded-3xl bg-slate-50/50 hover:bg-white hover:shadow-md transition-all duration-300"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-600/20">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-blue-glow-sm">
                   <item.icon className="h-6 w-6" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">{item.title}</h3>
@@ -103,7 +103,7 @@ const AssessmentPage = () => {
               <Link
                 to={`/assessment/${category.id}`}
                 viewTransition
-                className="group relative flex items-center gap-6 rounded-[32px] border-2 border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/50"
+                className="group relative flex items-center gap-6 rounded-section border-2 border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-panel"
               >
                 <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-[20px] bg-slate-50 text-4xl transition-transform group-hover:scale-110">
                   {category.icon}
@@ -135,7 +135,7 @@ const AssessmentPage = () => {
       {/* Info / Support Section */}
       <motion.section
         {...fadeUp}
-        className="rounded-[40px] border border-slate-200 bg-slate-50 p-8 md:p-12"
+        className="rounded-panel border border-slate-200 bg-slate-50 p-8 md:p-12"
       >
         <div className="grid gap-8 lg:grid-cols-2 items-center">
           <div className="space-y-6">

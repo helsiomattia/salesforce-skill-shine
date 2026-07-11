@@ -19,6 +19,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://helsiomattia.github.io/salesforce-skill-shine/assessment/admin</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://helsiomattia.github.io/salesforce-skill-shine/assessment/developer</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://helsiomattia.github.io/salesforce-skill-shine/assessment/consultant</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://helsiomattia.github.io/salesforce-skill-shine/assessment/architect</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://helsiomattia.github.io/salesforce-skill-shine/contact</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://helsiomattia.github.io/salesforce-skill-shine/about</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>yearly</changefreq>

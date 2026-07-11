@@ -62,10 +62,10 @@ const ContactPage = () => {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55 }}
-        className="relative overflow-hidden rounded-[40px] border border-slate-200 bg-white px-6 py-12 shadow-xl shadow-slate-200/50 md:px-12 md:py-16"
+        className="relative overflow-hidden rounded-panel border border-slate-200 bg-white px-6 py-12 shadow-panel md:px-12 md:py-16"
       >
-        <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-blue-500/10 blur-[90px]" />
-        <div className="absolute -bottom-28 -right-20 h-80 w-80 rounded-full bg-cyan-500/10 blur-[100px]" />
+        <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-blue-500/10 blur-blob-sm" />
+        <div className="absolute -bottom-28 -right-20 h-80 w-80 rounded-full bg-cyan-500/10 blur-blob" />
 
         <div className="relative z-10 mx-auto max-w-4xl space-y-7 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
@@ -86,7 +86,7 @@ const ContactPage = () => {
               href={linkedInUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-6 py-4 text-base font-semibold text-white transition hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-600/20"
+              className="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-6 py-4 text-base font-semibold text-white transition hover:bg-blue-600 hover:shadow-blue-glow-sm"
             >
               <Linkedin className="h-5 w-5" />
               {t("contactPage.linkedinButton")}
@@ -121,7 +121,7 @@ const ContactPage = () => {
               <motion.article
                 key={topic.title}
                 {...fadeUp}
-                className="rounded-[32px] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-blue-100 hover:shadow-xl hover:shadow-slate-200/60 md:p-8"
+                className="rounded-section border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-blue-100 hover:shadow-xl hover:shadow-slate-200/60 md:p-8"
               >
                 <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-900 text-white">
                   <Icon className="h-7 w-7" />
@@ -146,7 +146,7 @@ const ContactPage = () => {
 
       <motion.section
         {...fadeUp}
-        className="grid gap-6 rounded-[32px] border border-slate-200 bg-slate-50 p-6 md:grid-cols-[auto_1fr] md:p-8"
+        className="grid gap-6 rounded-section border border-slate-200 bg-slate-50 p-6 md:grid-cols-[auto_1fr] md:p-8"
       >
         <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-blue-600 shadow-sm">
           <ShieldCheck className="h-7 w-7" />
@@ -159,10 +159,10 @@ const ContactPage = () => {
 
       <motion.section
         {...fadeUp}
-        className="relative overflow-hidden rounded-[40px] bg-slate-950 px-6 py-12 text-white md:px-12 md:py-16"
+        className="relative overflow-hidden rounded-panel bg-slate-950 px-6 py-12 text-white md:px-12 md:py-16"
       >
-        <div className="absolute right-0 top-0 h-[520px] w-[520px] translate-x-1/3 -translate-y-1/3 rounded-full bg-cyan-500/10 blur-[120px]" />
-        <div className="absolute bottom-0 left-0 h-[520px] w-[520px] -translate-x-1/3 translate-y-1/3 rounded-full bg-blue-500/10 blur-[120px]" />
+        <div className="absolute right-0 top-0 h-[520px] w-[520px] translate-x-1/3 -translate-y-1/3 rounded-full bg-cyan-500/10 blur-blob-lg" />
+        <div className="absolute bottom-0 left-0 h-[520px] w-[520px] -translate-x-1/3 translate-y-1/3 rounded-full bg-blue-500/10 blur-blob-lg" />
 
         <div className="relative z-10 mx-auto max-w-3xl space-y-8 text-center">
           <div className="space-y-4">
@@ -182,7 +182,7 @@ const ContactPage = () => {
               href={linkedInUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-6 py-4 text-base font-bold text-white shadow-xl shadow-blue-600/20 transition hover:bg-blue-500"
+              className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-6 py-4 text-base font-bold text-white shadow-blue-glow transition hover:bg-blue-500"
             >
               <Linkedin className="h-5 w-5" />
               {t("contactPage.linkedinButton")}

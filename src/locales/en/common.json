@@ -347,6 +347,14 @@
         "privacy": "I agree to the processing of my data for the purpose of generating this report, in compliance with data privacy laws (LGPD).",
         "submit": "FINISH ASSESSMENT"
       },
+      "validation": {
+        "fullName": "The name must be at least 3 characters long.",
+        "email": "Invalid email.",
+        "role": "Enter your current role.",
+        "phone": "Enter a valid phone number.",
+        "experience": "Enter your experience.",
+        "lgpd": "You must accept the data privacy terms to continue."
+      },
       "pdf": {
         "title": "Salesforce Competency Report",
         "generatedAt": "Generated on",
@@ -357,7 +365,9 @@
         "skillName": "Competency",
         "score": "Level",
         "status": "Status",
-        "disclaimer": "This report is a self-knowledge tool based on the Salesforce Skill Shine platform."
+        "disclaimer": "This report is a self-knowledge tool based on the Salesforce Skill Shine platform.",
+        "error": "The PDF could not be generated. Review the data and try again.",
+        "errorLog": "Error generating PDF:"
       }
     },
     "navigation": {
