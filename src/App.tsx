@@ -12,6 +12,7 @@ const HomePage = lazy(() => import("./pages/HomePage"));
 const AssessmentPage = lazy(() => import("./pages/AssessmentPage"));
 const CareerPage = lazy(() => import("./pages/CareerPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
+const JobsPage = lazy(() => import("./pages/JobsPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const GuidePage = lazy(() => import("./pages/GuidePage"));
 const GuideDetailPage = lazy(() => import("./pages/GuideDetailPage"));
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
       { path: "/", element: withSuspense(<HomePage />) },
       { path: "/assessment", element: withSuspense(<AssessmentPage />) },
       { path: "/contact", element: withSuspense(<ContactPage />) },
+      { path: "/jobs", element: withSuspense(<JobsPage />) },
       { path: "/about", element: withSuspense(<AboutPage />) },
       { path: "/guide", element: withSuspense(<GuidePage />) },
       { path: "/guide/:id", element: withSuspense(<GuideDetailPage />) },

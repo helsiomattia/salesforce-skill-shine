@@ -6,6 +6,8 @@
     "assessmentDesc": "Skills and Evolution",
     "contact": "Contact Me",
     "contactDesc": "Mapping and Direction",
+    "jobs": "Jobs",
+    "jobsDesc": "Groups and promotion",
     "guide": "Guide & Tutorials",
     "guideDesc": "Clouds and Functions",
     "admin": "Administrator",
@@ -313,6 +315,49 @@
       "location": "Project created in Brazil."
     },
     "disclaimer": "This project is educational and orientative. Conversations, when they happen, are exchanges based on practical experience and do not guarantee employment, certification approval, promotion, or any specific result. Salesforce is a trademark of its respective owner. This project is independent and unofficial."
+  },
+  "jobsPage": {
+    "badge": "Jobs in the Salesforce ecosystem",
+    "title": "Jobs, groups, and opportunities in one place.",
+    "subtitle": "An area designed to gather job communities on Telegram and WhatsApp and open space for companies to promote opportunities for Salesforce and CRM professionals.",
+    "hero": {
+      "groupsButton": "View job groups",
+      "companiesButton": "I am a company and want to promote",
+      "highlights": [
+        "Curated useful channels for people looking for a job or career transition.",
+        "A prepared space for announcements from companies and recruiters.",
+        "A foundation ready to evolve into sponsored jobs and partnerships in the future."
+      ]
+    },
+    "groups": {
+      "eyebrow": "Job communities",
+      "title": "Telegram and WhatsApp groups",
+      "subtitle": "Here you can organize the main job groups, separate them by channel, and guide people to the right communities.",
+      "note": "In this first version, the section is ready to receive real group links. The idea is to keep simple curation to avoid spam, broken links, and posts outside the Salesforce/CRM focus.",
+      "cards": [
+        {
+          "title": "Salesforce jobs on Telegram",
+          "description": "A space to list Telegram groups with jobs, networking, and opportunities related to Salesforce, CRM, support, administration, development, and consulting.",
+          "status": "Links coming soon"
+        },
+        {
+          "title": "Salesforce jobs on WhatsApp",
+          "description": "A space to promote WhatsApp groups with selected opportunities, keeping communication direct and easy for people looking for relocation or their first role.",
+          "status": "Links coming soon"
+        }
+      ]
+    },
+    "companies": {
+      "eyebrow": "For companies and recruiters",
+      "title": "Want to promote a job to the community?",
+      "subtitle": "Companies, consultancies, and recruiters can get in touch to send opportunities. The goal is to build an organized channel with clear information and room for future monetization.",
+      "cta": "Talk to me on LinkedIn",
+      "steps": [
+        "Send the job with title, seniority, work model, location, salary range when possible, and official application link.",
+        "The opportunity can be reviewed before publication to keep it aligned with the Salesforce and CRM audience.",
+        "In the future, this area can receive featured plans, sponsored jobs, and packages for partner companies."
+      ]
+    }
   },
   "careerPage": {
     "back": "Back to Careers",

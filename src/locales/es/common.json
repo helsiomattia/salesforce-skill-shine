@@ -6,6 +6,8 @@
     "assessmentDesc": "Competencias y Evolución",
     "contact": "Contáctame",
     "contactDesc": "Mapeo y Dirección",
+    "jobs": "Vacantes",
+    "jobsDesc": "Grupos y divulgación",
     "guide": "Guía & Tutoriales",
     "guideDesc": "Nubes y Funciones",
     "admin": "Administrator",
@@ -313,6 +315,49 @@
       "location": "Proyecto creado en Brasil."
     },
     "disclaimer": "Este proyecto tiene finalidad educativa y orientativa. Las conversaciones, cuando ocurran, son intercambios basados en experiencia práctica y no garantizan empleo, aprobación en certificaciones, promoción ni ningún resultado específico. Salesforce es marca de su respectiva propietaria. Este proyecto es independiente y no oficial."
+  },
+  "jobsPage": {
+    "badge": "Vacantes en el ecosistema Salesforce",
+    "title": "Vacantes, grupos y oportunidades en un solo lugar.",
+    "subtitle": "Un área pensada para reunir comunidades de vacantes en Telegram y WhatsApp y abrir espacio para que empresas divulguen oportunidades para profesionales Salesforce y CRM.",
+    "hero": {
+      "groupsButton": "Ver grupos de vacantes",
+      "companiesButton": "Soy empresa y quiero divulgar",
+      "highlights": [
+        "Curaduría de canales útiles para quienes buscan empleo o transición de carrera.",
+        "Espacio preparado para anuncios de empresas y reclutadores.",
+        "Base lista para evolucionar en el futuro hacia vacantes patrocinadas y alianzas."
+      ]
+    },
+    "groups": {
+      "eyebrow": "Comunidades de vacantes",
+      "title": "Grupos de Telegram y WhatsApp",
+      "subtitle": "Aquí podrás organizar los principales grupos de vacantes, separarlos por canal y orientar a las personas hacia las comunidades correctas.",
+      "note": "En esta primera versión, la sección queda lista para recibir enlaces reales de los grupos. La idea es mantener una curaduría simple para evitar spam, enlaces rotos y anuncios fuera del foco Salesforce/CRM.",
+      "cards": [
+        {
+          "title": "Telegram de vacantes Salesforce",
+          "description": "Espacio para listar grupos de Telegram con vacantes, networking y oportunidades relacionadas con Salesforce, CRM, soporte, administración, desarrollo y consultoría.",
+          "status": "Enlaces próximamente"
+        },
+        {
+          "title": "WhatsApp de vacantes Salesforce",
+          "description": "Espacio para divulgar grupos de WhatsApp con oportunidades seleccionadas, manteniendo una comunicación directa y fácil para quienes buscan recolocación o primera vacante.",
+          "status": "Enlaces próximamente"
+        }
+      ]
+    },
+    "companies": {
+      "eyebrow": "Para empresas y reclutadores",
+      "title": "¿Quieres divulgar una vacante para la comunidad?",
+      "subtitle": "Empresas, consultoras y reclutadores pueden entrar en contacto para enviar oportunidades. La propuesta es construir un canal organizado, con información clara y espacio para monetización futura.",
+      "cta": "Hablar conmigo en LinkedIn",
+      "steps": [
+        "Envía la vacante con cargo, seniority, modalidad, ubicación, rango salarial cuando sea posible y enlace oficial de postulación.",
+        "La oportunidad puede ser evaluada antes de la publicación para mantener adherencia al público Salesforce y CRM.",
+        "En el futuro, esta área puede recibir planes de destaque, vacantes patrocinadas y paquetes para empresas aliadas."
+      ]
+    }
   },
   "careerPage": {
     "back": "Volver a Carreras",

@@ -16,6 +16,7 @@ const getNavItems = (t: TFunction): TopNavItem[] => [
   { to: "/assessment", label: t('nav.assessment') },
   { to: "/guide", label: t('nav.guide') },
   { to: "/contact", label: t('nav.contact') },
+  { to: "/jobs", label: t('nav.jobs') },
 ];
 
 const TopNav = () => {

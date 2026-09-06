@@ -35,6 +35,8 @@ import {
   Lock,
   Eye,
   ShieldCheck,
+  Smartphone,
+  Megaphone,
   type LucideIcon,
 } from "lucide-react";
 import {
@@ -64,7 +66,9 @@ const iconMap: Record<string, LucideIcon> = {
   Layers,
   Lock,
   Eye,
-  ShieldCheck
+  ShieldCheck,
+  Smartphone,
+  Megaphone
 };
 
 const getIcon = (name: string) => iconMap[name] || BookOpen;

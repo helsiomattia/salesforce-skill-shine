@@ -163,7 +163,7 @@ const HomePage = () => {
       <JsonLd data={homeJsonLd} />
 
       {/* Hero Section */}
-      <section className="relative isolate px-[clamp(24px,5vw,72px)] py-[clamp(3.5rem,5vw,4.5rem)] text-left">
+      <section className="relative isolate px-[clamp(24px,5vw,72px)] pb-[clamp(3rem,4.5vw,4.25rem)] pt-[clamp(1.25rem,2.4vw,2rem)] text-left">
         <div className="pointer-events-none absolute -left-40 top-8 h-[min(34vw,420px)] w-[min(34vw,420px)] rounded-full bg-cyan-300/20 blur-[110px]" />
         <div className="pointer-events-none absolute -right-40 bottom-4 h-[min(38vw,460px)] w-[min(38vw,460px)] rounded-full bg-blue-500/15 blur-blob-lg" />
 
@@ -228,14 +228,14 @@ const HomePage = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative z-10 mx-auto w-full max-w-[360px] min-w-0 sm:max-w-[420px] lg:max-w-[480px]"
+            className="relative z-10 mx-auto w-full max-w-[322px] min-w-0 sm:max-w-[382px] lg:max-w-[442px]"
           >
             <div className="rounded-feature border border-blue-100 bg-gradient-to-br from-white via-sky-50 to-blue-100 p-5 shadow-2xl shadow-blue-200/50 sm:p-6">
               <div className="rounded-card border border-white/80 bg-white/65 p-5 shadow-inner shadow-blue-100/60 backdrop-blur">
                 <img
                   src={`${import.meta.env.BASE_URL}astro.png`}
                   alt={t('home.astroAlt')}
-                  className="mx-auto h-auto w-full max-w-[360px] object-contain drop-shadow-xl lg:max-w-[420px]"
+                  className="mx-auto h-auto w-full max-w-[322px] object-contain drop-shadow-xl lg:max-w-[382px]"
                 />
               </div>
 

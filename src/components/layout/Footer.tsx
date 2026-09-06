@@ -12,6 +12,7 @@ const externalLinks = [
   { href: "https://github.com/helsiomattia", label: "GitHub", icon: Github },
   { href: "https://linkedin.com/in/helsiomattia", label: "LinkedIn", icon: Linkedin },
   { href: "https://trailblazer.me/id/helsiomattia", label: "Trailblazer", icon: Globe },
+  { href: "https://helsiomattia.github.io/crm-specialist", label: "Portfolio", icon: Globe },
   { href: "mailto:helsiomattia@gmail.com", label: "E-mail", icon: Mail },
 ];
 

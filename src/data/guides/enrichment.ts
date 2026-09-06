@@ -111,6 +111,23 @@ const guideProfiles: Record<string, GuideContentProfile> = {
     security: "Controle acesso a dados pessoais, Business Units, chaves de API, listas de supressao e politicas de retencao.",
     integration: "Integre Sales Cloud, Data Cloud, formularios, ecommerce e plataformas de mensageria conforme origem e retorno dos eventos."
   },
+  "marketing-cloud-next": {
+    scenario: "Time de marketing quer usar dados unificados, IA e contexto de Customer 360 para criar campanhas mais conectadas a vendas, atendimento e ecommerce.",
+    problem: "Reduz campanhas baseadas em listas isoladas, segmentacao manual, baixa personalizacao e desconexao entre engajamento de marketing e acao comercial.",
+    records: "Unified Individual, Data Cloud Segment, Activation Target, Campaign, CampaignMember, Contact, Lead, consent records, insights calculados e eventos de engajamento.",
+    fields: "Consent_Status__c, Lifecycle_Stage__c, Segment_Membership__c, Last_Engagement_Date__c, Propensity_Score__c, CampaignMember.Status e Source__c.",
+    automation: "Segmentos do Data Cloud, activations, Flow, campanhas, jornadas, personalizacao com IA e integracoes com canais de marketing e vendas.",
+    rule: "Cliente so deve entrar em campanha quando identidade, consentimento, segmento e frequencia estiverem dentro dos criterios definidos pelo negocio.",
+    implementation: "Comece por fontes de dados e consentimento, modele segmentos no Data Cloud, defina canais de ativacao, conecte campanhas ao CRM e valide metricas de retorno.",
+    example: "Segmento de clientes com alta propensao e compra recente ativa campanha personalizada; resposta atualiza CampaignMember e gera tarefa comercial quando houver sinal forte.",
+    errors: "Prometer IA sem dados confiaveis, duplicar jornadas do Marketing Cloud tradicional, ativar sem consentimento e medir apenas abertura/clique sem impacto comercial.",
+    testing: "Teste unificacao de identidade, entrada e saida de segmentos, consentimento, frequencia, ativacao no canal e retorno para CRM com registros seed.",
+    done: "Campanhas usam segmentos explicaveis, respeitam consentimento, conectam marketing e vendas e demonstram impacto em conversao, receita ou retencao.",
+    avoid: "Nao trate como substituto automatico do Marketing Cloud tradicional sem avaliar maturidade de dados, canais usados e licencas disponiveis.",
+    metrics: "Segment quality, activation rate, conversion, attributed revenue, retention, engagement, unsubscribe e velocidade de passagem para vendas.",
+    security: "Revise permissoes de Data Cloud, consentimento, dados sensiveis, politicas de IA, acesso a segmentos e governanca de ativacoes.",
+    integration: "Conecte Sales Cloud, Service Cloud, Commerce, Data Cloud, canais externos e APIs para fechar o ciclo entre dado, campanha e acao."
+  },
   "data-cloud": {
     scenario: "Unificar dados de cliente de CRM, ecommerce, atendimento e marketing para segmentacao, identidade e ativacao em tempo quase real.",
     problem: "Resolve visao fragmentada do cliente, chaves inconsistentes e ativacoes que usam dados desatualizados ou conflitantes.",

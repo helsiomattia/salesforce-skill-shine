@@ -32,6 +32,8 @@ import {
   StickyNote,
   ChevronRight,
   Zap,
+  Smartphone,
+  Megaphone,
   type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -57,6 +59,8 @@ const iconMap: Record<string, LucideIcon> = {
   Lock,
   Eye,
   ShieldCheck,
+  Smartphone,
+  Megaphone,
 };
 const getIcon = (name: string) => iconMap[name] || BookOpen;
 

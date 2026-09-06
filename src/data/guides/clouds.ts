@@ -367,6 +367,102 @@ export const cloudsGuides: GuideItem[] = [
     ]
   },
   {
+    id: "marketing-cloud-next",
+    category: "clouds",
+    title: {
+      pt: "Marketing Cloud Next",
+      en: "Marketing Cloud Next",
+      es: "Marketing Cloud Next"
+    },
+    subtitle: {
+      pt: "Marketing moderno sobre dados, IA e Customer 360",
+      en: "Modern marketing built on data, AI, and Customer 360",
+      es: "Marketing moderno sobre datos, IA y Customer 360"
+    },
+    description: {
+      pt: "Nova geração do Marketing Cloud com foco em unificar marketing, dados e inteligência artificial dentro do ecossistema Salesforce. A proposta é aproximar campanhas, segmentação, personalização e execução comercial usando Data Cloud, automação e experiências conectadas ao Customer 360.",
+      en: "Next-generation Marketing Cloud focused on bringing marketing, data, and AI together inside the Salesforce ecosystem. The goal is to connect campaigns, segmentation, personalization, and sales execution through Data Cloud, automation, and Customer 360 experiences.",
+      es: "Nueva generación de Marketing Cloud enfocada en unir marketing, datos e inteligencia artificial dentro del ecosistema Salesforce. La propuesta es acercar campañas, segmentación, personalización y ejecución comercial usando Data Cloud, automatización y experiencias conectadas a Customer 360."
+    },
+    iconName: "Megaphone",
+    tags: {
+      pt: ["Marketing Cloud Next", "Data Cloud", "IA", "Customer 360"],
+      en: ["Marketing Cloud Next", "Data Cloud", "AI", "Customer 360"],
+      es: ["Marketing Cloud Next", "Data Cloud", "IA", "Customer 360"]
+    },
+    keyConcepts: [
+      {
+        title: {
+          pt: "Marketing conectado ao Data Cloud",
+          en: "Marketing connected to Data Cloud",
+          es: "Marketing conectado a Data Cloud"
+        },
+        description: {
+          pt: "O ponto central é usar dados unificados de clientes para criar segmentos, personalizações e ativações mais consistentes entre canais. Em vez de depender apenas de bases isoladas, a estratégia passa por identidade, consentimento, eventos e perfis atualizados.",
+          en: "The core idea is using unified customer data to create more consistent segments, personalization, and activations across channels. Instead of relying only on isolated databases, the strategy depends on identity, consent, events, and updated profiles.",
+          es: "El punto central es usar datos unificados de clientes para crear segmentos, personalizaciones y activaciones más consistentes entre canales. En vez de depender solo de bases aisladas, la estrategia pasa por identidad, consentimiento, eventos y perfiles actualizados."
+        }
+      },
+      {
+        title: {
+          pt: "Campanhas com IA e automação",
+          en: "Campaigns with AI and automation",
+          es: "Campañas con IA y automatización"
+        },
+        description: {
+          pt: "O Marketing Cloud Next reforça a ideia de campanhas mais inteligentes, com apoio de IA para acelerar criação, segmentação, recomendações e análise de desempenho. A automação precisa continuar governada por objetivos claros, consentimento e métricas de negócio.",
+          en: "Marketing Cloud Next reinforces the idea of smarter campaigns, with AI support to accelerate creation, segmentation, recommendations, and performance analysis. Automation must still be governed by clear goals, consent, and business metrics.",
+          es: "Marketing Cloud Next refuerza la idea de campañas más inteligentes, con apoyo de IA para acelerar creación, segmentación, recomendaciones y análisis de desempeño. La automatización debe seguir gobernada por objetivos claros, consentimiento y métricas de negocio."
+        }
+      }
+    ],
+    bestPractices: {
+      pt: [
+        "Antes de pensar em IA, organize dados, identidade, consentimento e critérios de segmentação no Data Cloud.",
+        "Diferencie o uso do Marketing Cloud tradicional e do Marketing Cloud Next no desenho da arquitetura para evitar sobreposição de canais e jornadas.",
+        "Defina métricas de negócio desde o início: conversão, engajamento, receita atribuída, retenção e qualidade dos segmentos."
+      ],
+      en: [
+        "Before thinking about AI, organize data, identity, consent, and segmentation criteria in Data Cloud.",
+        "Differentiate the use of traditional Marketing Cloud and Marketing Cloud Next in the architecture design to avoid overlapping channels and journeys.",
+        "Define business metrics from the start: conversion, engagement, attributed revenue, retention, and segment quality."
+      ],
+      es: [
+        "Antes de pensar en IA, organiza datos, identidad, consentimiento y criterios de segmentación en Data Cloud.",
+        "Diferencia el uso de Marketing Cloud tradicional y Marketing Cloud Next en el diseño de arquitectura para evitar superposición de canales y journeys.",
+        "Define métricas de negocio desde el inicio: conversión, engagement, ingresos atribuidos, retención y calidad de segmentos."
+      ]
+    },
+    realUseCases: {
+      pt: [
+        "Unificar dados de CRM, atendimento, e-commerce e marketing para campanhas mais precisas.",
+        "Criar segmentos acionáveis com base em perfil, comportamento, consentimento e eventos recentes.",
+        "Apoiar times de marketing e vendas com jornadas mais conectadas ao Customer 360."
+      ],
+      en: [
+        "Unify CRM, service, e-commerce, and marketing data for more precise campaigns.",
+        "Create actionable segments based on profile, behavior, consent, and recent events.",
+        "Support marketing and sales teams with journeys more connected to Customer 360."
+      ],
+      es: [
+        "Unificar datos de CRM, atención, e-commerce y marketing para campañas más precisas.",
+        "Crear segmentos accionables con base en perfil, comportamiento, consentimiento y eventos recientes.",
+        "Apoyar equipos de marketing y ventas con journeys más conectados a Customer 360."
+      ]
+    },
+    resources: [
+      {
+        title: {
+          pt: "Marketing Cloud no site oficial da Salesforce",
+          en: "Marketing Cloud on the official Salesforce website",
+          es: "Marketing Cloud en el sitio oficial de Salesforce"
+        },
+        url: "https://www.salesforce.com/products/marketing-cloud/",
+        type: "article"
+      }
+    ]
+  },
+  {
     id: "data-cloud",
     category: "clouds",
     title: {
